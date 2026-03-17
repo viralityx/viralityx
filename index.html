@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViralityX — Referral Partner Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#fafaf8;--card:#ffffff;--cardAlt:#f5f4f0;
+  --dark:#111111;--slate:#2a2a2a;--body:#555555;--muted:#999999;--border:#e5e3de;
+  --accent:#1a1a2e;--accentSoft:rgba(26,26,46,0.06);
+  --gold:#b8860b;--goldSoft:rgba(184,134,11,0.08);--goldBorder:rgba(184,134,11,0.2);
+  --green:#1a6b4a;--greenSoft:rgba(26,107,74,0.06);
+  --red:#8b2020;--redSoft:rgba(139,32,32,0.05);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:var(--sans);font-weight:400;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+.container{max-width:780px;margin:0 auto;padding:0 32px}
+
+.topbar{padding:20px 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);max-width:780px;margin:0 auto}
+.topbar-brand{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+.topbar-tag{font-size:12px;color:var(--muted);letter-spacing:1px}
+
+.hero{padding:100px 0 80px;text-align:center}
+.hero-label{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.hero h1{font-family:var(--serif);font-size:clamp(44px,6.5vw,72px);font-weight:400;line-height:1.1;color:var(--dark);margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{font-family:var(--sans);font-size:17px;color:var(--body);max-width:480px;margin:0 auto;line-height:1.8;font-weight:300}
+
+.rule{width:60px;height:1px;background:var(--border);margin:0 auto}
+
+section{padding:80px 0}
+.sec-label{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.sec-title{font-family:var(--serif);font-size:clamp(30px,4.5vw,42px);font-weight:400;color:var(--dark);line-height:1.25;margin-bottom:20px}
+.sec-body{font-size:16px;color:var(--body);line-height:1.85;font-weight:300;max-width:620px}
+.sec-body strong{color:var(--dark);font-weight:600}
+
+.steps{margin-top:48px;counter-reset:steps}
+.step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px 0;border-bottom:1px solid var(--border);counter-increment:steps}
+.step:first-child{border-top:1px solid var(--border)}
+.step-num{font-family:var(--serif);font-size:32px;color:var(--dark);font-weight:500;padding-top:2px}
+.step h4{font-family:var(--sans);font-size:15px;font-weight:600;color:var(--dark);margin-bottom:6px;letter-spacing:0.2px}
+.step p{font-size:15px;color:var(--body);line-height:1.7;font-weight:300}
+
+.tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+@media(max-width:640px){.tier-grid{grid-template-columns:1fr}}
+.tier{padding:36px 32px;border:1px solid var(--border);border-radius:4px;position:relative}
+.tier.primary{border-color:var(--gold);background:var(--goldSoft)}
+.tier-badge{position:absolute;top:-11px;left:24px;background:var(--gold);color:#fff;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;border-radius:2px}
+.tier-label{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.tier h3{font-family:var(--serif);font-size:48px;color:var(--dark);font-weight:500;margin-bottom:4px}
+.tier h3 span{font-size:22px;color:var(--muted);font-weight:400}
+.tier-desc{font-size:14px;color:var(--body);line-height:1.7;margin-bottom:20px;font-weight:300}
+.tier-detail{font-size:13px;color:var(--muted);line-height:1.8;padding-top:16px;border-top:1px solid var(--border)}
+.tier.primary .tier-detail{border-color:var(--goldBorder)}
+
+.math-table{width:100%;margin-top:40px;border-collapse:collapse}
+.math-table th{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 16px;border-bottom:2px solid var(--dark)}
+.math-table td{font-family:var(--sans);font-size:15px;color:var(--body);padding:14px 16px;border-bottom:1px solid var(--border);font-weight:300}
+.math-table td:first-child{color:var(--dark);font-weight:500}
+.math-table td.earn{color:var(--green);font-weight:600}
+.math-table tr:last-child td{border-bottom:2px solid var(--dark)}
+.math-note{margin-top:24px;font-size:14px;color:var(--body);line-height:1.8;font-weight:300;padding:20px 24px;background:var(--cardAlt);border-left:3px solid var(--gold)}
+
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+@media(max-width:640px){.role-grid{grid-template-columns:1fr}}
+.role-col h3{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.role-col.you h3{color:var(--green)}
+.role-col.us h3{color:var(--muted)}
+.role-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.role-item:last-child{border-bottom:none}
+.role-mark{font-family:var(--sans);font-size:13px;font-weight:600;flex-shrink:0;width:20px;text-align:center;margin-top:1px}
+.role-col.you .role-mark{color:var(--green)}
+.role-col.us .role-mark{color:var(--muted)}
+.role-item p{font-size:14px;color:var(--body);line-height:1.6;font-weight:300}
+
+.svc-list{margin-top:40px}
+.svc{padding:20px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:baseline}
+.svc:first-child{border-top:1px solid var(--border)}
+.svc h4{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--dark);letter-spacing:0.2px}
+.svc p{font-size:14px;color:var(--body);line-height:1.7;font-weight:300}
+@media(max-width:640px){.svc{grid-template-columns:1fr}}
+
+.signals{margin-top:40px}
+.signal{padding:24px 0;border-bottom:1px solid var(--border)}
+.signal:first-child{border-top:1px solid var(--border)}
+.signal h4{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--dark);margin-bottom:4px}
+.signal p{font-size:14px;color:var(--body);line-height:1.7;font-weight:300}
+
+.cta{text-align:center;padding:100px 32px 120px}
+.cta h2{font-family:var(--serif);font-size:clamp(32px,5vw,48px);color:var(--dark);margin-bottom:12px;font-weight:400}
+.cta p{font-size:16px;color:var(--body);max-width:420px;margin:0 auto 36px;font-weight:300}
+.cta-btn{display:inline-block;padding:16px 44px;background:var(--dark);color:#fff;font-family:var(--sans);font-weight:600;font-size:14px;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:all .3s}
+.cta-btn:hover{background:var(--gold);color:#fff}
+.cta-sub{margin-top:16px;font-size:12px;color:var(--muted);letter-spacing:0.5px}
+
+footer{text-align:center;padding:32px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);letter-spacing:0.5px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-brand">ViralityX</div>
+  <div class="topbar-tag">Partner Program</div>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">Referral Partner Program</div>
+    <h1>Elijah,<br>welcome to the <em>table.</em></h1>
+    <p>Introduce business owners who need growth systems. We handle everything from first call to final delivery. You earn on every deal that closes.</p>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">How It Works</div>
+      <h2 class="sec-title">Simple structure.<br>Real money.</h2>
+      <div class="sec-body">
+        <p>You have two paths. Send a warm introduction and book them a call with us, or run the full sales process yourself for a higher cut. Either way, <strong>you earn a commission on every setup fee that closes.</strong></p>
+      </div>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h4>Identify the opportunity</h4>
+          <p>A business owner in your network needs more customers, faster follow-up, or a better online presence. HVAC companies, dental practices, attorneys, chiropractors, contractors — any local service business.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h4>Connect and book</h4>
+          <p>Option A: Send a warm introduction and book a discovery call with our team. Give them our booking link and confirm the appointment is set. We take it from there. Option B: Run the sales call yourself using our materials and close the deal directly.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h4>Collect your commission</h4>
+          <p>Your commission on the setup fee is paid when the deal closes. No cap on the number of deals. The more you refer, the more you earn.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMISSION STRUCTURE -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Commission Structure</div>
+      <h2 class="sec-title">Two tiers.<br>You choose how you work.</h2>
+    </div>
+
+    <div class="tier-grid reveal">
+      <div class="tier">
+        <div class="tier-label">You introduce — We close</div>
+        <h3>40<span>%</span></h3>
+        <div class="tier-desc">Send a warm introduction and book the prospect on a discovery call with us. We run the call, build the proposal, handle objections, and close the deal. You earn 40% of the setup fee.</div>
+        <div class="tier-detail">Best for: leveraging your network without managing the full sales process. Book the call, we handle the rest.</div>
+      </div>
+      <div class="tier primary">
+        <div class="tier-badge">Higher Earning</div>
+        <div class="tier-label">You close the deal</div>
+        <h3>50<span>%</span></h3>
+        <div class="tier-desc">Run the full sales process yourself — discovery call through signed agreement. We provide all sales materials, proposals, and support. You keep 50% of the setup fee.</div>
+        <div class="tier-detail">Best for: sales professionals who want control of the conversation and want to maximize their earnings on every deal.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE MATH -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">The Numbers</div>
+      <h2 class="sec-title">What one introduction<br>puts in your pocket.</h2>
+      <div class="sec-body">
+        <p>Three client tiers. Your commission applies to the <strong>setup fee</strong> on every deal. Numbers below reflect both the 40% and 50% paths.</p>
+      </div>
+    </div>
+
+    <table class="math-table reveal">
+      <thead>
+        <tr>
+          <th>Client Tier</th>
+          <th>Setup Fee</th>
+          <th>You Earn (40%)</th>
+          <th>You Earn (50%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Starter</td>
+          <td>$2,500</td>
+          <td class="earn">$1,000</td>
+          <td class="earn">$1,250</td>
+        </tr>
+        <tr>
+          <td>Growth</td>
+          <td>$5,000</td>
+          <td class="earn">$2,000</td>
+          <td class="earn">$2,500</td>
+        </tr>
+        <tr>
+          <td>Scale</td>
+          <td>$10,000</td>
+          <td class="earn">$4,000</td>
+          <td class="earn">$5,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="math-note reveal">
+      <strong>Scenario:</strong> Three introductions in a month. Two close at Starter, one at Growth. At the 40% referral rate, that is $4,000 in setup commissions from three booked calls you did not have to manage past the introduction. Close them yourself at 50% and that number becomes $4,500.
+    </div>
+  </div>
+</section>
+
+<!-- YOUR ROLE -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Division of Work</div>
+      <h2 class="sec-title">Your lane. Ours.</h2>
+    </div>
+
+    <div class="role-grid reveal">
+      <div class="role-col you">
+        <h3>You Handle</h3>
+        <div class="role-item">
+          <div class="role-mark">+</div>
+          <p>Identify business owners in your network who need more customers or better systems</p>
+        </div>
+        <div class="role-item">
+          <div class="role-mark">+</div>
+          <p>Send a warm introduction and book a discovery call on our calendar — or run the full sales call yourself</p>
+        </div>
+        <div class="role-item">
+          <div class="role-mark">+</div>
+          <p>Collect your commission on setup fees when the deal closes</p>
+        </div>
+      </div>
+      <div class="role-col us">
+        <h3>We Handle</h3>
+        <div class="role-item">
+          <div class="role-mark">&mdash;</div>
+          <p>Discovery calls, proposals, objection handling, and deal closing (referral path)</p>
+        </div>
+        <div class="role-item">
+          <div class="role-mark">&mdash;</div>
+          <p>Full project build — websites, automations, AI systems, CRM setup</p>
+        </div>
+        <div class="role-item">
+          <div class="role-mark">&mdash;</div>
+          <p>Ongoing client support, optimization, reporting, and retention</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILD -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">What We Deliver</div>
+      <h2 class="sec-title">What you are<br>referring people to.</h2>
+      <div class="sec-body">
+        <p>ViralityX builds AI-powered growth systems for local businesses. Not marketing fluff — <strong>operational infrastructure that captures leads, follows up instantly, and converts on autopilot.</strong></p>
+      </div>
+    </div>
+
+    <div class="svc-list reveal">
+      <div class="svc">
+        <h4>Websites</h4>
+        <p>High-performance sites built for conversion, speed, and local SEO — not digital business cards.</p>
+      </div>
+      <div class="svc">
+        <h4>Lead Capture</h4>
+        <p>Every inquiry gets an instant response via SMS and email. No leads lost to slow follow-up.</p>
+      </div>
+      <div class="svc">
+        <h4>AI Automation</h4>
+        <p>Chatbots that book appointments, review systems that build reputation, and workflows that eliminate manual tasks.</p>
+      </div>
+      <div class="svc">
+        <h4>Ongoing Optimization</h4>
+        <p>Monthly retainers cover system management, performance reporting, SEO, and campaign improvements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO TO LOOK FOR -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Target Profile</div>
+      <h2 class="sec-title">Who to look for.</h2>
+      <div class="sec-body">
+        <p>You do not need to qualify anyone deeply. Listen for these signals in conversation — any one of them means a potential deal.</p>
+      </div>
+    </div>
+
+    <div class="signals reveal">
+      <div class="signal">
+        <h4>"I need more customers."</h4>
+        <p>Any local business owner — HVAC, dental, legal, chiropractic, contracting, med spa, fitness. If they depend on local clients, they are a fit.</p>
+      </div>
+      <div class="signal">
+        <h4>"I am too busy to follow up with leads."</h4>
+        <p>They are getting inquiries but losing them because they cannot respond fast enough while running their actual business.</p>
+      </div>
+      <div class="signal">
+        <h4>"My website is outdated."</h4>
+        <p>No booking system, no mobile optimization, no SEO. It exists but it does not generate business.</p>
+      </div>
+      <div class="signal">
+        <h4>"My competitors have more reviews than me."</h4>
+        <p>They do quality work but their Google profile does not reflect it. 15 reviews while the competitor down the street has 300.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="reveal">
+    <h2>Ready to start.</h2>
+    <p>Book a 15-minute onboarding call. We will walk through the program, answer your questions, and get you set up to send your first referral this week.</p>
+    <a href="https://api.leadconnectorhq.com/widget/booking/N4c0TWQ5RDaRrEjc9mtN" class="cta-btn">Book Onboarding Call</a>
+    <div class="cta-sub">Daniel Pena &middot; ViralityX</div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 ViralityX &mdash; AI-Powered Growth Systems for Local Businesses
+</footer>
+
+<script>
+const obs = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
