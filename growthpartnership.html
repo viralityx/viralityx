@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amplified Group x ViralityX — Growth Partnership</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#ffffff;--bgAlt:#f7f6f3;--card:#ffffff;
+  --heading:#111111;--body:#4b5563;--muted:#9ca3af;--border:#e5e3de;
+  --accent:#8b1a1a;--accentLight:#b91c1c;--accentDim:rgba(139,26,26,0.07);--accentBorder:rgba(139,26,26,0.2);
+  --green:#166534;--greenDim:rgba(22,101,52,0.06);--greenBorder:rgba(22,101,52,0.15);
+  --gold:#92400e;--goldDim:rgba(146,64,14,0.06);--goldBorder:rgba(146,64,14,0.15);
+  --blue:#1e40af;--blueDim:rgba(30,64,175,0.06);--blueBorder:rgba(30,64,175,0.15);
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.container{max-width:860px;margin:0 auto;padding:0 24px}
+
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px;background:linear-gradient(135deg,#1a1a1a 0%,#2d1010 50%,#111 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-badge{display:inline-block;padding:6px 20px;border:1px solid rgba(185,28,28,0.4);border-radius:100px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#ef4444;margin-bottom:32px;animation:fadeUp .8s ease}
+.hero h1{font-family:var(--serif);font-size:clamp(40px,7vw,68px);font-weight:400;line-height:1.1;color:#fff;margin-bottom:24px;animation:fadeUp .8s ease .1s both}
+.hero h1 em{font-style:italic;color:#ef4444}
+.hero p{font-size:17px;color:rgba(255,255,255,0.65);max-width:540px;margin:0 auto;animation:fadeUp .8s ease .2s both}
+.hero-meta{margin-top:40px;font-size:13px;color:rgba(255,255,255,0.35);letter-spacing:1px;animation:fadeUp .8s ease .3s both}
+
+section{padding:80px 0}
+section.alt{background:var(--bgAlt)}
+.label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
+.title{font-family:var(--serif);font-size:clamp(30px,5vw,46px);font-weight:400;color:var(--heading);line-height:1.2;margin-bottom:24px}
+.body-text{font-size:16px;color:var(--body);max-width:680px;line-height:1.85}
+.body-text strong{color:var(--heading);font-weight:600}
+
+/* Play cards */
+.play-grid{display:grid;gap:24px;margin-top:48px}
+.play{padding:32px;border-radius:12px;border:1px solid var(--border);position:relative;overflow:hidden;transition:box-shadow .3s}
+.play:hover{box-shadow:0 8px 32px rgba(0,0,0,0.06)}
+.play.red{border-color:var(--accentBorder);background:var(--accentDim)}
+.play.green{border-color:var(--greenBorder);background:var(--greenDim)}
+.play.blue{border-color:var(--blueBorder);background:var(--blueDim)}
+.play-num{font-family:var(--serif);font-size:48px;color:rgba(0,0,0,0.06);position:absolute;top:16px;right:24px;line-height:1}
+.play-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.play.red .play-label{color:var(--accent)}
+.play.green .play-label{color:var(--green)}
+.play.blue .play-label{color:var(--blue)}
+.play h3{font-family:var(--serif);font-size:26px;color:var(--heading);margin-bottom:12px}
+.play p{font-size:15px;color:var(--body);line-height:1.8}
+.play ul{list-style:none;padding:0;margin-top:16px}
+.play li{padding:6px 0;padding-left:22px;position:relative;font-size:14px;color:var(--body);line-height:1.7}
+.play.red li::before{content:'\2192';position:absolute;left:0;color:var(--accent)}
+.play.green li::before{content:'\2192';position:absolute;left:0;color:var(--green)}
+.play.blue li::before{content:'\2192';position:absolute;left:0;color:var(--blue)}
+
+/* Findings */
+.finding{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin-top:16px;display:flex;gap:16px;align-items:flex-start;transition:transform .3s,box-shadow .3s}
+.finding:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.finding-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:700;background:var(--accentDim);color:var(--accent)}
+.finding-icon.good{background:var(--greenDim);color:var(--green)}
+.finding h4{font-size:15px;font-weight:600;color:var(--heading);margin-bottom:4px}
+.finding p{font-size:14px;color:var(--body);line-height:1.7}
+
+/* Phases */
+.phase{margin-top:32px;padding:28px 32px;background:var(--white);border:1px solid var(--border);border-radius:16px;border-left:4px solid var(--accent);transition:box-shadow .3s}
+.phase:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.phase-num{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px}
+.phase h3{font-family:var(--serif);font-size:24px;color:var(--heading);margin-bottom:6px}
+.phase .timeline{font-size:13px;color:var(--muted);margin-bottom:16px}
+.phase ul{list-style:none;padding:0}
+.phase li{padding:7px 0;padding-left:22px;position:relative;font-size:15px;color:var(--body);line-height:1.6}
+.phase li::before{content:'\2192';position:absolute;left:0;color:var(--accent);font-weight:700}
+
+/* Rev share box */
+.rev-box{margin-top:40px;padding:32px;background:var(--greenDim);border:1px solid var(--greenBorder);border-radius:16px}
+.rev-box h3{font-family:var(--serif);font-size:24px;color:var(--heading);margin-bottom:12px}
+.rev-box p{font-size:15px;color:var(--body);line-height:1.8}
+.rev-box ul{list-style:none;padding:0;margin-top:16px}
+.rev-box li{padding:6px 0;padding-left:22px;position:relative;font-size:15px;color:var(--body)}
+.rev-box li::before{content:'\2192';position:absolute;left:0;color:var(--green)}
+
+/* CTA */
+.cta{text-align:center;padding:100px 24px;background:linear-gradient(135deg,#1a1a1a 0%,#2d1010 100%)}
+.cta h2{font-family:var(--serif);font-size:clamp(34px,5vw,52px);color:#fff;margin-bottom:16px}
+.cta p{font-size:17px;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto 40px}
+.cta-btn{display:inline-block;padding:18px 48px;background:#dc2626;color:#fff;font-weight:700;font-size:16px;text-decoration:none;border-radius:100px;transition:all .3s}
+.cta-btn:hover{background:#ef4444;transform:translateY(-2px);box-shadow:0 12px 40px rgba(220,38,38,0.3)}
+.cta-sub{margin-top:16px;font-size:13px;color:rgba(255,255,255,0.35)}
+
+footer{text-align:center;padding:32px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">Growth Partnership</div>
+    <h1>Amplified Group x<br><em>ViralityX</em></h1>
+    <p>Three ways to grow together — an investor acquisition engine, a performance-based revenue model, and a partner network that feeds both businesses.</p>
+    <div class="hero-meta">Prepared for Anthony &middot; Amplified Group &middot; March 2026</div>
+  </div>
+</section>
+
+<!-- THE OPPORTUNITY -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="label">01 &mdash; The Opportunity</div>
+      <h2 class="title">Your seller side is built.<br>Your investor side isn't.</h2>
+      <div class="body-text">
+        <p><strong>amphomebuyers.com is doing its job</strong> — multi-step lead capture form, clear value prop, testimonials, Facebook pixel tracking. Your seller acquisition funnel works.</p>
+        <br>
+        <p>But the Monopoly Method — your investor acquisition, the DSCR rental pipeline, the deal flow that drives 150+ transactions a year — <strong>has no digital funnel.</strong> You're sending a PowerPoint deck and closing investors through conversations. That works at 55 doors. It won't scale to 100+.</p>
+        <br>
+        <p>Right now, every new investor comes from a warm intro or a manual conversation. There is no landing page, no automated follow-up, no nurture sequence, no webinar funnel, and no system capturing investor interest while you sleep. <strong>That's what we build.</strong></p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="finding">
+        <div class="finding-icon">!</div>
+        <div><h4>No investor-facing funnel</h4><p>The Monopoly Method has a 12-slide deck but no landing page, no lead capture, no automated follow-up sequence. Every investor comes through manual outreach.</p></div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon">!</div>
+        <div><h4>No SEO for investor acquisition</h4><p>Nobody searching "turnkey rental Houston" or "DSCR rental investment Texas" is finding Amplified Group. That traffic is going to competitors with dedicated investor pages.</p></div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon">!</div>
+        <div><h4>No automated investor nurture</h4><p>When someone expresses interest, there's no drip sequence educating them on the Monopoly Method, sharing deal examples, and building trust automatically over days and weeks.</p></div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon good">+</div>
+        <div><h4>Seller funnel is solid</h4><p>amphomebuyers.com has proper lead capture, multi-step forms, testimonials, and a Facebook pixel. This side of the business has digital infrastructure. The investor side needs the same.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE PLAYS -->
+<section class="alt">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">02 &mdash; Three Plays</div>
+      <h2 class="title">Three ways we<br>grow together.</h2>
+      <div class="body-text"><p>This isn't a one-dimensional agency relationship. There are <strong>three distinct revenue opportunities</strong> between ViralityX and Amplified Group — and they compound on each other.</p></div>
+    </div>
+
+    <div class="play-grid reveal">
+      <div class="play red">
+        <div class="play-num">01</div>
+        <div class="play-label">Investor Acquisition Engine</div>
+        <h3>We build your investor funnel.</h3>
+        <p>A complete digital system that attracts, nurtures, and converts new investors for the Monopoly Method — running 24/7 alongside your existing seller funnel.</p>
+        <ul>
+          <li>Dedicated investor landing page with the Monopoly Method pitch, deal examples, and ROI calculator</li>
+          <li>Automated email and SMS nurture sequences that educate prospects on your BRRR model over days and weeks</li>
+          <li>Webinar or video funnel presenting the Monopoly Method at scale — one presentation, unlimited viewers</li>
+          <li>SEO targeting "turnkey rental Houston," "passive income real estate Texas," and similar high-intent keywords</li>
+          <li>Investor CRM pipeline in GHL tracking every prospect from first touch to funded deal</li>
+          <li>Retargeting campaigns for investors who visited but didn't apply</li>
+        </ul>
+      </div>
+
+      <div class="play green">
+        <div class="play-num">02</div>
+        <div class="play-label">Performance Revenue Share</div>
+        <h3>We generate investors. You close deals. We split the upside.</h3>
+        <p>Instead of a flat monthly fee, we tie our compensation to results. Every investor lead our system generates that converts into a funded deal earns us a referral fee. You only pay when money moves.</p>
+        <ul>
+          <li>We build and manage the investor acquisition funnel with shared upfront investment</li>
+          <li>You receive qualified investor leads — pre-educated on the Monopoly Method and ready for a conversation</li>
+          <li>When a lead converts into a funded deal, we earn a pre-agreed referral fee per transaction</li>
+          <li>Our incentives are 100% aligned — we only make money when you close deals</li>
+          <li>Structure, fee amount, and terms defined together on the strategy call</li>
+        </ul>
+      </div>
+
+      <div class="play blue">
+        <div class="play-num">03</div>
+        <div class="play-label">Partner Network</div>
+        <h3>Your vendors become our clients. Your deals become our leads.</h3>
+        <p>Amplified Group works with contractors, lenders, property managers, realtors, and title companies across Houston. Every one of those is a local business that needs growth systems — and you're the warm introduction.</p>
+        <ul>
+          <li>You introduce ViralityX to your vendor network — contractors, lenders, property managers, realtors</li>
+          <li>We handle the full sales process, build, and delivery for each vendor client</li>
+          <li>You earn a referral commission on every deal that closes from your introductions</li>
+          <li>Your vendors get better systems, which means better service for your deals — everybody wins</li>
+          <li>This opens the Houston market for ViralityX with warm, trusted introductions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILD -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="label">03 &mdash; The Investor Funnel</div>
+      <h2 class="title">What we build for<br>Amplified Group.</h2>
+      <div class="body-text"><p>The investor acquisition engine is the centerpiece. Here is the build plan, phase by phase.</p></div>
+    </div>
+
+    <div class="phase reveal">
+      <div class="phase-num">Phase 01</div>
+      <h3>Investor Landing System</h3>
+      <div class="timeline">Weeks 1-2</div>
+      <ul>
+        <li>Dedicated investor page — the Monopoly Method explained, past deal examples with real numbers, investor testimonials</li>
+        <li>Interactive ROI calculator showing potential returns based on deal size and leverage option</li>
+        <li>Multi-step investor application form capturing investment capacity, timeline, and experience level</li>
+        <li>Instant SMS and email confirmation when an investor applies — sets the tone of professionalism immediately</li>
+        <li>Calendar integration so qualified investors can book a call with Anthony directly from the funnel</li>
+      </ul>
+    </div>
+
+    <div class="phase reveal">
+      <div class="phase-num">Phase 02</div>
+      <h3>Automated Nurture Engine</h3>
+      <div class="timeline">Weeks 3-4</div>
+      <ul>
+        <li>7-day email sequence educating new leads on the Monopoly Method — one lesson per day building toward a call</li>
+        <li>SMS touchpoints at key intervals keeping Amplified top of mind</li>
+        <li>Video content integration — recorded walkthroughs of past deals, before/after renovations, investor testimonials</li>
+        <li>Deal alert system — when a new property hits your pipeline, interested investors get notified automatically</li>
+        <li>Investor CRM pipeline tracking every lead from application through funded deal</li>
+      </ul>
+    </div>
+
+    <div class="phase reveal">
+      <div class="phase-num">Phase 03</div>
+      <h3>Scale and Optimize</h3>
+      <div class="timeline">Ongoing</div>
+      <ul>
+        <li>SEO targeting high-intent investor keywords — "turnkey rental Houston," "BRRR investment Texas," "passive income real estate"</li>
+        <li>Paid ad campaigns on Facebook, Instagram, and YouTube targeting accredited investors and real estate-curious professionals</li>
+        <li>Webinar funnel — automated presentation of the Monopoly Method that runs on autopilot and books calls</li>
+        <li>Monthly reporting — investor leads generated, application-to-call conversion rate, cost per funded deal</li>
+        <li>Retargeting for investors who started the application but didn't finish</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- REV SHARE -->
+<section class="alt">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">04 &mdash; Revenue Share Model</div>
+      <h2 class="title">Aligned incentives.<br>We win when you win.</h2>
+      <div class="body-text"><p>The performance model is simple. We invest in building and running the investor funnel. You close the deals. We earn when capital moves.</p></div>
+    </div>
+
+    <div class="rev-box reveal">
+      <h3>How It Works</h3>
+      <p>This isn't a retainer where you pay whether results come or not. Our earnings are directly tied to funded deals generated by our system.</p>
+      <ul>
+        <li>We build the investor acquisition funnel with a shared investment to get it live</li>
+        <li>Every qualified investor lead is delivered to Anthony for a personal conversation</li>
+        <li>When a lead converts into a funded deal, a pre-agreed referral fee is paid to ViralityX</li>
+        <li>No funded deal = no ongoing fee. Skin in the game from both sides</li>
+        <li>Exact fee structure, payment timing, and terms will be defined together on the strategy call</li>
+        <li>This model scales with your deal volume — more deals, more revenue for both sides</li>
+      </ul>
+    </div>
+
+    <div class="reveal" style="margin-top:32px">
+      <div class="body-text">
+        <p><strong>Why this works for Amplified:</strong> Your ongoing cost is tied to results, not a flat monthly retainer. Every referral fee you pay is connected to an investor who funded a deal. Your cost of acquisition is predictable and performance-based.</p>
+        <br>
+        <p><strong>Why this works for ViralityX:</strong> We're building a system that generates recurring revenue as long as Amplified keeps closing deals — which, at 150+ transactions per year, is not a question. Both sides invest upfront because both sides believe in the outcome.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER NETWORK -->
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="label">05 &mdash; Partner Network</div>
+      <h2 class="title">Your vendors.<br>Our clients.</h2>
+      <div class="body-text">
+        <p>Amplified Group works with dozens of local businesses across Houston — contractors, lenders, property managers, realtors, title companies. Every one of them is a local service business that could use better lead capture, follow-up systems, and online presence.</p>
+        <br>
+        <p>You make the introduction. We handle the sales process, build, and delivery. You earn a referral commission on every deal that closes. This opens the entire Houston market for ViralityX through warm, trusted introductions — and puts money in your pocket for making a text.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="reveal">
+    <h2>Let's build this together.</h2>
+    <p>One strategy call to define the investor funnel scope, align on the revenue share model, and map out the partner network. No pitch — just a plan.</p>
+    <a href="https://api.leadconnectorhq.com/widget/booking/N4c0TWQ5RDaRrEjc9mtN" class="cta-btn">Book Strategy Call</a>
+    <div class="cta-sub">Daniel Pena &middot; ViralityX</div>
+  </div>
+</section>
+
+<footer>&copy; 2026 ViralityX &mdash; AI-Powered Growth Systems for Local Businesses</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
