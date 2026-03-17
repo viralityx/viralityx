@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridge PTP x ViralityX — Growth Systems Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#ffffff;--bgAlt:#f4f7fb;--card:#ffffff;
+  --dark:#1a1a2e;--heading:#111827;--body:#4b5563;--muted:#9ca3af;--border:#e5e7eb;
+  --blue:#2563eb;--blueLight:#3b82f6;--blueDim:rgba(37,99,235,0.08);--blueBorder:rgba(37,99,235,0.2);
+  --green:#059669;--greenDim:rgba(5,150,105,0.08);
+  --red:#dc2626;--redDim:rgba(220,38,38,0.06);
+  --white:#ffffff;
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.container{max-width:860px;margin:0 auto;padding:0 24px}
+
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px;background:linear-gradient(135deg,#1e3a5f 0%,#1a1a2e 50%,#0f172a 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-badge{display:inline-block;padding:6px 20px;border:1px solid rgba(37,99,235,0.4);border-radius:100px;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--blueLight);margin-bottom:32px;animation:fadeUp .8s ease}
+.hero h1{font-family:var(--serif);font-size:clamp(42px,7vw,72px);font-weight:400;line-height:1.1;color:#fff;margin-bottom:24px;animation:fadeUp .8s ease .1s both}
+.hero h1 em{font-style:italic;color:var(--blueLight)}
+.hero p{font-size:18px;color:rgba(255,255,255,0.7);max-width:540px;margin:0 auto;animation:fadeUp .8s ease .2s both}
+.hero-meta{margin-top:40px;font-size:13px;color:rgba(255,255,255,0.4);letter-spacing:1px;animation:fadeUp .8s ease .3s both}
+
+section{padding:80px 0}
+section.alt{background:var(--bgAlt)}
+.label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:16px}
+.title{font-family:var(--serif);font-size:clamp(30px,5vw,46px);font-weight:400;color:var(--heading);line-height:1.2;margin-bottom:24px}
+.body-text{font-size:16px;color:var(--body);max-width:680px;line-height:1.85}
+.body-text strong{color:var(--heading);font-weight:600}
+
+.finding{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin-top:16px;display:flex;gap:16px;align-items:flex-start;transition:transform .3s,box-shadow .3s}
+.finding:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.finding-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:700}
+.finding-icon.red{background:var(--redDim);color:var(--red)}
+.finding h4{font-size:15px;font-weight:600;color:var(--heading);margin-bottom:4px}
+.finding p{font-size:14px;color:var(--body);line-height:1.7}
+
+.phase{margin-top:32px;padding:28px 32px;background:var(--white);border:1px solid var(--border);border-radius:16px;border-left:4px solid var(--blue);transition:box-shadow .3s}
+.phase:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06)}
+.phase-num{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:8px}
+.phase h3{font-family:var(--serif);font-size:24px;color:var(--heading);margin-bottom:6px}
+.phase .timeline{font-size:13px;color:var(--muted);margin-bottom:16px}
+.phase ul{list-style:none;padding:0}
+.phase li{padding:7px 0;padding-left:22px;position:relative;font-size:15px;color:var(--body);line-height:1.6}
+.phase li::before{content:'\2192';position:absolute;left:0;color:var(--blue);font-weight:700}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px;border-radius:16px;overflow:hidden}
+@media(max-width:640px){.compare{grid-template-columns:1fr}}
+.compare-col{padding:28px 24px}
+.compare-col.before{background:var(--redDim);border:1px solid rgba(220,38,38,0.12)}
+.compare-col.after{background:var(--greenDim);border:1px solid rgba(5,150,105,0.15)}
+.compare-col h3{font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;font-weight:600}
+.compare-col.before h3{color:var(--red)}
+.compare-col.after h3{color:var(--green)}
+.compare-col li{padding:8px 0;font-size:14px;color:var(--body);line-height:1.6;list-style:none;padding-left:20px;position:relative}
+.compare-col.before li::before{content:'\2715';position:absolute;left:0;color:var(--red);font-size:11px;top:10px}
+.compare-col.after li::before{content:'\2713';position:absolute;left:0;color:var(--green);font-size:13px;top:9px;font-weight:700}
+
+.cost-grid{display:grid;gap:16px;margin-top:32px}
+.cost-item{display:flex;gap:16px;align-items:flex-start;padding:20px 24px;background:var(--white);border-radius:12px;border:1px solid var(--border)}
+.cost-num{font-family:var(--serif);font-size:32px;color:var(--red);flex-shrink:0;width:36px;text-align:center;line-height:1}
+.cost-item p{font-size:15px;color:var(--body);line-height:1.7}
+.cost-item strong{color:var(--heading)}
+
+.partnership-box{margin-top:40px;padding:32px;background:var(--blueDim);border:1px solid var(--blueBorder);border-radius:16px}
+.partnership-box h3{font-family:var(--serif);font-size:24px;color:var(--heading);margin-bottom:12px}
+.partnership-box p{font-size:15px;color:var(--body);line-height:1.8}
+.partnership-box ul{list-style:none;padding:0;margin-top:16px}
+.partnership-box li{padding:6px 0;padding-left:22px;position:relative;font-size:15px;color:var(--body)}
+.partnership-box li::before{content:'\2192';position:absolute;left:0;color:var(--blue)}
+
+.cta{text-align:center;padding:100px 24px;background:linear-gradient(135deg,#1e3a5f 0%,#1a1a2e 100%)}
+.cta h2{font-family:var(--serif);font-size:clamp(34px,5vw,52px);color:#fff;margin-bottom:16px}
+.cta p{font-size:17px;color:rgba(255,255,255,0.7);max-width:460px;margin:0 auto 40px}
+.cta-btn{display:inline-block;padding:18px 48px;background:var(--blue);color:#fff;font-weight:700;font-size:16px;text-decoration:none;border-radius:100px;transition:all .3s}
+.cta-btn:hover{background:var(--blueLight);transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,99,235,0.3)}
+.cta-sub{margin-top:16px;font-size:13px;color:rgba(255,255,255,0.4)}
+
+footer{text-align:center;padding:32px 24px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">Growth Systems Proposal</div>
+    <h1>Bridge PTP x<br><em>ViralityX</em></h1>
+    <p>A custom-built growth engine for your physical therapy, training, and pitching business — powered by AI, designed around your exact workflows.</p>
+    <div class="hero-meta">Prepared for Victor Garcia &middot; March 2026</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="label">01 &mdash; Your Situation</div>
+      <h2 class="title">You built the hard part.<br>Now it needs an engine.</h2>
+      <div class="body-text">
+        <p>Bridge PTP runs four service lines — <strong>Strength & Conditioning, Physical Therapy, Pitching, and Admin/Lead Management</strong>. Each follows the same pattern: evaluate the client, run testing, build a plan, generate reports, and communicate via email or Loom.</p>
+        <br>
+        <p>Your admin Steph is the final step in nearly every workflow — <strong>manually sending branded PDFs, email summaries, and progress updates to every single client.</strong> Your data lives in spreadsheets, gets copy-pasted into ChatGPT for summaries, dropped into Google Docs, and then hand-delivered.</p>
+        <br>
+        <p>This works at your current volume. <strong>It won't scale.</strong> And leads are slipping through the cracks because your intake and follow-up systems are manual too.</p>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="finding">
+        <div class="finding-icon red">!</div>
+        <div><h4>Steph is the bottleneck</h4><p>Every client email, PDF, and Loom goes through one person manually. One sick day or vacation and communication stops.</p></div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon red">!</div>
+        <div><h4>Leads slip through cracks</h4><p>Wix forms, phone calls, social DMs — no unified system, no instant follow-up. The first business to respond wins 78% of the time.</p></div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon red">!</div>
+        <div><h4>Copy-paste operations</h4><p>Data goes from sheets to ChatGPT to Google Docs to email. Every step introduces delay and error potential.</p></div>
+      </div>
+      <div class="finding">
+        <div class="finding-icon red">!</div>
+        <div><h4>Website isn't converting</h4><p>Wix site with speed issues, basic SEO, and no conversion optimization. Google Ads stopped because they attracted unqualified callers.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">02 &mdash; What We Build</div>
+      <h2 class="title">Your business, rewired<br>for the AI era.</h2>
+      <div class="body-text">
+        <p>We're not selling you a chatbot. We're <strong>rebuilding your operational infrastructure</strong> so your business captures every lead, communicates with clients automatically, and frees Victor and Steph to focus on what actually makes money — training athletes.</p>
+      </div>
+    </div>
+    <div class="phase reveal">
+      <div class="phase-num">Phase 01</div>
+      <h3>Foundation</h3>
+      <div class="timeline">Weeks 1-2</div>
+      <ul>
+        <li>High-performance website rebuilt for speed, SEO, and mobile — positioned for baseball athletes and cash-based PT</li>
+        <li>Integrated booking calendar with automatic SMS and email confirmations</li>
+        <li>Lead capture on every page with instant automated follow-up sequences</li>
+        <li>AI chatbot for 24/7 visitor engagement and appointment booking</li>
+        <li>Google Business Profile optimization for local search dominance</li>
+      </ul>
+    </div>
+    <div class="phase reveal">
+      <div class="phase-num">Phase 02</div>
+      <h3>Automation Engine</h3>
+      <div class="timeline">Weeks 3-4</div>
+      <ul>
+        <li>Automated intake forms replacing manual Jane data entry for evaluations</li>
+        <li>AI-generated progress reports — branded, scheduled, sent automatically (replacing the ChatGPT to Google Doc to Steph workflow)</li>
+        <li>Scheduled client check-in drips at 1-month and 1-3 month intervals</li>
+        <li>Automated billing reminders and package renewal notifications</li>
+        <li>Review request automation after completed sessions</li>
+      </ul>
+    </div>
+    <div class="phase reveal">
+      <div class="phase-num">Phase 03</div>
+      <h3>Growth Layer</h3>
+      <div class="timeline">Ongoing</div>
+      <ul>
+        <li>SEO audit and optimization targeting baseball athlete and local PT keywords</li>
+        <li>Retargeting campaigns for website visitors who didn't book</li>
+        <li>AI-powered lead scraping for outreach to coaches, athletes, and sports orgs</li>
+        <li>Monthly performance dashboards — leads, conversions, reviews, traffic</li>
+        <li>Ad management when ready — Facebook/Instagram targeting your niche</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="label">03 &mdash; The Transformation</div>
+      <h2 class="title">Before vs. after.</h2>
+    </div>
+    <div class="compare reveal">
+      <div class="compare-col before">
+        <h3>Today</h3>
+        <ul>
+          <li>Leads come in via Wix, phone, social — no automated follow-up</li>
+          <li>Steph manually sends every email, PDF, and Loom to every client</li>
+          <li>Client data lives in Excel, gets copy-pasted into ChatGPT</li>
+          <li>Website has speed issues and weak SEO — no conversion optimization</li>
+          <li>Google Ads stopped — attracted wrong audience</li>
+          <li>No automated review generation</li>
+          <li>Scaling means hiring more admin staff</li>
+        </ul>
+      </div>
+      <div class="compare-col after">
+        <h3>After ViralityX</h3>
+        <ul>
+          <li>Every lead gets instant SMS and email within 60 seconds — 24/7</li>
+          <li>Client reports generated and sent automatically on schedule</li>
+          <li>Data flows into AI-powered summaries — no copy-paste needed</li>
+          <li>Fast, SEO-optimized site targeting baseball athletes specifically</li>
+          <li>Targeted campaigns reaching qualified, cash-pay prospects</li>
+          <li>Automated review requests after every session</li>
+          <li>Scaling means turning up the system — not adding headcount</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">04 &mdash; The Real Cost</div>
+      <h2 class="title">What staying manual<br>is actually costing you.</h2>
+    </div>
+    <div class="cost-grid reveal">
+      <div class="cost-item"><div class="cost-num">1</div><p>Every lead that hits your Wix form and doesn't hear back within 5 minutes is <strong>80% less likely to book</strong>. How many have you lost this month?</p></div>
+      <div class="cost-item"><div class="cost-num">2</div><p>Every hour Steph spends copy-pasting ChatGPT outputs and manually emailing clients is an hour <strong>she's not following up with prospects or handling billing.</strong></p></div>
+      <div class="cost-item"><div class="cost-num">3</div><p>Every week without automated review requests is a week <strong>your competitors are outranking you on Google.</strong></p></div>
+      <div class="cost-item"><div class="cost-num">4</div><p>Every unqualified ad click was <strong>money burned</strong> because the funnel wasn't built to filter and convert the right audience.</p></div>
+    </div>
+    <div class="reveal" style="margin-top:32px">
+      <div class="body-text">
+        <p>You've already built the hardest part — the clinical systems, the SOPs, the service model that retains clients long-term. What's missing is the operational infrastructure that makes all of that <strong>scale without adding headcount.</strong></p>
+        <br>
+        <p style="color:var(--heading);font-weight:600;font-size:18px">That's what we build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="reveal">
+      <div class="label">05 &mdash; Partnership Opportunity</div>
+      <h2 class="title">Earn from your network.</h2>
+      <div class="body-text"><p>Separate from the Bridge PTP engagement, we discussed a referral partnership for dental and PT leads. Here's how that works:</p></div>
+    </div>
+    <div class="partnership-box reveal">
+      <h3>50/50 Referral Partnership</h3>
+      <p>You introduce a business owner. We handle the entire sales process, proposal, build, and delivery. You earn half of everything — setup fees and monthly retainers — for the life of the client.</p>
+      <ul>
+        <li>No sales calls, no proposals, no delivery work required from you</li>
+        <li>Just a warm introduction — we handle everything from there</li>
+        <li>50% of setup fees paid on close</li>
+        <li>50% of monthly retainers for the life of the client</li>
+        <li>Starting with Coconut Grove Dental — your first referral opportunity</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="reveal">
+    <h2>Let's map it out.</h2>
+    <p>Book a strategy call and we'll walk through your SOPs together, finalize the build plan, and define exactly what your system looks like at full capacity.</p>
+    <a href="https://api.leadconnectorhq.com/widget/booking/N4c0TWQ5RDaRrEjc9mtN" class="cta-btn">Book Strategy Call</a>
+    <div class="cta-sub">Daniel Pena &middot; ViralityX</div>
+  </div>
+</section>
+
+<footer>&copy; 2026 ViralityX &mdash; AI-Powered Growth Systems for Local Businesses</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
