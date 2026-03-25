@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coral Med — Mailer Designs</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#F0EDE6;color:#2C2C2C;padding:40px 20px;-webkit-font-smoothing:antialiased}
+
+.page-header{text-align:center;margin-bottom:48px}
+.page-header h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:500;margin-bottom:8px}
+.page-header p{color:#8A8A80;font-size:14px}
+.page-header .int{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#D4736C;background:rgba(212,115,108,.1);padding:4px 12px;border-radius:100px;display:inline-block;margin-bottom:16px}
+
+/* MAILER SECTION */
+.mailer-section{max-width:1100px;margin:0 auto 64px;padding-bottom:64px;border-bottom:1px solid #D8D3C8}
+.mailer-section:last-of-type{border-bottom:none}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.section-label.one{color:#5B7F6A}
+.section-label.two{color:#5B8FB9}
+.section-label.three{color:#C4993B}
+.section-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:500;margin-bottom:6px}
+.section-desc{color:#8A8A80;font-size:13.5px;margin-bottom:28px;max-width:500px}
+.section-meta{display:flex;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+.section-meta span{font-size:12px;color:#8A8A80;background:#fff;padding:4px 12px;border-radius:6px;border:1px solid #E5E0D5}
+.section-meta span strong{color:#2C2C2C}
+
+/* CARD PAIR */
+.card-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.card-pair{grid-template-columns:1fr}}
+.card-label{font-size:11px;font-weight:600;color:#8A8A80;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+
+/* POSTCARD */
+.postcard{width:100%;aspect-ratio:6/4;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08),0 1px 3px rgba(0,0,0,.04);position:relative}
+
+/* ══════════════════════════════════ */
+/* MAILER 1: NEIGHBORHOOD INTRO */
+/* ══════════════════════════════════ */
+.m1-front{background:#FFFFFF;display:flex;flex-direction:column;justify-content:space-between;padding:0}
+.m1-top{flex:1;display:flex;flex-direction:column;justify-content:center;padding:36px 40px 20px}
+.m1-top .eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#5B7F6A;margin-bottom:14px}
+.m1-top h2{font-family:'Playfair Display',serif;font-size:28px;font-weight:500;line-height:1.2;margin-bottom:12px;color:#2C2C2C}
+.m1-top h2 em{font-style:italic;color:#5B7F6A}
+.m1-top p{font-size:13px;color:#777;line-height:1.55;max-width:320px}
+.m1-badges{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.m1-badge{padding:6px 14px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.03em}
+.m1-badge.green{background:rgba(91,127,106,.08);color:#5B7F6A;border:1px solid rgba(91,127,106,.15)}
+.m1-badge.blue{background:rgba(91,143,185,.08);color:#5B8FB9;border:1px solid rgba(91,143,185,.15)}
+.m1-bar{background:#5B7F6A;padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
+.m1-bar .brand{font-size:15px;font-weight:700;color:#fff;letter-spacing:.02em}
+.m1-bar .brand span{font-weight:400;opacity:.75;font-size:12px;margin-left:6px}
+.m1-bar .cta{font-size:11px;color:rgba(255,255,255,.9);font-weight:500}
+
+.m1-back{background:#FAFAF7;display:flex;flex-direction:column;justify-content:space-between;padding:36px 40px}
+.m1-back .info-block{margin-bottom:auto}
+.m1-back .doc-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;margin-bottom:6px}
+.m1-back .doc-title{font-size:12px;color:#8A8A80;margin-bottom:20px}
+.m1-back .detail-row{display:flex;align-items:start;gap:10px;margin-bottom:10px;font-size:12.5px;color:#555;line-height:1.4}
+.m1-back .detail-row .label{font-weight:600;color:#2C2C2C;min-width:60px}
+.m1-back .qr-area{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid #E5E0D5;margin-top:auto}
+.m1-back .qr-box{width:72px;height:72px;background:#fff;border:1px solid #E5E0D5;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;text-align:center;line-height:1.3}
+.m1-back .qr-text{font-size:11px;color:#8A8A80;text-align:right}
+.m1-back .qr-text strong{display:block;color:#5B7F6A;font-size:12px}
+
+/* ══════════════════════════════════ */
+/* MAILER 2: REACTIVATION */
+/* ══════════════════════════════════ */
+.m2-front{background:linear-gradient(135deg,#F7F5F0 0%,#EDE9E0 100%);display:flex;flex-direction:column;justify-content:center;padding:40px;text-align:center;align-items:center}
+.m2-front .eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5B8FB9;margin-bottom:18px}
+.m2-front h2{font-family:'Playfair Display',serif;font-size:30px;font-weight:500;line-height:1.2;margin-bottom:14px;max-width:340px}
+.m2-front h2 em{font-style:italic;color:#5B8FB9}
+.m2-front p{font-size:13px;color:#777;line-height:1.6;max-width:300px;margin-bottom:20px}
+.m2-front .cta-pill{background:#5B8FB9;color:#fff;padding:10px 28px;border-radius:100px;font-size:12.5px;font-weight:600;letter-spacing:.02em;display:inline-block}
+.m2-front .sub{font-size:10.5px;color:#aaa;margin-top:12px}
+
+.m2-back{background:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:36px 40px}
+.m2-back .msg{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;line-height:1.5;color:#444;font-style:italic;margin-bottom:16px;max-width:320px}
+.m2-back .sig{font-size:12px;color:#8A8A80;margin-bottom:auto}
+.m2-back .sig strong{color:#2C2C2C;display:block}
+.m2-back .bottom-bar{display:flex;justify-content:space-between;align-items:end;padding-top:16px;border-top:1px solid #EDE9E0;margin-top:auto}
+.m2-back .contact-col{font-size:11.5px;color:#555;line-height:1.7}
+.m2-back .contact-col strong{color:#2C2C2C;font-size:12.5px}
+.m2-back .qr-box{width:64px;height:64px;background:#FAFAF7;border:1px solid #E5E0D5;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#aaa;text-align:center;line-height:1.3}
+
+/* ══════════════════════════════════ */
+/* MAILER 3: SERVICE SPOTLIGHT */
+/* ══════════════════════════════════ */
+.m3-front{background:#fff;display:flex;flex-direction:column;padding:0}
+.m3-accent{background:linear-gradient(135deg,#C4993B 0%,#D4A84A 100%);padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+.m3-accent .tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.m3-accent .brand{font-size:13px;font-weight:700;color:#fff}
+.m3-body{flex:1;padding:28px 40px;display:flex;flex-direction:column;justify-content:center}
+.m3-body h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:500;line-height:1.2;margin-bottom:10px}
+.m3-body h2 em{font-style:italic;color:#C4993B}
+.m3-body p{font-size:13px;color:#777;line-height:1.6;margin-bottom:16px;max-width:340px}
+.m3-features{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.m3-feat{padding:5px 12px;border-radius:6px;font-size:11px;font-weight:600;background:rgba(196,153,59,.06);color:#A07D2E;border:1px solid rgba(196,153,59,.12)}
+.m3-bottom{padding:14px 40px;background:#FAFAF7;border-top:1px solid #EDE9E0;display:flex;justify-content:space-between;align-items:center}
+.m3-bottom .phone{font-size:14px;font-weight:700;color:#2C2C2C}
+.m3-bottom .url{font-size:11px;color:#C4993B;font-weight:600}
+
+.m3-back{background:#FAFAF7;display:flex;flex-direction:column;justify-content:space-between;padding:36px 40px}
+.m3-back h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-bottom:14px}
+.m3-back .incl-list{list-style:none;margin-bottom:auto}
+.m3-back .incl-list li{font-size:12.5px;color:#555;padding:6px 0 6px 20px;position:relative;border-bottom:1px solid #EDE9E0;line-height:1.45}
+.m3-back .incl-list li:last-child{border-bottom:none}
+.m3-back .incl-list li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:rgba(196,153,59,.15);border:2px solid #C4993B}
+.m3-back .bottom-bar{display:flex;justify-content:space-between;align-items:end;padding-top:16px;border-top:1px solid #E5E0D5;margin-top:auto}
+.m3-back .addr{font-size:11px;color:#8A8A80;line-height:1.6}
+.m3-back .addr strong{color:#2C2C2C;font-size:12px}
+.m3-back .qr-box{width:64px;height:64px;background:#fff;border:1px solid #E5E0D5;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:8px;color:#aaa;text-align:center;line-height:1.3}
+
+/* NOTES */
+.design-notes{background:#fff;border:1px solid #E5E0D5;border-radius:12px;padding:24px 28px;margin-top:20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.design-notes h4{font-size:13px;font-weight:700;color:#5B7F6A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.design-notes p{font-size:13px;color:#777;line-height:1.6}
+.design-notes p strong{color:#2C2C2C}
+
+@media(max-width:768px){
+  .m1-top h2,.m2-front h2,.m3-body h2{font-size:22px}
+  .m1-top,.m1-back,.m2-front,.m2-back,.m3-body,.m3-back{padding:24px}
+  .m1-bar{padding:12px 24px}
+  .m3-accent,.m3-bottom{padding:12px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="int">Internal — Design Mockups</div>
+  <h1>Coral Med Mailer Designs</h1>
+  <p>Three campaigns. One purpose per piece. Every piece tracked.</p>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- MAILER 1: NEIGHBORHOOD INTRO -->
+<!-- ══════════════════════════════════════════ -->
+<div class="mailer-section">
+  <div class="section-label one">Mailer 01</div>
+  <div class="section-title">Neighborhood Introduction</div>
+  <div class="section-desc">For new residents and nearby homes. Ameer plans to walk these around his community in Huntington Beach personally.</div>
+  <div class="section-meta">
+    <span><strong>Audience:</strong> Neighbors within 3-mile radius</span>
+    <span><strong>CTA:</strong> Call or visit coral-med.com/welcome</span>
+    <span><strong>Size:</strong> 6" x 4" postcard</span>
+  </div>
+
+  <div class="card-pair">
+    <div>
+      <div class="card-label">Front</div>
+      <div class="postcard m1-front">
+        <div class="m1-top">
+          <div class="eyebrow">Now accepting new patients</div>
+          <h2>Your new doctor is <em>5 minutes away</em></h2>
+          <p>Comprehensive primary care in the heart of Huntington Beach. Personalized, unhurried visits with a doctor who treats every patient like family.</p>
+          <div class="m1-badges">
+            <div class="m1-badge green">Open 7 days a week</div>
+            <div class="m1-badge blue">English, Spanish & Arabic</div>
+          </div>
+        </div>
+        <div class="m1-bar">
+          <div class="brand">Coral Med <span>Primary Care</span></div>
+          <div class="cta">(714) 847-6545</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card-label">Back</div>
+      <div class="postcard m1-back">
+        <div class="info-block">
+          <div class="doc-name">Dr. Ameer Moussa, MD</div>
+          <div class="doc-title">Board-Certified Primary Care Physician</div>
+          <div class="detail-row"><span class="label">Address</span><span>17122 Beach Blvd, Suite 102<br>Huntington Beach, CA 92647</span></div>
+          <div class="detail-row"><span class="label">Hours</span><span>Monday – Sunday, 9am – 5pm</span></div>
+          <div class="detail-row"><span class="label">Phone</span><span>(714) 847-6545</span></div>
+          <div class="detail-row"><span class="label">Web</span><span>www.coral-med.com</span></div>
+          <div class="detail-row"><span class="label">Accepts</span><span>PPO, Medicare, Medi-Cal & Cash Pay</span></div>
+        </div>
+        <div class="qr-area">
+          <div class="qr-text">Scan to learn more<br><strong>coral-med.com/welcome</strong></div>
+          <div class="qr-box">QR Code<br>/welcome</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h4>Design Notes</h4>
+    <p><strong>Tracking URL:</strong> coral-med.com/welcome — unique to this mailer. Tags leads as "source: neighborhood-mailer" in the CRM pipeline.<br>
+    <strong>Key differentiators front and center:</strong> Open 7 days (almost no one offers this) and trilingual (massive in HB demographics).<br>
+    <strong>No broker, no clutter.</strong> One message: you have a new doctor nearby. One action: call or scan.<br>
+    <strong>Photo placeholder:</strong> Ameer's headshot should replace the text-only layout on the front. We need an updated photo from him matching the new branding/signage.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- MAILER 2: REACTIVATION POSTCARD -->
+<!-- ══════════════════════════════════════════ -->
+<div class="mailer-section">
+  <div class="section-label two">Mailer 02</div>
+  <div class="section-title">Reactivation Postcard</div>
+  <div class="section-desc">For existing patients who haven't visited in 6+ months. Pairs with the digital 90-day reactivation sequence we're building in GHL.</div>
+  <div class="section-meta">
+    <span><strong>Audience:</strong> Inactive patients (6+ months)</span>
+    <span><strong>CTA:</strong> Call to schedule or scan QR</span>
+    <span><strong>Size:</strong> 6" x 4" postcard</span>
+  </div>
+
+  <div class="card-pair">
+    <div>
+      <div class="card-label">Front</div>
+      <div class="postcard m2-front">
+        <div class="eyebrow">Coral Med Primary Care</div>
+        <h2>It's been a while.<br><em>Time for a checkup?</em></h2>
+        <p>Your health doesn't wait. Schedule your annual wellness visit and make sure everything is on track.</p>
+        <div class="cta-pill">Call (714) 847-6545</div>
+        <div class="sub">Dr. Ameer Moussa, MD — Huntington Beach</div>
+      </div>
+    </div>
+    <div>
+      <div class="card-label">Back</div>
+      <div class="postcard m2-back">
+        <div class="msg">"I treat every patient like family and take time to explain their health in simple, clear ways."</div>
+        <div class="sig">
+          <strong>Dr. Ameer Moussa, MD</strong>
+          Coral Med Primary Care
+        </div>
+        <div class="bottom-bar">
+          <div class="contact-col">
+            <strong>Coral Med Primary Care</strong>
+            17122 Beach Blvd, Suite 102<br>
+            Huntington Beach, CA 92647<br>
+            Mon – Sun, 9am – 5pm
+          </div>
+          <div class="qr-box">QR Code<br>/checkup</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h4>Design Notes</h4>
+    <p><strong>Tracking URL:</strong> coral-med.com/checkup — tags leads as "source: reactivation-mailer" in CRM.<br>
+    <strong>Emotional, not clinical.</strong> "It's been a while" feels personal, not like a mass mailing. The quote on the back reinforces the personal touch.<br>
+    <strong>Physical + digital combo:</strong> This mailer goes out to patients identified by the 90-day reactivation workflow. Patients who don't respond to the text get the physical card as a follow-up. Double-touch.<br>
+    <strong>Mailing list source:</strong> Pull from patient records — anyone with a last visit date 6+ months ago. Requires address data from Office Ally.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- MAILER 3: SERVICE SPOTLIGHT — WELLNESS -->
+<!-- ══════════════════════════════════════════ -->
+<div class="mailer-section">
+  <div class="section-label three">Mailer 03</div>
+  <div class="section-title">Service Spotlight — Annual Wellness</div>
+  <div class="section-desc">One service per card. This first version spotlights annual wellness exams. Future versions can spotlight weight loss, aesthetics, chronic care, etc.</div>
+  <div class="section-meta">
+    <span><strong>Audience:</strong> General — neighborhood + patient base</span>
+    <span><strong>CTA:</strong> Call to book or scan QR</span>
+    <span><strong>Size:</strong> 6" x 4" postcard</span>
+  </div>
+
+  <div class="card-pair">
+    <div>
+      <div class="card-label">Front</div>
+      <div class="postcard m3-front">
+        <div class="m3-accent">
+          <div class="tag">Service Spotlight</div>
+          <div class="brand">Coral Med</div>
+        </div>
+        <div class="m3-body">
+          <h2>Your <em>annual wellness</em> visit — covered by insurance</h2>
+          <p>Most PPO and Medicare plans cover a full annual physical at no cost to you. Don't leave it on the table.</p>
+          <div class="m3-features">
+            <div class="m3-feat">Comprehensive physical</div>
+            <div class="m3-feat">Lab work review</div>
+            <div class="m3-feat">Preventive screening</div>
+            <div class="m3-feat">30-min visit</div>
+          </div>
+        </div>
+        <div class="m3-bottom">
+          <div class="phone">(714) 847-6545</div>
+          <div class="url">coral-med.com/wellness</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card-label">Back</div>
+      <div class="postcard m3-back">
+        <h3>What's included in your annual wellness visit</h3>
+        <ul class="incl-list">
+          <li>Full physical examination</li>
+          <li>Blood pressure, cholesterol & blood sugar check</li>
+          <li>Age-appropriate preventive screenings</li>
+          <li>Medication review & refills</li>
+          <li>Personalized health plan for the year ahead</li>
+          <li>Referrals to specialists if needed</li>
+        </ul>
+        <div class="bottom-bar">
+          <div class="addr">
+            <strong>Dr. Ameer Moussa, MD</strong>
+            17122 Beach Blvd, Suite 102<br>
+            Huntington Beach, CA 92647<br>
+            Open 7 days — 9am to 5pm
+          </div>
+          <div class="qr-box">QR Code<br>/wellness</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="design-notes">
+    <h4>Design Notes</h4>
+    <p><strong>Tracking URL:</strong> coral-med.com/wellness — tags leads as "source: wellness-spotlight" in CRM.<br>
+    <strong>Why wellness first:</strong> It's the most universally relevant service, covered by most insurance, and gives Ameer the 30-min new patient slot he wants. It's also the gateway visit — once they're in for a wellness exam, they become a regular patient.<br>
+    <strong>Future spotlight cards:</strong> Same template, swap the service. Weight loss, aesthetics, chronic disease management, sick visits, telehealth. Test which services drive the most scans/calls and double down.<br>
+    <strong>"Covered by insurance" is the hook.</strong> Removes the cost objection immediately. Most people don't know their annual physical is free.</p>
+  </div>
+</div>
+
+<!-- PRINT SPECS -->
+<div style="max-width:1100px;margin:0 auto;background:#fff;border:1px solid #E5E0D5;border-radius:12px;padding:28px;box-shadow:0 1px 3px rgba(0,0,0,.04)">
+  <h4 style="font-size:14px;font-weight:700;color:#5B7F6A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">Print Specifications</h4>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;font-size:13px;color:#555">
+    <div><strong style="color:#2C2C2C;display:block;margin-bottom:2px">Size</strong>6" x 4" standard postcard</div>
+    <div><strong style="color:#2C2C2C;display:block;margin-bottom:2px">Paper</strong>16pt matte or soft-touch laminate (premium feel)</div>
+    <div><strong style="color:#2C2C2C;display:block;margin-bottom:2px">Bleed</strong>0.125" on all sides</div>
+    <div><strong style="color:#2C2C2C;display:block;margin-bottom:2px">QR Codes</strong>Generated per campaign with unique tracking URLs</div>
+    <div><strong style="color:#2C2C2C;display:block;margin-bottom:2px">Photo</strong>Need updated headshot from Ameer — new signage/branding</div>
+    <div><strong style="color:#2C2C2C;display:block;margin-bottom:2px">Print Run</strong>Start with 250 each for neighborhood test</div>
+  </div>
+</div>
+
+</body>
+</html>
