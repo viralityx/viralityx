@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amplified Group — Investor CRM Pipeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    color: #e8e8e8;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: auto;
+  }
+
+  /* Header */
+  .header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #c9a84c, #f4d484, #c9a84c);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #0a0a0a;
+  }
+  .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #c9a84c, #f4d484);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .logo-text span {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+  .header-actions {
+    display: flex;
+    gap: 12px;
+  }
+  .btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.3);
+    color: #c9a84c;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #c9a84c, #f4d484);
+    color: #0a0a0a;
+  }
+
+  /* Stats Bar */
+  .stats-bar {
+    display: flex;
+    gap: 32px;
+    padding: 20px 40px;
+    background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+  }
+  .stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+  .stat-value.gold {
+    background: linear-gradient(135deg, #c9a84c, #f4d484);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat-value.green { color: #4ade80; }
+  .stat-value.blue { color: #60a5fa; }
+  .stat-change {
+    font-size: 11px;
+    color: #4ade80;
+  }
+
+  /* Pipeline */
+  .pipeline-container {
+    padding: 28px 40px;
+    overflow-x: auto;
+  }
+  .pipeline {
+    display: flex;
+    gap: 16px;
+    min-width: max-content;
+  }
+
+  /* Columns */
+  .column {
+    width: 280px;
+    min-width: 280px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+  .column-header {
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .column-title-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .stage-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .column-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .column-count {
+    background: rgba(255,255,255,0.08);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #999;
+  }
+  .column-value {
+    padding: 0 20px 14px;
+    font-size: 12px;
+    color: #666;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .column-cards {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 120px;
+  }
+
+  /* Cards */
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .card:hover {
+    border-color: rgba(201,168,76,0.3);
+    background: rgba(255,255,255,0.06);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .card-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .card-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0a0a0a;
+  }
+  .card-detail {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .card-detail svg {
+    width: 13px;
+    height: 13px;
+    opacity: 0.5;
+  }
+  .card-amount {
+    font-size: 16px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #c9a84c, #f4d484);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 10px;
+  }
+  .card-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tag-hot { background: rgba(239,68,68,0.15); color: #f87171; }
+  .tag-warm { background: rgba(251,191,36,0.15); color: #fbbf24; }
+  .tag-new { background: rgba(96,165,250,0.15); color: #60a5fa; }
+  .tag-referral { background: rgba(168,85,247,0.15); color: #c084fc; }
+  .tag-web { background: rgba(74,222,128,0.15); color: #4ade80; }
+  .tag-ad { background: rgba(251,146,60,0.15); color: #fb923c; }
+
+  /* Stage colors */
+  .stage-1 .stage-dot { background: #60a5fa; }
+  .stage-2 .stage-dot { background: #a78bfa; }
+  .stage-3 .stage-dot { background: #fbbf24; }
+  .stage-4 .stage-dot { background: #fb923c; }
+  .stage-5 .stage-dot { background: #4ade80; }
+  .stage-6 .stage-dot { background: linear-gradient(135deg, #c9a84c, #f4d484); }
+
+  /* Footer */
+  .pipeline-footer {
+    padding: 20px 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-note {
+    font-size: 12px;
+    color: #555;
+  }
+  .footer-note span {
+    color: #c9a84c;
+  }
+  .auto-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(74,222,128,0.08);
+    border: 1px solid rgba(74,222,128,0.15);
+    border-radius: 20px;
+    font-size: 12px;
+    color: #4ade80;
+  }
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-top">
+    <div class="logo-area">
+      <div class="logo-icon">A</div>
+      <div class="logo-text">
+        <h1>The Amplified Group</h1>
+        <span>Investor Pipeline CRM</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-outline">Export</button>
+      <button class="btn btn-primary">+ Add Investor</button>
+    </div>
+  </div>
+</div>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-label">Total Pipeline Value</span>
+    <span class="stat-value gold">$1,247,500</span>
+    <span class="stat-change">+$185K this month</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Active Investors</span>
+    <span class="stat-value blue">18</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Funded This Quarter</span>
+    <span class="stat-value green">5</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Avg. Deal Size</span>
+    <span class="stat-value gold">$87,500</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-label">Conversion Rate</span>
+    <span class="stat-value green">32%</span>
+  </div>
+</div>
+
+<!-- Pipeline -->
+<div class="pipeline-container">
+  <div class="pipeline">
+
+    <!-- Stage 1: New Lead -->
+    <div class="column stage-1">
+      <div class="column-header">
+        <div class="column-title-area">
+          <div class="stage-dot"></div>
+          <span class="column-title">New Lead</span>
+        </div>
+        <span class="column-count">4</span>
+      </div>
+      <div class="column-value">Pipeline: $350,000</div>
+      <div class="column-cards">
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Marcus Jefferson</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #60a5fa, #818cf8);">MJ</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Dallas, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            W-2 Engineer &bull; First-time investor
+          </div>
+          <div class="card-amount">$75,000</div>
+          <div class="card-tags">
+            <span class="tag tag-new">New</span>
+            <span class="tag tag-web">Website</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Priya Patel</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #f472b6, #c084fc);">PP</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Houston, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Physician &bull; Looking to diversify
+          </div>
+          <div class="card-amount">$100,000</div>
+          <div class="card-tags">
+            <span class="tag tag-hot">Hot</span>
+            <span class="tag tag-ad">FB Ad</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Derek Coleman</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #4ade80, #34d399);">DC</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Austin, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Tech Sales &bull; Has 401K to deploy
+          </div>
+          <div class="card-amount">$125,000</div>
+          <div class="card-tags">
+            <span class="tag tag-warm">Warm</span>
+            <span class="tag tag-web">Website</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Lisa Tran</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">LT</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            San Antonio, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Pharmacist &bull; Passive income focus
+          </div>
+          <div class="card-amount">$50,000</div>
+          <div class="card-tags">
+            <span class="tag tag-new">New</span>
+            <span class="tag tag-referral">Referral</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 2: Contacted -->
+    <div class="column stage-2">
+      <div class="column-header">
+        <div class="column-title-area">
+          <div class="stage-dot"></div>
+          <span class="column-title">Contacted</span>
+        </div>
+        <span class="column-count">3</span>
+      </div>
+      <div class="column-value">Pipeline: $225,000</div>
+      <div class="column-cards">
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">James Walker</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #a78bfa, #818cf8);">JW</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Houston, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Business Owner &bull; Owns 2 rentals
+          </div>
+          <div class="card-amount">$100,000</div>
+          <div class="card-tags">
+            <span class="tag tag-hot">Hot</span>
+            <span class="tag tag-referral">Referral</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Angela Brooks</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #fb923c, #f59e0b);">AB</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Katy, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Nurse Practitioner &bull; Wants tax shelter
+          </div>
+          <div class="card-amount">$75,000</div>
+          <div class="card-tags">
+            <span class="tag tag-warm">Warm</span>
+            <span class="tag tag-ad">IG Ad</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Kevin Osei</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #34d399, #4ade80);">KO</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Spring, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Software Dev &bull; $50K liquid
+          </div>
+          <div class="card-amount">$50,000</div>
+          <div class="card-tags">
+            <span class="tag tag-warm">Warm</span>
+            <span class="tag tag-web">Website</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 3: Qualified -->
+    <div class="column stage-3">
+      <div class="column-header">
+        <div class="column-title-area">
+          <div class="stage-dot"></div>
+          <span class="column-title">Qualified</span>
+        </div>
+        <span class="column-count">4</span>
+      </div>
+      <div class="column-value">Pipeline: $312,500</div>
+      <div class="column-cards">
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Robert Chen</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">RC</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Sugar Land, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Dentist &bull; $150K ready to deploy
+          </div>
+          <div class="card-amount">$150,000</div>
+          <div class="card-tags">
+            <span class="tag tag-hot">Hot</span>
+            <span class="tag tag-web">Website</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Tiffany Harris</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #f472b6, #ec4899);">TH</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            The Woodlands, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Attorney &bull; Wants quarterly cashflow
+          </div>
+          <div class="card-amount">$75,000</div>
+          <div class="card-tags">
+            <span class="tag tag-hot">Hot</span>
+            <span class="tag tag-referral">Referral</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Omar Williams</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #60a5fa, #3b82f6);">OW</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Houston, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            IT Manager &bull; Self-directed IRA
+          </div>
+          <div class="card-amount">$50,000</div>
+          <div class="card-tags">
+            <span class="tag tag-warm">Warm</span>
+            <span class="tag tag-ad">FB Ad</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Sandra Mitchell</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #c084fc, #a78bfa);">SM</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Pearland, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            CPA &bull; Understands depreciation
+          </div>
+          <div class="card-amount">$37,500</div>
+          <div class="card-tags">
+            <span class="tag tag-warm">Warm</span>
+            <span class="tag tag-referral">Referral</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 4: Deal Presented -->
+    <div class="column stage-4">
+      <div class="column-header">
+        <div class="column-title-area">
+          <div class="stage-dot"></div>
+          <span class="column-title">Deal Presented</span>
+        </div>
+        <span class="column-count">3</span>
+      </div>
+      <div class="column-value">Pipeline: $200,000</div>
+      <div class="column-cards">
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">David Nguyen</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #fb923c, #ef4444);">DN</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Cypress, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Pharmacist &bull; Reviewing deal docs
+          </div>
+          <div class="card-amount">$100,000</div>
+          <div class="card-tags">
+            <span class="tag tag-hot">Hot</span>
+            <span class="tag tag-web">Website</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Michelle Ford</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #f472b6, #f43f5e);">MF</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Missouri City, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Exec Director &bull; Running it by spouse
+          </div>
+          <div class="card-amount">$50,000</div>
+          <div class="card-tags">
+            <span class="tag tag-warm">Warm</span>
+            <span class="tag tag-referral">Referral</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-top">
+            <span class="card-name">Anthony Ross</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #34d399, #10b981);">AR</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Richmond, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Contractor &bull; Wants 3 deals/year
+          </div>
+          <div class="card-amount">$50,000</div>
+          <div class="card-tags">
+            <span class="tag tag-hot">Hot</span>
+            <span class="tag tag-ad">IG Ad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 5: Funded -->
+    <div class="column stage-5">
+      <div class="column-header">
+        <div class="column-title-area">
+          <div class="stage-dot"></div>
+          <span class="column-title">Funded</span>
+        </div>
+        <span class="column-count">2</span>
+      </div>
+      <div class="column-value">Pipeline: $110,000</div>
+      <div class="column-cards">
+        <div class="card" style="border-color: rgba(74,222,128,0.2);">
+          <div class="card-top">
+            <span class="card-name">Brian Lawson</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #4ade80, #22c55e);">BL</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            League City, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Engineer &bull; Funded 3/15 &bull; Rehab in progress
+          </div>
+          <div class="card-amount">$60,000</div>
+          <div class="card-tags">
+            <span class="tag tag-web">Website</span>
+          </div>
+        </div>
+        <div class="card" style="border-color: rgba(74,222,128,0.2);">
+          <div class="card-top">
+            <span class="card-name">Rachel Kim</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #fbbf24, #f59e0b);">RK</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Galveston, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Dentist &bull; Funded 3/08 &bull; Tenant placed
+          </div>
+          <div class="card-amount">$50,000</div>
+          <div class="card-tags">
+            <span class="tag tag-referral">Referral</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 6: Refinanced -->
+    <div class="column stage-6">
+      <div class="column-header">
+        <div class="column-title-area">
+          <div class="stage-dot"></div>
+          <span class="column-title">Refinanced</span>
+        </div>
+        <span class="column-count">2</span>
+      </div>
+      <div class="column-value">Pipeline: $50,000</div>
+      <div class="column-cards">
+        <div class="card" style="border-color: rgba(201,168,76,0.25);">
+          <div class="card-top">
+            <span class="card-name">Tony Daniels</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #c9a84c, #f4d484);">TD</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Houston, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Refi complete &bull; 12% CoC &bull; Repeat investor
+          </div>
+          <div class="card-amount">$25,000</div>
+          <div class="card-tags">
+            <span class="tag tag-referral">Referral</span>
+          </div>
+        </div>
+        <div class="card" style="border-color: rgba(201,168,76,0.25);">
+          <div class="card-top">
+            <span class="card-name">Jasmine Clark</span>
+            <div class="card-avatar" style="background: linear-gradient(135deg, #c9a84c, #f4d484);">JC</div>
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Pasadena, TX
+          </div>
+          <div class="card-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Refi complete &bull; 14% CoC &bull; Referring friends
+          </div>
+          <div class="card-amount">$25,000</div>
+          <div class="card-tags">
+            <span class="tag tag-ad">FB Ad</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="pipeline-footer">
+  <span class="footer-note">All investor leads from <span>amphomebuyers.com</span> auto-populate into this pipeline</span>
+  <div class="auto-badge">
+    <div class="pulse-dot"></div>
+    Automation Active
+  </div>
+</div>
+
+</body>
+</html>
