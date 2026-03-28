@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amplified Group — Investor Nurture Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    color: #e8e8e8;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .logo-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #c9a84c, #f4d484, #c9a84c);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #0a0a0a;
+  }
+  .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #c9a84c, #f4d484);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .logo-text span {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+  .status-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(74,222,128,0.08);
+    border: 1px solid rgba(74,222,128,0.15);
+    border-radius: 24px;
+  }
+  .pulse-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .status-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #4ade80;
+  }
+
+  /* Stats */
+  .stats-row {
+    display: flex;
+    gap: 24px;
+    padding: 24px 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.015);
+  }
+  .stat-card {
+    flex: 1;
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+  }
+  .stat-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+  .stat-value.gold {
+    background: linear-gradient(135deg, #c9a84c, #f4d484);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .stat-sub {
+    font-size: 12px;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  /* Trigger */
+  .trigger-section {
+    padding: 32px 40px 0;
+  }
+  .trigger-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03));
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .trigger-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    background: linear-gradient(135deg, #c9a84c, #f4d484);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .trigger-icon svg {
+    width: 26px;
+    height: 26px;
+    color: #0a0a0a;
+  }
+  .trigger-content h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #fff;
+  }
+  .trigger-content p {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.5;
+  }
+
+  /* Timeline */
+  .timeline-container {
+    padding: 20px 40px 48px;
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .timeline-line {
+    position: absolute;
+    left: 66px;
+    top: 20px;
+    bottom: 48px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.4), rgba(201,168,76,0.1));
+  }
+
+  /* Touchpoint */
+  .touchpoint {
+    position: relative;
+    padding-left: 80px;
+    margin-top: 28px;
+  }
+  .tp-dot-area {
+    position: absolute;
+    left: 52px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tp-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: #0a0a0a;
+    position: relative;
+    z-index: 2;
+  }
+  .tp-dot.sms { border-color: #4ade80; }
+  .tp-dot.email { border-color: #60a5fa; }
+  .tp-dot.both { border-color: #c9a84c; }
+  .tp-dot.call { border-color: #f472b6; }
+  .tp-dot.special { border-color: #c084fc; }
+
+  .tp-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.2s;
+  }
+  .tp-card:hover {
+    border-color: rgba(201,168,76,0.25);
+    background: rgba(255,255,255,0.05);
+  }
+  .tp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .tp-timing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tp-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tp-badge.instant { background: rgba(201,168,76,0.15); color: #f4d484; }
+  .tp-badge.day2 { background: rgba(96,165,250,0.12); color: #60a5fa; }
+  .tp-badge.day4 { background: rgba(74,222,128,0.12); color: #4ade80; }
+  .tp-badge.day7 { background: rgba(244,114,182,0.12); color: #f472b6; }
+  .tp-badge.post { background: rgba(192,132,252,0.12); color: #c084fc; }
+
+  .tp-channels {
+    display: flex;
+    gap: 6px;
+  }
+  .channel-tag {
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .channel-tag.sms { background: rgba(74,222,128,0.1); color: #4ade80; }
+  .channel-tag.email { background: rgba(96,165,250,0.1); color: #60a5fa; }
+  .channel-tag.call { background: rgba(244,114,182,0.1); color: #f472b6; }
+
+  .tp-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .tp-desc {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.7;
+  }
+  .tp-preview {
+    margin-top: 14px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .tp-preview .from {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    font-style: normal;
+  }
+
+  /* Conditional Branch */
+  .condition-box {
+    margin-top: 28px;
+    position: relative;
+    padding-left: 80px;
+  }
+  .condition-card {
+    background: rgba(251,191,36,0.04);
+    border: 1px dashed rgba(251,191,36,0.25);
+    border-radius: 14px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .condition-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: rgba(251,191,36,0.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fbbf24;
+    font-size: 16px;
+  }
+  .condition-text {
+    font-size: 13px;
+    color: #bbb;
+  }
+  .condition-text strong {
+    color: #fbbf24;
+  }
+  .cond-dot-area {
+    position: absolute;
+    left: 52px;
+    top: 16px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cond-diamond {
+    width: 12px;
+    height: 12px;
+    background: #fbbf24;
+    transform: rotate(45deg);
+    border-radius: 2px;
+    z-index: 2;
+    position: relative;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 24px 40px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .footer-note {
+    font-size: 12px;
+    color: #555;
+  }
+  .footer-note span { color: #c9a84c; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="logo-area">
+    <div class="logo-icon">A</div>
+    <div class="logo-text">
+      <h1>The Amplified Group</h1>
+      <span>Investor Nurture Automation</span>
+    </div>
+  </div>
+  <div class="status-badge">
+    <div class="pulse-dot"></div>
+    <span class="status-text">Automation Active</span>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats-row">
+  <div class="stat-card">
+    <div class="stat-label">Touchpoints</div>
+    <div class="stat-value gold">8</div>
+    <div class="stat-sub">Automated messages</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Sequence Length</div>
+    <div class="stat-value" style="color: #60a5fa;">30 Days</div>
+    <div class="stat-sub">Full nurture cycle</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Channels</div>
+    <div class="stat-value" style="color: #4ade80;">3</div>
+    <div class="stat-sub">SMS + Email + Call</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Conditions</div>
+    <div class="stat-value" style="color: #fbbf24;">2</div>
+    <div class="stat-sub">Smart branching logic</div>
+  </div>
+</div>
+
+<!-- Trigger -->
+<div class="trigger-section">
+  <div class="trigger-box">
+    <div class="trigger-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    </div>
+    <div class="trigger-content">
+      <h3>Trigger: New Investor Lead</h3>
+      <p>Fires when an investor submits the interest form on amphomebuyers.com. Lead enters the CRM pipeline as "New Lead" and this sequence begins automatically.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Timeline -->
+<div class="timeline-container">
+  <div class="timeline-line"></div>
+
+  <!-- TP1: Instant Welcome -->
+  <div class="touchpoint">
+    <div class="tp-dot-area"><div class="tp-dot both"></div></div>
+    <div class="tp-card">
+      <div class="tp-header">
+        <div class="tp-timing">
+          <span class="tp-badge instant">Instant</span>
+        </div>
+        <div class="tp-channels">
+          <span class="channel-tag sms">SMS</span>
+          <span class="channel-tag email">Email</span>
+        </div>
+      </div>
+      <div class="tp-title">Welcome & Confirmation</div>
+      <div class="tp-desc">
+        Instant acknowledgment. Confirms their submission, sets expectations, and positions Anthony as the expert they'll be working with. Makes the investor feel seen immediately.
+      </div>
+      <div class="tp-preview">
+        <div class="from">SMS Preview:</div>
+        "Hey [First Name], this is Anthony with Amp Home Buyers. Got your info &mdash; excited to connect. I'll be sending you some real deal examples over the next few days so you can see exactly how our investors are building wealth in Houston real estate. Talk soon."
+      </div>
+    </div>
+  </div>
+
+  <!-- TP2: Day 2 Deal Example -->
+  <div class="touchpoint">
+    <div class="tp-dot-area"><div class="tp-dot email"></div></div>
+    <div class="tp-card">
+      <div class="tp-header">
+        <div class="tp-timing">
+          <span class="tp-badge day2">Day 2</span>
+        </div>
+        <div class="tp-channels">
+          <span class="channel-tag email">Email</span>
+        </div>
+      </div>
+      <div class="tp-title">Real Deal Breakdown</div>
+      <div class="tp-desc">
+        Shows a completed BRRR deal with real numbers &mdash; purchase price, rehab cost, ARV, rental income, cash-on-cash return. Proves the model works with specifics, not theory. This is the email that turns curiosity into serious interest.
+      </div>
+      <div class="tp-preview">
+        <div class="from">Subject Line:</div>
+        "Here's a real deal we closed last month (12% cash-on-cash)"
+      </div>
+    </div>
+  </div>
+
+  <!-- TP3: Day 4 Tax Benefits -->
+  <div class="touchpoint">
+    <div class="tp-dot-area"><div class="tp-dot both"></div></div>
+    <div class="tp-card">
+      <div class="tp-header">
+        <div class="tp-timing">
+          <span class="tp-badge day4">Day 4</span>
+        </div>
+        <div class="tp-channels">
+          <span class="channel-tag sms">SMS</span>
+          <span class="channel-tag email">Email</span>
+        </div>
+      </div>
+      <div class="tp-title">Tax Benefits & Depreciation</div>
+      <div class="tp-desc">
+        Hits the tax angle &mdash; depreciation, write-offs, how real estate investors legally reduce their tax burden. Especially powerful for W-2 professionals (doctors, engineers, attorneys) who are getting crushed on taxes and want a shelter.
+      </div>
+      <div class="tp-preview">
+        <div class="from">SMS Preview:</div>
+        "Quick question [First Name] &mdash; did you know most of our investors write off $15-25K in Year 1 through depreciation alone? Sent you an email breaking down exactly how it works."
+      </div>
+    </div>
+  </div>
+
+  <!-- Condition 1 -->
+  <div class="condition-box">
+    <div class="cond-dot-area"><div class="cond-diamond"></div></div>
+    <div class="condition-card">
+      <div class="condition-icon">?</div>
+      <div class="condition-text">
+        <strong>If investor opened emails &amp; clicked links:</strong> Continue to Day 7 call push.
+        <strong>If no engagement:</strong> Send a re-engagement text: "Hey [Name], just checking &mdash; did those deal numbers land in your inbox?"
+      </div>
+    </div>
+  </div>
+
+  <!-- TP4: Day 7 Book a Call -->
+  <div class="touchpoint">
+    <div class="tp-dot-area"><div class="tp-dot call"></div></div>
+    <div class="tp-card">
+      <div class="tp-header">
+        <div class="tp-timing">
+          <span class="tp-badge day7">Day 7</span>
+        </div>
+        <div class="tp-channels">
+          <span class="channel-tag sms">SMS</span>
+          <span class="channel-tag email">Email</span>
+          <span class="channel-tag call">Call CTA</span>
+        </div>
+      </div>
+      <div class="tp-title">Book a Strategy Call</div>
+      <div class="tp-desc">
+        The conversion push. By now they've seen the deal example, the tax benefits, and the process. This message makes it easy to take the next step &mdash; book a 15-minute call with Anthony. Direct calendar link, no friction.
+      </div>
+      <div class="tp-preview">
+        <div class="from">SMS Preview:</div>
+        "[First Name], I've got a deal coming up that fits the profile you described. Want to jump on a quick 15-min call this week? Here's my calendar: [Link]"
+      </div>
+    </div>
+  </div>
+
+  <!-- TP5: Post-Call Deal Presentation -->
+  <div class="touchpoint">
+    <div class="tp-dot-area"><div class="tp-dot special"></div></div>
+    <div class="tp-card">
+      <div class="tp-header">
+        <div class="tp-timing">
+          <span class="tp-badge post">Post-Call</span>
+        </div>
+        <div class="tp-channels">
+          <span class="channel-tag email">Email</span>
+        </div>
+      </div>
+      <div class="tp-title">Deal Presentation Package</div>
+      <div class="tp-desc">
+        Fires automatically after call is marked "completed" in CRM. Sends the full deal package &mdash; property details, pro forma, projected returns, timeline, and next steps to fund. This turns a good call into a signed deal.
+      </div>
+      <div class="tp-preview">
+        <div class="from">Subject Line:</div>
+        "Your deal package is ready &mdash; here's everything we discussed"
+      </div>
+    </div>
+  </div>
+
+  <!-- Condition 2 -->
+  <div class="condition-box">
+    <div class="cond-dot-area"><div class="cond-diamond"></div></div>
+    <div class="condition-card">
+      <div class="condition-icon">?</div>
+      <div class="condition-text">
+        <strong>If investor funds the deal:</strong> Move to Funded stage &rarr; continue to post-funding sequence.
+        <strong>If no response after 3 days:</strong> Send follow-up: "Hey [Name], any questions on the deal package? Happy to walk through the numbers again."
+      </div>
+    </div>
+  </div>
+
+  <!-- TP6: Post-Funding Updates -->
+  <div class="touchpoint">
+    <div class="tp-dot-area"><div class="tp-dot both"></div></div>
+    <div class="tp-card">
+      <div class="tp-header">
+        <div class="tp-timing">
+          <span class="tp-badge post">Post-Funding</span>
+        </div>
+        <div class="tp-channels">
+          <span class="channel-tag sms">SMS</span>
+          <span class="channel-tag email">Email</span>
+        </div>
+      </div>
+      <div class="tp-title">Portfolio Updates & Progress</div>
+      <div class="tp-desc">
+        Monthly updates on their investment &mdash; rehab progress photos, tenant placement status, rental income start date. Keeps the investor engaged and confident. Builds trust for repeat investments and referrals.
+      </div>
+      <div class="tp-preview">
+        <div class="from">Email Preview:</div>
+        "Quick update on your property at [Address]: rehab is 80% complete, on track for tenant placement by [Date]. Here are this week's progress photos..."
+      </div>
+    </div>
+  </div>
+
+  <!-- TP7: Post-Refi Celebration -->
+  <div class="touchpoint">
+    <div class="tp-dot-area"><div class="tp-dot special"></div></div>
+    <div class="tp-card">
+      <div class="tp-header">
+        <div class="tp-timing">
+          <span class="tp-badge post">Post-Refi</span>
+        </div>
+        <div class="tp-channels">
+          <span class="channel-tag sms">SMS</span>
+          <span class="channel-tag email">Email</span>
+        </div>
+      </div>
+      <div class="tp-title">Celebration & Results Recap</div>
+      <div class="tp-desc">
+        The win moment. Summarizes the full cycle &mdash; what they invested, what the property appraised at, their cash-on-cash return, and their equity position. Makes the investor feel like a genius for saying yes.
+      </div>
+      <div class="tp-preview">
+        <div class="from">SMS Preview:</div>
+        "Congrats [First Name]! Your refi just closed. You're now earning $X/month in passive cashflow with 12% CoC. Proud to have you as an Amplified investor."
+      </div>
+    </div>
+  </div>
+
+  <!-- TP8: Referral Request -->
+  <div class="touchpoint">
+    <div class="tp-dot-area"><div class="tp-dot both"></div></div>
+    <div class="tp-card">
+      <div class="tp-header">
+        <div class="tp-timing">
+          <span class="tp-badge post">Post-Refi +3 Days</span>
+        </div>
+        <div class="tp-channels">
+          <span class="channel-tag sms">SMS</span>
+          <span class="channel-tag email">Email</span>
+        </div>
+      </div>
+      <div class="tp-title">Referral Ask & Next Deal Teaser</div>
+      <div class="tp-desc">
+        Strikes while the iron is hot. Asks for referrals right after the investor has just experienced a successful cycle. Also teases the next available deal to plant the seed for a repeat investment.
+      </div>
+      <div class="tp-preview">
+        <div class="from">SMS Preview:</div>
+        "[First Name], now that you've seen the full cycle &mdash; know anyone else who'd want these returns? Send me their name and I'll take care of the rest. Also, I've got another deal coming up next month that might be perfect for round 2."
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <span class="footer-note">Built for <span>The Amplified Group</span> &bull; All sequences fully automated</span>
+</div>
+
+</body>
+</html>
