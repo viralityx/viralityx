@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carpe Diem Society — Build Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D5A3;
+    --gold-dark: #9A7B2F;
+    --bg-primary: #0A0A0A;
+    --bg-secondary: #111111;
+    --bg-card: #161616;
+    --bg-elevated: #1C1C1C;
+    --text-primary: #F5F0E8;
+    --text-secondary: #A09888;
+    --text-muted: #6B6050;
+    --border: rgba(201, 168, 76, 0.15);
+    --border-strong: rgba(201, 168, 76, 0.35);
+    --glow: rgba(201, 168, 76, 0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  .gold { color: var(--gold); }
+  .gold-light { color: var(--gold-light); }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 50% 40%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+  }
+  @keyframes heroGlow {
+    0% { transform: scale(1) translateY(0); opacity: 0.6; }
+    100% { transform: scale(1.1) translateY(-20px); opacity: 1; }
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--border-strong);
+    padding: 10px 28px;
+    margin-bottom: 48px;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+  .hero-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-bottom: 56px;
+    animation: fadeUp 1s ease 0.6s both;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    animation: fadeUp 1s ease 0.8s both;
+  }
+  .hero-meta span { color: var(--gold-light); }
+  .scroll-line {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  section { padding: 100px 0; position: relative; }
+  section + section { border-top: 1px solid var(--border); }
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+  }
+  .section-intro {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin-bottom: 56px;
+    line-height: 1.8;
+  }
+  .quote-block {
+    border-left: 2px solid var(--gold);
+    padding: 28px 36px;
+    margin: 48px 0;
+    background: var(--glow);
+  }
+  .quote-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.6;
+  }
+  .quote-block cite {
+    display: block;
+    margin-top: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .situation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .situation-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    transition: border-color 0.3s;
+  }
+  .situation-card:hover { border-color: var(--border-strong); }
+  .situation-card .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+  .situation-card .label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .situation-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .phase {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 48px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .phase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .phase-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .phase-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-primary);
+  }
+  .phase-price {
+    text-align: right;
+  }
+  .phase-price .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--gold);
+  }
+  .phase-price .context {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .phase-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    line-height: 1.8;
+    max-width: 580px;
+  }
+  .deliverables-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+  .deliverable-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.06);
+  }
+  .deliverable-item:last-child { border-bottom: none; }
+  .deliverable-item .check {
+    color: var(--gold);
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .deliverable-item .text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .deliverable-item .text strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  .phase-timeline {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 8px 20px;
+    border: 1px solid var(--border);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .investment-summary {
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    padding: 48px;
+    text-align: center;
+    position: relative;
+  }
+  .investment-summary::before,
+  .investment-summary::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--border);
+  }
+  .investment-summary::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .investment-summary::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+  .total-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .total-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 64px);
+    font-weight: 300;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .total-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+  }
+  .total-breakdown {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .breakdown-item .bi-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .breakdown-item .bi-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--text-primary);
+  }
+  .timeline-track {
+    position: relative;
+    padding-left: 48px;
+    margin-top: 48px;
+  }
+  .timeline-track::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--border), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 48px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -44px;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border: 1px solid var(--gold);
+    background: var(--bg-primary);
+    transform: rotate(45deg);
+  }
+  .timeline-week {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .timeline-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .timeline-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .beyond-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .beyond-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 32px;
+    transition: all 0.3s;
+  }
+  .beyond-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+  .beyond-icon {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .beyond-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .beyond-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .beyond-card .opp {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .cta-section {
+    text-align: center;
+    padding: 120px 0;
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+  }
+  .cta-text {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+  }
+  .cta-button {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--bg-primary);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    padding: 18px 48px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.25);
+  }
+  .cta-contact {
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .cta-contact a {
+    color: var(--gold-light);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+  }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  @media (max-width: 700px) {
+    .container { padding: 0 24px; }
+    .situation-grid, .beyond-grid { grid-template-columns: 1fr; }
+    .phase { padding: 32px 24px; }
+    .phase-header { flex-direction: column; }
+    .phase-price { text-align: left; }
+    .hero-meta { flex-direction: column; gap: 12px; }
+    .total-breakdown { flex-direction: column; gap: 24px; }
+    .investment-summary { padding: 32px 24px; }
+  }
+  /* ── Preview / Demo Section ── */
+  .preview-section {
+    margin-top: 56px;
+  }
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .preview-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .preview-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.12);
+    transform: translateY(-3px);
+  }
+  .preview-mockup {
+    height: 200px;
+    background: var(--bg-elevated);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .preview-mockup-inner {
+    width: 85%;
+    height: 75%;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px;
+    position: relative;
+  }
+  .mockup-bar {
+    height: 4px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+  }
+  .mockup-sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 22%;
+    height: 100%;
+    background: rgba(201,168,76,0.06);
+    border-right: 1px solid var(--border);
+  }
+  .mockup-sidebar-item {
+    height: 3px;
+    background: rgba(201,168,76,0.2);
+    margin: 8px 6px;
+    border-radius: 1px;
+  }
+  .mockup-content {
+    margin-left: 25%;
+    padding: 8px;
+  }
+  .mockup-stat-row {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .mockup-stat {
+    flex: 1;
+    height: 24px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+  .mockup-pipeline-row {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .mockup-pipeline-col {
+    flex: 1;
+    height: 40px;
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 2px;
+  }
+  /* Landing page mockup */
+  .mockup-hero-block {
+    text-align: center;
+    padding-top: 12px;
+  }
+  .mockup-hero-title {
+    height: 5px;
+    width: 60%;
+    margin: 0 auto 6px;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+  .mockup-hero-sub {
+    height: 3px;
+    width: 40%;
+    margin: 0 auto 10px;
+    background: rgba(245,240,232,0.2);
+    border-radius: 1px;
+  }
+  .mockup-hero-btn {
+    height: 8px;
+    width: 30%;
+    margin: 0 auto;
+    background: var(--gold);
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+  .mockup-cards-row {
+    display: flex;
+    gap: 4px;
+    margin-top: 10px;
+    padding: 0 10%;
+  }
+  .mockup-card-block {
+    flex: 1;
+    height: 28px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .preview-body {
+    padding: 24px;
+  }
+  .preview-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+  .preview-badge.live {
+    background: rgba(100,200,130,0.15);
+    color: #64C882;
+    border: 1px solid rgba(100,200,130,0.3);
+  }
+  .preview-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .preview-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  /* ── Lead Gen Callout ── */
+  .leadgen-callout {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(201,168,76,0.04) 100%);
+    border: 1px solid var(--border-strong);
+    padding: 48px;
+    margin: 40px 0;
+    position: relative;
+  }
+  .leadgen-callout::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .leadgen-callout h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+  .leadgen-callout p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 24px;
+  }
+  .leadgen-targets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .leadgen-tag {
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--gold-light);
+    letter-spacing: 0.5px;
+  }
+  @media (max-width: 700px) {
+    .preview-grid { grid-template-columns: 1fr; }
+    .leadgen-callout { padding: 32px 24px; }
+  }
+  @media print {
+    body { background: #fff; color: #111; }
+    .phase, .situation-card, .beyond-card, .investment-summary { border-color: #ccc; background: #fafafa; }
+    .gold, .phase-number, .section-label { color: #9A7B2F !important; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Scope &amp; Build Proposal</div>
+    <h1 class="hero-title">Carpe Diem Society<br><span class="gold">Systems Build</span></h1>
+    <p class="hero-subtitle">The operational backbone to take you from 109 attendees to 200 paying members.</p>
+    <div class="hero-meta">
+      <div>Prepared for <span>Paul Natividad</span></div>
+      <div>By <span>Virality X</span></div>
+      <div>March 2026</div>
+    </div>
+  </div>
+  <div class="scroll-line"></div>
+</section>
+<section>
+  <div class="container">
+    <div class="section-label">The Situation</div>
+    <h2 class="section-title">The front of house is world-class.<br>The back end needs to match.</h2>
+    <p class="section-intro">Your launch proved the demand. 109 people showed up — plus 30-40 walk-ins who didn't even RSVP. You have 220 names on an interest list and a cap of 200 members. The product is validated. What's missing is the system that turns that room full of warm bodies into a pipeline of paying founding members.</p>
+    <div class="quote-block">
+      <p>"My first milestone is to get to 60 — 20 founding members, 40 regular — so we can commit and move forward."</p>
+      <cite>Paul Natividad, Discovery Call</cite>
+    </div>
+    <div class="situation-grid">
+      <div class="situation-card">
+        <div class="num">220</div>
+        <div class="label">Interest List</div>
+        <p>Contacts across personal networks, event attendees, and warm referrals — currently living in phones, DMs, and Chrissy's memory.</p>
+      </div>
+      <div class="situation-card">
+        <div class="num">0</div>
+        <div class="label">Signed Members</div>
+        <p>No founding members signed yet. Not because of lack of interest — because there's no application funnel, no automated follow-up, no system to close.</p>
+      </div>
+      <div class="situation-card">
+        <div class="num">60</div>
+        <div class="label">Milestone #1</div>
+        <p>The trigger number. 20 founding + 40 regular members to commit to a venue, start collecting initiation deposits, and make this real.</p>
+      </div>
+      <div class="situation-card">
+        <div class="num">5+</div>
+        <div class="label">Revenue Streams</div>
+        <p>Every member is a potential client for lending, real estate, wellness, and wine — but nothing connects those businesses today.</p>
+      </div>
+    </div>
+    <!-- ── PREVIEW SECTION ── -->
+    <div class="preview-section">
+      <div class="section-label">Already In Progress</div>
+      <h2 class="section-title" style="font-size: clamp(26px, 3.5vw, 36px);">We didn't wait for sign-off<br>to <span class="gold">start building.</span></h2>
+      <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 32px; max-width: 580px;">To show you what this system looks and feels like in practice, we've already built working prototypes of the two highest-priority deliverables. These aren't mockups — they're functional.</p>
+      <div class="preview-grid">
+        <div class="preview-card">
+          <div class="preview-mockup">
+            <div class="preview-mockup-inner">
+              <div class="mockup-sidebar">
+                <div class="mockup-sidebar-item"></div>
+                <div class="mockup-sidebar-item" style="background: var(--gold); opacity: 0.5;"></div>
+                <div class="mockup-sidebar-item"></div>
+                <div class="mockup-sidebar-item"></div>
+                <div class="mockup-sidebar-item"></div>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-stat-row">
+                  <div class="mockup-stat"></div>
+                  <div class="mockup-stat"></div>
+                  <div class="mockup-stat"></div>
+                </div>
+                <div class="mockup-stat-row">
+                  <div class="mockup-stat" style="height: 32px;"></div>
+                  <div class="mockup-stat" style="height: 32px;"></div>
+                </div>
+                <div class="mockup-pipeline-row">
+                  <div class="mockup-pipeline-col"></div>
+                  <div class="mockup-pipeline-col"></div>
+                  <div class="mockup-pipeline-col"></div>
+                  <div class="mockup-pipeline-col"></div>
+                  <div class="mockup-pipeline-col"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-body">
+            <div class="preview-badge live">Built &amp; Functional</div>
+            <h4>CRM Dashboard</h4>
+            <p>Full contact database with pipeline management, cross-business opportunity mapping, role-based team logins, and color-coded stage tracking. Ready to load your 220 contacts.</p>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-mockup">
+            <div class="preview-mockup-inner" style="background: var(--bg-primary);">
+              <div class="mockup-hero-block">
+                <div class="mockup-hero-title"></div>
+                <div class="mockup-hero-sub"></div>
+                <div class="mockup-hero-btn"></div>
+                <div class="mockup-cards-row">
+                  <div class="mockup-card-block"></div>
+                  <div class="mockup-card-block"></div>
+                  <div class="mockup-card-block"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="preview-body">
+            <div class="preview-badge live">Built &amp; Functional</div>
+            <h4>Application Landing Page</h4>
+            <p>Luxury-branded membership application funnel with social proof, tier comparison, spots-remaining counter, and full application form. Ready to send to your 109 attendees.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="section-label">What We'll Build</div>
+    <h2 class="section-title">Three phases to take Carpe Diem<br>from interest list to <span class="gold">200 members</span></h2>
+    <p class="section-intro">Each phase is designed to deliver immediate value while building toward the full operational engine. You'll see results from Phase 1 within the first two weeks.</p>
+    <div class="phase">
+      <div class="phase-header">
+        <div>
+          <div class="phase-number">Phase 1 — Priority Build</div>
+          <div class="phase-name">Launch Infrastructure</div>
+        </div>
+        <div class="phase-price">
+          <div class="amount">$3,500</div>
+          <div class="context">Due at kickoff</div>
+        </div>
+      </div>
+      <p class="phase-desc">This is the foundation — your dedicated CRM, the cross-business mapping you asked for, the application landing page to start converting attendees immediately, and the automated follow-up system that replaces Chrissy's manual outreach overnight. This phase alone solves your top three priorities.</p>
+      <div class="deliverables-label">Deliverables</div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Custom CRM Dashboard</strong> — Your team logs in and sees everything: the full 220-person interest list, pipeline stages (cold to warm to applied to accepted to founding member), cross-business opportunity mapping, and real-time status on every contact. Color-coded, filterable, and built for Chrissy to use daily.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Cross-Business Relationship Mapping</strong> — Front and center on the dashboard. Every member record maps to your other ventures — lending, real estate, wellness, wine, tech. The system flags opportunities and routes them automatically. This is the #1 feature you asked for.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Membership Application Landing Page</strong> — A luxury-branded application funnel with social proof from your launch event, founding member vs. regular tier comparison, a live "spots remaining" counter, and a full application form that feeds directly into your CRM pipeline. This is how your 109 attendees become founding members.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Automated Follow-Up Sequences</strong> — Five complete email sequences: post-event attendee nurture (4 emails), application process flow (4 emails), new member welcome (4 emails), cold lead re-engagement (4 emails), and the non-attendee blast you specifically asked for (3 emails). 19 templated emails total, all on-brand.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Team Access &amp; Roles</strong> — Logins for you, Mike, Chrissy, and future team members. Role-based permissions so everyone sees what they need to.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Event Attendee Import Tool</strong> — Step-by-step wizard to import all 109+ launch attendees via CSV or QR scan data, auto-tag them, and place them in the correct pipeline stage. No technical skill required.</div>
+      </div>
+      <div class="phase-timeline">Delivery: Weeks 1-3</div>
+    </div>
+    <div class="phase">
+      <div class="phase-header">
+        <div>
+          <div class="phase-number">Phase 2 — Growth Engine</div>
+          <div class="phase-name">Member Acquisition Engine</div>
+        </div>
+        <div class="phase-price">
+          <div class="amount">$3,000</div>
+          <div class="context">Due at Phase 2 kickoff</div>
+        </div>
+      </div>
+      <p class="phase-desc">Phase 1 converts your existing network. Phase 2 is how you go beyond it. This is the outreach engine that finds, qualifies, and funnels affluent professionals in Newport Beach and Orange County who've never heard of Carpe Diem — and gets them to apply.</p>
+
+      <!-- Lead Gen Callout — Paul's #2 priority -->
+      <div class="leadgen-callout">
+        <h3>Outside Lead Generation — <span class="gold">The Growth Multiplier</span></h3>
+        <p>Your personal network gets you to 60. Outside lead gen gets you to 200. We build AI-powered systems that identify, scrape, and reach high-net-worth professionals in your target radius and industries — then automatically invite them into the application funnel with personalized, exclusive-tone outreach.</p>
+        <div style="font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px;">Target Industries</div>
+        <div class="leadgen-targets">
+          <div class="leadgen-tag">Attorneys</div>
+          <div class="leadgen-tag">Medical Professionals</div>
+          <div class="leadgen-tag">Med Spa Owners</div>
+          <div class="leadgen-tag">RE Investors</div>
+          <div class="leadgen-tag">Tech Executives</div>
+          <div class="leadgen-tag">Finance Professionals</div>
+          <div class="leadgen-tag">Luxury Brand Owners</div>
+          <div class="leadgen-tag">Surgeons</div>
+        </div>
+      </div>
+
+      <div class="deliverables-label">Deliverables</div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>AI-Powered Lead Generation &amp; Outreach System</strong> — We build targeted lead lists of affluent professionals in Newport Beach and Orange County. Automated, personalized email outreach at scale — exclusive tone, not spam. Full tracking in the CRM: sent, opened, replied, applied. This is how you fill the pipeline beyond your personal network.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Referral &amp; Ambassador Program</strong> — Automated tracking for member and non-member referrals. When someone refers an applicant who converts, the system tracks it, credits them, and triggers rewards. Ambassador tier for non-members (gift card incentives per your ask). Referral leaderboard in the dashboard.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>AI Chatbot for Inquiries</strong> — 24/7 conversational AI on your membership page that answers questions about the club, pricing, the application process, and can book a tour or call with you or Chrissy. Midnight browser becomes morning applicant.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>KPI Dashboard</strong> — Real-time metrics: pipeline velocity, applications in, conversions by stage, founding member count vs. goal, total revenue from initiation deposits, referral performance, outreach campaign metrics. Weekly email digest to you with the numbers that matter.</div>
+      </div>
+      <div class="phase-timeline">Delivery: Weeks 3-6</div>
+    </div>
+    <div class="phase">
+      <div class="phase-header">
+        <div>
+          <div class="phase-number">Phase 3 — Retention</div>
+          <div class="phase-name">Retention &amp; Growth Automation</div>
+        </div>
+        <div class="phase-price">
+          <div class="amount">$2,000</div>
+          <div class="context">One-time build</div>
+        </div>
+      </div>
+      <p class="phase-desc">Once members are in, you need to keep them. This phase builds the engagement tracking, event promotion engine, and AI-powered member matching that makes Carpe Diem the room they never want to leave.</p>
+      <div class="deliverables-label">Deliverables</div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Member Engagement Tracking</strong> — Track event attendance, engagement scores, and churn risk. Flag disengaged members before they cancel so you can re-engage proactively.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>AI Member Matching</strong> — The feature that lit you up on the call. AI reads member profiles and conversations, then automatically pairs members for introductions based on complementary businesses, interests, and needs. Networking on autopilot.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Event Promotion Engine</strong> — Automated event announcement sequences, RSVP tracking, reminder flows, and post-event follow-up. Every event runs like a machine.</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="check">&#9670;</div>
+        <div class="text"><strong>Waitlist Automation</strong> — Once you hit 200, the system automatically manages a waitlist, notifies applicants of openings, and maintains the exclusivity that drives demand.</div>
+      </div>
+      <div class="phase-timeline">Delivery: Weeks 6-8</div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="investment-summary">
+      <div class="total-label">Total Investment — All Three Phases</div>
+      <div class="total-amount">$8,500</div>
+      <div class="total-sub">Complete operational engine from interest list to 200 members.</div>
+      <div class="total-breakdown">
+        <div class="breakdown-item">
+          <div class="bi-label">Phase 1</div>
+          <div class="bi-value">$3,500</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="bi-label">Phase 2</div>
+          <div class="bi-value">$3,000</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="bi-label">Phase 3</div>
+          <div class="bi-value">$2,000</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="bi-label">Delivery</div>
+          <div class="bi-value">8 Weeks</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 40px; padding: 24px 32px; border: 1px solid var(--border); background: var(--bg-card);">
+      <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.8;"><strong style="color: var(--gold);">The math:</strong> At just 20 founding members ($2,500 initiation each), the club collects $50,000 in deposits before you finish Phase 1. At 60 members — your first milestone — initiation fees alone exceed $250,000. This $8,500 investment pays for itself with your second signed member. The landing page and CRM go live in week two — meaning you can start converting your 109 warm attendees into paying members within 14 days of kickoff.</p>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="section-label">Timeline</div>
+    <h2 class="section-title">From kickoff to fully operational<br>in <span class="gold">8 weeks</span></h2>
+    <p class="section-intro">Phased delivery so you're using the system and closing members from week two — not waiting until everything is "done."</p>
+    <div class="timeline-track">
+      <div class="timeline-item">
+        <div class="timeline-week">Week 1</div>
+        <div class="timeline-title">Kickoff &amp; Data Import</div>
+        <div class="timeline-desc">Onboarding session with you, Mike, and Chrissy. Import all 220 contacts. CRM architecture and cross-business mapping structure built.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 2</div>
+        <div class="timeline-title">CRM Live &amp; Follow-Ups Active</div>
+        <div class="timeline-desc">CRM dashboard and application landing page go live. Automated post-event follow-up sequences launch to all 109 attendees. Chrissy starts managing the system instead of doing outreach manually. You can start sharing the application link immediately.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 3</div>
+        <div class="timeline-title">Phase 1 Complete — Phase 2 Begins</div>
+        <div class="timeline-desc">All Phase 1 systems operational. Outside lead generation begins — AI-powered scraping and list building for Newport/OC affluent professionals. First outreach campaigns in development.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Weeks 4-5</div>
+        <div class="timeline-title">Acquisition Engine Live</div>
+        <div class="timeline-desc">First outside outreach campaigns launched. AI chatbot deployed on membership page. Referral and ambassador program active. KPI dashboard tracking all pipeline metrics.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 6</div>
+        <div class="timeline-title">Phase 2 Complete — Phase 3 Begins</div>
+        <div class="timeline-desc">KPI dashboard live. Retention and engagement tracking build begins. AI member matching in development.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Weeks 7-8</div>
+        <div class="timeline-title">Full System Operational</div>
+        <div class="timeline-desc">All systems live. AI member matching active. Event promotion engine running. Waitlist automation ready for when you hit 200. Full team training completed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="section-label">Beyond the Club</div>
+    <h2 class="section-title">Your other ventures,<br><span class="gold">powered by the same engine</span></h2>
+    <p class="section-intro">The CRM we build for Carpe Diem becomes the central nervous system for all your businesses. Every member is a potential client across your entire portfolio. Here's what we'd build as future phases.</p>
+    <div class="beyond-grid">
+      <div class="beyond-card">
+        <div class="beyond-icon">&#9670;</div>
+        <h4>Lending &amp; Mortgage</h4>
+        <p>Automated lead routing from club members who flag financing needs. AI-powered follow-up sequences for your 170 agents. Pipeline tracking and conversion analytics for the lending team.</p>
+        <div class="opp">Revenue impact: Every member referral that closes a loan.</div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-icon">&#9670;</div>
+        <h4>Real Estate — Realty One</h4>
+        <p>Agent CRM integration, automated listing alerts for club members, and AI voice agents to handle property inquiries when your team is in the field. Stop losing leads to voicemail.</p>
+        <div class="opp">Revenue impact: Agent productivity x 170 agents.</div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-icon">&#9670;</div>
+        <h4>Wellness Ventures</h4>
+        <p>IV session booking automation at mastermind events. Cross-promotion engine between club events and wellness offerings. Member wellness packages as a retention perk.</p>
+        <div class="opp">Revenue impact: Dual revenue stream at every event.</div>
+      </div>
+      <div class="beyond-card">
+        <div class="beyond-icon">&#9670;</div>
+        <h4>Status &amp; Pop Star — Sparkling</h4>
+        <p>Distribution tracking, event integration as the house pour, and automated reorder systems for club inventory. Member-exclusive releases and tasting event funnels.</p>
+        <div class="opp">Revenue impact: Built-in distribution channel of 200 affluent drinkers.</div>
+      </div>
+    </div>
+    <div style="margin-top: 40px; padding: 24px 32px; border: 1px solid var(--border); background: var(--bg-card);">
+      <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.8;"><strong style="color: var(--gold);">Future Phase Pricing:</strong> Each business integration would be scoped separately based on complexity. Typical range is $3,000-$6,000 per venture. But the foundation we build in the club phases makes every future build faster and cheaper.</p>
+    </div>
+  </div>
+</section>
+<section class="cta-section">
+  <div class="container">
+    <div class="section-label">Next Steps</div>
+    <h2 class="cta-title">Let's get you to 60.</h2>
+    <p class="cta-text">Every day without a system is a day warm leads go cold. We're ready to start this week. Sign off on Phase 1 and we'll have your CRM live with automated follow-ups running within 14 days.</p>
+    <a href="mailto:dannypropertrends@gmail.com?subject=Carpe%20Diem%20%E2%80%94%20Let's%20Go" class="cta-button">Lock In Phase 1</a>
+    <div class="cta-contact">
+      <p>Questions? Reach Danny directly.<br>
+      <a href="mailto:dannypropertrends@gmail.com">dannypropertrends@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    Virality X — Systems That Scale &nbsp;&middot;&nbsp; Confidential Proposal &nbsp;&middot;&nbsp; 2026
+  </div>
+</footer>
+</body>
+</html>
