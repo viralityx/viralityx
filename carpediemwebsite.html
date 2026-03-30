@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carpe Diem Society — Website Transformation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0A0A0A;
+    --bg-card: #111111;
+    --bg-card-alt: #0D0D0D;
+    --gold: #C9A84C;
+    --gold-light: #E8D48B;
+    --gold-dim: #8B7533;
+    --cream: #F5F0E8;
+    --cream-dim: #A89F91;
+    --red: #C0392B;
+    --red-soft: #3D1A15;
+    --green: #27AE60;
+    --green-soft: #132E1C;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg);
+    color: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    padding: 60px 40px 30px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .header-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .header h1 span { color: var(--gold); }
+  .header p {
+    font-size: 15px;
+    color: var(--cream-dim);
+    max-width: 620px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── VERDICT BANNER ── */
+  .verdict-banner {
+    margin: 48px auto;
+    max-width: 900px;
+    background: linear-gradient(135deg, rgba(192,57,43,0.12), rgba(201,168,76,0.08));
+    border: 1px solid rgba(192,57,43,0.3);
+    border-radius: 16px;
+    padding: 36px 44px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .verdict-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(192,57,43,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .verdict-icon svg { width: 32px; height: 32px; }
+  .verdict-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .verdict-text p {
+    font-size: 13.5px;
+    color: var(--cream-dim);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-title {
+    text-align: center;
+    margin: 56px 0 36px;
+  }
+  .section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .section-title p {
+    font-size: 13px;
+    color: var(--cream-dim);
+    font-weight: 300;
+  }
+
+  /* ── SIDE BY SIDE GRID ── */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  .site-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .site-card.current { background: var(--bg-card); border-color: rgba(192,57,43,0.25); }
+  .site-card.new { background: var(--bg-card); border-color: rgba(39,174,96,0.25); }
+
+  .site-card-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+  }
+  .site-card.current .site-card-header { background: rgba(192,57,43,0.06); }
+  .site-card.new .site-card-header { background: rgba(39,174,96,0.06); }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .current .status-dot { background: var(--red); box-shadow: 0 0 8px rgba(192,57,43,0.5); }
+  .new .status-dot { background: var(--green); box-shadow: 0 0 8px rgba(39,174,96,0.5); }
+
+  .site-card-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .current .site-card-header h3 { color: #E67E73; }
+  .new .site-card-header h3 { color: #6FCF97; }
+
+  .site-card-body { padding: 24px; }
+
+  /* ── MOCKUP BROWSER FRAME ── */
+  .browser-frame {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 20px;
+  }
+  .browser-bar {
+    background: #1A1A1A;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .browser-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #333;
+  }
+  .browser-dot:nth-child(1) { background: #FF5F57; }
+  .browser-dot:nth-child(2) { background: #FFBD2E; }
+  .browser-dot:nth-child(3) { background: #28C840; }
+  .browser-url {
+    margin-left: 12px;
+    font-size: 11px;
+    color: #666;
+    background: #0F0F0F;
+    padding: 4px 12px;
+    border-radius: 4px;
+    flex: 1;
+    font-family: 'Montserrat', monospace;
+  }
+
+  .browser-content {
+    background: #0F0F0F;
+    min-height: 260px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── CURRENT SITE MOCKUP ── */
+  .current-mockup {
+    padding: 20px;
+    text-align: center;
+  }
+  .current-mockup .mock-nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .current-mockup .mock-nav span {
+    font-size: 9px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .current-mockup .mock-hero {
+    background: linear-gradient(135deg, #2A2215, #1A1812);
+    border-radius: 8px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border: 1px solid rgba(201,168,76,0.1);
+  }
+  .current-mockup .mock-hero span {
+    font-size: 10px;
+    color: #555;
+    font-style: italic;
+  }
+  .current-mockup .mock-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+  .mock-cta-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .mock-cta-row span {
+    font-size: 9px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: #1A1A1A;
+    color: #555;
+    border: 1px solid #222;
+  }
+
+  /* ── NEW SITE MOCKUP ── */
+  .new-mockup {
+    padding: 0;
+  }
+  .new-mockup .mock-hero-new {
+    background: linear-gradient(180deg, #0A0A0A 0%, #1A1510 50%, #0A0A0A 100%);
+    padding: 24px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .new-mockup .mock-hero-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .mock-badge {
+    display: inline-block;
+    font-size: 7px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .mock-hero-new h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--cream);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .mock-hero-new p {
+    font-size: 8px;
+    color: var(--cream-dim);
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+  .mock-apply-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+    color: var(--bg);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .mock-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .mock-stat {
+    text-align: center;
+  }
+  .mock-stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--gold);
+    display: block;
+  }
+  .mock-stat .lbl {
+    font-size: 6px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .mock-sections-strip {
+    display: flex;
+    gap: 6px;
+    padding: 10px;
+    overflow: hidden;
+  }
+  .mock-section-chip {
+    flex-shrink: 0;
+    font-size: 7px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.1);
+    color: var(--cream-dim);
+    white-space: nowrap;
+  }
+
+  /* ── FEATURE COMPARISON TABLE ── */
+  .feature-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 32px 0 48px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .feature-table thead th {
+    background: rgba(201,168,76,0.06);
+    padding: 16px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .feature-table thead th:first-child { color: var(--cream); width: 40%; }
+  .feature-table thead th:nth-child(2) { color: #E67E73; text-align: center; width: 30%; }
+  .feature-table thead th:nth-child(3) { color: #6FCF97; text-align: center; width: 30%; }
+
+  .feature-table tbody td {
+    padding: 14px 20px;
+    font-size: 13px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: middle;
+  }
+  .feature-table tbody tr:last-child td { border-bottom: none; }
+  .feature-table tbody tr:nth-child(even) td { background: rgba(255,255,255,0.01); }
+
+  .feature-table tbody td:first-child {
+    color: var(--cream);
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .feature-table tbody td:nth-child(2),
+  .feature-table tbody td:nth-child(3) {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--cream-dim);
+    font-weight: 300;
+  }
+
+  .check {
+    display: inline-flex;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+  .check.yes {
+    background: rgba(39,174,96,0.12);
+  }
+  .check.yes svg { stroke: #6FCF97; }
+  .check.no {
+    background: rgba(192,57,43,0.12);
+  }
+  .check.no svg { stroke: #E67E73; }
+
+  /* ── IMPACT CARDS ── */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .impact-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: border-color 0.3s;
+  }
+  .impact-card:hover { border-color: rgba(201,168,76,0.25); }
+  .impact-card .metric {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .impact-card .metric-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cream-dim);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .impact-card p {
+    font-size: 12.5px;
+    color: var(--cream-dim);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ── ISSUES LIST ── */
+  .issues-section {
+    margin: 48px 0;
+  }
+  .issue-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .issue-row:last-child { border-bottom: none; }
+  .issue-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(192,57,43,0.1);
+    border: 1px solid rgba(192,57,43,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: #E67E73;
+  }
+  .issue-content h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+  .issue-content p {
+    font-size: 12.5px;
+    color: var(--cream-dim);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+  .issue-fix {
+    margin-top: 6px;
+    font-size: 11.5px;
+    color: #6FCF97;
+    font-weight: 500;
+  }
+  .issue-fix::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #27AE60;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  /* ── BOTTOM LINE ── */
+  .bottom-line {
+    margin: 48px 0 64px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 16px;
+    padding: 40px 48px;
+    text-align: center;
+  }
+  .bottom-line h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+  .bottom-line p {
+    font-size: 14px;
+    color: var(--cream-dim);
+    font-weight: 300;
+    max-width: 640px;
+    margin: 0 auto 24px;
+    line-height: 1.7;
+  }
+  .action-items {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .action-item {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 12px;
+    color: var(--gold-light);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .action-item svg { width: 14px; height: 14px; stroke: var(--gold); }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 32px;
+    border-top: 1px solid rgba(201,168,76,0.08);
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 1px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .comparison-grid { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 28px; }
+    .verdict-banner { flex-direction: column; text-align: center; padding: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<div class="header">
+  <div class="header-label">Prepared by ViralityX</div>
+  <h1>Current Site vs. <span>The New Build</span></h1>
+  <p>A clear-eyed comparison of where carpediemsociety.com is today and the membership conversion system we're building to replace it.</p>
+</div>
+
+<div class="container">
+
+  <!-- ── VERDICT BANNER ── -->
+  <div class="verdict-banner">
+    <div class="verdict-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#E67E73" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="15" y1="9" x2="9" y2="15"/>
+        <line x1="9" y1="9" x2="15" y2="15"/>
+      </svg>
+    </div>
+    <div class="verdict-text">
+      <h3>The Current Site Is a Venue Page, Not a Sales Funnel</h3>
+      <p>Right now, carpediemsociety.com tells visitors "here's a nice lounge you can book." It doesn't communicate exclusivity, doesn't capture applications, doesn't sell the value of membership, and doesn't convert. The new build changes every part of that equation.</p>
+    </div>
+  </div>
+
+  <!-- ── SIDE BY SIDE MOCKUPS ── -->
+  <div class="section-title">
+    <h2>Side by Side</h2>
+    <p>What visitors see today vs. what they'll see after launch</p>
+  </div>
+
+  <div class="comparison-grid">
+
+    <!-- CURRENT SITE -->
+    <div class="site-card current">
+      <div class="site-card-header">
+        <div class="status-dot"></div>
+        <h3>Current Site</h3>
+      </div>
+      <div class="site-card-body">
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dot"></div>
+            <div class="browser-dot"></div>
+            <div class="browser-dot"></div>
+            <div class="browser-url">carpediemsociety.com</div>
+          </div>
+          <div class="browser-content">
+            <div class="current-mockup">
+              <div class="mock-nav">
+                <span>3D Tour</span>
+                <span>Home</span>
+                <span>Join</span>
+                <span>Bookings</span>
+                <span>Members</span>
+                <span>Contact</span>
+              </div>
+              <div class="mock-hero">
+                <div class="mock-hero-title">GivBux Lounge</div>
+                <span>[ Single lounge photo ]</span>
+                <span>Pool table &bull; Couches &bull; Harbor view</span>
+              </div>
+              <div style="font-size:9px; color:#555; margin-top:12px;">
+                "Have a group of people? Contact us for group pricing."
+              </div>
+              <div class="mock-cta-row">
+                <span>Phone: 714-717-8795</span>
+                <span>Contact!</span>
+              </div>
+              <div style="margin-top:14px; font-size:8px; color:#333;">That's it. That's the whole page.</div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:12px; color:var(--cream-dim); font-weight:300; line-height:1.7;">
+          A static venue listing. No application process, no membership tiers, no social proof, no urgency, no conversion mechanics. The page title even says "GivBux Lounge" — not Carpe Diem Society. Someone landing here would think it's a coworking space they can rent by the hour.
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW BUILD -->
+    <div class="site-card new">
+      <div class="site-card-header">
+        <div class="status-dot"></div>
+        <h3>The New Build</h3>
+      </div>
+      <div class="site-card-body">
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dot"></div>
+            <div class="browser-dot"></div>
+            <div class="browser-dot"></div>
+            <div class="browser-url">carpediemsociety.com</div>
+          </div>
+          <div class="browser-content">
+            <div class="new-mockup">
+              <div class="mock-hero-new">
+                <div class="mock-badge">Newport Beach's Most Exclusive Network</div>
+                <h4>Where Ambition Meets<br>Opportunity</h4>
+                <p>An invitation-only society for high-performers who build, invest, and elevate together.</p>
+                <div class="mock-apply-btn">Apply for Membership</div>
+                <div class="mock-stats-row">
+                  <div class="mock-stat"><span class="num">128</span><span class="lbl">Launch Guests</span></div>
+                  <div class="mock-stat"><span class="num">3</span><span class="lbl">Founding Left</span></div>
+                  <div class="mock-stat"><span class="num">5</span><span class="lbl">Industries</span></div>
+                </div>
+              </div>
+              <div class="mock-sections-strip">
+                <div class="mock-section-chip">Social Proof</div>
+                <div class="mock-section-chip">Benefits</div>
+                <div class="mock-section-chip">Tier Comparison</div>
+                <div class="mock-section-chip">Application Form</div>
+                <div class="mock-section-chip">FAQ</div>
+                <div class="mock-section-chip">Admin Panel</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:12px; color:var(--cream-dim); font-weight:300; line-height:1.7;">
+          A full membership conversion funnel. Animated hero with urgency mechanics, social proof from the 128-person launch event, two membership tiers with pricing, a multi-field application form with validation, Supabase backend, and an admin panel for Paul's team to manage every application.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FEATURE COMPARISON TABLE ── -->
+  <div class="section-title">
+    <h2>Feature-by-Feature</h2>
+    <p>Everything visitors need to see before they apply</p>
+  </div>
+
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Current Site</th>
+        <th>New Build</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Luxury brand identity (dark/gold)</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Full-viewport animated hero</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Social proof / testimonials</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Membership tier comparison</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Application form with validation</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Founding member urgency (spots left)</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Benefits breakdown (4 pillars)</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>FAQ / objection handling</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Database backend (Supabase)</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Admin panel for team</td>
+        <td><span class="check no"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Mobile responsive design</td>
+        <td style="font-size:11px; color:#E67E73;">Basic</td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+      </tr>
+      <tr>
+        <td>Real venue photography</td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+        <td style="font-size:11px; color:#FFB84D;">Needs Paul's photos</td>
+      </tr>
+      <tr>
+        <td>3D Tour link</td>
+        <td><span class="check yes"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+        <td style="font-size:11px; color:#FFB84D;">Easy to add</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ── 7 CRITICAL PROBLEMS ── -->
+  <div class="section-title">
+    <h2>What's Wrong with the Current Site</h2>
+    <p>Every issue below is costing Paul potential founding members</p>
+  </div>
+
+  <div class="issues-section">
+    <div class="issue-row">
+      <div class="issue-num">1</div>
+      <div class="issue-content">
+        <h4>Wrong Identity</h4>
+        <p>The page title reads "GivBux Lounge" — not Carpe Diem Society. Before a visitor even sees the content, the browser tab is telling them they're at the wrong place. This creates immediate brand confusion.</p>
+        <div class="issue-fix">New build: Brand name in every touchpoint — tab title, hero, nav, footer</div>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-num">2</div>
+      <div class="issue-content">
+        <h4>No Value Proposition</h4>
+        <p>There's no headline explaining what Carpe Diem Society is, why it exists, or why anyone should care. The page jumps straight from a logo to a photo of furniture. Visitors have to guess what this is.</p>
+        <div class="issue-fix">New build: Hero with tagline, subtitle, and animated stat counters</div>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-num">3</div>
+      <div class="issue-content">
+        <h4>No Exclusivity Signal</h4>
+        <p>Nothing on the page communicates that this is a private, selective club. The "Join" and "Bookings" nav links suggest anyone can walk in and pay. That kills the perceived value of membership.</p>
+        <div class="issue-fix">New build: "Apply for Membership" language, founding spots counter, application screening</div>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-num">4</div>
+      <div class="issue-content">
+        <h4>No Social Proof</h4>
+        <p>128 people came to the launch event. Zero of those people are represented on the website. No testimonials, no event photos, no member count, no industry breakdown. All of that credibility is invisible.</p>
+        <div class="issue-fix">New build: Testimonials section, event highlight, animated member counter</div>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-num">5</div>
+      <div class="issue-content">
+        <h4>No Conversion Mechanism</h4>
+        <p>The only call-to-action is "Contact us for group pricing" — language that sounds like renting a party room at a restaurant. There's no application form, no way to capture leads, no funnel. Every visitor who's interested hits a dead end.</p>
+        <div class="issue-fix">New build: Multi-step application form with Supabase backend, instant team notifications</div>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-num">6</div>
+      <div class="issue-content">
+        <h4>No Membership Tiers or Pricing</h4>
+        <p>Visitors can't understand what they'd get or what it costs. Without clear tiers, there's no way to self-select or feel urgency around a particular level. The founding member opportunity — Paul's biggest lever — is completely hidden.</p>
+        <div class="issue-fix">New build: Side-by-side Founding vs. Regular tier cards with pricing and benefits</div>
+      </div>
+    </div>
+    <div class="issue-row">
+      <div class="issue-num">7</div>
+      <div class="issue-content">
+        <h4>No Cross-Business Story</h4>
+        <p>Paul's biggest differentiator — access to deal flow across real estate, lending, wellness, wine, and tech — is nowhere on the page. This is the thing that makes Carpe Diem different from every other club, and it's completely absent.</p>
+        <div class="issue-fix">New build: Benefits section with four pillars including cross-business networking</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROJECTED IMPACT ── -->
+  <div class="section-title">
+    <h2>Projected Impact</h2>
+    <p>Conservative estimates based on conversion best practices</p>
+  </div>
+
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="metric">~0%</div>
+      <div class="metric-label">Current Conversion</div>
+      <p>No application form means zero online conversions. Every member currently comes through personal outreach or in-person events.</p>
+    </div>
+    <div class="impact-card">
+      <div class="metric">8-15%</div>
+      <div class="metric-label">Projected Conversion</div>
+      <p>Industry standard for high-touch application funnels with social proof, urgency, and clear tier pricing on luxury membership sites.</p>
+    </div>
+    <div class="impact-card">
+      <div class="metric">24/7</div>
+      <div class="metric-label">Always Selling</div>
+      <p>The new site captures applications while Paul sleeps, automates follow-up sequences, and feeds qualified leads into the CRM pipeline.</p>
+    </div>
+  </div>
+
+  <!-- ── BOTTOM LINE ── -->
+  <div class="bottom-line">
+    <h2>The Bottom Line</h2>
+    <p>Paul's current site is leaving money on the table every single day. The venue is stunning, the network is real, the 128-person launch proved demand. The only thing missing is a system that converts that demand into paying members — automatically.</p>
+    <div class="action-items">
+      <div class="action-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+        Get high-res venue photos from Paul
+      </div>
+      <div class="action-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+        Apply Replit upgrade prompt
+      </div>
+      <div class="action-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+        Point domain to new build
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">VIRALITYX &bull; PREPARED FOR CARPE DIEM SOCIETY &bull; MARCH 2026</div>
+
+</body>
+</html>
