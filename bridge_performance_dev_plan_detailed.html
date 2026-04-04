@@ -1,0 +1,544 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.page { background: #0d1b2e; border-radius: 16px; padding: 48px 40px; font-family: var(--font-sans, system-ui, sans-serif); }
+.brand-row { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; }
+.bmark { width: 32px; height: 32px; background: #2dd4a0; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.bname { font-size: 12px; font-weight: 500; color: #2dd4a0; letter-spacing: 0.12em; text-transform: uppercase; }
+.doc-pill { margin-left: auto; font-size: 11px; color: #4a6080; border: 0.5px solid #2a3d56; border-radius: 6px; padding: 3px 9px; }
+h1 { font-size: 28px; font-weight: 500; color: #f0f4f8; line-height: 1.2; margin-bottom: 10px; }
+.sub { font-size: 14px; color: #8a9ab5; line-height: 1.6; max-width: 640px; margin-bottom: 28px; }
+.teal-rule { height: 1.5px; background: #2dd4a0; width: 48px; margin-bottom: 40px; }
+
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 44px; }
+.sc { background: #1a2535; border: 0.5px solid #2a3d56; border-radius: 10px; padding: 14px; }
+.sn { font-size: 24px; font-weight: 500; color: #2dd4a0; }
+.sl { font-size: 11px; color: #8a9ab5; margin-top: 4px; line-height: 1.4; }
+
+.slabel { font-size: 10px; font-weight: 500; color: #2dd4a0; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+.sgap { margin-bottom: 44px; }
+
+.day-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.day-col { }
+.day-header { background: #1a2535; border: 0.5px solid #2a3d56; border-radius: 10px 10px 0 0; padding: 12px 16px; display: flex; align-items: center; gap: 10px; border-bottom: none; }
+.day-num { width: 26px; height: 26px; border-radius: 50%; background: #2dd4a0; color: #0d1b2e; font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.day-title { font-size: 13px; font-weight: 500; color: #f0f4f8; }
+.day-week { margin-left: auto; font-size: 10px; color: #2dd4a0; background: rgba(45,212,160,0.1); border: 0.5px solid rgba(45,212,160,0.25); border-radius: 5px; padding: 2px 7px; }
+.day-body { background: #1e2d40; border: 0.5px solid #2a3d56; border-radius: 0 0 10px 10px; padding: 14px 16px; }
+.task-group { margin-bottom: 14px; }
+.task-group:last-child { margin-bottom: 0; }
+.tg-name { font-size: 11px; font-weight: 500; color: #2dd4a0; margin-bottom: 7px; letter-spacing: 0.05em; }
+.task-item { display: flex; align-items: flex-start; gap: 7px; margin-bottom: 5px; }
+.task-item:last-child { margin-bottom: 0; }
+.tdot { width: 5px; height: 5px; border-radius: 50%; background: #2dd4a0; flex-shrink: 0; margin-top: 5px; }
+.ttext { font-size: 12px; color: #8a9ab5; line-height: 1.5; }
+.ttext strong { color: #c8d8ea; font-weight: 500; }
+
+.formula-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.formula-card { background: #111e2e; border: 0.5px solid #2a3d56; border-radius: 8px; padding: 12px; }
+.fc-label { font-size: 10px; color: #2dd4a0; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+.fc-formula { font-size: 11px; color: #c8d8ea; font-family: var(--font-mono, monospace); line-height: 1.6; }
+.fc-note { font-size: 11px; color: #4a6080; margin-top: 5px; line-height: 1.4; }
+
+.class-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.cbadge { font-size: 10px; border-radius: 5px; padding: 3px 8px; }
+.cb-red { background: rgba(226,75,74,0.15); color: #e24b4a; border: 0.5px solid rgba(226,75,74,0.3); }
+.cb-amber { background: rgba(239,159,39,0.15); color: #ef9f27; border: 0.5px solid rgba(239,159,39,0.3); }
+.cb-blue { background: rgba(55,138,221,0.15); color: #378add; border: 0.5px solid rgba(55,138,221,0.3); }
+.cb-green { background: rgba(45,212,160,0.15); color: #2dd4a0; border: 0.5px solid rgba(45,212,160,0.3); }
+.cb-teal { background: rgba(29,158,117,0.15); color: #1d9e75; border: 0.5px solid rgba(29,158,117,0.3); }
+
+.screen-list { display: flex; flex-direction: column; gap: 8px; }
+.screen-row { background: #1e2d40; border: 0.5px solid #2a3d56; border-radius: 8px; padding: 11px 14px; }
+.sr-top { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+.sr-num { font-size: 10px; color: #2dd4a0; background: rgba(45,212,160,0.1); border: 0.5px solid rgba(45,212,160,0.25); border-radius: 4px; padding: 1px 6px; flex-shrink: 0; }
+.sr-name { font-size: 13px; font-weight: 500; color: #f0f4f8; }
+.sr-replaces { margin-left: auto; font-size: 10px; color: #4a6080; }
+.sr-body { font-size: 12px; color: #8a9ab5; line-height: 1.5; }
+.sr-fields { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+.sf { font-size: 10px; color: #8a9ab5; background: rgba(255,255,255,0.04); border: 0.5px solid #2a3d56; border-radius: 4px; padding: 2px 6px; }
+
+.metric-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.metric-table th { font-size: 10px; color: #4a6080; font-weight: 500; text-align: left; padding: 6px 8px; border-bottom: 0.5px solid #2a3d56; letter-spacing: 0.06em; text-transform: uppercase; }
+.metric-table td { padding: 6px 8px; color: #8a9ab5; border-bottom: 0.5px solid #1a2535; vertical-align: top; line-height: 1.5; }
+.metric-table td:first-child { color: #c8d8ea; font-weight: 500; white-space: nowrap; }
+.metric-table tr:last-child td { border-bottom: none; }
+.mt-wrap { background: #1e2d40; border: 0.5px solid #2a3d56; border-radius: 8px; overflow: hidden; margin-bottom: 10px; }
+
+.timeline-outer { background: #1a2535; border: 0.5px solid #2a3d56; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+.tl-days { display: grid; grid-template-columns: repeat(14, 1fr); gap: 3px; margin-bottom: 8px; }
+.tl-day { height: 28px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 500; }
+.tl-day-label { font-size: 9px; color: #4a6080; text-align: center; }
+.tl-labels-row { display: grid; grid-template-columns: repeat(14, 1fr); gap: 3px; margin-bottom: 12px; }
+.tl-legend { display: flex; flex-wrap: wrap; gap: 12px; }
+.tl-li { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #8a9ab5; }
+.tl-li-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+.footer-box { background: rgba(45,212,160,0.07); border: 0.5px solid rgba(45,212,160,0.25); border-radius: 10px; padding: 16px 18px; display: flex; gap: 12px; }
+.fb-icon { width: 18px; height: 18px; border-radius: 50%; background: #2dd4a0; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; }
+.fb-text { font-size: 13px; color: #8a9ab5; line-height: 1.6; }
+.fb-text strong { color: #f0f4f8; font-weight: 500; }
+
+@media (max-width: 660px) {
+  .page { padding: 24px 16px; }
+  .stats { grid-template-columns: repeat(3, 1fr); }
+  .day-grid { grid-template-columns: 1fr; }
+  .formula-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="page">
+
+  <div class="brand-row">
+    <div class="bmark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 13 L9 3 L15 13" stroke="#0d1b2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 13 L9 8.5 L11.5 13" fill="#0d1b2e"/></svg>
+    </div>
+    <span class="bname">Bridge Performance</span>
+    <span class="doc-pill">Development Plan — Client Review</span>
+  </div>
+
+  <h1>Full platform build — 2-week sprint</h1>
+  <p class="sub">Nine screens replacing three Excel workbooks and one Google Form. Every formula, normative table, and output preserved exactly. All historical data migrated on day one.</p>
+  <div class="teal-rule"></div>
+
+  <div class="stats">
+    <div class="sc"><div class="sn">3</div><div class="sl">Excel workbooks replaced</div></div>
+    <div class="sc"><div class="sn">9</div><div class="sl">App screens built</div></div>
+    <div class="sc"><div class="sn">280+</div><div class="sl">Tracked data fields</div></div>
+    <div class="sc"><div class="sn">14</div><div class="sl">Build days</div></div>
+    <div class="sc"><div class="sn">0</div><div class="sl">Manual re-entry needed</div></div>
+  </div>
+
+  <div class="sgap">
+    <div class="slabel">Calculation engine — formulas encoded exactly from Excel</div>
+    <div class="formula-grid">
+      <div class="formula-card">
+        <div class="fc-label">Z-Score</div>
+        <div class="fc-formula">(athlete_value − db_mean) / db_stdev</div>
+        <div class="fc-note">Only computed when stdev ≠ 0. Filtered by gender + age group.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">Database mean</div>
+        <div class="fc-formula">AVERAGE(metric | gender + age_group match)</div>
+        <div class="fc-note">Matches Excel FILTER logic — gender × 9 age buckets.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">Quartiles</div>
+        <div class="fc-formula">Q1 = QUARTILE(filtered, 1)<br>Q3 = QUARTILE(filtered, 3)</div>
+        <div class="fc-note">25th and 75th percentile of the filtered cohort.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">% of database avg</div>
+        <div class="fc-formula">athlete_value / db_mean</div>
+        <div class="fc-note">Displayed as percentage alongside Z-score on dashboard.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">Torque</div>
+        <div class="fc-formula">force_lbs × moment_arm_ft</div>
+        <div class="fc-note">Auto-computed for all shoulder, hip, knee, ankle, elbow tests.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">FBW / TBW</div>
+        <div class="fc-formula">FBW = force / body_weight<br>TBW = torque / body_weight</div>
+        <div class="fc-note">Per PATIENT Strength_Map result type column.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">DSI</div>
+        <div class="fc-formula">dynamic_force / isometric_force</div>
+        <div class="fc-note">Pulled from Strength_Map column H per test.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">TK / Mound ratio</div>
+        <div class="fc-formula">tall_kneeling_mph / mound_mph</div>
+        <div class="fc-note">THROWERS only — derived from throwing velocity inputs.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">% change from initial</div>
+        <div class="fc-formula">(current − initial) / initial</div>
+        <div class="fc-note">Tracker views — compares current test to first recorded session.</div>
+      </div>
+      <div class="formula-card">
+        <div class="fc-label">Bilateral asymmetry</div>
+        <div class="fc-formula">(stronger − weaker) / stronger × 100</div>
+        <div class="fc-note">Client Single Joint Comparison (PLYO tracker view).</div>
+      </div>
+    </div>
+    <div class="mt-wrap">
+      <table class="metric-table">
+        <thead><tr><th>Classification</th><th>Z-score threshold</th><th>Badge color</th></tr></thead>
+        <tbody>
+          <tr><td>Needs improvement</td><td>Z ≤ −2.0</td><td><span class="cbadge cb-red">Red</span></td></tr>
+          <tr><td>Below average</td><td>−2.0 &lt; Z ≤ −1.0</td><td><span class="cbadge cb-amber">Amber</span></td></tr>
+          <tr><td>Average</td><td>−1.0 &lt; Z ≤ 1.0</td><td><span class="cbadge cb-blue">Blue</span></td></tr>
+          <tr><td>Above average</td><td>1.0 &lt; Z ≤ 2.0</td><td><span class="cbadge cb-green">Green</span></td></tr>
+          <tr><td>Excellent</td><td>Z &gt; 2.0</td><td><span class="cbadge cb-teal">Teal</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="sgap">
+    <div class="slabel">All 9 screens — scope & field detail</div>
+    <div class="screen-list">
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-01</span>
+          <span class="sr-name">Client intake form</span>
+          <span class="sr-replaces">Replaces Google Form + Bridge Intake Responses tab</span>
+        </div>
+        <div class="sr-body">Clean form screen — data saved to client profile and linked to all future sessions automatically.</div>
+        <div class="sr-fields">
+          <span class="sf">Last name (lowercase)</span><span class="sf">First name 2 initials</span><span class="sf">Weight (lbs)</span><span class="sf">Gender</span><span class="sf">Age group (&lt;10 → &gt;60)</span><span class="sf">Position / Sport (THROWERS/PLYO/PATIENT variants)</span><span class="sf">Competition level</span><span class="sf">Pain / injury (optional)</span>
+        </div>
+      </div>
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-02</span>
+          <span class="sr-name">Test data entry</span>
+          <span class="sr-replaces">Replaces Input Data Here tabs (97 cols THROWERS, 280 cols PLYO)</span>
+        </div>
+        <div class="sr-body">Collapsible measurement groups per service type. Moment arm fields always precede torque-dependent inputs. Derived fields (torque, ratios, FBW/TBW) compute in real time as values are entered.</div>
+        <div class="sr-fields">
+          <span class="sf">Throwing velocities (6 velo)</span><span class="sf">CMJ suite (9 fields)</span><span class="sf">Grip strength R/L</span><span class="sf">Lower body iso</span><span class="sf">Upper body iso/dynamic</span><span class="sf">Rotation (iso + dynamic)</span><span class="sf">Shoulder ER/IR 90/0 + 90/90</span><span class="sf">ASH I/Y/T</span><span class="sf">Drop jump suite (PLYO)</span><span class="sf">Speed / agility (PLYO)</span><span class="sf">Conditioning battery (PLYO)</span><span class="sf">5RM strength lifts</span><span class="sf">CM pushup suite</span><span class="sf">Bounds (PLYO)</span><span class="sf">Hip / knee / ankle strength</span><span class="sf">Elbow / wrist / cervical</span><span class="sf">ROM by body region (PATIENT)</span><span class="sf">PRO scores (PATIENT)</span>
+        </div>
+      </div>
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-03</span>
+          <span class="sr-name">Performance comparison dashboard</span>
+          <span class="sr-replaces">Replaces Performance Comparison / Performance Metric Comparison tabs</span>
+        </div>
+        <div class="sr-body">Per-metric table: DB Mean, StDev, Q1, Q3, Count, Athlete Value, Z-Score, Classification badge, % of DB Average. Filtered by gender + age group matching Excel's FILTER logic. Sortable / filterable columns.</div>
+      </div>
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-04</span>
+          <span class="sr-name">Tracker views</span>
+          <span class="sr-replaces">Replaces 6+ tracker tabs per workbook</span>
+        </div>
+        <div class="sr-body">THROWERS: Throwing Velo, Dynamic Movement, Explosivity, Strength, Athlete Full Data. PLYO adds: Performance Conditioning, Client Single Joint Comparison (bilateral bar chart L vs R), Client Single Joint Data Explorer. PATIENT adds: per-region strength views (7 regions), ROM tracking, PRO score tracking, Dynamic Movement trends.</div>
+      </div>
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-05</span>
+          <span class="sr-name">Database explorer</span>
+          <span class="sr-replaces">Replaces Database Exploration / Performance Database Exploration tabs</span>
+        </div>
+        <div class="sr-body">Searchable, filterable full-database table. Filters: gender, age group, position / sport, competition level, date range.</div>
+      </div>
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-06</span>
+          <span class="sr-name">Normative comparison</span>
+          <span class="sr-replaces">Replaces NORMS / Bridge Performance Norms / Normative Data tabs</span>
+        </div>
+        <div class="sr-body">Norms built into scoring engine — no manual lookup. Reference view for browsing full norm tables. THROWERS: gender × 9 age groups × metric + BW multiplier coefficient. PLYO: same structure, expanded. PATIENT: percentile score + count per metric by joint group (Grip, CMJ, Belt Squat Iso, IMTP, Pushup, Row, etc.).</div>
+      </div>
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-07</span>
+          <span class="sr-name">Client one-pager report</span>
+          <span class="sr-replaces">Replaces One Pager / Performance One Pager tabs</span>
+        </div>
+        <div class="sr-body">Print-ready layout. Bar charts with norm markers (mean line, Q1/Q3 band) per metric group. Goal post table: Metric | Athlete Value | Mean | SD | Z-Score | Classification | % of Avg. Auto-generated summary text (e.g. "Tall Kneeling: Z = −2.08 → Needs Improvement"). Clinician notes section. PDF-export button.</div>
+      </div>
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-08</span>
+          <span class="sr-name">Report approval dashboard</span>
+          <span class="sr-replaces">Replaces manual email workflow</span>
+        </div>
+        <div class="sr-body">Manager view of all pending reports. Shows computed Z-scores, classification badges, and "Needs Improvement" flags. Actions: Preview report, Approve &amp; Send, Hold. Eliminates manual email chain.</div>
+      </div>
+
+      <div class="screen-row">
+        <div class="sr-top">
+          <span class="sr-num">S-09</span>
+          <span class="sr-name">Excel data import</span>
+          <span class="sr-replaces">Migrates all existing workbooks on day one</span>
+        </div>
+        <div class="sr-body">Upload .xlsx files — auto-detects THROWERS / PLYO / PATIENT by sheet names and column headers. Parses Bridge Intake Responses → client profiles. Parses Input Data Here / INPUT DATA HERE → all historical sessions linked to client + date. Skips rows where "Remove From Central Database" = "remove" or Pain = "yes" (imported with flag). Preview modal: client count, session count, date range. Duplicate detection: same client + same date = update, not duplicate. PATIENT: imports ROM sheet, PRO sheet, body-region sheets 11–20.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="sgap">
+    <div class="slabel">2-week build schedule — day by day</div>
+
+    <div class="timeline-outer" style="margin-bottom: 16px;">
+      <div class="tl-days">
+        <div class="tl-day" style="background:#1d4d3a; color:#2dd4a0;">D1</div>
+        <div class="tl-day" style="background:#1d4d3a; color:#2dd4a0;">D2</div>
+        <div class="tl-day" style="background:#1d4d3a; color:#2dd4a0;">D3</div>
+        <div class="tl-day" style="background:#1a3a4d; color:#378add;">D4</div>
+        <div class="tl-day" style="background:#1a3a4d; color:#378add;">D5</div>
+        <div class="tl-day" style="background:#1a3a4d; color:#378add;">D6</div>
+        <div class="tl-day" style="background:#1a3a4d; color:#378add;">D7</div>
+        <div class="tl-day" style="background:#3a2a10; color:#ef9f27;">D8</div>
+        <div class="tl-day" style="background:#3a2a10; color:#ef9f27;">D9</div>
+        <div class="tl-day" style="background:#3a2a10; color:#ef9f27;">D10</div>
+        <div class="tl-day" style="background:#3a2a10; color:#ef9f27;">D11</div>
+        <div class="tl-day" style="background:#3a1a1a; color:#e24b4a;">D12</div>
+        <div class="tl-day" style="background:#3a1a1a; color:#e24b4a;">D13</div>
+        <div class="tl-day" style="background:#3a1a1a; color:#e24b4a;">D14</div>
+      </div>
+      <div class="tl-labels-row">
+        <div class="tl-day-label" style="grid-column: span 3; color: #2dd4a0; font-size:9px;">Week 1 — Foundation</div>
+        <div class="tl-day-label" style="grid-column: span 4; color: #378add; font-size:9px;">Week 1 cont — Core screens</div>
+        <div class="tl-day-label" style="grid-column: span 4; color: #ef9f27; font-size:9px;">Week 2 — Reports &amp; trackers</div>
+        <div class="tl-day-label" style="grid-column: span 3; color: #e24b4a; font-size:9px;">Week 2 — Import &amp; QA</div>
+      </div>
+      <div class="tl-legend">
+        <div class="tl-li"><div class="tl-li-dot" style="background:#2dd4a0;"></div>Days 1–3: Data engine</div>
+        <div class="tl-li"><div class="tl-li-dot" style="background:#378add;"></div>Days 4–7: Core workflow</div>
+        <div class="tl-li"><div class="tl-li-dot" style="background:#ef9f27;"></div>Days 8–11: Reports &amp; trackers</div>
+        <div class="tl-li"><div class="tl-li-dot" style="background:#e24b4a;"></div>Days 12–14: Import &amp; QA</div>
+      </div>
+    </div>
+
+    <div class="day-grid">
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">1</div><div class="day-title">Data architecture &amp; metric catalogs</div><div class="day-week" style="color:#2dd4a0; background:rgba(45,212,160,0.1); border-color:rgba(45,212,160,0.25);">Wk 1</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Database schema</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Client profile model — name, gender, age group, position, level, weight, service type (THROWERS / PLYO / PATIENT)</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Test session model — client ID, date, raw field values keyed to metric catalog</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Intake model — linked 1:1 to client, feeds all sessions automatically</div></div>
+          </div>
+          <div class="task-group">
+            <div class="tg-name">TypeScript metric catalogs</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext"><strong>THROWERS:</strong> 97 fields — unit, group, torque flag, moment arm ref, side L/R/bilateral</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext"><strong>PLYO:</strong> 280 fields — all THROWERS plus Drop Jump, Speed/Agility, Conditioning, 5RM lifts, Bounds, multi-joint strength</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext"><strong>PATIENT:</strong> 80+ strength tests + ROM + PRO — Strength_Map columns (sheet → force col → RFD col → result type → norm % col → RTD norm % → DSI col)</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">2</div><div class="day-title">Calculation engine &amp; normative tables</div><div class="day-week" style="color:#2dd4a0; background:rgba(45,212,160,0.1); border-color:rgba(45,212,160,0.25);">Wk 1</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">All formulas — verified against Excel</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Z-score, DB mean, DB stdev, Q1/Q3, count, % of avg — filtered by gender × age group</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Torque = force × moment arm; FBW = force / BW; TBW = torque / BW; DSI = dynamic / iso</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">TK/Mound ratio; % change from initial; bilateral asymmetry</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Classification thresholds — Needs Improvement / Below Avg / Avg / Above Avg / Excellent</div></div>
+          </div>
+          <div class="task-group">
+            <div class="tg-name">Normative data encoded</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">THROWERS NORMS: gender × 9 age groups (&lt;10 → &gt;60) × all metrics + BW multiplier coefficient per metric</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">PLYO Bridge Performance Norms: same structure, expanded metric set</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">PATIENT Normative Data: percentile score + count by joint group</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Dynamic_Movement_Map encoded for PATIENT screen routing</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">3</div><div class="day-title">Client intake form (S-01)</div><div class="day-week" style="color:#2dd4a0; background:rgba(45,212,160,0.1); border-color:rgba(45,212,160,0.25);">Wk 1</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Form fields — all three service types</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Last name, first name 2 initials (lowercase), weight (lbs, no decimals)</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Gender radio: Male / Female</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Age group radio: &lt;10, 10–12, 13–16, 17–20, 21–26, 27–35, 36–45, 46–60, &gt;60</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">THROWERS Position: Starting Pitcher, Relief Pitcher, Closer Pitcher, Infield, Outfield, Catcher</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">PLYO: Sport (Primary) replaces Position per PLYO column F7</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">PATIENT: Body region / chief complaint replaces Position</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Competition level: N/A, Recreational, Youth, Junior High, High School, College, Professional</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Pain / injury — optional text field</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">4</div><div class="day-title">Test data entry — THROWERS (S-02)</div><div class="day-week" style="color:#378add; background:rgba(55,138,221,0.1); border-color:rgba(55,138,221,0.25);">Wk 1</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Collapsible groups built</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Throwing velocities: TK, HK FWD, HK Side, Drop Step, Pull Down, Mound (mph) → auto-computes TK/Mound ratio</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">CMJ suite: BW (kg), Min Eccentric Force (N), Jump Height (cm), RSI Mod, Eccentric Duration, Braking Duration, CM Depth, Force@0 Vel R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Grip strength: Peak Force R/L, RFD R/L (lbs)</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Lower body iso: Belt Squat Iso PF + RFD, IMTP PF + RFD</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Upper body: Iso Pushup PF + RFD, Iso Row PF R/L, Dynamic Row mpv R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Rotation: Iso Pure Torque PF R/L, Dynamic Pure Torque mpv R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Shoulder ER/IR 90/0 + 90/90: Moment Arm → PF / Torque / RFD / RTD for each position × side</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">ASH I/Y/T: Moment Arm → PF / Torque / RFD / RTD per direction × side</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">5</div><div class="day-title">Test data entry — PLYO additions (S-02)</div><div class="day-week" style="color:#378add; background:rgba(55,138,221,0.1); border-color:rgba(55,138,221,0.25);">Wk 1</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">PLYO-only measurement groups</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Drop Jump suite: BW (lbs), Drop Height (in), Jump Height (in), RSI, Flight Time, Contact Time, CM Depth, Ecc Duration, Force@0 Vel R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Speed / Agility: Broad Jump DL (ft), 10m Flying 10m, 5-0-5 R/L (time + COD Deficit + GCT ms), 5-10-5, Max Sprint Speed (mph)</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Conditioning: Dead Hang, Pogo Hop (RSI/JH/CT), MAS 6-min, HR Max, 30-15 IFT, YYIRT1, YYIRT2, RSA (total/best/reps), Sorensen Test</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">5RM Strength Lifts: Back Squat, TB DL, Hip Thrust, Bench Press, Strict Press, Landmine Rot Press R/L, Chest Sup Row, Weighted Pull Up, Lateral Lunge R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">CM Pushup suite + Bounds (SL Broad, Lateral, 90 Lateral, MB Scoop R/L)</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Hip, knee, ankle/foot, shoulder scaption, elbow, wrist, cervical — all with Moment Arm → PF / Torque / RFD / RTD per side</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">6</div><div class="day-title">Test data entry — PATIENT (S-02)</div><div class="day-week" style="color:#378add; background:rgba(55,138,221,0.1); border-color:rgba(55,138,221,0.25);">Wk 1</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">PATIENT measurement groups</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">ROM — pulled per body region via lookup (VLOOKUP cols 2, 4, 7, 10, 13, 16, 19, 22 from ROM sheet)</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">PRO — Patient-Reported Outcome scores</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Cervical strength: Flexion, Extension, Lat Flexion R/L, Rotation R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Shoulder: ER/IR 90/0 + 90/90 R/L, Scaption R/L, ASH I/Y/T R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Elbow/Wrist/Hand: Elbow FLX/EXT R/L, Wrist FLX/EXT R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Hip: ABD/ADD/FLX/EXT/ER/IR R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Knee: EXT/FLX R/L; Ankle/Foot: DF/INV/EV/PF R/L, 1st MTP FLX R/L</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Trunk/Low Back, Lower + Upper Body RM (5RM), Dynamic Movements (CMJ, DJ, broad, sprint, COD, pogo)</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">7</div><div class="day-title">Performance comparison dashboard (S-03)</div><div class="day-week" style="color:#378add; background:rgba(55,138,221,0.1); border-color:rgba(55,138,221,0.25);">Wk 1</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Dashboard build</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Per-metric row: DB Mean, StDev, Q1, Q3, Count, Athlete Value, Z-Score, Classification, % of DB Avg</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Gender + age group filter applied — matches Excel FILTER(data, gender=X AND age=Y) logic exactly</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Color-coded classification badges — 5 tiers per formula table</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Sortable columns — sort by Z-score, classification, metric name, or athlete value</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Stdev = 0 guard — suppresses Z-score display, shows "—" to match Excel behavior</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">8</div><div class="day-title">Tracker views (S-04)</div><div class="day-week" style="color:#ef9f27; background:rgba(239,159,39,0.1); border-color:rgba(239,159,39,0.25);">Wk 2</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">THROWERS trackers</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Throwing Velo Tracker — line chart: TK, HK FWD, HK Side, Drop Step, Pull Down, Mound across test dates</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Dynamic Movement Tracker — CMJ metrics progression</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Explosivity Tracker, Strength Tracker, Athlete Full Data Tracker</div></div>
+          </div>
+          <div class="task-group">
+            <div class="tg-name">PLYO additions</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Performance Conditioning Metrics tracker</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Client Single Joint Comparison — bilateral L/R bar chart, side by side per joint</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Client Single Joint Data Explorer — per-joint time series</div></div>
+          </div>
+          <div class="task-group">
+            <div class="tg-name">PATIENT trackers</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">7 body-region strength views: Cervical, Shoulder, ElbowWristHand, Hip, Knee, AnkleFoot, TrunkLowBack</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">ROM tracking, PRO score trending, Dynamic Movement trends</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">9</div><div class="day-title">Database explorer + normative view (S-05 + S-06)</div><div class="day-week" style="color:#ef9f27; background:rgba(239,159,39,0.1); border-color:rgba(239,159,39,0.25);">Wk 2</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Database explorer (S-05)</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Full-database searchable / filterable table — all athletes, all sessions</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Filters: gender, age group, position / sport, competition level, date range</div></div>
+          </div>
+          <div class="task-group">
+            <div class="tg-name">Normative reference view (S-06)</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Browse full THROWERS / PLYO / PATIENT norm tables by gender × age group × metric</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">BW multiplier coefficient shown per metric</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">PATIENT joint group view: Grip, Jump Testing, Belt Squat Iso, IMTP, Pushup Testing, Row Strength, etc.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">10</div><div class="day-title">Client one-pager report (S-07)</div><div class="day-week" style="color:#ef9f27; background:rgba(239,159,39,0.1); border-color:rgba(239,159,39,0.25);">Wk 2</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Report layout</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Bar charts per metric group — mean line overlay, Q1/Q3 band shading, athlete value bar</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Goal post table: Metric | Athlete Value | Mean | SD | Z-Score | Classification | % of Avg</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Auto-generated summary text per metric — e.g. "Tall Kneeling (mph): Z = −2.08 → Needs Improvement"</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Clinician notes section — free text, saved per report</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Print / PDF export — clean layout, no UI chrome</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">11</div><div class="day-title">Report approval dashboard (S-08)</div><div class="day-week" style="color:#ef9f27; background:rgba(239,159,39,0.1); border-color:rgba(239,159,39,0.25);">Wk 2</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Manager approval workflow</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Dashboard: all pending reports with athlete name, date, service type, Z-score summary, "Needs Improvement" flags</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Actions per report: Preview (full one-pager), Approve &amp; Send, Hold</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Replaces manual email workflow entirely — send triggered directly from approval action</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">12</div><div class="day-title">Excel import tool — parser (S-09)</div><div class="day-week" style="color:#e24b4a; background:rgba(226,75,74,0.1); border-color:rgba(226,75,74,0.25);">Wk 2</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Upload + detection</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Upload one or more .xlsx files — auto-detect workbook type from sheet names and row-7 column headers</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Parse Bridge Intake Responses tab → create client profiles (name, gender, age group, position, level, weight)</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Parse Input Data Here / INPUT DATA HERE tab → import all historical sessions, linked to client + date</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Skip rows: "Remove From Central Database" = "remove"; flag rows: Pain = "yes"</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">PATIENT: import ROM sheet, PRO sheet, body-region strength sheets 11–20</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">13</div><div class="day-title">Excel import — preview &amp; dedup (S-09)</div><div class="day-week" style="color:#e24b4a; background:rgba(226,75,74,0.1); border-color:rgba(226,75,74,0.25);">Wk 2</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">Pre-import confirmation flow</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Preview modal before commit: client count, session count, date range, flagged rows</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Duplicate detection: same client + same date → update existing session, not create duplicate</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Post-import: all historical data live in Trackers, Performance Comparison, Database Explorer, Report generation</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-col">
+        <div class="day-header"><div class="day-num">14</div><div class="day-title">QA, formula verification &amp; handoff</div><div class="day-week" style="color:#e24b4a; background:rgba(226,75,74,0.1); border-color:rgba(226,75,74,0.25);">Wk 2</div></div>
+        <div class="day-body">
+          <div class="task-group">
+            <div class="tg-name">End-to-end verification</div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Cross-check Z-scores, torque values, and classification badges against known Excel outputs row by row</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Import test — upload all three real workbooks, verify client counts and session counts match Excel</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Mobile responsiveness pass — tablet and phone layout for data entry and dashboard screens</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">PDF export test — one-pager renders correctly for print</div></div>
+            <div class="task-item"><div class="tdot"></div><div class="ttext">Clinician walkthrough + handoff documentation</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-box">
+    <div class="fb-icon">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#0d1b2e" stroke-width="1.5"/><line x1="5" y1="3.5" x2="5" y2="5.5" stroke="#0d1b2e" stroke-width="1.5" stroke-linecap="round"/><circle cx="5" cy="7" r="0.75" fill="#0d1b2e"/></svg>
+    </div>
+    <p class="fb-text"><strong>Ready for your feedback.</strong> Every formula, threshold, normative table, and field in this plan is derived directly from the THROWERS, PLYO, and PATIENT workbooks. The calculation engine on Day 2 is the critical path — everything else builds on top of verified math. On Day 14, clinicians upload their existing Excel files and have full history, tracking, scoring, and reporting available immediately — no parallel running period required.</p>
+  </div>
+
+</div>
