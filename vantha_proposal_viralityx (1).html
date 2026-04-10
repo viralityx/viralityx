@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViralityX — Proposal for Vantha</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Gold / champagne — primary accent */
+    --gold-dark: #7a5c1e;
+    --gold-mid: #B8892A;
+    --gold-light: #D4A84B;
+    --gold-pale: #FBF3E2;
+    --gold-tint: #E8C97A;
+
+    /* Navy — secondary */
+    --navy-dark: #0d1b2e;
+    --navy-mid: #1a2f4a;
+    --navy-pale: #e8edf4;
+
+    /* Slate — tertiary */
+    --slate-dark: #2c3342;
+    --slate-mid: #4a5568;
+    --slate-pale: #eef0f4;
+
+    --ink: #111318;
+    --ink-muted: #4a4a52;
+    --ink-faint: #8a8a96;
+    --surface: #f6f5f0;
+    --card: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --border-mid: rgba(184,137,42,0.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--surface);
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--navy-dark);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(184,137,42,0.2);
+  }
+  .logo {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--gold-tint); }
+  .header-tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold-tint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy-dark);
+    padding: 72px 48px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(184,137,42,0.07);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: 30%;
+    width: 500px; height: 300px;
+    border-radius: 50%;
+    background: rgba(184,137,42,0.04);
+  }
+  .hero-inner { max-width: 800px; position: relative; z-index: 1; }
+  .client-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 40px;
+    padding: 6px 16px 6px 8px;
+    margin-bottom: 28px;
+  }
+  .client-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--gold-tint);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--navy-dark);
+  }
+  .client-pill-text { font-size: 13px; color: rgba(255,255,255,0.85); }
+  .client-pill-text strong { color: #fff; font-weight: 500; }
+  .hero h1 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34px, 5vw, 52px);
+    color: #fff;
+    line-height: 1.08;
+    letter-spacing: -0.8px;
+    margin-bottom: 20px;
+  }
+  .hero h1 em { color: var(--gold-tint); font-style: normal; }
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.72);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  .roi-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    max-width: 680px;
+  }
+  .roi-item {
+    background: rgba(184,137,42,0.12);
+    border: 1px solid rgba(184,137,42,0.18);
+    padding: 20px 24px;
+  }
+  .roi-item:first-child { border-radius: 12px 0 0 12px; }
+  .roi-item:last-child { border-radius: 0 12px 12px 0; }
+  .roi-label { font-size: 11px; color: var(--gold-tint); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+  .roi-val { font-family: 'Instrument Sans', sans-serif; font-weight: 700; font-size: 28px; color: #fff; letter-spacing: -1px; }
+  .roi-sub { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 3px; }
+
+  /* CONTENT */
+  .content { max-width: 860px; margin: 0 auto; padding: 64px 48px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    margin-top: 56px;
+  }
+  .section-header:first-child { margin-top: 0; }
+  .section-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .phase-green .section-num { background: var(--gold-pale); color: var(--gold-dark); }
+  .phase-green .section-title { color: var(--gold-dark); }
+  .phase-purple .section-num { background: var(--navy-pale); color: var(--navy-mid); }
+  .phase-purple .section-title { color: var(--navy-mid); }
+  .phase-amber .section-num { background: var(--slate-pale); color: var(--slate-dark); }
+  .phase-amber .section-title { color: var(--slate-dark); }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--border-mid); }
+
+  .card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .card-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    color: var(--ink);
+  }
+  .card-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+  }
+  .badge-green { background: var(--gold-pale); color: var(--navy-dark); }
+  .badge-purple { background: var(--navy-pale); color: var(--navy-mid); }
+  .badge-amber { background: var(--slate-pale); color: var(--slate-dark); }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold-mid);
+    background: var(--gold-pale);
+    border-radius: 4px;
+    padding: 3px 9px;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .card-tag.purple { color: var(--navy-mid); background: var(--navy-pale); }
+  .card-tag.amber { color: var(--slate-dark); background: var(--slate-pale); }
+
+  .card-desc {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .card-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+  .auto-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    background: var(--navy-pale);
+    border-radius: 4px;
+    padding: 3px 9px;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+  .chip {
+    font-size: 12px;
+    font-weight: 400;
+    background: var(--surface);
+    color: var(--ink-muted);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+  }
+  .tl-card {
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .tl-card.green { background: var(--gold-pale); border: 1px solid rgba(184,137,42,0.15); }
+  .tl-card.purple { background: var(--navy-pale); border: 1px solid rgba(26,47,74,0.1); }
+  .tl-card.amber { background: var(--slate-pale); border: 1px solid rgba(44,51,66,0.1); }
+  .tl-phase {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .tl-card.green .tl-phase { color: var(--gold-dark); }
+  .tl-card.purple .tl-phase { color: var(--navy-mid); }
+  .tl-card.amber .tl-phase { color: var(--slate-dark); }
+  .tl-item {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .tl-card.green .tl-item { color: var(--gold-dark); }
+  .tl-card.purple .tl-item { color: var(--navy-mid); }
+  .tl-card.amber .tl-item { color: var(--slate-mid); }
+
+  /* PRICING */
+  .pricing-section {
+    background: var(--navy-dark);
+    border-radius: 20px;
+    padding: 48px;
+    margin: 48px 0;
+    border: 1px solid rgba(184,137,42,0.15);
+  }
+  .pricing-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: #fff;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+  .pricing-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 32px;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+  }
+  .price-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 22px 20px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .price-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(184,137,42,0.3); }
+  .price-card.highlight {
+    background: linear-gradient(135deg, #B8892A 0%, #D4A84B 100%);
+    border-color: var(--gold-light);
+  }
+  .price-label { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+  .price-card.highlight .price-label { color: rgba(255,255,255,0.75); }
+  .price-val {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 800;
+    font-size: 32px;
+    color: #fff;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .price-sub { font-size: 12px; color: rgba(255,255,255,0.35); }
+  .price-card.highlight .price-sub { color: rgba(255,255,255,0.7); }
+
+  /* UPSELLS */
+  .upsell-grid { display: grid; gap: 14px; }
+  .upsell-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 26px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+  .upsell-card:hover { border-color: var(--border-mid); }
+  .upsell-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .upsell-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.65; }
+  .upsell-price {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold-dark);
+    background: var(--gold-pale);
+    border: 1px solid rgba(184,137,42,0.2);
+    border-radius: 20px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+
+  /* CLOSER */
+  .closer {
+    background: var(--navy-dark);
+    border-left: 3px solid var(--gold-mid);
+    border-radius: 0 14px 14px 0;
+    padding: 32px 36px;
+    margin-top: 48px;
+  }
+  .closer-quote {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+  }
+  .closer-sig {
+    margin-top: 16px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gold-tint);
+    letter-spacing: 0.06em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-dark);
+    border-top: 1px solid rgba(184,137,42,0.15);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: 'Instrument Sans', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+  }
+  .footer-logo span { color: var(--gold-tint); }
+  .footer-note { font-size: 12px; color: rgba(255,255,255,0.28); }
+
+  /* DIVIDER */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0 0;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-inner > * {
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.35s; }
+
+  @media (max-width: 640px) {
+    .site-header { padding: 16px 24px; }
+    .hero { padding: 48px 24px; }
+    .content { padding: 40px 24px; }
+    .roi-strip { grid-template-columns: 1fr; gap: 2px; }
+    .roi-item:first-child { border-radius: 12px 12px 0 0; }
+    .roi-item:last-child { border-radius: 0 0 12px 12px; }
+    .timeline { grid-template-columns: 1fr; }
+    .pricing-section { padding: 32px 24px; }
+    footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">Virality<span>X</span></div>
+  <div class="header-tag">Proposal · 2026</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="client-pill">
+      <div class="client-avatar">VT</div>
+      <div class="client-pill-text"><strong>Vantha</strong> · Bay Area Realtor · @van_tharealestateman</div>
+    </div>
+    <h1>You close.<br><em>We fill your pipeline.</em></h1>
+    <p class="hero-sub">You've proven you can close deals — that's the hardest part of real estate and most agents never master it. What you're missing is a system that finds cold sellers who don't know you yet and gets them onto your calendar automatically. ViralityX builds that system using AI and automation so it runs 24/7 without you lifting a finger until it's time to close.</p>
+    <div class="roi-strip">
+      <div class="roi-item">
+        <div class="roi-label">Your current lead source</div>
+        <div class="roi-val">100%</div>
+        <div class="roi-sub">referrals only — zero cold inbound</div>
+      </div>
+      <div class="roi-item">
+        <div class="roi-label">Avg Bay Area commission</div>
+        <div class="roi-val">$15K+</div>
+        <div class="roi-sub">per closed transaction</div>
+      </div>
+      <div class="roi-item">
+        <div class="roi-label">1 extra deal / month</div>
+        <div class="roi-val">$180K+</div>
+        <div class="roi-sub">additional GCI per year for you</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- PHASE 1 -->
+  <div class="section-header phase-green">
+    <div class="section-num">1</div>
+    <div class="section-title">Phase 1 — Build your visibility engine</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Your AI content twin</div>
+      <span class="card-badge badge-green">Core</span>
+    </div>
+    <div class="card-tag">Gets cold sellers to discover you</div>
+    <p class="card-desc">We clone your voice and build your video avatar so you can generate Reels, scripts, and captions that sound and look exactly like you — without being on camera every time. A custom AI content brain is trained on your personality, your Bay Area market opinions, and your story. Your only job is a 5-minute review before posting.</p>
+    <hr class="card-divider">
+    <div class="auto-label">Paired automations</div>
+    <div class="chips">
+      <span class="chip">Instagram DM auto-reply</span>
+      <span class="chip">Comment-to-DM on Reels</span>
+      <span class="chip">Just-listed / just-sold post generator</span>
+      <span class="chip">Posting schedule + content calendar</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Instagram + Google SEO</div>
+      <span class="card-badge badge-green">Core</span>
+    </div>
+    <div class="card-tag">Makes you #1 when sellers search</div>
+    <p class="card-desc">Full Instagram SEO overhaul — bio, keywords, hashtag strategy, and profile structure so you rank when people search Bay Area real estate in-app. On Google we optimize your existing site, build seller-focused landing pages, and set up your local search presence so you appear when motivated sellers are searching right now.</p>
+    <div class="chips">
+      <span class="chip">Instagram profile SEO</span>
+      <span class="chip">Google Business Profile setup</span>
+      <span class="chip">Seller landing pages</span>
+      <span class="chip">On-page + local SEO</span>
+      <span class="chip">Review generation strategy</span>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <hr class="section-divider">
+  <div class="section-header phase-purple" style="margin-top:48px;">
+    <div class="section-num">2</div>
+    <div class="section-title">Phase 2 — Capture and convert every lead</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">AI conversation system</div>
+      <span class="card-badge badge-purple">Core</span>
+    </div>
+    <div class="card-tag purple">Responds to every lead instantly — even at 2am</div>
+    <p class="card-desc">We build a fully automated AI conversation system that responds to every new lead within seconds across text, email, and social — in your voice. It asks the right qualifying questions, keeps the conversation going, and moves leads down the funnel without you touching a thing. No lead ever gets a slow response again, which is the number one reason deals are lost in real estate.</p>
+    <hr class="card-divider">
+    <div class="auto-label">What it handles automatically</div>
+    <div class="chips">
+      <span class="chip">Instant AI text + email responses</span>
+      <span class="chip">Multi-channel follow-up sequences</span>
+      <span class="chip">Lead qualification via conversation</span>
+      <span class="chip">Missed call auto-text back</span>
+      <span class="chip">Two-way SMS conversations</span>
+      <span class="chip">Webchat widget on your site</span>
+      <span class="chip">Facebook + Instagram inbox automation</span>
+      <span class="chip">Automatic appointment booking</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">AI phone agent</div>
+      <span class="card-badge badge-purple">Core</span>
+    </div>
+    <div class="card-tag purple">Qualifies inbound calls before you ever pick up</div>
+    <p class="card-desc">An AI voice agent answers every inbound call 24/7, qualifies the seller, and books them directly onto your calendar. By the time you get on the phone it's already a warm, vetted lead. Every call is logged and a follow-up sequence fires automatically so nothing falls through the cracks.</p>
+    <hr class="card-divider">
+    <div class="auto-label">Paired automations</div>
+    <div class="chips">
+      <span class="chip">24hr + 1hr appointment reminders</span>
+      <span class="chip">No-show re-engagement sequence</span>
+      <span class="chip">Instant alert when new lead calls</span>
+      <span class="chip">Calendar booking integration</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Full CRM pipeline + automation buildout</div>
+      <span class="card-badge badge-purple">Core</span>
+    </div>
+    <div class="card-tag purple">One dashboard for every lead you own</div>
+    <p class="card-desc">We build out a complete CRM pipeline with visual deal stages so you always know exactly where every lead stands. Automated workflows move leads through the pipeline, trigger follow-ups, and alert you the moment someone is ready to have a conversation. Syncs with your existing Lofty setup so nothing is lost.</p>
+    <div class="chips">
+      <span class="chip">Visual pipeline with deal stages</span>
+      <span class="chip">Automated lead stage triggers</span>
+      <span class="chip">Smart follow-up per lead source</span>
+      <span class="chip">30-day nurture sequences</span>
+      <span class="chip">Monthly home value report drip</span>
+      <span class="chip">Client anniversary check-ins</span>
+      <span class="chip">Post-close review request</span>
+      <span class="chip">Lead scoring + hot lead alerts</span>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <hr class="section-divider">
+  <div class="section-header phase-amber" style="margin-top:48px;">
+    <div class="section-num">3</div>
+    <div class="section-title">Phase 3 — Scale your pipeline</div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Seller prospecting AI</div>
+      <span class="card-badge badge-amber">Growth</span>
+    </div>
+    <div class="card-tag amber">Finds motivated sellers before they list</div>
+    <p class="card-desc">AI that scans public records for high-probability sellers — homeowners with 7+ years of equity, inherited properties, pre-foreclosure notices, and recent life events. Automated outreach sequences reach them before any other agent does, feeding warm leads straight into your conversation system and pipeline.</p>
+    <div class="chips">
+      <span class="chip">Equity-rich homeowner targeting</span>
+      <span class="chip">Automated SMS + email outreach</span>
+      <span class="chip">FSBO + expired listing follow-up</span>
+      <span class="chip">Pre-foreclosure prospecting</span>
+      <span class="chip">AI-personalized outreach messages</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head">
+      <div class="card-title">Paid ads for your seller leads</div>
+      <span class="card-badge badge-amber">Growth</span>
+    </div>
+    <div class="card-tag amber">Pours fuel on your organic growth</div>
+    <p class="card-desc">Once your organic content and SEO are running, we layer in targeted Meta and Google ads hitting Bay Area homeowners by zip code. Every lead that comes in gets an instant AI response, flows into your pipeline, and gets nurtured automatically until they're ready to book a call with you.</p>
+    <div class="chips">
+      <span class="chip">Meta seller lead ads</span>
+      <span class="chip">Google local service ads</span>
+      <span class="chip">Bay Area zip code targeting</span>
+      <span class="chip">Ad creative from your AI twin</span>
+      <span class="chip">Instant AI lead response on ad clicks</span>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <hr class="section-divider">
+  <div class="section-header phase-green" style="margin-top:48px;">
+    <div class="section-num" style="background:#f1efe8;color:#444;">&#9654;</div>
+    <div class="section-title" style="color:#444;">Rollout timeline</div>
+  </div>
+  <div class="timeline">
+    <div class="tl-card green">
+      <div class="tl-phase">Week 1–2 · Launch</div>
+      <div class="tl-item">AI content twin · Instagram SEO · DM automation · Google Business Profile · AI conversation system live</div>
+    </div>
+    <div class="tl-card purple">
+      <div class="tl-phase">Month 2 · Convert</div>
+      <div class="tl-item">AI phone agent · full CRM pipeline buildout · appointment automations · home value drips · review sequences</div>
+    </div>
+    <div class="tl-card amber">
+      <div class="tl-phase">Month 3+ · Scale</div>
+      <div class="tl-item">Seller prospecting AI · paid ads · agent onboarding funnel · full pipeline running on autopilot</div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing-section">
+    <div class="pricing-title">Investment</div>
+    <div class="pricing-sub">One deal from this system pays for everything many times over.</div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-label">Phase 1 setup</div>
+        <div class="price-val">$1,500</div>
+        <div class="price-sub">AI twin + SEO + automations</div>
+      </div>
+      <div class="price-card">
+        <div class="price-label">Phase 2 setup</div>
+        <div class="price-val">$1,500</div>
+        <div class="price-sub">AI conversations + phone agent + CRM</div>
+      </div>
+      <div class="price-card">
+        <div class="price-label">Full package (all phases)</div>
+        <div class="price-val">$3,500</div>
+        <div class="price-sub">one-time setup · save $500</div>
+      </div>
+      <div class="price-card highlight">
+        <div class="price-label">Monthly retainer</div>
+        <div class="price-val">$300</div>
+        <div class="price-sub">content · SEO · full system mgmt</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPSELLS -->
+  <div class="section-header phase-green" style="margin-top: 0;">
+    <div class="section-num" style="background:#f1efe8;color:#444;">+</div>
+    <div class="section-title" style="color:#444;">More ways we grow your business</div>
+  </div>
+  <div class="upsell-grid">
+    <div class="upsell-card">
+      <div>
+        <div class="upsell-title">Your agent onboarding funnel</div>
+        <div class="upsell-desc">Since your new broker pays you to onboard new agents, we build you a recruitment funnel — landing page, automated email + text sequence, and social content — so new agents find you first. Every inquiry gets an instant AI response and is nurtured automatically until they're ready to sign up. A second income stream that runs on autopilot.</div>
+      </div>
+      <span class="upsell-price">rev share / referral</span>
+    </div>
+    <div class="upsell-card">
+      <div>
+        <div class="upsell-title">AI listing content generator</div>
+        <div class="upsell-desc">Every time you get a new listing, AI instantly generates the property description, social captions, email blast to your database, and a just-listed post — all in your voice, ready to go. What used to take an hour takes 2 minutes.</div>
+      </div>
+      <span class="upsell-price">included in retainer</span>
+    </div>
+    <div class="upsell-card">
+      <div>
+        <div class="upsell-title">Reputation management on autopilot</div>
+        <div class="upsell-desc">Every time you close a deal, an automated sequence goes out requesting a Google and Zillow review at exactly the right moment — when your client is happiest. AI monitors and responds to every review on your behalf so your reputation grows without you managing it.</div>
+      </div>
+      <span class="upsell-price">included in retainer</span>
+    </div>
+  </div>
+
+  <!-- CLOSER -->
+  <div class="closer">
+    <p class="closer-quote">"Your AI twin creates visibility → SEO puts you in front of searching sellers → the AI conversation system responds to every inquiry instantly → the phone agent qualifies inbound calls 24/7 → the CRM pipeline nurtures every lead automatically → you close. One deal from this system pays for everything many times over. ViralityX builds and manages the whole thing so you stay focused on what you do best."</p>
+    <div class="closer-sig">— ViralityX</div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Virality<span>X</span></div>
+  <div class="footer-note">Prepared for Vantha · Bay Area Realtor · 2026</div>
+</footer>
+
+</body>
+</html>
