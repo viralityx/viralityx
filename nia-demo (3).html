@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nia — Credit Repair AI Agent Demo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1D9E75, #0F6E56);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 auto 24px;
+    letter-spacing: -1px;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  h1 span {
+    color: #1D9E75;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: #888;
+    text-align: center;
+    max-width: 400px;
+    line-height: 1.6;
+    margin-bottom: 48px;
+  }
+
+  .cards {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 16px 20px;
+    width: 160px;
+    text-align: center;
+  }
+
+  .card-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #1a2e27;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+  }
+
+  .card-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: #1D9E75;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .card p {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.4;
+  }
+
+  .cta {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .cta-label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #1D9E75;
+    font-size: 14px;
+  }
+
+  .arrow svg {
+    width: 16px;
+    height: 16px;
+    stroke: #1D9E75;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: bounce 1.5s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: #222;
+    margin: 0 auto 40px;
+  }
+
+  .call-box {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 16px;
+    padding: 28px 32px;
+    text-align: center;
+    max-width: 360px;
+    width: 100%;
+    margin-bottom: 48px;
+  }
+
+  .call-box-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .call-box h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .call-box p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #1D9E75;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    transition: background 0.2s;
+  }
+
+  .call-btn:hover { background: #0F6E56; }
+
+  .call-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 24px;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 28px; }
+    .cards { gap: 8px; }
+    .card { width: 140px; padding: 14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="badge">Live Demo</div>
+
+<div class="avatar">N</div>
+
+<h1>Meet <span>Nia</span></h1>
+<p class="subtitle">Your AI credit coach — available 24/7 to help you understand your credit and get on the path to better scores.</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="card-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <p>Credit score questions</p>
+  </div>
+  <div class="card">
+    <div class="card-icon">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+    </div>
+    <p>Dispute & collections help</p>
+  </div>
+  <div class="card">
+    <div class="card-icon">
+      <svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+    </div>
+    <p>Book a consultation</p>
+  </div>
+</div>
+
+<div class="cta">
+  <p class="cta-label">Chat widget is live — click the bubble in the corner</p>
+  <div class="arrow">
+    <span>Tap to start talking to Nia</span>
+    <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="call-box">
+  <p class="call-box-label">Test the voice agent</p>
+  <h2>Want to hear Nia on the phone?</h2>
+  <p>Call the number below to experience the full voice AI — no app needed, just dial.</p>
+  <a href="tel:+12762763237" class="call-btn">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.17 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    +1 (276) 276-3237
+  </a>
+</div>
+
+<p class="footer">Powered by AI — Atlanta's credit repair specialist</p>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js"
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="69dfda869c54449dc7e74224">
+</script>
+
+</body>
+</html>
