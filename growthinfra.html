@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>BBQ TECH x ViralityX — Growth Infrastructure</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { background: #FAFAFA; scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: #1A1A1A;
+    background: #FAFAFA;
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* === ANIMATIONS === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* === HERO === */
+  .hero {
+    background: #0A0A0A;
+    padding: 80px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(234,88,12,0.06) 0%, transparent 50%);
+    animation: heroGlow 8s ease-in-out infinite alternate;
+  }
+  @keyframes heroGlow {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(5%, -3%); }
+  }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-prepared {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #666666;
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: #999999;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .hero-date {
+    font-size: 12px;
+    color: #555555;
+    margin-top: 32px;
+    letter-spacing: 1px;
+  }
+
+  /* === CONTAINER === */
+  .container { max-width: 660px; margin: 0 auto; padding: 0 24px; }
+
+  /* === SECTIONS === */
+  .section { padding: 60px 0; }
+  .section + .section { border-top: 1px solid #E8E8E8; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999999;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  h2 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1A1A1A;
+    text-align: center;
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+  .section-sub {
+    font-size: 15px;
+    color: #666666;
+    margin-bottom: 32px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  p { margin-bottom: 14px; color: #444444; }
+
+  /* === STAT STRIP === */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #E0E0E0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 32px 0;
+  }
+  .stat {
+    background: #FFFFFF;
+    padding: 28px 16px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #1A1A1A;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 11px; color: #999999; text-transform: uppercase; letter-spacing: 1px; line-height: 1.3; }
+
+  /* === ACCENT BOX === */
+  .accent-box {
+    background: #F5F5F0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    font-size: 14px;
+    color: #444444;
+    line-height: 1.7;
+  }
+  .accent-box strong { color: #1A1A1A; }
+
+  /* === PROBLEM CARDS === */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 28px 0;
+  }
+  .problem-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .problem-title { font-weight: 700; font-size: 14px; color: #CC3333; margin-bottom: 6px; }
+  .problem-desc { font-size: 13px; color: #666666; line-height: 1.6; }
+
+  /* === MONEY LEFT === */
+  .money-box {
+    background: #0A0A0A;
+    border-radius: 10px;
+    padding: 36px 28px;
+    text-align: center;
+    margin: 32px 0;
+  }
+  .money-label { font-size: 12px; color: #666666; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  .money-num {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .money-sub { font-size: 14px; color: #888888; line-height: 1.6; max-width: 440px; margin: 0 auto; }
+
+  /* === PHASE BLOCKS === */
+  .phase {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    padding: 32px 28px;
+    margin: 20px 0;
+  }
+  .phase-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999999;
+    margin-bottom: 8px;
+  }
+  .phase-title {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 16px;
+  }
+  .phase-items { list-style: none; padding: 0; }
+  .phase-items li {
+    font-size: 14px;
+    color: #444444;
+    padding: 8px 0;
+    border-bottom: 1px solid #F5F5F5;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+  .phase-items li:last-child { border-bottom: none; }
+  .phase-items li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    background: #1A1A1A;
+    border-radius: 50%;
+  }
+
+  /* === OUTDOOR KITCHEN CALLOUT === */
+  .ok-box {
+    background: #F5F5F0;
+    border-radius: 8px;
+    padding: 24px;
+    margin: 16px 0;
+  }
+  .ok-title { font-weight: 700; font-size: 15px; color: #1A1A1A; margin-bottom: 8px; }
+  .ok-desc { font-size: 13px; color: #555555; line-height: 1.7; }
+  .ok-captures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .ok-cap {
+    font-size: 12px;
+    color: #666666;
+    padding: 8px 12px;
+    background: #FFFFFF;
+    border-radius: 6px;
+  }
+
+  /* === BEFORE AFTER === */
+  .ba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 32px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #E0E0E0;
+  }
+  .ba-col { padding: 28px 24px; }
+  .ba-before { background: #FAFAFA; }
+  .ba-after { background: #FFFFFF; }
+  .ba-label { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+  .ba-before .ba-label { color: #CC3333; }
+  .ba-after .ba-label { color: #1A8D1A; }
+  .ba-item { font-size: 13px; color: #555555; margin-bottom: 8px; padding-left: 16px; position: relative; line-height: 1.5; }
+  .ba-before .ba-item::before { content: '—'; position: absolute; left: 0; color: #CC3333; font-weight: 700; }
+  .ba-after .ba-item::before { content: '+'; position: absolute; left: 0; color: #1A8D1A; font-weight: 700; }
+
+  /* === INVESTMENT === */
+  .invest-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .invest-header {
+    background: #0A0A0A;
+    padding: 20px 28px;
+    text-align: center;
+  }
+  .invest-header p { color: #888888; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
+  .invest-body { padding: 28px; }
+  .invest-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #F0F0F0;
+    font-size: 15px;
+  }
+  .invest-row:last-child { border-bottom: none; }
+  .invest-label { color: #444444; }
+  .invest-val { font-weight: 700; color: #1A1A1A; }
+
+  /* === TIMELINE === */
+  .timeline { margin: 28px 0; }
+  .tl-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #EEEEEE;
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-week {
+    width: 48px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #999999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .tl-title { font-weight: 700; font-size: 15px; color: #1A1A1A; margin-bottom: 4px; }
+  .tl-desc { font-size: 13px; color: #666666; line-height: 1.6; }
+
+  /* === KPI === */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 28px 0;
+  }
+  .kpi {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 18px 20px;
+  }
+  .kpi-name { font-weight: 700; font-size: 14px; color: #1A1A1A; margin-bottom: 4px; }
+  .kpi-desc { font-size: 12px; color: #888888; line-height: 1.4; }
+
+  /* === CTA === */
+  .cta {
+    background: #0A0A0A;
+    border-radius: 12px;
+    padding: 48px 32px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .cta h3 {
+    color: #FFFFFF;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 32px;
+    margin: 0 0 12px;
+  }
+  .cta-sub { color: #888888; font-size: 15px; margin-bottom: 24px; }
+  .cta-steps { text-align: left; max-width: 400px; margin: 0 auto 28px; }
+  .cta-step {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #CCCCCC;
+  }
+  .cta-step-num { color: #666666; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .cta-divider {
+    width: 60px;
+    height: 1px;
+    background: #333333;
+    margin: 24px auto;
+  }
+  .cta-contact { color: #888888; font-size: 14px; }
+  .cta-name { color: #FFFFFF; font-size: 16px; font-weight: 600; margin-top: 8px; }
+  .cta-phone { color: #FFFFFF; font-size: 14px; margin-top: 4px; }
+  .cta-phone a { color: #FFFFFF; text-decoration: none; }
+
+  .footer { padding: 40px 0; text-align: center; color: #BBBBBB; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+  .confidential { font-size: 11px; color: #CCCCCC; text-align: center; margin-top: 8px; letter-spacing: 0.5px; }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 56px 20px 48px; }
+    .hero h1 { font-size: 36px; }
+    .stat-strip { grid-template-columns: 1fr 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .ba-grid { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .ok-captures { grid-template-columns: 1fr; }
+    .money-num { font-size: 42px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-prepared reveal">Prepared for Julius Herrera</div>
+    <h1 class="reveal reveal-delay-1">BBQ TECH<br>Growth Infrastructure</h1>
+    <p class="hero-sub reveal reveal-delay-2">A complete system to turn your reputation and referrals into a predictable, automated flow of booked jobs — while opening the door to higher-ticket outdoor kitchen projects.</p>
+    <p class="hero-date reveal reveal-delay-3">ViralityX · March 2026</p>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- YOUR BUSINESS TODAY -->
+<div class="section">
+  <div class="section-label reveal">Your Business Today</div>
+  <h2 class="reveal">BBQ TECH Is Already Winning</h2>
+  <p class="section-sub reveal">Here's what we know about where you stand right now.</p>
+
+  <div class="stat-strip reveal">
+    <div class="stat">
+      <div class="stat-num">600+</div>
+      <div class="stat-label">Existing<br>Clients</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6–8</div>
+      <div class="stat-label">Cleanings<br>Per Day</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Techs +<br>Owner</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">OC</div>
+      <div class="stat-label">Coastal<br>Market</div>
+    </div>
+  </div>
+
+  <div class="accent-box reveal">
+    <strong>The bottom line:</strong> BBQ TECH has the reputation, the client base, and the service quality. What's missing is the infrastructure to capture, convert, and follow up on every opportunity — automatically. Right now, that's all happening manually. Every missed call, every slow follow-up, and every forgotten lead is money walking out the door.
+  </div>
+</div>
+
+<!-- THE PROBLEM -->
+<div class="section">
+  <div class="section-label reveal">The Gap</div>
+  <h2 class="reveal">What's Costing You Money Right Now</h2>
+  <p class="section-sub reveal">None of these are quality problems. They're system problems.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card reveal">
+      <div class="problem-title">Missed Calls</div>
+      <div class="problem-desc">When techs are on jobs and the phone rings, nobody answers. That caller moves on to a competitor. At your job value, every missed call could be $150–$300+ lost.</div>
+    </div>
+    <div class="problem-card reveal reveal-delay-1">
+      <div class="problem-title">No Follow-Up System</div>
+      <div class="problem-desc">Leads that don't book immediately get forgotten. There's no automated sequence to re-engage them. They called you first — but booked someone else because nobody followed up.</div>
+    </div>
+    <div class="problem-card reveal reveal-delay-2">
+      <div class="problem-title">No Online Booking</div>
+      <div class="problem-desc">Customers have to call or text to schedule. No instant booking, no quote forms, no way to self-serve. Every friction point costs you conversions.</div>
+    </div>
+    <div class="problem-card reveal reveal-delay-3">
+      <div class="problem-title">Reputation on Autopilot</div>
+      <div class="problem-desc">You're doing 6–8 jobs a day but not systematically asking for reviews. Your competitors with half your skill are outranking you because they have more reviews.</div>
+    </div>
+  </div>
+
+  <div class="money-box reveal">
+    <div class="money-label">Estimated Total Revenue Left on the Table</div>
+    <div class="money-num">$10K–$20K/mo</div>
+    <div class="money-sub">Across every gap in the system. Here's where it's bleeding.</div>
+  </div>
+
+  <div style="background:#FFFFFF; border:1px solid #E0E0E0; border-radius:10px; overflow:hidden; margin:20px 0;" class="reveal">
+    <div style="display:grid; grid-template-columns:1fr auto; padding:16px 24px; border-bottom:1px solid #F0F0F0; align-items:center;">
+      <div>
+        <p style="font-weight:700; font-size:14px; color:#1A1A1A; margin:0;">Missed Calls</p>
+        <p style="font-size:12px; color:#888888; margin:0;">Techs on jobs, phone rings, nobody answers. That customer calls your competitor.</p>
+      </div>
+      <p style="font-family:'Newsreader',serif; font-weight:700; font-size:18px; color:#CC3333; margin:0;">$3–5K/mo</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; padding:16px 24px; border-bottom:1px solid #F0F0F0; align-items:center;">
+      <div>
+        <p style="font-weight:700; font-size:14px; color:#1A1A1A; margin:0;">Dead Leads — No Follow-Up</p>
+        <p style="font-size:12px; color:#888888; margin:0;">They texted or called once, didn't book, and nobody followed up. Gone forever.</p>
+      </div>
+      <p style="font-family:'Newsreader',serif; font-weight:700; font-size:18px; color:#CC3333; margin:0;">$2–4K/mo</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; padding:16px 24px; border-bottom:1px solid #F0F0F0; align-items:center;">
+      <div>
+        <p style="font-weight:700; font-size:14px; color:#1A1A1A; margin:0;">600+ Dormant Clients</p>
+        <p style="font-size:12px; color:#888888; margin:0;">Past customers who'd rebook if you reminded them. No reactivation system = they forget about you.</p>
+      </div>
+      <p style="font-family:'Newsreader',serif; font-weight:700; font-size:18px; color:#CC3333; margin:0;">$3–5K/mo</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; padding:16px 24px; border-bottom:1px solid #F0F0F0; align-items:center;">
+      <div>
+        <p style="font-weight:700; font-size:14px; color:#1A1A1A; margin:0;">No Online Booking</p>
+        <p style="font-size:12px; color:#888888; margin:0;">Customer wants to book at 9pm. No form, no scheduler. They search and find someone else.</p>
+      </div>
+      <p style="font-family:'Newsreader',serif; font-weight:700; font-size:18px; color:#CC3333; margin:0;">$1–2K/mo</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; padding:16px 24px; border-bottom:1px solid #F0F0F0; align-items:center;">
+      <div>
+        <p style="font-weight:700; font-size:14px; color:#1A1A1A; margin:0;">Missed High-Ticket Projects</p>
+        <p style="font-size:12px; color:#888888; margin:0;">Outdoor kitchen inquiries with no intake funnel. One lost $15K project per quarter = significant revenue gone.</p>
+      </div>
+      <p style="font-family:'Newsreader',serif; font-weight:700; font-size:18px; color:#CC3333; margin:0;">$2–5K/mo</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; padding:16px 24px; align-items:center; background:#FAFAFA;">
+      <div>
+        <p style="font-weight:700; font-size:14px; color:#1A1A1A; margin:0;">Review Gap</p>
+        <p style="font-size:12px; color:#888888; margin:0;">6–8 jobs a day and no automated review requests. Competitors with half your skill outrank you on Google.</p>
+      </div>
+      <p style="font-family:'Newsreader',serif; font-weight:700; font-size:18px; color:#CC3333; margin:0;">$1–2K/mo</p>
+    </div>
+  </div>
+
+  <div class="accent-box reveal">
+    <strong>These are conservative estimates.</strong> Even at the low end, that's $12K/month walking out the door — not because the service is bad, but because there's no system catching it. A $2,500 setup that recovers even 20% of this pays for itself in the first two weeks.</div>
+</div>
+
+<!-- THE SYSTEM -->
+<div class="section">
+  <div class="section-label reveal">The System</div>
+  <h2 class="reveal">What We're Building for BBQ TECH</h2>
+  <p class="section-sub reveal">Three phases. Foundation first, then growth. Nothing launches until it's right.</p>
+
+  <div class="phase reveal">
+    <div class="phase-label">Phase 1 — Weeks 1–2</div>
+    <div class="phase-title">Online Facelift</div>
+    <ul class="phase-items">
+      <li>Premium, mobile-first website redesign — clean, modern, built to convert</li>
+      <li>Clear service pathways: BBQ Cleaning, Repair & Diagnostics, Fire Pit Service, Patio Heater Service, Maintenance</li>
+      <li>Strong calls-to-action across every page: Book Now, Request a Quote, Call/Text, Upload Photos</li>
+      <li>Before/after gallery and trust upgrades (licensed, insured, bonded)</li>
+      <li>Local SEO foundation so you show up for high-intent OC searches</li>
+    </ul>
+
+    <div class="ok-box">
+      <div class="ok-title">Outdoor Kitchen Build / Design / Restore — Project Planner</div>
+      <div class="ok-desc">A dedicated high-ticket funnel for your bigger jobs. One intake page that qualifies serious buyers and gives you everything you need to quote — fast.</div>
+      <div class="ok-captures">
+        <div class="ok-cap">Photos + measurements</div>
+        <div class="ok-cap">Budget range + timeline</div>
+        <div class="ok-cap">Scope (islands, built-ins, appliances, fire features)</div>
+        <div class="ok-cap">ZIP code + service area</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase reveal">
+    <div class="phase-label">Phase 2 — Weeks 2–3</div>
+    <div class="phase-title">Booking + Lead System</div>
+    <ul class="phase-items">
+      <li>Service-specific quote forms with photo upload — faster quoting, less back-and-forth</li>
+      <li>Missed-call text back — automatic text sent when a call goes unanswered</li>
+      <li>Instant booking confirmations + appointment reminders</li>
+      <li>Follow-up automation for non-responders — leads don't die in your inbox</li>
+      <li>Automated review requests after every completed job</li>
+      <li>One centralized inbox for calls, texts, forms, and emails</li>
+    </ul>
+  </div>
+
+  <div class="phase reveal">
+    <div class="phase-label">Phase 3 — After Launch</div>
+    <div class="phase-title">Marketing + Growth</div>
+    <ul class="phase-items">
+      <li>Content strategy and local SEO expansion for broader OC coverage</li>
+      <li>Paid ads (if/when ready) — structured as performance-based so we both have skin in the game</li>
+      <li>Retargeting campaigns for website visitors who didn't book</li>
+      <li>Revenue share model — we grow together based on results, not flat fees</li>
+    </ul>
+    <div class="accent-box" style="margin-top:16px;">
+      <strong>Phase 3 is where the real growth happens.</strong> Once the foundation is converting, we scale volume and attract higher-ticket outdoor kitchen projects. This phase is structured as a revenue share — we only win when you win.
+    </div>
+  </div>
+</div>
+
+<!-- BEFORE / AFTER -->
+<div class="section">
+  <div class="section-label reveal">The Transformation</div>
+  <h2 class="reveal">Before vs. After</h2>
+  <p class="section-sub reveal">This is what changes when the system goes live.</p>
+
+  <div class="ba-grid reveal">
+    <div class="ba-col ba-before">
+      <div class="ba-label">Today</div>
+      <div class="ba-item">Missed calls go unanswered</div>
+      <div class="ba-item">Leads forgotten in texts and voicemail</div>
+      <div class="ba-item">No online booking or quote forms</div>
+      <div class="ba-item">Reviews happen randomly</div>
+      <div class="ba-item">Outdated web presence</div>
+      <div class="ba-item">No visibility into what's working</div>
+    </div>
+    <div class="ba-col ba-after">
+      <div class="ba-label">After Launch</div>
+      <div class="ba-item">Every missed call gets an instant text back</div>
+      <div class="ba-item">Automated follow-up on every lead</div>
+      <div class="ba-item">Customers book and quote online 24/7</div>
+      <div class="ba-item">Review requests sent after every job</div>
+      <div class="ba-item">Premium site that converts visitors to jobs</div>
+      <div class="ba-item">KPIs tracked: bookings, calls, reviews, revenue</div>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTMENT -->
+<div class="section">
+  <div class="section-label reveal">Investment</div>
+  <h2 class="reveal">What It Costs</h2>
+  <p class="section-sub reveal">Phase 1 + Phase 2 bundled. Phase 3 is performance-based.</p>
+
+  <div class="invest-card reveal">
+    <div class="invest-header">
+      <p>BBQ TECH Growth Package</p>
+    </div>
+    <div class="invest-body">
+      <div class="invest-row">
+        <span class="invest-label">Deposit to start</span>
+        <span class="invest-val">$1,250</span>
+      </div>
+      <div class="invest-row">
+        <span class="invest-label">Due at launch</span>
+        <span class="invest-val">$1,250</span>
+      </div>
+      <div class="invest-row">
+        <span class="invest-label">Total setup (one-time)</span>
+        <span class="invest-val">$2,500</span>
+      </div>
+      <div class="invest-row" style="border-top:2px solid #E0E0E0; margin-top:8px; padding-top:20px;">
+        <span class="invest-label">Monthly retainer (starts after launch)</span>
+        <span class="invest-val">$200/mo</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="accent-box reveal">
+    <strong>The math:</strong> If this system recovers just 2–3 missed opportunities per week at your average job value, it pays for itself in the first month — and keeps paying you every month after. The $200/mo covers system upkeep, automation tuning, small edits, and monthly performance check-ins.
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section">
+  <div class="section-label reveal">Timeline</div>
+  <h2 class="reveal">From Kickoff to Live</h2>
+
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-week">WK 1</div>
+      <div>
+        <div class="tl-title">Structure + Design</div>
+        <div class="tl-desc">Site architecture, copy, page layouts, intake flows, and service pathways built out.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-week">WK 2</div>
+      <div>
+        <div class="tl-title">Build + Integrations</div>
+        <div class="tl-desc">Full website build, automations wired up, missed-call recovery, booking flows, and review system configured.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-week">WK 3</div>
+      <div>
+        <div class="tl-title">Launch + Optimize</div>
+        <div class="tl-desc">Testing, revisions, go-live, and first-week monitoring. Speed depends on how fast we get photos and access.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE NEED -->
+<div class="section">
+  <div class="section-label reveal">What We Need From You</div>
+  <h2 class="reveal">Four Things to Kick Off</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi reveal">
+      <div class="kpi-name">Photos</div>
+      <div class="kpi-desc">Before/after cleanings, repairs, fire features, outdoor kitchen work. Phone photos are fine.</div>
+    </div>
+    <div class="kpi reveal reveal-delay-1">
+      <div class="kpi-name">Business Info</div>
+      <div class="kpi-desc">Service areas, hours, and best contact number for calls and texts.</div>
+    </div>
+    <div class="kpi reveal reveal-delay-2">
+      <div class="kpi-name">Reviews</div>
+      <div class="kpi-desc">Any existing testimonials or reviews you want featured on the site.</div>
+    </div>
+    <div class="kpi reveal reveal-delay-3">
+      <div class="kpi-name">Service Priorities</div>
+      <div class="kpi-desc">Confirm the mix: cleanings, repairs, maintenance, outdoor kitchen builds.</div>
+    </div>
+  </div>
+</div>
+
+<!-- KPIs -->
+<div class="section">
+  <div class="section-label reveal">What We Track</div>
+  <h2 class="reveal">KPIs We Measure Together</h2>
+  <p class="section-sub reveal">These are the numbers that tell us the system is working.</p>
+
+  <div class="kpi-grid">
+    <div class="kpi reveal">
+      <div class="kpi-name">Booked Jobs / Week</div>
+      <div class="kpi-desc">Cleanings + repairs coming through the system</div>
+    </div>
+    <div class="kpi reveal reveal-delay-1">
+      <div class="kpi-name">Missed Call Recovery</div>
+      <div class="kpi-desc">Missed calls converted into conversations</div>
+    </div>
+    <div class="kpi reveal reveal-delay-2">
+      <div class="kpi-name">Quote-to-Book Rate</div>
+      <div class="kpi-desc">How many quotes turn into booked jobs</div>
+    </div>
+    <div class="kpi reveal reveal-delay-3">
+      <div class="kpi-name">Review Growth</div>
+      <div class="kpi-desc">New reviews per month from automated requests</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="section" style="border-top:none; padding-bottom:0;">
+  <div class="cta reveal">
+    <h3>Ready to Build This?</h3>
+    <p class="cta-sub">Three steps to get started.</p>
+
+    <div class="cta-steps">
+      <div class="cta-step">
+        <span class="cta-step-num">01</span>
+        <span>Approve this plan and submit the $1,250 deposit</span>
+      </div>
+      <div class="cta-step">
+        <span class="cta-step-num">02</span>
+        <span>We send the kickoff checklist (photos, access, business info)</span>
+      </div>
+      <div class="cta-step">
+        <span class="cta-step-num">03</span>
+        <span>Build starts the same day</span>
+      </div>
+    </div>
+
+    <div class="cta-divider"></div>
+
+    <p class="cta-contact">Questions? Ready to go?</p>
+    <p class="cta-name">Danny Pena · ViralityX</p>
+    <p class="cta-phone"><a href="tel:9513474714" style="color:#FFFFFF !important; text-decoration:none;">951-347-4714</a></p>
+  </div>
+</div>
+
+<p class="confidential">Confidential — Prepared for Julius Herrera / BBQ TECH</p>
+<div class="footer">ViralityX · 2026</div>
+
+</div>
+
+<script>
+// Scroll reveal animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Animate hero on load
+window.addEventListener('load', () => {
+  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 200 + (i * 150));
+  });
+});
+</script>
+
+</body>
+</html>
