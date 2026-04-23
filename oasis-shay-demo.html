@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shay — Oasis Beach Resort AI Concierge</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --sand: #f7f4ef;
+    --sand-dark: #ece7df;
+    --teal: #4dbdbe;
+    --teal-dark: #3aa5a6;
+    --teal-deep: #1f6b6c;
+    --gold: #b8922a;
+    --gold-light: #cca840;
+    --text-dark: #1e2a2a;
+    --text-mid: #4a5e5e;
+    --text-light: #7a9494;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--sand);
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  .hero {
+    background: #3aa5a6;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 24px 70px;
+    text-align: center;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80') center/cover no-repeat;
+    opacity: 0.18;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .resort-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  .logo-area {
+    margin-bottom: 28px;
+  }
+
+  .logo-wave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .logo-line {
+    height: 1px;
+    width: 50px;
+    background: #a07c20;
+    opacity: 0.6;
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--teal-dark);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 auto 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+
+  .hero h1 em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 16px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    max-width: 420px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px 24px 0;
+  }
+
+  .divider-ornament span {
+    height: 1px;
+    width: 60px;
+    background: #a07c20;
+    opacity: 0.4;
+  }
+
+  .divider-ornament svg {
+    width: 14px;
+    height: 14px;
+    fill: var(--gold);
+    opacity: 0.7;
+  }
+
+  .services {
+    padding: 40px 24px 36px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .services-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .service-card {
+    background: #fff;
+    border: 1px solid var(--sand-dark);
+    border-radius: 4px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+
+  .service-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e8f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+  }
+
+  .service-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--teal);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-card p {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--text-mid);
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .cta-section {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 24px 36px;
+    text-align: center;
+  }
+
+  .cta-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 10px;
+  }
+
+  .chat-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--teal);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .chat-hint svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--teal);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+
+  .separator {
+    height: 1px;
+    background: var(--sand-dark);
+    max-width: 320px;
+    margin: 32px auto;
+  }
+
+  .call-box {
+    background: #3aa5a6;
+    border-radius: 6px;
+    padding: 30px 28px;
+    max-width: 400px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+
+  .call-box-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .call-box h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .call-box p {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 22px;
+    line-height: 1.6;
+  }
+
+  .call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #a07c20;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 13px 26px;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .call-btn:hover { background: #b8922a; }
+
+  .call-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 20px 24px 40px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  .footer span {
+    color: var(--gold);
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 36px; }
+    .service-grid { grid-template-columns: repeat(2, 1fr); }
+    .call-box { margin: 0 16px 36px; }
+  }
+</style>
+</head>
+<body>
+<div style="background:#4dbdbe;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div style="width:42px;height:42px;border-radius:50%;background:#a07c20;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:11px;color:#fff;letter-spacing:0.05em;border:2px solid #cca840;">OASIS</div>
+    <span style="color:#fff;font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;">Oasis Beach Resort</span>
+  </div>
+  <a href="https://us2.cloudbeds.com/reservation/b8WahM" style="background:#a07c20;color:#fff;text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:10px 20px;border:1px solid #cca840;">Book Now</a>
+</div>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="resort-badge">Oasis Beach Resort &nbsp;·&nbsp; Cape Coast, Ghana</div>
+    <div class="avatar">S</div>
+    <h1>Meet <em>Shay</em></h1>
+    <p class="hero-sub">Your personal AI concierge</p>
+    <p class="hero-desc">From room inquiries to spa bookings, Shay is here to make your Oasis experience seamless — day or night.</p>
+  </div>
+</div>
+
+<div class="divider-ornament">
+  <span></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+  <span></span>
+</div>
+
+<div class="services">
+  <p class="services-title">How Shay can help you</p>
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <p>Room bookings</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <p>Check availability</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+      </div>
+      <p>Dining & restaurant</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <p>Spa & wellness</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+      </div>
+      <p>Tours & excursions</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <p>Resort info</p>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <p class="cta-label">Chat widget active — look for the bubble</p>
+  <div class="chat-hint">
+    <span>Start chatting with Shay below</span>
+    <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</div>
+
+<div class="separator"></div>
+
+<div class="call-box" style="margin-left: auto; margin-right: auto; max-width: 400px; width: calc(100% - 48px);">
+  <p class="call-box-label">Prefer to call?</p>
+  <h2>Speak directly with Shay</h2>
+  <p>Experience the full voice AI — call the number below and Shay will assist you right away.</p>
+  <a href="tel:+12762763237" class="call-btn">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.17 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    +1 (276) 276-3237
+  </a>
+</div>
+
+<div class="footer">
+  <span>Oasis Beach Resort</span> &nbsp;·&nbsp; Cape Coast, Ghana &nbsp;·&nbsp; AI-powered by Shay
+</div>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js"
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="69e9bcb4e6b8ee3aa1af4c81">
+</script>
+
+</body>
+</html>
