@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calview Films × ViralityX — Google Ads Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg-elevated: #11161e;
+    --surface: #161c26;
+    --surface-hover: #1d242f;
+    --border: rgba(255,255,255,0.06);
+    --border-bright: rgba(212,175,55,0.32);
+    --text: #ebebed;
+    --text-muted: #8b94a3;
+    --text-dim: #5a6271;
+    --google-blue: #d4af37;
+    --google-blue-deep: #b8941f;
+    --google-blue-glow: rgba(212,175,55,0.14);
+    --google-green: #34a853;
+    --google-green-glow: rgba(52,168,83,0.12);
+    --google-yellow: #fbbc04;
+    --google-red: #ea4335;
+    --steel: #6b8aa8;
+    --steel-glow: rgba(107,138,168,0.1);
+    --red: #ea4335;
+    --green: #34a853;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--google-blue); color: var(--bg); }
+
+  /* NAV */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 18px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    backdrop-filter: blur(20px);
+    background: rgba(10,14,20,0.85);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-brand {
+    font-weight: 700; font-size: 15px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--google-blue);
+  }
+  .nav-tag {
+    font-size: 12px; color: var(--text-muted);
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 40px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--google-blue-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -150px; left: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--google-green-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--google-blue); margin-bottom: 24px; font-weight: 600;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .hero-label::before {
+    content: ''; width: 32px; height: 1px; background: var(--google-blue);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 72px); font-weight: 500;
+    line-height: 1.05; max-width: 880px; margin-bottom: 28px;
+    letter-spacing: -0.5px;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+  .hero h1 em { font-style: italic; color: var(--google-blue); }
+  .hero-sub {
+    font-size: 18px; color: var(--text-muted); max-width: 620px; line-height: 1.8;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s;
+  }
+  .hero-meta {
+    display: flex; gap: 40px; margin-top: 56px; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.6s ease forwards 0.8s;
+  }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .hero-meta-item span:first-child {
+    font-size: 11px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--text-dim);
+  }
+  .hero-meta-item span:last-child {
+    font-size: 15px; color: var(--text); font-weight: 500;
+  }
+
+  /* SECTIONS */
+  .section { padding: 100px 40px; max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--google-blue); margin-bottom: 16px; font-weight: 600;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 500;
+    margin-bottom: 20px; line-height: 1.2;
+  }
+  .section h2 em { font-style: italic; color: var(--google-blue); }
+  .section-intro {
+    font-size: 17px; color: var(--text-muted);
+    max-width: 660px; margin-bottom: 56px; line-height: 1.8;
+  }
+
+  /* STATS */
+  .stat-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px; margin: 48px 0;
+  }
+  .stat-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 36px 32px; text-align: center;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .stat-card:hover { border-color: var(--border-bright); transform: translateY(-3px); }
+  .stat-card::before {
+    content: '';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 2px; background: var(--google-blue);
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 600; color: var(--google-blue);
+    line-height: 1; margin-bottom: 8px;
+  }
+  .stat-label { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .stat-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* PROBLEM GRID */
+  .problem-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 20px; margin-top: 40px;
+  }
+  .problem-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+    transition: border-color 0.3s;
+  }
+  .problem-card:hover { border-color: var(--border-bright); }
+  .problem-card .icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(234,67,53,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; margin-bottom: 16px;
+  }
+  .problem-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  .problem-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* COMPETITION CALLOUT */
+  .competition {
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(212,175,55,0.04) 100%);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    margin-top: 40px;
+    position: relative; overflow: hidden;
+  }
+  .competition::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, var(--google-blue-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .competition h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; margin-bottom: 16px;
+  }
+  .competition > p {
+    color: var(--text-muted); font-size: 15px;
+    margin-bottom: 32px; max-width: 600px; line-height: 1.7;
+  }
+  .competitor-list {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .competitor {
+    background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 22px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .competitor-name { font-weight: 600; font-size: 15px; }
+  .competitor-tenure {
+    font-size: 12px; color: var(--text-muted);
+    padding: 3px 10px; border-radius: 100px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+  }
+  .moat-callout {
+    margin-top: 32px; padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .moat-callout h4 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 22px;
+    margin-bottom: 8px; color: var(--google-blue);
+  }
+  .moat-callout p {
+    font-size: 15px; color: var(--text); line-height: 1.7;
+  }
+
+  /* SCENARIO */
+  .scenario {
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(212,175,55,0.03) 100%);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg); padding: 52px; margin-top: 48px;
+    position: relative; overflow: hidden;
+  }
+  .scenario::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .scenario h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; margin-bottom: 12px; color: var(--google-blue);
+  }
+  .scenario > p {
+    color: var(--text-muted); font-size: 15px;
+    margin-bottom: 32px; max-width: 580px;
+  }
+  .scenario-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  }
+  .scenario-col h4 {
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 16px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .scenario-col.before h4 { color: var(--red); }
+  .scenario-col.after h4 { color: var(--green); }
+  .scenario-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .scenario-col li {
+    font-size: 14px; color: var(--text-muted); line-height: 1.6;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .scenario-col li .marker { flex-shrink: 0; margin-top: 3px; font-size: 12px; }
+  .scenario-col.before li .marker { color: var(--red); }
+  .scenario-col.after li .marker { color: var(--green); }
+
+  /* PHASES */
+  .phase {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 48px; margin-bottom: 24px;
+    position: relative; overflow: hidden; transition: border-color 0.3s;
+  }
+  .phase:hover { border-color: var(--border-bright); }
+  .phase::before {
+    content: attr(data-phase);
+    position: absolute; top: 20px; right: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px; font-weight: 700;
+    color: rgba(255,255,255,0.03); line-height: 1;
+  }
+  .phase-tag {
+    display: inline-block; font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 100px;
+    margin-bottom: 20px; font-weight: 600;
+  }
+  .phase-tag.foundation { background: var(--google-blue-glow); color: var(--google-blue); border: 1px solid rgba(212,175,55,0.2); }
+  .phase-tag.capture { background: var(--steel-glow); color: var(--steel); border: 1px solid rgba(107,138,168,0.2); }
+  .phase-tag.scale { background: rgba(52,168,83,0.1); color: var(--green); border: 1px solid rgba(52,168,83,0.2); }
+  .phase h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 500; margin-bottom: 12px;
+  }
+  .phase > p {
+    color: var(--text-muted); font-size: 15px;
+    margin-bottom: 28px; max-width: 600px;
+  }
+  .phase-items {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .phase-item {
+    background: var(--bg-elevated); border-radius: var(--radius);
+    padding: 20px 24px; border: 1px solid var(--border);
+  }
+  .phase-item h4 {
+    font-size: 14px; font-weight: 600; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .phase-item h4 .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--google-blue); flex-shrink: 0;
+  }
+  .phase-item p {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.6; padding-left: 14px;
+  }
+
+  /* JOURNEY */
+  .journey {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 48px; margin-top: 40px;
+  }
+  .journey h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; margin-bottom: 32px;
+  }
+  .journey-flow {
+    display: flex; align-items: stretch; gap: 0;
+    overflow-x: auto; padding-bottom: 8px;
+  }
+  .journey-step {
+    flex: 1; min-width: 160px; text-align: center;
+    padding: 24px 16px; position: relative;
+  }
+  .journey-step::after {
+    content: '→'; position: absolute; right: -8px; top: 50%;
+    transform: translateY(-50%); color: var(--google-blue);
+    font-size: 18px; z-index: 1;
+  }
+  .journey-step:last-child::after { display: none; }
+  .journey-step .step-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--google-blue-glow); border: 1px solid rgba(212,175,55,0.2);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px; font-size: 20px;
+  }
+  .journey-step h4 { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .journey-step p { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+  /* EXPANSION */
+  .expansion {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 48px; margin-top: 24px;
+  }
+  .expansion h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; margin-bottom: 8px;
+  }
+  .expansion > p {
+    color: var(--text-muted); font-size: 15px;
+    margin-bottom: 32px; max-width: 580px;
+  }
+  .expansion-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .expansion-card {
+    background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    transition: border-color 0.3s;
+  }
+  .expansion-card:hover { border-color: var(--border-bright); }
+  .expansion-card .exp-icon { font-size: 26px; margin-bottom: 14px; }
+  .expansion-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .expansion-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* TIMELINE */
+  .timeline { margin-top: 48px; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 20px; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(to bottom, var(--google-blue), var(--border));
+  }
+  .timeline-item { padding-left: 56px; padding-bottom: 40px; position: relative; }
+  .timeline-item::before {
+    content: ''; position: absolute; left: 14px; top: 6px;
+    width: 13px; height: 13px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--google-blue);
+  }
+  .timeline-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .timeline-item .tl-date {
+    font-size: 12px; color: var(--google-blue);
+    letter-spacing: 1px; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 8px;
+  }
+  .timeline-item p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+  /* TINTWIZ ADDONS */
+  .addons-intro {
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(212,175,55,0.04) 100%);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    display: flex; gap: 24px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .addons-intro::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 240px; height: 240px;
+    background: radial-gradient(circle, var(--google-blue-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .addons-intro .badge {
+    flex-shrink: 0; width: 64px; height: 64px;
+    border-radius: 16px;
+    background: var(--google-blue-glow);
+    border: 1px solid rgba(212,175,55,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+  }
+  .addons-intro h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; margin-bottom: 6px;
+  }
+  .addons-intro p {
+    font-size: 14px; color: var(--text-muted); line-height: 1.7;
+  }
+  .addons-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .addon-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+  }
+  .addon-card:hover { border-color: var(--border-bright); transform: translateY(-2px); }
+  .addon-card .addon-num {
+    position: absolute; top: 20px; right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 600;
+    color: rgba(212,175,55,0.15); line-height: 1;
+  }
+  .addon-card .addon-tag {
+    display: inline-block; font-size: 9px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 100px;
+    margin-bottom: 14px; font-weight: 600;
+    background: rgba(212,175,55,0.08);
+    color: var(--google-blue);
+    border: 1px solid rgba(212,175,55,0.15);
+  }
+  .addon-card .addon-tag.flow { background: rgba(52,168,83,0.08); color: var(--google-green); border-color: rgba(52,168,83,0.18); }
+  .addon-card .addon-tag.signal { background: rgba(251,188,4,0.08); color: var(--google-yellow); border-color: rgba(251,188,4,0.2); }
+  .addon-card h4 {
+    font-size: 16px; font-weight: 600; margin-bottom: 8px;
+    line-height: 1.35; padding-right: 40px;
+  }
+  .addon-card p {
+    font-size: 13px; color: var(--text-muted);
+    line-height: 1.7; margin-bottom: 14px;
+  }
+  .addon-stack {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding-top: 14px; border-top: 1px solid var(--border);
+  }
+  .addon-stack span {
+    font-size: 10px; letter-spacing: 0.5px;
+    color: var(--text-dim); font-weight: 500;
+    padding: 3px 9px; border-radius: 4px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+  }
+  .addon-stack span.tw { color: var(--google-blue); border-color: rgba(212,175,55,0.2); }
+
+  /* SCOPE BOX */
+  .scope-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 40px;
+    margin-top: 32px;
+  }
+  .scope-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; margin-bottom: 20px;
+  }
+  .scope-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  }
+  .scope-col h4 {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    margin-bottom: 14px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .scope-col.included h4 { color: var(--green); }
+  .scope-col.excluded h4 { color: var(--text-dim); }
+  .scope-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .scope-col li {
+    font-size: 13px; color: var(--text-muted); line-height: 1.6;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .scope-col li .marker { flex-shrink: 0; margin-top: 2px; font-size: 11px; font-weight: 700; }
+  .scope-col.included li .marker { color: var(--green); }
+  .scope-col.excluded li .marker { color: var(--text-dim); }
+
+  /* CTA */
+  .cta-section {
+    text-align: center; padding: 120px 40px; position: relative;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 400px;
+    background: radial-gradient(circle, var(--google-blue-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    margin-bottom: 16px;
+  }
+  .cta-section p {
+    color: var(--text-muted); font-size: 16px;
+    margin-bottom: 40px; max-width: 540px;
+    margin-left: auto; margin-right: auto; line-height: 1.8;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--google-blue); color: #fff;
+    font-size: 15px; font-weight: 700;
+    padding: 16px 40px; border-radius: 100px;
+    text-decoration: none; letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 0 40px var(--google-blue-glow);
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 60px rgba(212,175,55,0.35);
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 40px;
+    font-size: 12px; color: var(--text-dim);
+    border-top: 1px solid var(--border);
+  }
+  .divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav { padding: 14px 20px; }
+    .hero { padding: 100px 20px 60px; }
+    .section { padding: 60px 20px; }
+    .stat-row { grid-template-columns: 1fr; }
+    .problem-grid, .scenario-grid, .phase-items, .scope-grid, .addons-grid { grid-template-columns: 1fr; }
+    .addons-intro { flex-direction: column; text-align: center; padding: 28px; }
+    .competitor-list, .expansion-grid { grid-template-columns: 1fr; }
+    .phase, .scenario, .competition, .expansion, .scope-box { padding: 32px 24px; }
+    .hero-meta { flex-direction: column; gap: 20px; }
+    .journey-flow { flex-direction: column; }
+    .journey-step::after { display: none; }
+    .stat-number { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">ViralityX</div>
+  <div class="nav-tag">Google Ads Blueprint — April 2026</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Prepared for Calview Films</div>
+  <h1>Stop Renting Yelp Tags.<br>Start <em>Owning Google</em>.</h1>
+  <p class="hero-sub">Yelp dilutes your spend across categories you don't even want. Thumbtack hands your lead to four competitors at once. Google Ads — done right — puts Calview Films directly in front of someone actively searching "window tinting Costa Mesa" with credit card in hand. We don't dabble in five platforms. We run Google. Exclusively. End to end.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span>Prepared By</span>
+      <span>Danny Pena — ViralityX</span>
+    </div>
+    <div class="hero-meta-item">
+      <span>Prepared For</span>
+      <span>Jake Ramsey — Calview Films</span>
+    </div>
+    <div class="hero-meta-item">
+      <span>Service Area</span>
+      <span>Costa Mesa & Orange County</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE NUMBERS -->
+<section class="section reveal">
+  <div class="section-label">01 — Why Google, Why Now</div>
+  <h2>Google Is Where <em>Buyers</em> Are. Not Browsers.</h2>
+  <p class="section-intro">Yelp is comparison shopping. Thumbtack is bid wars. Google Search is intent. When someone types "window tinting Costa Mesa" into Google, they aren't researching — they're ready to call. Our job is making sure your ad is the first one they see, on a landing page built to convert.</p>
+
+  <div class="stat-row">
+    <div class="stat-card reveal">
+      <div class="stat-number">$750–$5K</div>
+      <div class="stat-label">Average Residential Job</div>
+      <div class="stat-desc">Window tinting margins absorb Google CPCs easily. With proper bidding, even a single conversion pays for a month of clicks.</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-number">$3K–$25K+</div>
+      <div class="stat-label">Average Commercial Ticket</div>
+      <div class="stat-desc">Commercial searches on Google ("office window tinting Orange County") are the highest-intent, highest-value queries in your industry.</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-number">53%</div>
+      <div class="stat-label">Local Search Share</div>
+      <div class="stat-desc">Google dominates local service search across the U.S. Yelp and Thumbtack combined don't come close. Spend follows attention.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE COMPETITION REALITY -->
+<section class="section reveal">
+  <div class="section-label">02 — The Auction You're In</div>
+  <h2>This Is <em>Who's Bidding</em> Against You on Google Today.</h2>
+  <p class="section-intro">Every search for "window tinting Costa Mesa" or "commercial window film Orange County" triggers an instant auction. These are the shops paying to be at the top of that page right now — and most of them are paying badly, with bloated keyword lists and landing pages that don't convert.</p>
+
+  <div class="competition reveal">
+    <h3>The OC Google Ads Landscape</h3>
+    <p>These are the names showing up in paid Google results in your market. Most are running campaigns set up by generalist agencies — broad match keywords, generic landing pages, no conversion tracking worth the name.</p>
+    <div class="competitor-list">
+      <div class="competitor">
+        <span class="competitor-name">The Tint Pros</span>
+        <span class="competitor-tenure">Bidding heavy</span>
+      </div>
+      <div class="competitor">
+        <span class="competitor-name">Signature Glass Tinting</span>
+        <span class="competitor-tenure">Top 3 paid</span>
+      </div>
+      <div class="competitor">
+        <span class="competitor-name">Vanguard Glass Tinting</span>
+        <span class="competitor-tenure">Generic LP</span>
+      </div>
+      <div class="competitor">
+        <span class="competitor-name">OC Tint Solutions</span>
+        <span class="competitor-tenure">Multi-location</span>
+      </div>
+      <div class="competitor">
+        <span class="competitor-name">South Coast Window Tinting</span>
+        <span class="competitor-tenure">Broad match</span>
+      </div>
+      <div class="competitor">
+        <span class="competitor-name">TintWindows</span>
+        <span class="competitor-tenure">No tracking</span>
+      </div>
+    </div>
+
+    <div class="moat-callout">
+      <h4>"They're paying. We make it pay back."</h4>
+      <p>Most tinting shops on Google are wasting 40–60% of their ad spend on broad-match irrelevant traffic, generic homepage destinations, and zero conversion tracking. Calview Films won't outspend them — you'll <strong style="color: var(--google-blue);">outconvert them</strong>. Tighter targeting, a purpose-built landing page, and measurement that tells us exactly which keyword brought in which job.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT'S BROKEN -->
+<section class="section reveal">
+  <div class="section-label">03 — What's Costing You Right Now</div>
+  <h2>The Paid Search Problems Solo Tinters <em>Always</em> Hit.</h2>
+  <p class="section-intro">After auditing the OC tinting market and the way most solo operators run paid ads, here's what we consistently see leaking budget and slowing growth.</p>
+
+  <div class="problem-grid">
+    <div class="problem-card reveal">
+      <div class="icon">🔍</div>
+      <h3>No Dedicated Google Ads Strategy</h3>
+      <p>Most tinters either don't run Google Ads at all, or run them through an agency juggling Meta, TikTok, SEO, email and ten other platforms. Google Ads done part-time is Google Ads done badly. It's a specialist channel.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="icon">🌐</div>
+      <h3>Homepage as Landing Page</h3>
+      <p>Sending paid Google traffic to a generic Wix homepage is the #1 reason ad spend underperforms. The homepage answers "who is Calview Films?" — a paid landing page needs to answer "why book Calview Films right now?"</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="icon">📊</div>
+      <h3>No Conversion Tracking</h3>
+      <p>If you can't tell which keyword turned into a $3,500 job, you're flying blind. Most tinting accounts have no proper conversion tracking — every campaign optimization is a guess instead of a decision.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="icon">🎯</div>
+      <h3>Broad Match Keyword Bleed</h3>
+      <p>Default Google Ads campaigns serve your ads for "window cleaning," "window replacement," "car window repair" — none of which you do. Without aggressive negative keyword management, 30–50% of your spend is on the wrong searches.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="icon">💰</div>
+      <h3>Manual Bidding on Autopilot</h3>
+      <p>Bids set once and forgotten. No bid adjustments by device, location, time of day, or audience. Commercial searches in Costa Mesa at 10am Tuesday should bid different than residential searches Sunday night. Most accounts treat them identical.</p>
+    </div>
+    <div class="problem-card reveal">
+      <div class="icon">📝</div>
+      <h3>Generic Ad Copy & Extensions</h3>
+      <p>Ads that look like every other tinter's ads. No use of callouts, structured snippets, sitelinks, or call extensions. Quality Score suffers, CPC goes up, you pay more for less. Google rewards specificity — and almost nobody gives it specificity.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BEFORE / AFTER -->
+<section class="section reveal">
+  <div class="section-label">04 — The Transformation</div>
+  <h2>From Paying Google to <em>Profiting From Google</em>.</h2>
+  <p class="section-intro">Same monthly budget. Completely different return. The shift happens when paid search is run as a craft instead of a side task.</p>
+
+  <div class="scenario reveal">
+    <h3>Side by Side</h3>
+    <p>The difference between Calview Films on Google today and Calview Films on Google 60 days from now.</p>
+    <div class="scenario-grid">
+      <div class="scenario-col before">
+        <h4>Today</h4>
+        <ul>
+          <li><span class="marker">✕</span> Yelp/Thumbtack spend spread thin across diluted categories</li>
+          <li><span class="marker">✕</span> No dedicated Google Ads campaigns, or campaigns left on default settings</li>
+          <li><span class="marker">✕</span> Paid traffic lands on a generic homepage that wasn't built to convert</li>
+          <li><span class="marker">✕</span> No conversion tracking — can't tell what's working from what's wasting budget</li>
+          <li><span class="marker">✕</span> Broad match keywords burning spend on irrelevant searches</li>
+          <li><span class="marker">✕</span> Generic ad copy with no extensions, low Quality Score, high CPC</li>
+          <li><span class="marker">✕</span> Reporting = "we spent X this month" with no idea what came back</li>
+        </ul>
+      </div>
+      <div class="scenario-col after">
+        <h4>After ViralityX</h4>
+        <ul>
+          <li><span class="marker">✓</span> Google Ads run as a dedicated channel by a Google-only specialist</li>
+          <li><span class="marker">✓</span> Campaign architecture rebuilt: residential, commercial, security film — separate budgets, separate strategies</li>
+          <li><span class="marker">✓</span> Purpose-built landing page that answers buyer intent and routes leads to you</li>
+          <li><span class="marker">✓</span> Full conversion tracking + measurement setup — every dollar tied to a result</li>
+          <li><span class="marker">✓</span> Tight keyword targeting with aggressive negative keyword lists</li>
+          <li><span class="marker">✓</span> Sharp ad copy with callouts, sitelinks, and call extensions to maximize Quality Score</li>
+          <li><span class="marker">✓</span> Monthly performance reports: spend, leads, CPL, conversion rate — by campaign</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- THE BUILD -->
+<section class="section reveal">
+  <div class="section-label">05 — What We Build & Manage</div>
+  <h2>The Full Google Ads Engine for <em>Calview Films</em>.</h2>
+  <p class="section-intro">We don't run Meta. We don't run YouTube. We don't dabble in SEO or email. We run Google Ads — and we build the one landing page that catches every click. That's the entire scope. Done deeply, not broadly.</p>
+
+  <div class="phase reveal" data-phase="01">
+    <span class="phase-tag foundation">Phase 1 — Account & Campaign Foundation</span>
+    <h3>Audit, Architect, and Launch the Account Right.</h3>
+    <p>Before a single dollar gets spent (or re-spent), we tear down the existing account or build a new one from scratch — with the structure, tracking, and targeting that determines everything that follows.</p>
+    <div class="phase-items">
+      <div class="phase-item">
+        <h4><span class="dot"></span> Initial Account & Campaign Audit</h4>
+        <p>If a Google Ads account already exists, we audit historical spend, keyword performance, conversion data, wasted spend, and account structure. The audit becomes the blueprint for what stays, what gets rebuilt, and what gets killed.</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Campaign Strategy & Structure</h4>
+        <p>Separate campaigns for residential tinting, commercial tinting, security film, and any other distinct service line — each with its own budget, bid strategy, keyword theme, and ad copy. No more one-size-fits-nothing.</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Keyword Research & Management</h4>
+        <p>Deep keyword research specific to Costa Mesa and Orange County tinting demand. Match types selected per keyword. Aggressive negative keyword lists from day one to block "window cleaning," "auto tint," and other irrelevant traffic.</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Conversion Tracking Guidance</h4>
+        <p>Recommendations for tagging and measurement setup so every form fill, phone call, and quote request gets attributed back to the keyword, ad, and campaign that produced it. Without this, optimization is guesswork.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase reveal" data-phase="02">
+    <span class="phase-tag capture">Phase 2 — Landing Page Build (One-Time)</span>
+    <h3>One Landing Page. Built to Convert. Done Right.</h3>
+    <p>Part of this engagement includes a one-time, single landing page designed and delivered specifically to support your Google Ads campaigns. This is where every paid click goes — and where browsers turn into booked quotes.</p>
+    <div class="phase-items">
+      <div class="phase-item">
+        <h4><span class="dot"></span> Single Purpose-Built Landing Page</h4>
+        <p>One (1) dedicated landing page designed end to end to support Google Ads traffic. Built around buyer intent — not generic brand storytelling. Focused on a single clear conversion action: get the quote.</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Design & Copy Implementation</h4>
+        <p>Page design and copy implementation built from your provided content or drafted by us where needed. Layout, hierarchy, and call-to-action placement optimized for paid search visitor behavior.</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Basic Conversion Tracking Setup</h4>
+        <p>Basic conversion tracking installed on the landing page so the form, phone, and primary CTAs all report back into Google Ads as conversions. The campaign data flowing in is only as good as the tracking on this page.</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Two Rounds of Reasonable Revisions</h4>
+        <p>The build includes up to two (2) rounds of reasonable revisions to copy, layout, or design before final delivery. Anything beyond two rounds, additional pages, redesigns, or post-launch rebuilds are out of scope for this agreement.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase reveal" data-phase="03">
+    <span class="phase-tag scale">Phase 3 — Ongoing Management & Optimization</span>
+    <h3>Run It, Tune It, Report On It — Every Month.</h3>
+    <p>Once campaigns are live and the landing page is converting, the real work starts. Google Ads is not "set and forget." It's a weekly tuning game — and tuning is where the margin lives.</p>
+    <div class="phase-items">
+      <div class="phase-item">
+        <h4><span class="dot"></span> Ad Creation & Testing</h4>
+        <p>Ongoing ad copy creation and testing — headlines, descriptions, callouts, structured snippets, sitelink extensions, and call extensions. Always at least two variants running per ad group to see what's actually winning.</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Bidding & Budget Optimization</h4>
+        <p>Bid strategies tuned based on actual conversion data — not Google's defaults. Bid adjustments by device, location, time of day, and audience. Budget reallocated monthly toward the campaigns and keywords producing real jobs.</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Landing Page Performance Recommendations</h4>
+        <p>Ongoing recommendations on the landing page strictly as related to paid search performance — what's converting, where visitors are dropping off, what messaging is resonating with paid traffic. (Implementation of those changes is a separate scope.)</p>
+      </div>
+      <div class="phase-item">
+        <h4><span class="dot"></span> Performance Reporting & Analysis</h4>
+        <p>Clear monthly reporting: spend, impressions, clicks, conversions, CPL, and which campaigns and keywords drove revenue. No vanity metrics. No 40-page PDFs. Just the numbers that tell you whether the channel is winning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TINTWIZ ADD-ONS -->
+<section class="section reveal">
+  <div class="section-label">06 — Built On Top Of TintWiz</div>
+  <h2>Make the Software You're <em>Already Paying For</em> Work Harder.</h2>
+  <p class="section-intro">You already run TintWiz — the CRM, the proposals, the invoicing, the review automation, the photo library. What most shops never do is connect it to their paid search engine. These are the add-ons that turn TintWiz from "the tool we use after the lead arrives" into the back end of every Google Ads campaign we run.</p>
+
+  <div class="addons-intro reveal">
+    <div class="badge">⚡</div>
+    <div>
+      <h3>Native Hooks. No Replatforming.</h3>
+      <p>Every add-on below uses TintWiz's existing capabilities — Zapier integration (9,000+ apps), built-in review automation, 40+ analytics segments, and the photo & proposal data already living in your account. Nothing rips, nothing rebuilds, nothing changes for you day-to-day. We just wire what you already own to what we're building.</p>
+    </div>
+  </div>
+
+  <div class="addons-grid">
+    <div class="addon-card reveal">
+      <span class="addon-num">01</span>
+      <span class="addon-tag flow">Lead Pipe</span>
+      <h4>Google Ads → TintWiz Auto-Routing</h4>
+      <p>Every form submission on the new landing page flows directly into TintWiz as a new lead — pre-tagged with the campaign, ad group, and keyword that produced it. No double entry, no email-to-CRM copy/paste, no leads lost between systems. Paid lead lands → TintWiz creates the project → you get notified.</p>
+      <div class="addon-stack">
+        <span class="tw">TintWiz</span>
+        <span>Zapier</span>
+        <span>Google Ads</span>
+      </div>
+    </div>
+
+    <div class="addon-card reveal">
+      <span class="addon-num">02</span>
+      <span class="addon-tag signal">Signal Loop</span>
+      <h4>Offline Conversion Imports Back to Google</h4>
+      <p>The big one most agencies skip. When you mark a TintWiz proposal "Won," that signal pushes back into Google Ads as an offline conversion. Within 60–90 days, Google's bidding optimizes for booked jobs — not just form fills. The algorithm starts spending more on keywords that produce real revenue and less on tire-kickers.</p>
+      <div class="addon-stack">
+        <span class="tw">TintWiz</span>
+        <span>Zapier</span>
+        <span>Google Ads API</span>
+      </div>
+    </div>
+
+    <div class="addon-card reveal">
+      <span class="addon-num">03</span>
+      <span class="addon-tag flow">Lead Pipe</span>
+      <h4>Call Tracking, Routed to TintWiz</h4>
+      <p>A tracking number on the landing page forwards to your main line — every paid call gets recorded, transcribed, and pushed into TintWiz as a lead with the source attached. Phone leads now get the same campaign-level attribution as form leads, instead of disappearing into "we got a call from somewhere."</p>
+      <div class="addon-stack">
+        <span class="tw">TintWiz</span>
+        <span>CallRail</span>
+        <span>Zapier</span>
+      </div>
+    </div>
+
+    <div class="addon-card reveal">
+      <span class="addon-num">04</span>
+      <span class="addon-tag">Compounder</span>
+      <h4>Review Automation, Pointed at Google</h4>
+      <p>TintWiz already sends automated review requests via text and email after every job. Most shops let it default to "wherever." We tune it to route post-install requests specifically to your Google Business Profile — the one that improves Quality Score, lifts your local pack ranking, and makes your paid ads cheaper to run.</p>
+      <div class="addon-stack">
+        <span class="tw">TintWiz Reviews</span>
+        <span>Google Business Profile</span>
+      </div>
+    </div>
+
+    <div class="addon-card reveal">
+      <span class="addon-num">05</span>
+      <span class="addon-tag flow">Lead Pipe</span>
+      <h4>Proposal-Triggered Follow-Up Sequences</h4>
+      <p>TintWiz sends the proposal → Zapier picks up the event → triggers a 7-day SMS and email follow-up cadence if the proposal isn't approved. TintWiz keeps owning the proposal itself; the chase just runs in the background. Tinting customers shop 3–5 quotes — the one who follows up wins.</p>
+      <div class="addon-stack">
+        <span class="tw">TintWiz Proposals</span>
+        <span>Zapier</span>
+        <span>SMS / Email</span>
+      </div>
+    </div>
+
+    <div class="addon-card reveal">
+      <span class="addon-num">06</span>
+      <span class="addon-tag">Compounder</span>
+      <h4>Before/After Photos → GBP Auto-Posts</h4>
+      <p>Every completed install's before/after photos already live in TintWiz. Pipe them via Zapier into scheduled Google Business Profile posts. Your GBP updates weekly with fresh install photos — Google rewards that activity with better local visibility, which feeds right back into the paid campaigns we're running.</p>
+      <div class="addon-stack">
+        <span class="tw">TintWiz Media</span>
+        <span>Zapier</span>
+        <span>Google Business Profile</span>
+      </div>
+    </div>
+
+    <div class="addon-card reveal">
+      <span class="addon-num">07</span>
+      <span class="addon-tag signal">Signal Loop</span>
+      <h4>Lead-Source Dashboard in Native TintWiz</h4>
+      <p>TintWiz has 40+ analytics segments built in — most users never touch them. We tag every Google Ads lead with its campaign at intake, so your existing TintWiz reports show Google residential vs. Google commercial vs. Yelp vs. referral — by lead, by quote, by closed revenue. No new dashboard tool. No extra subscription.</p>
+      <div class="addon-stack">
+        <span class="tw">TintWiz Analytics</span>
+        <span>Custom Tags</span>
+      </div>
+    </div>
+
+    <div class="addon-card reveal">
+      <span class="addon-num">08</span>
+      <span class="addon-tag">Compounder</span>
+      <h4>QuickBooks Reconciliation</h4>
+      <p>TintWiz already integrates one-click with QuickBooks. We tie that connection into the campaign-level revenue data — meaning monthly performance reports don't just show "leads" or "conversions," they show actual booked revenue per Google Ads campaign reconciled against your QB books. ROI in dollars, not estimates.</p>
+      <div class="addon-stack">
+        <span class="tw">TintWiz</span>
+        <span>QuickBooks</span>
+        <span>Reporting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CUSTOMER JOURNEY -->
+<section class="section reveal">
+  <div class="section-label">07 — Customer Journey</div>
+  <h2>From Google Search to <em>Booked Quote</em> — Tracked End-to-End.</h2>
+  <div class="journey reveal">
+    <h3>The Calview Films Paid Search Funnel</h3>
+    <div class="journey-flow">
+      <div class="journey-step">
+        <div class="step-icon">🔍</div>
+        <h4>Google Search</h4>
+        <p>Buyer searches "window tinting Costa Mesa"</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-icon">📣</div>
+        <h4>Targeted Ad</h4>
+        <p>Calview ad shows top of page with relevant extensions</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-icon">🌐</div>
+        <h4>Landing Page</h4>
+        <p>Purpose-built page answers intent, routes to quote form</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-icon">📋</div>
+        <h4>Lead Captured</h4>
+        <p>Form fill or call → tracked as conversion in Google Ads</p>
+      </div>
+      <div class="journey-step">
+        <div class="step-icon">💰</div>
+        <h4>Quote → Job</h4>
+        <p>You close. We trace every won job back to its keyword.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SCOPE BOX -->
+<section class="section reveal">
+  <div class="section-label">08 — Clear Scope</div>
+  <h2>What's In. What's <em>Not</em>.</h2>
+  <p class="section-intro">We believe in tight, honest scope so there are zero surprises. Here's exactly what this engagement covers and what falls outside it. Anything outside this scope can be added by separate written agreement.</p>
+
+  <div class="scope-box reveal">
+    <h3>Scope Summary</h3>
+    <div class="scope-grid">
+      <div class="scope-col included">
+        <h4>Included</h4>
+        <ul>
+          <li><span class="marker">✓</span> Google Ads management (exclusively)</li>
+          <li><span class="marker">✓</span> Initial account & campaign audit</li>
+          <li><span class="marker">✓</span> Campaign strategy, structure, and ongoing optimization</li>
+          <li><span class="marker">✓</span> Keyword research and management</li>
+          <li><span class="marker">✓</span> Ad creation and testing (copy + extensions)</li>
+          <li><span class="marker">✓</span> Bidding and budget optimization</li>
+          <li><span class="marker">✓</span> Conversion tracking guidance & setup recommendations</li>
+          <li><span class="marker">✓</span> Landing page performance recommendations (paid search context)</li>
+          <li><span class="marker">✓</span> Performance reporting and analysis</li>
+          <li><span class="marker">✓</span> One (1) single landing page build, including design + copy implementation</li>
+          <li><span class="marker">✓</span> Basic conversion tracking setup on the landing page</li>
+          <li><span class="marker">✓</span> Up to two (2) rounds of reasonable revisions on the landing page</li>
+        </ul>
+      </div>
+      <div class="scope-col excluded">
+        <h4>Not Included</h4>
+        <ul>
+          <li><span class="marker">✕</span> Meta / Facebook / Instagram ads</li>
+          <li><span class="marker">✕</span> YouTube ads beyond what is managed within Google Ads</li>
+          <li><span class="marker">✕</span> SEO and organic search work</li>
+          <li><span class="marker">✕</span> Social media management</li>
+          <li><span class="marker">✕</span> Content creation outside of ads/landing page</li>
+          <li><span class="marker">✕</span> Email or SMS marketing</li>
+          <li><span class="marker">✕</span> Additional website pages or full website development</li>
+          <li><span class="marker">✕</span> Branding or creative production</li>
+          <li><span class="marker">✕</span> E-commerce optimization</li>
+          <li><span class="marker">✕</span> Ongoing landing page maintenance or hosting</li>
+          <li><span class="marker">✕</span> A/B testing, redesigns, or revisions beyond the two included rounds</li>
+          <li><span class="marker">✕</span> Any work beyond the initial landing page build</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE -->
+<section class="section reveal">
+  <div class="section-label">09 — How We Work</div>
+  <h2>Specialists, Not Generalists.</h2>
+  <p class="section-intro">Most agencies will sell you Google, Meta, TikTok, SEO, email, and a partridge in a pear tree — and then under-deliver on every channel. We do one thing. Google. End to end.</p>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="tl-date">Week 1</div>
+      <h4>Account Audit & Strategy Build</h4>
+      <p>Full audit of any existing Google Ads activity, market research on Costa Mesa & OC tinting demand, keyword universe mapping, and campaign architecture finalized. Conversion tracking plan documented before anything launches.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="tl-date">Week 2</div>
+      <h4>Landing Page Build & Tracking Setup</h4>
+      <p>Single dedicated landing page designed, copy drafted or implemented from your inputs, and basic conversion tracking installed. First revision round delivered for your review.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="tl-date">Week 3</div>
+      <h4>Final Revisions, Ad Build & Launch</h4>
+      <p>Second revision round on the landing page completed. Ad copy, extensions, and campaigns built out per the strategy. Negative keyword lists loaded. Account goes live.</p>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="tl-date">Month 2+</div>
+      <h4>Optimize, Report, Compound</h4>
+      <p>Weekly bid and keyword tuning. Monthly performance reports. Landing page performance recommendations relayed as paid search data comes in. The longer it runs, the better the data — and the better the data, the better the return.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <h2>Let's Make Google Pay You Back.</h2>
+  <p>You bring the precision installs and the veteran-owned story. We make sure the right buyers in Costa Mesa and Orange County see Calview Films first when they're ready to spend — and that every click has a landing page worth landing on.</p>
+  <a href="https://viralityx.github.io/clients/calviewfilms" class="cta-btn" target="_blank">Book the Strategy Call →</a>
+</section>
+
+<div class="footer">
+  ViralityX — Forward Deployed Operators for the AI Era<br>
+  <span style="color: var(--text-dim); font-size: 11px;">This blueprint is confidential and prepared exclusively for Jake Ramsey & Calview Films.</span>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
