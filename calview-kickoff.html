@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calview Films · Google Ads Kickoff</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-elevated: #111111;
+    --surface: #161616;
+    --surface-2: #1a1a1a;
+    --border: #1f1f1f;
+    --border-bright: #2a2a2a;
+    --text: #f5f5f5;
+    --text-muted: #a8a8a8;
+    --text-dim: #6e6e6e;
+    --amber: #ffb854;
+    --amber-glow: rgba(255,184,84,0.08);
+    --google-blue: #4285f4;
+    --green: #34a853;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 80px 56px 120px;
+  }
+
+  /* HERO */
+  .hero {
+    margin-bottom: 80px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -100px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, var(--amber-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 640px;
+    line-height: 1.65;
+  }
+
+  /* DEAL SUMMARY CARD */
+  .deal-card {
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(255,184,84,0.04) 100%);
+    border: 1px solid var(--border-bright);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  .deal-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .deal-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .deal-price .amber { color: var(--amber); }
+  .deal-note {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .deal-status {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 600;
+    padding: 8px 14px;
+    border: 1px solid var(--green);
+    border-radius: 4px;
+  }
+
+  /* SECTION */
+  section {
+    margin-bottom: 64px;
+  }
+  .section-num {
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--amber);
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  h2 em { color: var(--amber); font-style: italic; }
+  .section-intro {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 640px;
+    line-height: 1.7;
+  }
+
+  /* CHECKLIST ITEM */
+  .check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .check-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+    user-select: none;
+  }
+  .check-item:hover {
+    border-color: var(--border-bright);
+    transform: translateX(2px);
+  }
+  .check-item .box {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid var(--text-dim);
+    border-radius: 5px;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .check-item.done .box {
+    background: var(--amber);
+    border-color: var(--amber);
+  }
+  .check-item.done .box::after {
+    content: '';
+    width: 12px; height: 6px;
+    border-left: 2px solid var(--bg);
+    border-bottom: 2px solid var(--bg);
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+  .check-item.done h4 { color: var(--text-dim); text-decoration: line-through; }
+  .check-item.done p { color: var(--text-dim); }
+  .check-content { flex: 1; }
+  .check-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+    transition: color 0.2s;
+  }
+  .check-content p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    transition: color 0.2s;
+  }
+  .check-content .why {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* CATEGORY HEADER */
+  .cat {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin: 28px 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border-bright);
+  }
+  .cat:first-of-type { margin-top: 0; }
+
+  /* TIMELINE */
+  .timeline {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+    margin-top: 12px;
+  }
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .timeline-row:last-child { border-bottom: none; }
+  .timeline-when {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--amber);
+  }
+  .timeline-what h5 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .timeline-what p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* AGENDA */
+  .agenda {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 40px;
+  }
+  .agenda-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .agenda-row:last-child { border-bottom: none; }
+  .agenda-time {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--amber);
+  }
+  .agenda-item h5 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .agenda-item p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 1.5px;
+  }
+
+  /* PROGRESS */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--border);
+    z-index: 100;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--amber);
+    width: 0%;
+    transition: width 0.3s;
+  }
+
+  @media (max-width: 720px) {
+    .container { padding: 56px 24px 80px; }
+    .hero h1 { font-size: 38px; }
+    h2 { font-size: 26px; }
+    .deal-card { grid-template-columns: 1fr; gap: 20px; padding: 28px; }
+    .deal-status { justify-self: start; }
+    .timeline, .agenda { padding: 28px 24px; }
+    .timeline-row, .agenda-row { grid-template-columns: 1fr; gap: 6px; }
+    .check-item { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar"><div class="progress-fill" id="pf"></div></div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-tag">Calview Films · Engagement Kickoff</div>
+    <h1>Let's Get the <em>Engine</em> Running.</h1>
+    <p class="hero-sub">You're in. Here's the kickoff doc — what we agreed to, what I need from you to start, and what we'll cover when we sit down together. Tap any item to mark it done as you work through it.</p>
+  </div>
+
+  <div class="deal-card">
+    <div>
+      <div class="deal-label">The Deal · Locked In</div>
+      <div class="deal-price">$500<span style="font-size:18px;color:var(--text-muted);">/mo</span> <span class="amber">+ 10%</span> on closed jobs from ads</div>
+      <div class="deal-note">Google Ads engagement · Cancel any time · Performance fee only fires on TintWiz "Won" status</div>
+    </div>
+    <div class="deal-status">✓ Confirmed</div>
+  </div>
+
+  <section>
+    <div class="section-num">— Part 01</div>
+    <h2>What I Need <em>From You</em>.</h2>
+    <p class="section-intro">Pre-meeting checklist. The sooner I have these in hand, the sooner the campaigns go live. Most of this takes 5 minutes per item — no heavy lifting on your end.</p>
+
+    <div class="cat">Access &amp; Accounts</div>
+    <div class="check-list">
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Google Ads account access</h4>
+          <p>Either share admin access on your existing Google Ads account, or give the green light for me to create a new one under your business name. If you have an old account that ran before, I want to see it first — old data is gold.</p>
+          <span class="why">Why · Foundation for every campaign</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Google Business Profile (GBP) admin access</h4>
+          <p>Add me as a manager on your GBP listing. We'll be tying ad campaigns to call extensions, location extensions, and review velocity — all of which run through GBP.</p>
+          <span class="why">Why · Required for ad extensions &amp; tracking</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>TintWiz API key + admin login</h4>
+          <p>The piece that makes the 10% honest. We need TintWiz wired so when you mark a proposal "Won," that signal pushes back into Google Ads as an offline conversion. Ten minutes inside TintWiz on my end once I have access.</p>
+          <span class="why">Why · Closes the loop on attribution</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Wix site editor access (or owner email I can request from)</h4>
+          <p>Need to drop the conversion tracking pixel and add the smart web form. Won't touch your design — just plumbing.</p>
+          <span class="why">Why · Required for tracking &amp; lead capture</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>The phone number leads should call &amp; text</h4>
+          <p>Confirm which number we're sending paid traffic to. If you want call tracking (recommended — tells us which keywords drive phone calls), I'll set up a tracking number that forwards to yours.</p>
+          <span class="why">Why · Lead routing &amp; call attribution</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat">Business Intel</div>
+    <div class="check-list">
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Service menu &amp; current pricing</h4>
+          <p>Residential, commercial, security, decorative, turf burn — whatever you offer, with rough price ranges. Don't need a formal quote sheet, just enough for me to write ad copy that doesn't sound generic. Photos of past jobs by category if you have them.</p>
+          <span class="why">Why · Ad copy + landing page material</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Service area — your "yes zone" vs. "no zone"</h4>
+          <p>Which OC cities/zip codes do you actively want jobs in? Anywhere you'd rather not drive to? Geographic targeting is one of the fastest ways to waste ad spend if we get it wrong.</p>
+          <span class="why">Why · Geo-targeting precision</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Your best-fit customer (the "ideal job")</h4>
+          <p>Tell me about the last 3 jobs you wish you could clone. What did they want? What'd you charge? How'd they find you? This shapes who we go after.</p>
+          <span class="why">Why · Targeting + audience signals</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Competitors you respect (and ones you've lost to)</h4>
+          <p>3-5 OC tint shops you'd consider competition. I'll pull their ad strategies, keywords, and landing pages so we know what we're up against — and where they're vulnerable.</p>
+          <span class="why">Why · Competitive intelligence</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Average ticket size by service type</h4>
+          <p>Rough numbers are fine. "Residential averages $X, commercial averages $Y." This is what calculates your real cost-per-closed-job and tells us how much we can afford to spend acquiring a lead.</p>
+          <span class="why">Why · Profitable bid math</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Job capacity — how many jobs/week can you actually handle?</h4>
+          <p>If we run ads too hard and you can't fulfill, we burn good leads. I'd rather throttle the budget than overbook you.</p>
+          <span class="why">Why · Budget pacing</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Photos &amp; before/afters</h4>
+          <p>Send the cleanest 15-30 photos you have — drag and drop into a shared folder works. Job site shots, finished installs, you in the truck. Anything that proves real work by a real human. This becomes ad creative + GBP posts + landing page content.</p>
+          <span class="why">Why · Creative for everything</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cat">Budget &amp; Goals</div>
+    <div class="check-list">
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>Monthly ad budget commitment</h4>
+          <p>What number can you confidently spend per month on Google Ads for the first 90 days? I'll recommend a starting range based on your service area and competitor density, but you set the ceiling. Suggested floor for OC tinting: $750-$1,500/mo to actually move the needle.</p>
+          <span class="why">Why · Determines campaign scope</span>
+        </div>
+      </div>
+
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="box"></div>
+        <div class="check-content">
+          <h4>90-day goal — what does "winning" look like?</h4>
+          <p>Number of new closed jobs? Revenue target? Booked-out calendar? Pick the one metric you'll judge this engagement on. This becomes the north star for every campaign decision we make.</p>
+          <span class="why">Why · Defines success</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-num">— Part 02</div>
+    <h2>What We'll Cover <em>at the Kickoff</em>.</h2>
+    <p class="section-intro">Suggested 60-minute meeting agenda. We don't have to march through it in order — this is a checklist, not a script. Whatever doesn't get covered live, I'll follow up over text.</p>
+
+    <div class="agenda">
+      <div class="agenda-row">
+        <div class="agenda-time">0–5 min</div>
+        <div class="agenda-item">
+          <h5>Confirm the deal in writing</h5>
+          <p>Verbal handshake locked. Quick recap so we're 100% aligned: $500/mo + 10% on closed jobs sourced through ads we run, pulled from TintWiz "Won" status. Cancel any time. Friend rate locked — doesn't reset.</p>
+        </div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-time">5–15 min</div>
+        <div class="agenda-item">
+          <h5>Walk through the access checklist together</h5>
+          <p>Knock out the easy ones live — Google Ads, GBP, TintWiz, Wix. If you can grant access from your phone during the call, we're already ahead.</p>
+        </div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-time">15–35 min</div>
+        <div class="agenda-item">
+          <h5>The "ideal customer" deep-dive</h5>
+          <p>This is the most valuable part of the meeting. We talk through your last 3 dream jobs, the customers you wish you could clone, the jobs you'd love to never touch again. Everything we build flows from this.</p>
+        </div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-time">35–45 min</div>
+        <div class="agenda-item">
+          <h5>Service area + budget sanity check</h5>
+          <p>Map your "yes zones" and confirm a realistic monthly ad budget. I'll show you what comparable OC shops are spending so you have context.</p>
+        </div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-time">45–55 min</div>
+        <div class="agenda-item">
+          <h5>Define the 90-day goal</h5>
+          <p>Pick the one metric we judge success by. Closed jobs? Revenue? Booked-out weeks? Whatever it is, we both write it down so there's no ambiguity in 90 days.</p>
+        </div>
+      </div>
+      <div class="agenda-row">
+        <div class="agenda-time">55–60 min</div>
+        <div class="agenda-item">
+          <h5>Next steps + timeline</h5>
+          <p>I lay out the build order, when campaigns go live, and what you'll see in week 1, week 2, and week 4. You leave knowing exactly what's happening and when.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-num">— Part 03</div>
+    <h2>What Happens <em>After</em>.</h2>
+    <p class="section-intro">Rough build timeline. Things shift based on how fast access lands and how clean the existing assets are, but this is the shape of the first 30 days.</p>
+
+    <div class="timeline">
+      <div class="timeline-row">
+        <div class="timeline-when">Week 1</div>
+        <div class="timeline-what">
+          <h5>Foundation week</h5>
+          <p>Access granted, accounts audited, conversion tracking installed, TintWiz wired for offline conversions, smart web form built and tested on Wix, baseline analytics captured so we know what "before" looks like.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-when">Week 2</div>
+        <div class="timeline-what">
+          <h5>Build week</h5>
+          <p>Campaign architecture (residential, commercial, security split), keyword research finalized, negative keywords loaded, ad copy written, first landing page live, geo-targeting locked.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-when">Week 3</div>
+        <div class="timeline-what">
+          <h5>Launch week</h5>
+          <p>Campaigns go live with conservative bids. First leads start flowing. We watch like hawks, daily check-ins via text on what's working. Quick adjustments — don't expect smooth performance yet, this is the calibration phase.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-when">Week 4+</div>
+        <div class="timeline-what">
+          <h5>Optimization mode</h5>
+          <p>By now we have real data — which keywords drove leads, which leads closed, which ad copy converted. We start the cycle of test → ship winners → kill losers. From here on, the system gets sharper every week.</p>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-when">Day 60–90</div>
+        <div class="timeline-what">
+          <h5>First real read</h5>
+          <p>Enough closed-job data has flowed back through TintWiz that Google's algorithm starts optimizing for booked jobs, not just form fills. Cost-per-closed-customer becomes a real, trackable number. This is when ROI clarity arrives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    BUILT FOR CALVIEW FILMS · KICKOFF ENGAGEMENT
+  </footer>
+</div>
+
+<script>
+  // Toggle checkbox on click
+  function toggleCheck(el) {
+    el.classList.toggle('done');
+    updateProgress();
+    saveState();
+  }
+
+  // Track completion progress
+  function updateProgress() {
+    const total = document.querySelectorAll('.check-item').length;
+    const done = document.querySelectorAll('.check-item.done').length;
+    const pct = total > 0 ? (done / total) * 100 : 0;
+    document.getElementById('pf').style.width = pct + '%';
+  }
+
+  // Persist state with window.storage
+  async function saveState() {
+    try {
+      const states = [];
+      document.querySelectorAll('.check-item').forEach((item, i) => {
+        states.push(item.classList.contains('done'));
+      });
+      await window.storage.set('calview-kickoff-checks', JSON.stringify(states));
+    } catch(e) { /* storage may not be available */ }
+  }
+
+  async function loadState() {
+    try {
+      const result = await window.storage.get('calview-kickoff-checks');
+      if (result && result.value) {
+        const states = JSON.parse(result.value);
+        const items = document.querySelectorAll('.check-item');
+        states.forEach((done, i) => {
+          if (done && items[i]) items[i].classList.add('done');
+        });
+        updateProgress();
+      }
+    } catch(e) { /* no saved state, fine */ }
+  }
+
+  // Init
+  if (typeof window !== 'undefined') {
+    window.addEventListener('DOMContentLoaded', loadState);
+  }
+</script>
+
+</body>
+</html>
