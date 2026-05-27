@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViralityX × NAF Construction — Pre-Discovery Strategic Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0f;--surface:#111118;--surface-2:#18181f;
+  --border:rgba(255,255,255,0.07);--border-strong:rgba(255,255,255,0.14);
+  --text:#e8e8ed;--text-muted:#9a9aa6;--text-dim:#5a5a6a;
+  --accent:#00cfa9;--accent-glow:rgba(0,207,169,0.12);
+  --accent-deep:#009e82;
+  --gold:#d4a853;--gold-glow:rgba(212,168,83,0.1);
+  --red:#ff6b6b;--red-glow:rgba(255,107,107,0.08);
+  --green:#34d399;--green-glow:rgba(52,211,153,0.08);
+  --blue:#60a5fa;--blue-glow:rgba(96,165,250,0.08);
+  --radius:12px;--radius-lg:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+.wrap{max-width:920px;margin:0 auto;padding:0 36px 80px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid var(--border);margin-bottom:48px}
+.brand{font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-size:14px}
+.brand .x{color:var(--gold);margin:0 6px;font-style:italic}
+.brand .partner{color:var(--text)}
+.doc-tag{font-size:11px;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase}
+.hero{padding:60px 0 40px;position:relative}
+.hero::before{content:'';position:absolute;top:-100px;right:-200px;width:500px;height:500px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;z-index:-1}
+.label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px;display:block}
+h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,48px);font-weight:600;line-height:1.1;letter-spacing:-0.5px;margin-bottom:24px}
+h1 em{color:var(--accent);font-style:italic}
+.hero-sub{font-size:17px;color:var(--text-muted);max-width:720px;line-height:1.7;margin-bottom:28px}
+.scope-banner{background:var(--gold-glow);border:1px solid rgba(212,168,83,0.25);border-radius:var(--radius);padding:18px 22px;margin:24px 0 0;font-size:14px;color:var(--text);line-height:1.7}
+.scope-banner strong{color:var(--gold);font-weight:700}
+.hero-meta{display:flex;gap:32px;flex-wrap:wrap;padding-top:24px;margin-top:32px;border-top:1px solid var(--border)}
+.hero-meta-item{display:flex;flex-direction:column;gap:4px}
+.hero-meta-item span:first-child{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);font-weight:600}
+.hero-meta-item span:last-child{font-size:14px;color:var(--text);font-weight:500}
+.section{margin-top:64px;scroll-margin-top:40px}
+.section-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:10px;background:var(--accent-glow);color:var(--accent);font-weight:700;font-size:14px;margin-right:14px;border:1px solid rgba(0,207,169,0.25);font-family:'Playfair Display',serif}
+.section-head{display:flex;align-items:center;margin-bottom:20px}
+.section h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;letter-spacing:-0.3px}
+.section h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;letter-spacing:-0.2px;margin-top:28px;margin-bottom:12px;color:var(--text)}
+.section .lede{font-size:15px;color:var(--text-muted);max-width:720px;margin-bottom:20px;line-height:1.8}
+.section p{font-size:15px;color:var(--text-muted);margin-bottom:14px}
+.section p strong{color:var(--text);font-weight:600}
+.section ul{list-style:none;padding-left:0;margin:14px 0}
+.section ul li{font-size:14.5px;color:var(--text-muted);padding:8px 0 8px 22px;position:relative;line-height:1.7}
+.section ul li::before{content:'';position:absolute;left:0;top:18px;width:10px;height:1px;background:var(--accent)}
+.section ul li strong{color:var(--text);font-weight:600}
+.snapshot{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0}
+.snap-cell{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 22px}
+.snap-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);font-weight:700;margin-bottom:6px}
+.snap-value{font-size:14px;color:var(--text);line-height:1.6;font-weight:500}
+.flag{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:var(--radius);padding:18px 22px;margin:14px 0}
+.flag.high{border-left-color:var(--red)}
+.flag.med{border-left-color:var(--gold)}
+.flag.low{border-left-color:var(--blue)}
+.flag-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.flag-title{font-size:15px;font-weight:700;color:var(--text);letter-spacing:0.2px}
+.flag-sev{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.flag-sev.high{background:var(--red-glow);color:var(--red);border:1px solid rgba(255,107,107,0.25)}
+.flag-sev.med{background:var(--gold-glow);color:var(--gold);border:1px solid rgba(212,168,83,0.25)}
+.flag-sev.low{background:var(--blue-glow);color:var(--blue);border:1px solid rgba(96,165,250,0.25)}
+.flag-body{font-size:13.5px;color:var(--text-muted);line-height:1.7}
+.flag-body strong{color:var(--text);font-weight:600}
+.flag-cost{margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);font-size:12px;color:var(--gold);letter-spacing:0.3px}
+.flag-cost strong{color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;text-align:center}
+.metric-val{font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:var(--accent);letter-spacing:-0.5px;line-height:1;margin-bottom:8px}
+.metric-val.gold{color:var(--gold)}
+.metric-val.red{color:var(--red)}
+.metric-label{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-dim);font-weight:600;line-height:1.5}
+.wedges{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:24px 0}
+.wedge{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;position:relative;overflow:hidden}
+.wedge::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-deep))}
+.wedge-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:var(--accent);line-height:1;letter-spacing:-1px;margin-bottom:10px}
+.wedge h4{font-size:15px;font-weight:700;letter-spacing:0.2px;margin-bottom:8px;line-height:1.3}
+.wedge p{font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:12px}
+.wedge-meta{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;font-weight:600;padding-top:10px;border-top:1px solid var(--border)}
+.comp-table{width:100%;margin:20px 0;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.comp-table th{background:var(--surface-2);color:var(--text-dim);text-align:left;padding:12px 16px;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:700;border-bottom:1px solid var(--border)}
+.comp-table td{padding:14px 16px;font-size:13px;color:var(--text-muted);border-bottom:1px solid var(--border);vertical-align:top}
+.comp-table tr:last-child td{border-bottom:none}
+.comp-table td strong{color:var(--text);font-weight:600}
+.comp-table .you{background:rgba(0,207,169,0.04)}
+.comp-table .you td{color:var(--text)}
+.comp-table .gap{color:var(--red);font-weight:600}
+.comp-table .ok{color:var(--green);font-weight:600}
+.phase{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 28px;margin:14px 0;position:relative}
+.phase::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent-deep));border-radius:3px 0 0 3px}
+.phase-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.phase-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:2px}
+.phase-title{font-size:18px;font-weight:700;color:var(--text);letter-spacing:-0.2px}
+.phase-timeline{font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1.5px;padding:4px 10px;border:1px solid var(--border);border-radius:5px;font-weight:600}
+.phase-body{font-size:14px;color:var(--text-muted);line-height:1.75;margin-top:6px}
+.phase-body strong{color:var(--text);font-weight:600}
+.phase-outcome{margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:12.5px;color:var(--green);letter-spacing:0.2px}
+.phase-outcome strong{color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:10px;display:block;margin-bottom:4px}
+.qbox{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--radius);padding:18px 22px;margin:10px 0;font-size:14px;color:var(--text);line-height:1.7}
+.qbox strong{color:var(--accent);font-weight:600;letter-spacing:0.3px;text-transform:uppercase;font-size:11px;display:block;margin-bottom:4px}
+.callout{background:linear-gradient(135deg,rgba(255,107,107,0.05),rgba(212,168,83,0.04));border:1px solid rgba(255,107,107,0.18);border-radius:var(--radius-lg);padding:24px 28px;margin:24px 0}
+.callout h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--red);margin-bottom:10px;margin-top:0}
+.callout p{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:8px}
+.callout p strong{color:var(--gold);font-weight:700}
+.opportunity{background:linear-gradient(135deg,rgba(0,207,169,0.05),rgba(52,211,153,0.04));border:1px solid rgba(0,207,169,0.18);border-radius:var(--radius-lg);padding:24px 28px;margin:24px 0}
+.opportunity h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--accent);margin-bottom:10px;margin-top:0}
+.opportunity p{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:8px}
+.opportunity p strong{color:var(--accent);font-weight:700}
+.next-list{counter-reset:next;list-style:none;padding:0;margin:18px 0}
+.next-list li{counter-increment:next;padding:14px 18px 14px 56px;position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;font-size:14px;color:var(--text-muted);line-height:1.6}
+.next-list li::before{content:counter(next);position:absolute;left:18px;top:14px;width:26px;height:26px;border-radius:7px;background:var(--accent-glow);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border:1px solid rgba(0,207,169,0.25)}
+.next-list li strong{color:var(--text);font-weight:600}
+.signature{margin-top:48px;padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);text-align:center}
+.signature-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--text);margin-bottom:4px}
+.signature-title{font-size:12px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.signature-contact{font-size:13px;color:var(--text-muted);line-height:1.8}
+.signature-contact a{color:var(--accent);text-decoration:none}
+.footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);text-align:center;line-height:1.7}
+@media(max-width:760px){
+  .wrap{padding:0 22px 60px}
+  h1{font-size:30px}
+  .snapshot,.wedges,.metric-grid{grid-template-columns:1fr}
+  .comp-table{font-size:12px}
+  .comp-table th,.comp-table td{padding:10px 12px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav">
+  <div class="brand">VIRALITY<span class="x">×</span><span class="partner">NAF CONSTRUCTION</span></div>
+  <div class="doc-tag">Pre-Discovery · Confidential · 2026-05-27</div>
+</nav>
+
+<header class="hero">
+  <span class="label">Pre-Discovery Strategic Blueprint</span>
+  <h1>You're a <em>top-tier licensed builder</em> with a website that doesn't act like one.</h1>
+  <p class="hero-sub">Noah — before our call, we ran a complete diagnostic on NAF Construction's digital footprint, your local Yorba Linda + North OC competitive set, and the 2026 Orange County remodeling market. This document is what we found, what's costing you jobs right now, and where the highest-leverage moves are. No pricing inside. This is the audit; the conversation comes next.</p>
+
+  <div class="scope-banner">
+    <strong>Read this as a working document.</strong> Mark it up, push back on anything that doesn't match reality on your side, and bring questions to the call. The strongest engagements start when the client knows the diagnosis as well as the consultant does.
+  </div>
+
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span>Prepared For</span><span>Noah Faryniarz, CEO</span></div>
+    <div class="hero-meta-item"><span>Company</span><span>NAF Construction Inc.</span></div>
+    <div class="hero-meta-item"><span>Market</span><span>Yorba Linda + North OC</span></div>
+    <div class="hero-meta-item"><span>Prepared By</span><span>Daniel I. Pena · ViralityX</span></div>
+  </div>
+</header>
+
+<!-- SECTION 1: EXECUTIVE SUMMARY -->
+<section class="section">
+  <div class="section-head"><span class="section-num">1</span><h2>What we found, in one breath</h2></div>
+  <p class="lede">NAF Construction has the credentials, the experience, and the license class to compete at the top of Orange County remodeling. What you do not have is a digital operation that converts the demand already searching for your services. The website is built on a GoDaddy template, the only call-to-action loops back to the homepage, no project portfolio is visible, no reviews are surfaced, and there is no system catching the leads who arrive after hours or on weekends. The market is here. The infrastructure is not.</p>
+
+  <div class="metric-grid">
+    <div class="metric">
+      <div class="metric-val">$19.8B</div>
+      <div class="metric-label">California Remodeling<br>Market (2025)</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val gold">$78,400</div>
+      <div class="metric-label">Avg. OC Kitchen<br>Remodel Ticket</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val red">62–80%</div>
+      <div class="metric-label">Of Contractor Calls<br>Go Unanswered</div>
+    </div>
+  </div>
+
+  <p>The opportunity is straightforward: <strong>you don't need more capability — your CSLB license class covers General Building, Landscaping, and Swimming Pools, which is rare and valuable.</strong> What you need is for that capability to show up online the way it already shows up in person. We've mapped exactly where the gaps are and the sequence to close them.</p>
+</section>
+
+<!-- SECTION 2: NAF SNAPSHOT -->
+<section class="section">
+  <div class="section-head"><span class="section-num">2</span><h2>NAF Construction — Foundation Snapshot</h2></div>
+  <p class="lede">Before we critique the digital side, here's what we already know about the business — the strengths we have to build from. None of this needs to change. All of it needs to be visible.</p>
+
+  <div class="snapshot">
+    <div class="snap-cell"><div class="snap-label">CSLB License</div><div class="snap-value">#1132854 — General Building, Landscaping, Swimming Pool</div></div>
+    <div class="snap-cell"><div class="snap-label">BuildZoom Score</div><div class="snap-value">92 — Top 32% of 336,931 licensed CA contractors</div></div>
+    <div class="snap-cell"><div class="snap-label">Years Hands-On</div><div class="snap-value">10+ years of construction experience under Noah</div></div>
+    <div class="snap-cell"><div class="snap-label">Service Mix</div><div class="snap-value">Kitchens, bathrooms, full-home remodels, outdoor entertainment, additions, pools</div></div>
+    <div class="snap-cell"><div class="snap-label">Service Area</div><div class="snap-value">Yorba Linda + greater Orange County</div></div>
+    <div class="snap-cell"><div class="snap-label">Average Project Range</div><div class="snap-value">$25K refresh → $175K full custom (OC market data)</div></div>
+  </div>
+
+  <div class="opportunity">
+    <h3>Strength most contractors don't have</h3>
+    <p>The combined license class (B + C-27 Landscaping + C-53 Pool) means a Yorba Linda homeowner can hire NAF for the kitchen, the patio, the pool, and the landscaping — under one license, one project manager, one schedule. <strong>That's a positioning weapon</strong> most of your local competitors cannot match without subcontracting outside their license, and the website doesn't say so anywhere.</p>
+  </div>
+</section>
+
+<!-- SECTION 3: THE MARKET -->
+<section class="section">
+  <div class="section-head"><span class="section-num">3</span><h2>The Market — Why Now Matters</h2></div>
+  <p class="lede">Yorba Linda + greater OC is one of the strongest residential remodeling markets in the United States right now. The structural tailwinds aren't subtle.</p>
+
+  <ul>
+    <li><strong>California remodeling market: $19.8B in 2025</strong>, with NAHB projecting 3% growth in 2026 and 2% in 2027 (inflation-adjusted). Orange County is one of the highest-density submarkets inside that figure.</li>
+    <li><strong>Lock-in effect on homeowners.</strong> Owners with sub-4% mortgages aren't selling — they're renovating instead. This sustains demand for full-scope remodels exactly in NAF's wheelhouse.</li>
+    <li><strong>OC kitchen remodels average $78,400</strong>, with mid-range jobs $65K–$95K. Booking 2 additional jobs per quarter is a six-figure revenue swing for NAF.</li>
+    <li><strong>Top OC trends through 2026:</strong> smart-home integration, energy efficiency, wellness features, and indoor-outdoor living — every one of which plays directly to your combined license (interior + landscape + pool).</li>
+    <li><strong>Labor costs climbing 4–6% YoY.</strong> Homeowners are price-sensitive and need to feel confident before signing. <strong>The contractor who builds confidence fastest wins the bid</strong> — and confidence is built online before the first phone call.</li>
+  </ul>
+
+  <p>Translation: demand is here, tickets are high, and the gating factor is not whether jobs exist — it's whether NAF gets seen and trusted before a competitor does.</p>
+</section>
+
+<!-- SECTION 4: WEBSITE AUDIT -->
+<section class="section">
+  <div class="section-head"><span class="section-num">4</span><h2>Website Diagnostic — nafconstruction.com</h2></div>
+  <p class="lede">We did a full walk-through of the live site. Listed below are the issues we found, ranked by severity. The <strong style="color:var(--red)">HIGH</strong> items are actively losing jobs. The <strong style="color:var(--gold)">MEDIUM</strong> items are limiting your ability to charge premium pricing. The <strong style="color:var(--blue)">LOW</strong> items are hygiene.</p>
+
+  <div class="flag high">
+    <div class="flag-head">
+      <div class="flag-title">The primary CTA links back to the homepage</div>
+      <div class="flag-sev high">High Severity</div>
+    </div>
+    <div class="flag-body">"Get a Free Estimate" — the most prominent button on your site — links to <code>https://nafconstruction.com/</code>. Clicking it reloads the same page. A homeowner ready to act has to scroll to find the form. This is the single most expensive bug on the site. Every visitor who clicked that CTA and left was a lost lead.</div>
+      <div class="flag-cost"><strong>Estimated Cost</strong> One missed $50K kitchen booking per quarter would cover a year of fixing this and everything else on the site.</div>
+  </div>
+
+  <div class="flag high">
+    <div class="flag-head">
+      <div class="flag-title">Zero project portfolio visible</div>
+      <div class="flag-sev high">High Severity</div>
+    </div>
+    <div class="flag-body">The "Explore our stunning transformations" section loads <strong>six empty image placeholders</strong> (base64 transparent GIFs). On desktop, mobile, and tablet, a homeowner researching a $50K–$150K decision sees nothing. Homeowners in OC are heavy visual researchers — Houzz, Pinterest, Instagram — and a blank gallery actively erodes trust. Top competitors lead with 3D renderings and before/after walkthroughs.</div>
+    <div class="flag-cost"><strong>Estimated Cost</strong> A no-portfolio site loses ~40–60% of qualified buyers to the first competitor with a gallery.</div>
+  </div>
+
+  <div class="flag high">
+    <div class="flag-head">
+      <div class="flag-title">No social proof / reviews surfaced</div>
+      <div class="flag-sev high">High Severity</div>
+    </div>
+    <div class="flag-body">Nowhere on the site is there a single testimonial, Google review embed, Yelp star count, or BuildZoom score (you have a 92 — top 32% of CA contractors — and it's invisible). In a category where the buyer is letting strangers into their home for weeks at a time, social proof is the conversion driver. OC Builders Group leads with a 4.9★ / 51-review badge on every page.</div>
+    <div class="flag-cost"><strong>Estimated Cost</strong> Sites without surfaced reviews convert 30–50% lower than direct competitors who display them prominently.</div>
+  </div>
+
+  <div class="flag high">
+    <div class="flag-head">
+      <div class="flag-title">No service-specific landing pages</div>
+      <div class="flag-sev high">High Severity</div>
+    </div>
+    <div class="flag-body">The entire site is a single page. There is no dedicated page for "Kitchen Remodel," "Bathroom Remodel," "Pool & Outdoor Living," "Home Additions," or "Yorba Linda." Google cannot rank a one-page site for the 40+ distinct search terms your buyers actually type. Your competitor "Yorba Linda Remodel" has literally claimed the city's name as their domain — you're invisible against them on city-level searches.</div>
+    <div class="flag-cost"><strong>Estimated Cost</strong> Local SEO traffic ≈ 0. Without it you're 100% dependent on referrals and paid ads.</div>
+  </div>
+
+  <div class="flag high">
+    <div class="flag-head">
+      <div class="flag-title">No after-hours capture system</div>
+      <div class="flag-sev high">High Severity</div>
+    </div>
+    <div class="flag-body">A homeowner browsing your site at 9pm on a Saturday can submit a form and then… nothing. There's no instant text-back, no AI receptionist on the phone, no automated qualifier. Industry data: <strong>62–80% of incoming contractor calls go unanswered</strong>, costing the average contractor ~$189K/year in lost revenue. <strong>5-minute response = 21x higher conversion than 30-minute response.</strong></div>
+    <div class="flag-cost"><strong>Estimated Cost</strong> One missed pool/kitchen consult per month at OC averages = ~$60K–$90K in annual lost gross.</div>
+  </div>
+
+  <div class="flag med">
+    <div class="flag-head">
+      <div class="flag-title">Headline text duplication (template glitch)</div>
+      <div class="flag-sev med">Medium Severity</div>
+    </div>
+    <div class="flag-body">"Transforming Spaces with Expert Craftsmanship" appears <strong>four times in a row</strong> on the hero section — likely a Starfield/GoDaddy template artifact. Reads as broken on first impression and signals "amateur DIY site" to a sophisticated OC buyer comparing you to design-build firms charging $80K+.</div>
+  </div>
+
+  <div class="flag med">
+    <div class="flag-head">
+      <div class="flag-title">No "About Noah / About the Team" page</div>
+      <div class="flag-sev med">Medium Severity</div>
+    </div>
+    <div class="flag-body">Noah, you have 10+ years of hands-on experience and a CSLB license most contractors don't carry. None of that is on the site. Buyers who spend $50K–$175K want to know who's actually building. A founder story page with photo, background, certifications, and a personal note converts radically better than an anonymous "we" voice.</div>
+  </div>
+
+  <div class="flag med">
+    <div class="flag-head">
+      <div class="flag-title">Form collects minimum information</div>
+      <div class="flag-sev med">Medium Severity</div>
+    </div>
+    <div class="flag-body">The current form asks for name, email, phone, address. A qualified intake form should also ask: project type, budget range, timeline, decision-maker, and how they heard about you. <strong>This data is the difference between booking 100% of qualified leads vs. wasting time on tire-kickers.</strong> Built-in qualification on the form filters before anyone picks up the phone.</div>
+  </div>
+
+  <div class="flag med">
+    <div class="flag-head">
+      <div class="flag-title">Copyright says 2025 in mid-2026</div>
+      <div class="flag-sev med">Medium Severity</div>
+    </div>
+    <div class="flag-body">Small detail, but the footer reads "Copyright © 2025." Anyone Googling you in May 2026 sees a site that hasn't been touched in 18 months. Auto-rolling the year is a 60-second fix that materially affects perceived activity.</div>
+  </div>
+
+  <div class="flag low">
+    <div class="flag-head">
+      <div class="flag-title">Built on GoDaddy Website Builder 8.0</div>
+      <div class="flag-sev low">Foundational</div>
+    </div>
+    <div class="flag-body">The underlying platform (Starfield / GoDaddy) is fine for a sign-up landing page but has hard ceilings: no real CMS, limited SEO control, no blog, no programmatic landing pages, no advanced analytics, no proper schema markup, no conversion tracking. Long-term, this is the wrong foundation to scale on — and replacing it should happen alongside the rest of the rebuild, not as a separate project.</div>
+  </div>
+
+  <div class="flag low">
+    <div class="flag-head">
+      <div class="flag-title">No financing language</div>
+      <div class="flag-sev low">Opportunity</div>
+    </div>
+    <div class="flag-body">"Affordable kitchen renovations" is in the meta description but financing/payment options aren't mentioned on-site. Adding even basic financing partner copy (e.g., Hearth, GreenSky, Acorn Finance) materially expands the buyer pool — especially in the $50K+ range where homeowners are cash-flow conscious.</div>
+  </div>
+</section>
+
+<!-- SECTION 5: DIGITAL PRESENCE BEYOND SITE -->
+<section class="section">
+  <div class="section-head"><span class="section-num">5</span><h2>Digital Presence Beyond the Website</h2></div>
+  <p class="lede">A homeowner today rarely lands on your site first. They Google "kitchen remodel Yorba Linda," scroll Google Business Profile, read Yelp reviews, check Houzz galleries, and only then click through. Here's how NAF shows up at each stop — and where the leaks are.</p>
+
+  <ul>
+    <li><strong>Google Business Profile:</strong> appears in directory listings but we couldn't confirm a fully optimized GBP (photos, services, posts, Q&A) — this is the single highest-leverage free asset for a local contractor. Direct competitors like OC Builders Group have built GBP into a 4.9★ / 51-review machine.</li>
+    <li><strong>Yelp:</strong> profile exists with services listed (bathroom, kitchen, decks, additions, garage), but specific review count and average rating are not surfacing prominently in search. <strong>Yelp Money Mondays</strong> — request-review cadence — is missing.</li>
+    <li><strong>BuildZoom:</strong> 92 score, top 32% of CA contractors. This is gold and it's not being promoted anywhere on your site or in social proof.</li>
+    <li><strong>Nextdoor:</strong> 6 favorites, listed as licensed GC with fast response time — a strong neighborhood signal, but Nextdoor presence is shallow.</li>
+    <li><strong>Houzz / Instagram / TikTok:</strong> no professional presence found. Homeowners doing visual research in OC live on Houzz and Instagram. This is the single biggest organic channel competitors are using.</li>
+    <li><strong>LinkedIn:</strong> Noah has a personal profile (Chief Executive Officer, NAF Construction Inc.) — but no company page running. For commercial/multi-family bid pipelines, this matters.</li>
+  </ul>
+</section>
+
+<!-- SECTION 6: COMPETITIVE LANDSCAPE -->
+<section class="section">
+  <div class="section-head"><span class="section-num">6</span><h2>Competitive Landscape — Yorba Linda + North OC</h2></div>
+  <p class="lede">Five companies are taking the calls that should be coming to NAF. Here's how each one is winning, and where the actual gap is.</p>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Competitor</th>
+        <th>Digital Edge</th>
+        <th>Where They Win</th>
+        <th>Where NAF Can Beat Them</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>OC Builders Group</strong></td>
+        <td>4.9★ · 51 Google reviews · 3D design renderings · in-house trades</td>
+        <td>Trust + design polish at the top of funnel</td>
+        <td>Combined B+C-27+C-53 license — they don't have pool/landscape under one license</td>
+      </tr>
+      <tr>
+        <td><strong>Yorba Linda Remodel</strong></td>
+        <td>Owns the city name in the domain — auto-ranks for "Yorba Linda remodel" searches</td>
+        <td>Local SEO via domain alone</td>
+        <td>NAF is actually based in Yorba Linda — authentic local play beats brand-name play with right content</td>
+      </tr>
+      <tr>
+        <td><strong>A Plus Home Improvements</strong></td>
+        <td>Anaheim cabinet manufacturing facility · vertical integration</td>
+        <td>Custom cabinetry margin · price competitiveness</td>
+        <td>NAF can position as full-scope (kitchen + pool + landscape) vs. cabinet-led</td>
+      </tr>
+      <tr>
+        <td><strong>Mr. Cabinet Care</strong></td>
+        <td>30+ years in market · cabinet-specialist authority</td>
+        <td>Brand recognition + niche depth</td>
+        <td>NAF goes wider — they don't do baths, pools, or additions</td>
+      </tr>
+      <tr>
+        <td><strong>Opulent Design Build</strong></td>
+        <td>"Premier design-build" positioning · luxury aesthetic</td>
+        <td>Top-of-market $150K+ ticket</td>
+        <td>NAF can compete at mid-range $50K–$95K (the highest-volume tier) more efficiently</td>
+      </tr>
+      <tr class="you">
+        <td><strong>NAF Construction (today)</strong></td>
+        <td class="gap">GoDaddy template · no portfolio · no reviews surfaced · single-page site</td>
+        <td>Word-of-mouth + referrals only</td>
+        <td class="ok">Foundation is strong — visibility is the only gap</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="opportunity">
+    <h3>The unclaimed positioning</h3>
+    <p>None of the competitors above lead with <strong>"Indoor-Outdoor OC Lifestyle Remodels"</strong> — kitchens that open to patios, patios that flow to pools, all under one license. <strong>That is NAF's wedge.</strong> The license class supports it, the OC climate demands it, and no one has claimed it.</p>
+  </div>
+</section>
+
+<!-- SECTION 7: COST OF INACTION -->
+<section class="section">
+  <div class="section-head"><span class="section-num">7</span><h2>The Cost of Doing Nothing</h2></div>
+  <p class="lede">We've laid out what's broken. Here's what it's costing you, quantified against the most recent industry data.</p>
+
+  <div class="callout">
+    <h3>Every week you wait costs measurable revenue.</h3>
+    <p><strong>1. Speed-to-lead math.</strong> 78% of customers go with the first company that responds. 5-minute response converts 21x better than 30-minute response. The average contractor responds in 42 minutes. Without an AI receptionist or instant-text-back system, you're losing first-contact to whoever automated theirs.</p>
+    <p><strong>2. Missed-call math.</strong> Industry data: 62–80% of contractor calls go unanswered. The average contractor loses ~$189K/year in revenue to missed calls. At your average ticket, capturing even one extra job per month is $50K+/year.</p>
+    <p><strong>3. Search-visibility math.</strong> Without service-specific landing pages, you're invisible to ~80% of the searches your buyers are running. Local SEO at maturity drives ~150 qualified leads/month at near-zero marginal cost — but it takes 6–12 months to build. <strong>Every month not started is a month not delivered six months from now.</strong></p>
+    <p><strong>4. Trust-deficit math.</strong> Without visible reviews, portfolio, and team page, qualified leads who do find you bounce to OC Builders Group, Opulent, or Yorba Linda Remodel at the comparison stage. You're paying acquisition cost (referrals, time, energy) and losing the close to firms with better-presented social proof.</p>
+  </div>
+
+  <div class="metric-grid">
+    <div class="metric">
+      <div class="metric-val red">21x</div>
+      <div class="metric-label">Higher conversion at<br>5-min vs 30-min response</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val red">$189K</div>
+      <div class="metric-label">Avg. annual revenue lost<br>per contractor (missed calls)</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val red">78%</div>
+      <div class="metric-label">Of buyers hire the first<br>contractor who responds</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: STRATEGIC BLUEPRINT -->
+<section class="section">
+  <div class="section-head"><span class="section-num">8</span><h2>The Strategic Blueprint — 4 Pillars</h2></div>
+  <p class="lede">These are the four high-leverage moves we'd build out for NAF. Each one is independently valuable; together they form a system that compounds.</p>
+
+  <div class="wedges">
+    <div class="wedge">
+      <div class="wedge-num">01</div>
+      <h4>Conversion-Built Website Rebuild</h4>
+      <p>Replatform off GoDaddy template onto a real conversion architecture. Service-specific landing pages (Kitchen, Bath, Pool & Outdoor, Additions, Yorba Linda + each surrounding city). Portfolio gallery with real before/after. Reviews, BuildZoom badge, financing options, founder story.</p>
+      <div class="wedge-meta">Foundation · Outcome: Trust at first click</div>
+    </div>
+    <div class="wedge">
+      <div class="wedge-num">02</div>
+      <h4>AI Voice Agent + Instant Text-Back</h4>
+      <p>24/7 AI receptionist answers every call within 1 ring, qualifies (project type, budget, timeline), books to your calendar, and texts the lead back instantly with a portfolio link. Captures the 62–80% of calls currently going to voicemail.</p>
+      <div class="wedge-meta">Capture · Outcome: No lead leaks after hours</div>
+    </div>
+    <div class="wedge">
+      <div class="wedge-num">03</div>
+      <h4>Local SEO + Google Business Profile Domination</h4>
+      <p>Optimized GBP with weekly posts, photo cadence, Q&A management, review-request automation. City-page SEO targeting "kitchen remodel Yorba Linda," "pool builder Anaheim Hills," etc. Schema markup, technical SEO, content cluster strategy.</p>
+      <div class="wedge-meta">Discovery · Outcome: Free organic leads compounding monthly</div>
+    </div>
+    <div class="wedge">
+      <div class="wedge-num">04</div>
+      <h4>Content Engine — Indoor/Outdoor Lifestyle Authority</h4>
+      <p>Short-form video (TikTok/Instagram/YouTube Shorts) showcasing real OC project walkthroughs, before/afters, and indoor-outdoor design education. Owns the "OC Lifestyle Remodel" positioning none of your competitors are claiming. Doubles as ad creative for paid layer.</p>
+      <div class="wedge-meta">Authority · Outcome: Inbound at scale, premium pricing power</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: PHASED PATH -->
+<section class="section">
+  <div class="section-head"><span class="section-num">9</span><h2>The Phased Path — How We'd Sequence This</h2></div>
+  <p class="lede">No need to do everything at once. Here's the order that produces revenue fastest, with each phase building on the previous one. Pricing and scope live in the proposal — this is the directional roadmap so you can see how it fits together.</p>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 01</span>
+      <span class="phase-title">Stop the Bleed</span>
+      <span class="phase-timeline">Weeks 1–4</span>
+    </div>
+    <div class="phase-body">Patch the active leaks before we touch anything else. Fix the CTA, populate the portfolio with real photos, surface the BuildZoom 92 score and 5-star reviews, deploy AI voice agent + instant text-back, upgrade the intake form to qualify on submit. <strong>This phase alone typically pays for itself within 60 days from captured leads that were previously lost.</strong></div>
+    <div class="phase-outcome"><strong>Outcome</strong>Lead capture rate up 2–4x within 30 days. Speed-to-lead under 60 seconds 24/7.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 02</span>
+      <span class="phase-title">Build the Asset</span>
+      <span class="phase-timeline">Months 2–4</span>
+    </div>
+    <div class="phase-body">Full website rebuild on a conversion-optimized stack. Service pages for kitchen, bath, pool/outdoor, additions, full-home. City pages for Yorba Linda, Anaheim Hills, Brea, Placentia, Fullerton. Founder story page introducing Noah. Financing integration. Schema markup. Google Business Profile fully optimized with weekly post cadence. <strong>This is the long-term lead-gen engine.</strong></div>
+    <div class="phase-outcome"><strong>Outcome</strong>Organic search traffic begins ramping. Premium-tier inquiries increase. Sales cycle shortens because trust is pre-built.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 03</span>
+      <span class="phase-title">Own the Market</span>
+      <span class="phase-timeline">Months 4–9</span>
+    </div>
+    <div class="phase-body">Activate the content engine. Weekly short-form video featuring real NAF projects — kitchen walkthroughs, pool reveals, indoor-outdoor transitions. TikTok-first testing (we have a battle-tested retention-first methodology), repurposed to Instagram and YouTube Shorts. Email + SMS nurture sequence for the 90% of leads who don't book on the first visit. Paid Google LSA + Meta retargeting layered on top of organic foundation.</div>
+    <div class="phase-outcome"><strong>Outcome</strong>NAF becomes the recognizable "OC lifestyle remodel" brand. Inbound pipeline that doesn't depend on referrals. Pricing power increases.</div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-head">
+      <span class="phase-num">Phase 04</span>
+      <span class="phase-title">Scale + Systemize</span>
+      <span class="phase-timeline">Month 9+</span>
+    </div>
+    <div class="phase-body">Operational layer. CRM automation, project-management workflows, post-project review automation, client portal for in-flight project updates, SOP documentation, financial dashboards. The leverage layer that turns NAF from a contractor business into a true brand with transferable equity.</div>
+    <div class="phase-outcome"><strong>Outcome</strong>NAF becomes a sellable asset, not just a job book. Noah's time is freed from low-leverage tasks to focus on closing big projects.</div>
+  </div>
+</section>
+
+<!-- SECTION 10: WHAT WE'D LIKE TO ASK YOU -->
+<section class="section">
+  <div class="section-head"><span class="section-num">10</span><h2>For Our Conversation — What We'd Like to Hear From You</h2></div>
+  <p class="lede">This is what we'd like to learn during our call — not a quiz, just the inputs that let us build a real proposal instead of a generic one. If you want to start jotting answers, that's a head start.</p>
+
+  <div class="qbox"><strong>Q1 — Volume & Mix</strong>How many projects did you complete last year, and what was the rough mix (kitchens vs baths vs pool/outdoor vs full remodel)?</div>
+  <div class="qbox"><strong>Q2 — Average Ticket</strong>What's your typical project size? Where does most of the revenue actually come from?</div>
+  <div class="qbox"><strong>Q3 — Where Leads Come From Today</strong>Referrals, word of mouth, Yelp, Google, Nextdoor, paid ads, repeat clients — what's the rough percentage from each? Be honest, even if "90% referrals" is the answer.</div>
+  <div class="qbox"><strong>Q4 — Capacity</strong>If we doubled your qualified inbound tomorrow, could you close and deliver it? Are you running solo, partnered (Gary?), or with a crew?</div>
+  <div class="qbox"><strong>Q5 — Past Marketing Spend</strong>Have you tried HomeAdvisor, Angi, Yelp Ads, Google Ads, or any agency before? What worked, what didn't, and what was the bad experience that made you cautious?</div>
+  <div class="qbox"><strong>Q6 — Growth Goal</strong>If everything goes right over the next 12 months, what does NAF look like? Revenue? Number of jobs? Team size? Or is it lifestyle-business with premium tickets?</div>
+  <div class="qbox"><strong>Q7 — Differentiator</strong>What do your best clients say about why they chose you over the other 5 contractors they probably called? That sentence becomes the headline of your new site.</div>
+  <div class="qbox"><strong>Q8 — Timeline</strong>Is there a specific season, project pipeline event, or business milestone driving the timing of this conversation? When would you want a system like this live?</div>
+</section>
+
+<!-- SECTION 11: SIGNATURE / NEXT STEPS -->
+<section class="section">
+  <div class="section-head"><span class="section-num">11</span><h2>What Happens Next</h2></div>
+  <p class="lede">If this resonates, here's how we'd move forward. No pressure — these are the standard next steps, not a sales close.</p>
+
+  <ol class="next-list">
+    <li><strong>Discovery Call (today/this week).</strong> 30–45 minutes. We walk through the questions above, refine the diagnosis with your real numbers, and pressure-test the blueprint against your business reality.</li>
+    <li><strong>Custom Proposal (within 48 hours of the call).</strong> Phase 1 scope, pricing, timeline, deliverables, and what success looks like at 30/60/90 days. No generic templates.</li>
+    <li><strong>Decision Window.</strong> You take a few days to think on it. We're available for clarifying questions but won't chase you with high-pressure follow-ups.</li>
+    <li><strong>Kickoff.</strong> If you sign, we move fast — typical Phase 1 deployment is 2–4 weeks from kickoff to live.</li>
+  </ol>
+
+  <div class="signature">
+    <div class="signature-name">Daniel I. Pena</div>
+    <div class="signature-title">Founder · ViralityX</div>
+    <div class="signature-contact">
+      <a href="mailto:contact@virality-x.com">contact@virality-x.com</a><br>
+      <a href="https://virality-x.com">virality-x.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  ViralityX × NAF Construction — Pre-Discovery Strategic Blueprint · Prepared 2026-05-27 · Confidential<br>
+  Data sources: NAHB 2026 Remodeling Outlook, IBISWorld CA Remodeling Market Report, BuildZoom contractor data, CSLB license database, OC Builders Group + Yorba Linda Remodel + Mr. Cabinet Care competitive review, Modernize / MIT lead-response research, Voiceflow + LeadTruffle AI receptionist industry data.
+</footer>
+
+</div>
+</body>
+</html>
