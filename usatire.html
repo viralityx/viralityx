@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>USA Wheel & Tire Outlet — Strategic AI Operations Roadmap · ViralityX</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--surface:#111118;--surface-2:#18181f;
+  --border:rgba(255,255,255,0.07);--border-strong:rgba(255,255,255,0.14);
+  --text:#e8e8ed;--text-muted:#9a9aa6;--text-dim:#5a5a6a;
+  --accent:#00cfa9;--accent-glow:rgba(0,207,169,0.12);--accent-deep:#009e82;
+  --gold:#d4a853;--gold-glow:rgba(212,168,83,0.1);--gold-deep:#b88c3f;
+  --red:#ff6b6b;--red-glow:rgba(255,107,107,0.08);
+  --green:#34d399;--green-glow:rgba(52,211,153,0.08);
+  --blue:#60a5fa;--blue-glow:rgba(96,165,250,0.08);
+  --orange:#ff922b;--orange-glow:rgba(255,146,43,0.08);
+  --radius:12px;--radius-lg:18px;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--bg)}
+.container{max-width:1100px;margin:0 auto;padding:0 36px}
+section{padding:80px 0}
+@media(max-width:768px){section{padding:56px 0}.container{padding:0 22px}}
+h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,52px);font-weight:600;line-height:1.1;letter-spacing:-0.5px}
+h1 em{font-style:italic;color:var(--accent)}
+h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,34px);font-weight:600;line-height:1.2;letter-spacing:-0.3px}
+h3{font-size:18px;font-weight:700;line-height:1.3}
+h4{font-size:15px;font-weight:700;line-height:1.4}
+p{color:var(--text-muted);line-height:1.7}
+strong{color:var(--text);font-weight:600}
+.brand-bar{padding:24px 0;border-bottom:1px solid var(--border)}
+.brand-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.brand-logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-size:14px}
+.brand-logo .x{color:var(--gold);font-style:italic;margin:0 1px}
+.brand-meta{font-family:var(--mono);font-size:11px;color:var(--text-dim);letter-spacing:1.5px;text-transform:uppercase}
+.section-label{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block}
+.section-heading{margin-bottom:14px}
+.section-sub{font-size:16px;color:var(--text-muted);max-width:760px;margin-bottom:36px;line-height:1.8}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:border-color 0.2s}
+.card:hover{border-color:var(--border-strong)}
+.hero{padding:60px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+.hero-tag{display:inline-block;padding:6px 14px;background:var(--accent-glow);color:var(--accent);border:1px solid rgba(0,207,169,0.25);border-radius:20px;font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:18px}
+.hero h1{margin-bottom:22px}
+.hero-sub{font-size:17px;color:var(--text-muted);line-height:1.7;margin-bottom:28px;max-width:620px}
+.positioning{font-size:13.5px;color:var(--text);background:linear-gradient(135deg,var(--accent-glow),rgba(212,168,83,0.05));border:1px solid rgba(0,207,169,0.2);border-left:3px solid var(--accent);border-radius:var(--radius);padding:18px 22px;line-height:1.7;max-width:620px}
+.positioning strong{color:var(--accent);font-weight:700}
+.client-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative}
+.client-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--gold))}
+.client-inner{padding:26px}
+.client-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;margin-bottom:4px;letter-spacing:-0.3px}
+.client-url{font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:18px;display:block;text-decoration:none}
+.client-meta{display:flex;flex-direction:column;gap:10px}
+.client-meta-row{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text-muted);line-height:1.5}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:32px 0}
+.stat-card{padding:24px 20px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:600;line-height:1;margin-bottom:8px;letter-spacing:-1px}
+.stat-num.accent{color:var(--accent)}
+.stat-num.red{color:var(--red)}
+.stat-num.gold{color:var(--gold)}
+.stat-num.green{color:var(--green)}
+.stat-num.blue{color:var(--blue)}
+.stat-label{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);font-weight:600;line-height:1.5}
+/* Reframe blocks */
+.reframe-list{display:grid;gap:14px;margin-top:14px}
+.reframe{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);border-left:3px solid var(--gold)}
+@media(max-width:700px){.reframe{grid-template-columns:1fr;gap:10px}}
+.reframe-label{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700;line-height:1.5;align-self:start;padding-top:3px}
+.reframe-body{font-size:14px;color:var(--text-muted);line-height:1.7}
+.reframe-body strong{color:var(--text)}
+.reframe-body .strike{text-decoration:line-through;color:var(--text-dim)}
+.reframe-body .corrected{color:var(--accent);font-weight:600}
+/* Finding cards */
+.finding-grid{display:grid;gap:18px;margin-top:14px}
+.finding{display:grid;grid-template-columns:50px 1fr;gap:18px;padding:24px 26px;align-items:start;border-left:3px solid transparent;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+@media(max-width:600px){.finding{grid-template-columns:1fr;gap:10px}}
+.finding-num{font-family:'Playfair Display',serif;font-size:30px;font-weight:600;line-height:1;letter-spacing:-1px}
+.finding.crit{border-left-color:var(--red)}.finding.crit .finding-num{color:var(--red)}
+.finding.med{border-left-color:var(--gold)}.finding.med .finding-num{color:var(--gold)}
+.finding.low{border-left-color:var(--blue)}.finding.low .finding-num{color:var(--blue)}
+.finding.opp{border-left-color:var(--accent)}.finding.opp .finding-num{color:var(--accent)}
+.finding-title{font-size:16px;font-weight:700;margin-bottom:8px;color:var(--text);line-height:1.4}
+.finding-body{font-size:13.5px;color:var(--text-muted);line-height:1.7}
+.finding-body strong{color:var(--text)}
+.finding-tag{display:inline-block;padding:3px 10px;border-radius:4px;font-family:var(--mono);font-size:9.5px;letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-top:10px}
+.tag-crit{background:var(--red-glow);color:var(--red)}
+.tag-med{background:var(--gold-glow);color:var(--gold)}
+.tag-low{background:var(--blue-glow);color:var(--blue)}
+.tag-opp{background:var(--accent-glow);color:var(--accent)}
+/* Vision stack */
+.vision-callout{background:linear-gradient(135deg,var(--accent-glow),rgba(212,168,83,0.04));border:1px solid rgba(0,207,169,0.25);border-radius:var(--radius-lg);padding:36px 32px;margin:24px 0 40px}
+.vision-callout h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;margin-bottom:10px;color:var(--text)}
+.vision-callout .quote{font-style:italic;color:var(--accent);font-size:15px;margin-top:10px}
+.vision-callout p{font-size:14.5px;line-height:1.8}
+.system-grid{display:grid;gap:14px;margin-top:14px}
+.system{padding:24px 26px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:grid;grid-template-columns:1fr 100px;gap:20px;align-items:start}
+@media(max-width:600px){.system{grid-template-columns:1fr}}
+.system-num{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.system-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.3}
+.system-body{font-size:13.5px;color:var(--text-muted);line-height:1.7}
+.system-body strong{color:var(--text)}
+.system-phase{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;text-align:right;padding:4px 10px;border-radius:4px;align-self:start;line-height:1.5}
+.phase-p1{background:var(--accent-glow);color:var(--accent)}
+.phase-p2{background:var(--gold-glow);color:var(--gold)}
+.phase-p3{background:var(--blue-glow);color:var(--blue)}
+/* Phase blocks */
+.phase{margin-bottom:32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.phase-header{padding:26px 30px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+@media(max-width:700px){.phase-header{grid-template-columns:1fr;gap:14px}}
+.phase-label{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
+.phase-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;line-height:1.2;margin-bottom:6px}
+.phase-timeline{font-size:13px;color:var(--text-muted);font-family:var(--mono);letter-spacing:0.5px}
+.phase-pricing{text-align:right}
+@media(max-width:700px){.phase-pricing{text-align:left}}
+.phase-price{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--accent);line-height:1.1;letter-spacing:-0.5px}
+.phase-price-mrr{font-size:13px;color:var(--text-muted);margin-top:4px;font-family:var(--mono)}
+.phase-body{padding:26px 30px}
+.phase-body p{font-size:14.5px;line-height:1.8;margin-bottom:14px}
+.deliv-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:0;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.deliv-list li{padding:14px 22px;border-bottom:1px solid var(--border);font-size:13.5px;color:var(--text-muted);line-height:1.6;display:grid;grid-template-columns:24px 1fr;gap:14px;align-items:flex-start}
+.deliv-list li:last-child{border-bottom:none}
+.deliv-list li::before{content:'→';color:var(--accent);font-weight:700;font-family:var(--mono)}
+.deliv-list li strong{color:var(--text)}
+/* Legacy table styles (unused after Cost-of-Standing-Still refactor — kept for any inline reuse) */
+.invest-table{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:24px}
+.invest-row{display:grid;grid-template-columns:1fr 130px 130px 130px;gap:0;border-bottom:1px solid var(--border);padding:18px 24px;font-size:14px;align-items:center}
+.invest-row:last-child{border-bottom:none}
+.invest-row.head{background:var(--surface-2);font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);font-weight:700;padding:14px 24px}
+.invest-row.total{background:linear-gradient(135deg,var(--accent-glow),rgba(212,168,83,0.04));font-weight:700;color:var(--text)}
+.invest-row .label{color:var(--text);font-weight:600}
+.invest-row .num{font-family:var(--mono);text-align:right;color:var(--text-muted)}
+.invest-row.total .num{color:var(--accent);font-weight:700}
+@media(max-width:700px){.invest-row{grid-template-columns:1fr 1fr;gap:6px;padding:14px 18px}.invest-row .label{grid-column:1 / -1;margin-bottom:4px}.invest-row.head{display:none}.invest-row .num::before{content:attr(data-label) ': ';color:var(--text-dim);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:1px}}
+/* KPI grid */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+.kpi-card{padding:22px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.kpi-name{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);font-weight:600;margin-bottom:8px}
+.kpi-current{font-size:13.5px;color:var(--text-muted);line-height:1.6;margin-bottom:6px}
+.kpi-current strong{color:var(--red);font-weight:700}
+.kpi-target{font-size:13.5px;color:var(--text);line-height:1.6}
+.kpi-target strong{color:var(--accent);font-weight:700}
+/* How we operate */
+.operate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+.operate-card{padding:24px 22px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.operate-card h4{margin-bottom:10px;color:var(--text);font-size:15px}
+.operate-card p{font-size:13.5px;line-height:1.7}
+/* Risk + Mitigation */
+.risk-block{background:linear-gradient(135deg,rgba(255,146,43,0.06),rgba(255,107,107,0.04));border:1px solid rgba(255,146,43,0.18);border-left:3px solid var(--orange);border-radius:var(--radius);padding:24px 26px;margin-top:18px}
+.risk-block h4{color:var(--orange);font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.risk-block p{font-size:13.5px;line-height:1.7;color:var(--text-muted)}
+.risk-block p strong{color:var(--text)}
+/* CTA */
+.cta-section{padding:80px 0;text-align:center;background:linear-gradient(180deg,transparent,var(--accent-glow))}
+.cta-section h2{font-family:'Playfair Display',serif;margin-bottom:20px}
+.cta-section h2 em{color:var(--accent);font-style:italic}
+.cta-section p{max-width:600px;margin:0 auto 32px;font-size:15px;line-height:1.8}
+.cta-btn{display:inline-block;padding:18px 36px;background:var(--accent);color:var(--bg);font-weight:700;text-decoration:none;border-radius:var(--radius);font-size:14px;letter-spacing:1px;text-transform:uppercase;transition:transform 0.2s,box-shadow 0.2s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--accent-glow)}
+.footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim)}
+.footer .logo{color:var(--accent);font-weight:700}
+.footer .x{color:var(--gold);font-style:italic}
+.divider{border:none;height:1px;background:var(--border);margin:60px 0 40px}
+.callout-block{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin:18px 0;font-size:14px;color:var(--text-muted);line-height:1.8}
+.callout-block strong{color:var(--text)}
+.callout-block .quote{display:block;font-style:italic;color:var(--accent);margin-top:6px;font-size:13.5px}
+/* Live demo banner */
+.live-demo-banner{background:linear-gradient(90deg,rgba(0,207,169,0.18),rgba(212,168,83,0.12),rgba(0,207,169,0.18));border-bottom:1px solid rgba(0,207,169,0.35);padding:22px 0;position:relative;overflow:hidden}
+.live-demo-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(0,207,169,0.15),transparent 50%);pointer-events:none}
+.demo-banner-inner{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;position:relative;z-index:1}
+@media(max-width:780px){.demo-banner-inner{grid-template-columns:1fr;gap:18px;text-align:left}}
+.demo-banner-left{display:flex;gap:18px;align-items:flex-start}
+.demo-pulse{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(0,207,169,0.7);animation:pulse 1.6s infinite;flex-shrink:0;margin-top:6px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,207,169,0.7)}70%{box-shadow:0 0 0 14px rgba(0,207,169,0)}100%{box-shadow:0 0 0 0 rgba(0,207,169,0)}}
+.demo-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.demo-headline{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;color:var(--text);line-height:1.2;margin-bottom:6px;letter-spacing:-0.3px}
+.demo-sub{font-size:13.5px;color:var(--text-muted);line-height:1.6;max-width:600px}
+.demo-banner-cta{display:flex;flex-direction:column;align-items:flex-end;gap:2px;padding:14px 24px;background:var(--bg);border:1.5px solid var(--accent);border-radius:var(--radius);text-decoration:none;transition:all 0.2s;min-width:240px}
+.demo-banner-cta:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,207,169,0.25)}
+.demo-banner-cta:hover .demo-cta-label,.demo-banner-cta:hover .demo-cta-number{color:var(--bg)}
+.demo-cta-label{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);font-weight:600;transition:color 0.2s}
+.demo-cta-number{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--accent);letter-spacing:-0.5px;line-height:1.2;transition:color 0.2s}
+@media(max-width:780px){.demo-banner-cta{align-items:center;min-width:0;width:100%}}
+/* Leak grid (Cost of Standing Still) */
+.leak-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:14px}
+.leak-card{padding:26px 24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);border-left:3px solid var(--red);position:relative;overflow:hidden}
+.leak-card::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,var(--red-glow) 0%,transparent 70%);pointer-events:none}
+.leak-label{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:10px;position:relative;z-index:1}
+.leak-title{font-size:15.5px;font-weight:700;color:var(--text);margin-bottom:14px;line-height:1.3;position:relative;z-index:1}
+.leak-amount{font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:var(--red);line-height:1;margin-bottom:6px;letter-spacing:-1px;position:relative;z-index:1}
+.leak-unit{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);font-weight:600;margin-bottom:14px;position:relative;z-index:1}
+.leak-body{font-size:13px;color:var(--text-muted);line-height:1.7;position:relative;z-index:1}
+.leak-body strong{color:var(--text)}
+.leak-where{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:12px;color:var(--text-dim);font-style:italic;line-height:1.5;position:relative;z-index:1}
+/* Leak totals */
+.leak-totals{margin-top:32px;background:linear-gradient(135deg,rgba(255,107,107,0.06),rgba(212,168,83,0.04));border:1px solid rgba(255,107,107,0.18);border-radius:var(--radius-lg);overflow:hidden}
+.leak-totals-row{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:0;padding:22px 28px;border-bottom:1px solid var(--border);align-items:center}
+.leak-totals-row:last-child{border-bottom:none}
+.leak-totals-row.head{background:rgba(255,107,107,0.05);padding:14px 28px;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);font-weight:700}
+.leak-totals-row.cum{background:linear-gradient(90deg,rgba(255,107,107,0.12),rgba(212,168,83,0.08))}
+.leak-totals-label{font-size:14.5px;font-weight:700;color:var(--text);line-height:1.4}
+.leak-totals-sub{font-size:12px;color:var(--text-muted);font-weight:400;margin-top:3px;line-height:1.4}
+.leak-totals-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--red);text-align:right;letter-spacing:-0.5px;line-height:1.1}
+.leak-totals-num.big{font-size:28px}
+.leak-totals-num-sub{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);text-align:right;margin-top:2px;font-weight:600}
+@media(max-width:700px){.leak-totals-row{grid-template-columns:1fr;gap:8px;padding:18px 22px}.leak-totals-row.head{display:none}.leak-totals-num{text-align:left;font-size:18px}.leak-totals-num.big{font-size:22px}.leak-totals-num-sub{text-align:left}}
+/* CTA phone box */
+.cta-phone-box{display:flex;flex-direction:column;align-items:center;gap:8px;padding:32px 40px;background:var(--bg);border:2px solid var(--accent);border-radius:var(--radius-lg);max-width:520px;margin:0 auto 32px;box-shadow:0 20px 60px rgba(0,207,169,0.15)}
+.cta-phone-label{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;display:flex;align-items:center;gap:10px}
+.cta-phone-label::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--accent);animation:pulse 1.6s infinite}
+.cta-phone-number{font-family:'Playfair Display',serif;font-size:48px;font-weight:600;color:var(--accent);text-decoration:none;letter-spacing:-1.5px;line-height:1.1;transition:transform 0.2s}
+.cta-phone-number:hover{transform:scale(1.03)}
+@media(max-width:600px){.cta-phone-number{font-size:36px}.cta-phone-box{padding:24px 22px}}
+.cta-phone-sub{font-size:13.5px;color:var(--text-muted);line-height:1.6;text-align:center;max-width:380px;margin-top:4px}
+</style>
+</head>
+<body>
+
+<!-- BRAND BAR -->
+<div class="brand-bar">
+  <div class="container">
+    <div class="brand-logo">Virality<span class="x">×</span></div>
+    <div class="brand-meta">Strategic Roadmap · Confidential · May 2026</div>
+  </div>
+</div>
+
+<!-- LIVE VOICE AGENT DEMO BANNER -->
+<div class="live-demo-banner">
+  <div class="container">
+    <div class="demo-banner-inner">
+      <div class="demo-banner-left">
+        <span class="demo-pulse"></span>
+        <div>
+          <div class="demo-eyebrow">Live · AI Voice Agent · Working Right Now</div>
+          <div class="demo-headline">Test the agent yourself — before reading another line.</div>
+          <div class="demo-sub">Call the number, ask for a quote on any tire size, push it after hours, try to break it. The agent on this line is running on the exact framework laid out in the roadmap below — same intent detection, same capture logic, same callback workflow. This is what would be live at USA Wheel inside 30 days of kickoff.</div>
+        </div>
+      </div>
+      <a class="demo-banner-cta" href="tel:+16508005954">
+        <span class="demo-cta-label">Tap to call · 24/7</span>
+        <span class="demo-cta-number">1 (650) 800-5954</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-tag">Post-Discovery Scope</span>
+        <h1>USA Wheel &amp; Tire Outlet — <em>Strategic AI Operations Roadmap</em></h1>
+        <p class="hero-sub">
+          The full deployment vision across all three USA Wheel &amp; Tire locations, sequenced into three phases. Anchored on the Atlanta flagship in Phase 1, expanded to Houston and Mesquite in Phase 2, and capped with the advanced operations layer in Phase 3. Built from the May 19 discovery call with Musa — what's actually broken, what's actually possible, and what it costs to close the gap.
+        </p>
+        <div class="positioning">
+          <strong>What this is.</strong> Not a pitch. A roadmap. We're <strong>AI Solutions Architects + Operators</strong> — we don't sell software, we don't pitch features. We map your operational workflow, identify the leak points, and build the systems that fix them. Every system below is tied to a specific bottleneck you described on the call. You decide what gets built, in what order, on what timeline.
+        </div>
+      </div>
+      <div class="client-card">
+        <div class="client-inner">
+          <div class="client-name">USA Wheel &amp; Tire Outlet</div>
+          <a class="client-url" href="https://usawheelatl.com">usawheelatl.com</a>
+          <div class="client-meta">
+            <div class="client-meta-row"><strong>Business model</strong> &nbsp;·&nbsp; 100% B2B Wholesale</div>
+            <div class="client-meta-row"><strong>Locations</strong> &nbsp;·&nbsp; 3 — Morrow GA, Houston TX, Mesquite TX</div>
+            <div class="client-meta-row"><strong>Scale</strong> &nbsp;·&nbsp; 1M+ units · 1M+ sq ft warehouse</div>
+            <div class="client-meta-row"><strong>Call volume</strong> &nbsp;·&nbsp; 200–300/day across locations</div>
+            <div class="client-meta-row"><strong>Avg ticket</strong> &nbsp;·&nbsp; $40 (single) to $5–7K (bulk)</div>
+            <div class="client-meta-row"><strong>Current stack</strong> &nbsp;·&nbsp; GHL + Twilio · Tire Guru · QuickBooks</div>
+            <div class="client-meta-row"><strong>12–18 mo goal</strong> &nbsp;·&nbsp; +$2–3M revenue · more AI · more sales</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT DISCOVERY REFRAMED -->
+<section>
+  <div class="container">
+    <span class="section-label">Section 01 · Discovery Reframe</span>
+    <h2 class="section-heading">What Changed After The Conversation</h2>
+    <p class="section-sub">
+      The pre-discovery audit was built from the outside-in. The May 19 call corrected several core assumptions. Before we scope anything, we want this on the record — so the roadmap below is anchored on what's actually true, not what we guessed from the website.
+    </p>
+
+    <div class="reframe-list">
+      <div class="reframe">
+        <div class="reframe-label">Reframe 01</div>
+        <div class="reframe-body">
+          <strong>Business model is 100% B2B wholesale.</strong> <span class="strike">The audit assumed a B2B + B2C retail hybrid</span> and called out conflicting audiences on the homepage. <span class="corrected">Correction:</span> retail isn't an option for USA Wheel — it would jeopardize the distributor relationships that make the business work. That kills two of the audit's recommendations (B2C funnel split, retail review engine framing) and sharpens everything else around the wholesale dealer journey.
+        </div>
+      </div>
+      <div class="reframe">
+        <div class="reframe-label">Reframe 02</div>
+        <div class="reframe-body">
+          <strong>GHL + Twilio is already deployed.</strong> Has been for roughly a year. Pipelines are built, SMS and email sequences have been run — and the results have been disappointing: <strong>roughly 10 replies per week from thousands of sends.</strong> Musa was candid: this year would have been the last on GHL if nothing changed. <span class="corrected">Correction:</span> this is not a new-software sale. This is a <strong>"operators who can actually run the system you already pay for"</strong> sale. ViralityX runs the same stack. Tuning beats replacing.
+        </div>
+      </div>
+      <div class="reframe">
+        <div class="reframe-label">Reframe 03</div>
+        <div class="reframe-body">
+          <strong>Call volume is 200–300/day with a 4–5% miss rate during business hours.</strong> Most missed calls do call back (~90%). After-hours volume isn't dead — but the framing has to shift: B2B customers can't take delivery overnight, so the after-hours value isn't "close the sale," it's <strong>"capture intent before they call the competitor in the morning."</strong> Voice agent gives a quote, holds the lead, books the morning call.
+        </div>
+      </div>
+      <div class="reframe">
+        <div class="reframe-label">Reframe 04</div>
+        <div class="reframe-body">
+          <strong>The real pain is sales, not lead capture.</strong> Magic-wand answer on the call: "Sales. Another two, three million in the door." Lead source today is word of mouth, outside sales team, and referrals — zero SEO, PPC, or social. Employee retention is the deeper problem: experienced tire-industry reps are hard to find and harder to keep in South Atlanta. Every system in this roadmap is built to answer one question: <strong>how do we get more deals through the door without depending on hiring more reps?</strong>
+        </div>
+      </div>
+      <div class="reframe">
+        <div class="reframe-label">Reframe 05</div>
+        <div class="reframe-body">
+          <strong>Three locations operate independently by design.</strong> Three warehouses, three teams, three email identities — not a mistake, a structure. <span class="corrected">Correction:</span> we don't centralize what shouldn't be centralized. We build a <strong>unified visibility layer</strong> on top — one CRM view, location-routed workflows, aggregated KPI reporting — without disrupting how each warehouse runs day-to-day.
+        </div>
+      </div>
+      <div class="reframe">
+        <div class="reframe-label">Reframe 06</div>
+        <div class="reframe-body">
+          <strong>Review ceiling is naturally lower than the audit projected.</strong> Atlanta services ~200 tire shops total — so a review engine can't generate thousands of reviews from nothing. The right target is <strong>200+ Google reviews from the existing customer base in 90 days</strong>, with sustained capture on every transaction going forward. That's enough to dominate Google Maps for "wheel and tire wholesaler Atlanta" without overstating what the market can produce.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE REAL DIAGNOSIS -->
+<section style="background:var(--surface-2)">
+  <div class="container">
+    <span class="section-label">Section 02 · Updated Diagnosis</span>
+    <h2 class="section-heading">What's Actually Broken</h2>
+    <p class="section-sub">
+      Six bottlenecks that surfaced in the call. Each is the direct source of a specific revenue gap — and each is something a properly-configured operations team can close inside 90 days. Ranked by impact on Musa's stated goal: more deals, faster.
+    </p>
+
+    <div class="finding-grid">
+      <div class="finding crit">
+        <div class="finding-num">01</div>
+        <div>
+          <div class="finding-title">GHL is running but not operating</div>
+          <div class="finding-body">
+            Thousands of outbound SMS and emails sent. Roughly 10 replies per week. That's not a software problem — it's the absence of an operator who reads the data, tunes the sequence, and rebuilds the funnel based on what's actually converting. GHL can do an enormous amount; you're using a fraction of it. <strong>This is the single most addressable gap in the business right now.</strong>
+            <div class="finding-tag tag-crit">Severity · Critical</div>
+          </div>
+        </div>
+      </div>
+      <div class="finding crit">
+        <div class="finding-num">02</div>
+        <div>
+          <div class="finding-title">No replacement layer for the experienced sales rep you can't hire</div>
+          <div class="finding-body">
+            Competitors in Atlanta South have one structural advantage that's hard to copy: senior tire-industry sales reps with deep customer relationships. You've tried to hire them — train cycle is 3 months, retention is 6–9 months, then they leave. A <strong>24/7 AI voice agent</strong> trained on your product catalog, pricing logic, and objection handling does not solve the relationship problem — but it absorbs the inbound and outbound call load that you currently lose to "we couldn't pick up" or "the new rep didn't know the answer."
+            <div class="finding-tag tag-crit">Severity · Critical</div>
+          </div>
+        </div>
+      </div>
+      <div class="finding med">
+        <div class="finding-num">03</div>
+        <div>
+          <div class="finding-title">No after-hours capture for the 73 hours of unmanned phones</div>
+          <div class="finding-body">
+            B2B closes at 5pm — agreed. But during those 73 weekly hours, shops still call to scope pricing, check availability, and decide who they're going to order from in the morning. Right now those calls go to voicemail or hang up. <strong>A voice agent that captures the size, the shop name, the quantity needed, and books a callback for the morning</strong> turns the dead window into a queue of first-thing-tomorrow orders.
+            <div class="finding-tag tag-med">Severity · High</div>
+          </div>
+        </div>
+      </div>
+      <div class="finding med">
+        <div class="finding-num">04</div>
+        <div>
+          <div class="finding-title">Google Business Profile underleveraged</div>
+          <div class="finding-body">
+            Birdeye wasn't even on Musa's radar — Google reviews are the actual lever. The Amazon-card experiment proved review velocity moves when sales reps push it, then drops the moment they stop. <strong>Automated post-transaction SMS</strong> (low/no-cost, persistent, every customer) keeps the lift running without depending on rep behavior. Target: 200+ Google reviews from the existing dealer base inside 90 days.
+            <div class="finding-tag tag-med">Severity · High</div>
+          </div>
+        </div>
+      </div>
+      <div class="finding med">
+        <div class="finding-num">05</div>
+        <div>
+          <div class="finding-title">No KPI dashboard, no weekly visibility into what's actually working</div>
+          <div class="finding-body">
+            Musa's instinct is right: "we need somebody on top of the operation." There's data inside QuickBooks, the custom WMS, and GHL — but no one weekly cuts it into <strong>which shops are growing, which are dormant, which sales reps are converting, which SKUs are moving.</strong> Without that view, every decision (which list to call, which inventory to push, which location to staff up) is intuition, not signal.
+            <div class="finding-tag tag-med">Severity · High</div>
+          </div>
+        </div>
+      </div>
+      <div class="finding low">
+        <div class="finding-num">06</div>
+        <div>
+          <div class="finding-title">Outbound list activation is manual and one-way</div>
+          <div class="finding-body">
+            The current outbound motion: scrape Google for tire shops by ZIP, hand the list to sales reps, cold call. Reps burn out, list goes stale, no closed-loop tracking on which shops were contacted, which responded, which converted. <strong>An AI-driven outbound layer</strong> can keep the list fresh weekly, send targeted opener sequences, route warm replies to a human rep, and feed everything back into the CRM with attribution.
+            <div class="finding-tag tag-low">Severity · Medium</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE STRATEGIC VISION -->
+<section>
+  <div class="container">
+    <span class="section-label">Section 03 · The Vision</span>
+    <h2 class="section-heading">The Full Deployment Scope</h2>
+    <p class="section-sub">
+      Seven systems, sequenced across three phases, operating across all three locations. Each system maps to one of the diagnoses above. Nothing speculative — every deployment is something we've built before, tuned to USA Wheel's wholesale dealer workflow.
+    </p>
+
+    <div class="vision-callout">
+      <h3>The Operating Premise</h3>
+      <p>
+        You don't need more software. You need <strong>an operations team running the stack you already own, plus the specific AI layers that absorb the sales-rep shortage.</strong> ViralityX runs the same GHL + Twilio + AI Voice stack we deploy for clients — eating our own cooking. We come in as your operations layer, not your software vendor.
+      </p>
+      <p class="quote">"We need somebody on top of the operation." — Musa, May 19</p>
+    </div>
+
+    <div class="system-grid">
+      <div class="system">
+        <div>
+          <div class="system-num">System 01 · Foundation</div>
+          <div class="system-title">GHL Rebuild + Operations Layer</div>
+          <div class="system-body">
+            Audit the existing GHL workspace top to bottom. Rebuild pipelines that match the actual wholesale dealer journey (inquiry → quote → confirm → ship → repeat). Rewrite SMS and email sequences based on what your dealers actually respond to (not generic templates). Set up the operator role — weekly Monday KPI reports, sequence tuning, list hygiene, A/B testing of openers. <strong>This is where the 10-replies-per-week number changes.</strong>
+          </div>
+        </div>
+        <div class="system-phase phase-p1">Phase 1</div>
+      </div>
+      <div class="system">
+        <div>
+          <div class="system-num">System 02 · Highest Priority</div>
+          <div class="system-title">24/7 AI Voice Agent — Atlanta First</div>
+          <div class="system-body">
+            Deployed on the Morrow GA number. Answers overflow during business hours (the 4–5% miss rate). Primary handler after hours and weekends — captures tire size, dealer name, quantity, urgency. Quotes common SKUs from the live inventory feed. Books a confirmation callback for the next morning. Routes urgent inquiries to on-call rep. Trained on your product catalog, your pricing logic, and the objection patterns your reps already handle. <strong>This is the sales-rep replacement layer Musa keeps asking about.</strong>
+          </div>
+        </div>
+        <div class="system-phase phase-p1">Phase 1</div>
+      </div>
+      <div class="system">
+        <div>
+          <div class="system-num">System 03</div>
+          <div class="system-title">Missed-Call Text-Back + Speed-to-Lead</div>
+          <div class="system-body">
+            Every missed call triggers an automated SMS within seconds: "Hey, we saw you called — what tire size were you looking for? I can quote you right now." Opens a two-way SMS conversation the team can handle async. Every form submission gets an instant text confirmation plus a 5-minute SLA notification to the assigned rep. Eliminates "submit and silence." Pairs with the voice agent for full inbound coverage.
+          </div>
+        </div>
+        <div class="system-phase phase-p1">Phase 1</div>
+      </div>
+      <div class="system">
+        <div>
+          <div class="system-num">System 04</div>
+          <div class="system-title">Automated Google Review Engine</div>
+          <div class="system-body">
+            Post-transaction SMS to every customer: "Thanks for the order — would you leave us a quick Google review?" Personalized by sales rep name. Bad-review filter routes one-star intent to Musa's inbox before it hits Google. Good-review intent goes straight to your Google Business Profile. <strong>Target: 200+ new Google reviews from the existing dealer base inside 90 days.</strong> Compounds local SEO + click-through from Google Maps.
+          </div>
+        </div>
+        <div class="system-phase phase-p1">Phase 1</div>
+      </div>
+      <div class="system">
+        <div>
+          <div class="system-num">System 05</div>
+          <div class="system-title">Multi-Location Routing + Unified CRM View</div>
+          <div class="system-body">
+            Atlanta workflow proven in Phase 1, then duplicated for Houston and Mesquite. Each location keeps its independence (own number, own team, own warehouse), but inbound leads route to the right warehouse by geography. <strong>Single GHL view across all three</strong> — Musa sees aggregate KPIs, drills into per-location performance, identifies which warehouse is converting and which is leaking.
+          </div>
+        </div>
+        <div class="system-phase phase-p2">Phase 2</div>
+      </div>
+      <div class="system">
+        <div>
+          <div class="system-num">System 06</div>
+          <div class="system-title">Weekly KPI War Room + Operator Calls</div>
+          <div class="system-body">
+            Custom dashboard pulling from GHL, the WMS, QuickBooks, and Google Business Profile. <strong>Weekly Monday report</strong> hitting Musa's inbox: which dealers grew, which went dormant, which SKUs moved, which reps closed. Competitor scrape included — what Snap, Peach, and Elite are doing on Google + reviews. Monthly strategy call with Daniel + Nikki to act on the data, not just see it.
+          </div>
+        </div>
+        <div class="system-phase phase-p3">Phase 3</div>
+      </div>
+      <div class="system">
+        <div>
+          <div class="system-num">System 07</div>
+          <div class="system-title">AI Outbound Sales Layer + Database Reactivation</div>
+          <div class="system-body">
+            ZIP-by-ZIP scrape of tire shops across the GA and TX service zones, refreshed weekly. AI-drafted opener sequences (SMS + email) personalized by shop size and current vendor signals. Warm replies route to a human rep with full context attached. Past-customer reactivation: dormant dealer accounts get a "we noticed you haven't ordered in 60 days — anything we can quote?" sequence. <strong>This is the layer that grows the $2–3M number.</strong>
+          </div>
+        </div>
+        <div class="system-phase phase-p3">Phase 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASED DEPLOYMENT -->
+<section style="background:var(--surface-2)">
+  <div class="container">
+    <span class="section-label">Section 04 · Phased Deployment</span>
+    <h2 class="section-heading">How We Sequence It</h2>
+    <p class="section-sub">
+      Three phases, each with a clear deliverable, a clear timeline, and a clear KPI gate. Phase 1 is the proving ground. Phases 2 and 3 are conditional on Phase 1 hitting the agreed targets — so the full roadmap is on the table, but every phase has to earn the next one. Each phase header below shows what's currently leaking out the building until those systems are live.
+    </p>
+
+    <!-- PHASE 1 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div>
+          <div class="phase-label">Phase 01 · Months 1–3</div>
+          <div class="phase-title">Atlanta Flagship — Prove The Stack</div>
+          <div class="phase-timeline">Kickoff to live ops within 30 days · Full optimization through day 90</div>
+        </div>
+        <div class="phase-pricing">
+          <div class="phase-price" style="color:var(--red)">$13K–$30K<span style="font-size:18px">/mo</span></div>
+          <div class="phase-price-mrr">leaking out today · Atlanta alone</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <p>
+          We start where the highest-volume, highest-data location lives: Morrow GA. The Atlanta flagship gets the full <strong>Scale-tier deployment</strong> — voice agent, missed-call text-back, GHL rebuild, review engine, speed-to-lead. Inside 30 days the systems are live. Through day 90 we tune sequences against actual dealer behavior. By the end of Phase 1 you have a working playbook — and the numbers to prove the playbook works — before any TX commitment.
+        </p>
+        <ul class="deliv-list">
+          <li><span><strong>GHL workspace audit + full rebuild</strong> · pipeline restructured for wholesale dealer journey · sequences rewritten against actual response data · operator role assigned</span></li>
+          <li><span><strong>24/7 AI Voice Agent</strong> on (770) 892-6700 · trained on product catalog + pricing logic + objection handling · books morning callbacks after hours</span></li>
+          <li><span><strong>Missed-call text-back</strong> on the Atlanta line · 5-minute SLA on every form submission · notification routing to assigned rep</span></li>
+          <li><span><strong>Google Review Engine</strong> · post-transaction SMS to every customer · bad-review filter · target 200+ new Google reviews by day 90</span></li>
+          <li><span><strong>Speed-to-Lead automation</strong> · form-fill → text + email confirmation in &lt;60 seconds · escalation if no rep response in 5 minutes</span></li>
+          <li><span><strong>Weekly Monday KPI report</strong> · response time, reply rate, voice agent capture, review velocity, top-5 dealers up/down</span></li>
+          <li><span><strong>Bi-weekly strategy call</strong> with Daniel + Nikki · tune sequences, prioritize fixes, act on the data</span></li>
+        </ul>
+        <div class="risk-block">
+          <h4>De-risk note</h4>
+          <p>
+            <strong>Phase 1 is the proving ground — nothing else is on the line.</strong> If at day 90 the Atlanta numbers haven't moved meaningfully against the KPI gates below — Phase 2 doesn't happen. No multi-location obligation forced, no Phase 2 expectation set. The structure is built to earn the next phase, not assume it.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div>
+          <div class="phase-label">Phase 02 · Months 4–6</div>
+          <div class="phase-title">Texas Expansion — Houston + Mesquite</div>
+          <div class="phase-timeline">Conditional on Phase 1 KPI gate · Both TX locations live by month 6</div>
+        </div>
+        <div class="phase-pricing">
+          <div class="phase-price" style="color:var(--red)">+ $20K–$40K<span style="font-size:18px">/mo</span></div>
+          <div class="phase-price-mrr">additional leak · Houston + Mesquite</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <p>
+          Atlanta is the template. Phase 2 takes the proven workflow and duplicates it for Houston and Mesquite — same voice agent architecture (with location-specific numbers and prompts), same review engine, same speed-to-lead, all routed through one unified CRM view. <strong>Cohort pricing</strong> applies because the core playbook is already built — we're configuring and tuning, not rebuilding from scratch. Each TX location runs independently, but Musa gets aggregated visibility across all three.
+        </p>
+        <ul class="deliv-list">
+          <li><span><strong>Voice Agent deployed</strong> on (832) 564-1248 (Houston) and (972) 290-4900 (Mesquite) · trained on TX-specific dealer mix</span></li>
+          <li><span><strong>Multi-location lead routing</strong> · inbound leads route to the correct warehouse by geography · per-location KPIs</span></li>
+          <li><span><strong>Unified GHL view</strong> · single dashboard, three locations · drill-down by location, by rep, by SKU</span></li>
+          <li><span><strong>Review engine extended</strong> to both TX Google Business Profiles · per-location review velocity tracking</span></li>
+          <li><span><strong>Email domain consolidation</strong> · move both TX locations off the shared Gmail to branded domain · centralized inbox routing</span></li>
+          <li><span><strong>Cross-location KPI report</strong> · aggregate weekly view + per-location breakouts · benchmarks each warehouse against the others</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div>
+          <div class="phase-label">Phase 03 · Months 7–12</div>
+          <div class="phase-title">Advanced Layer — Outbound + Reactivation</div>
+          <div class="phase-timeline">Conditional on Phase 2 KPI gate · Sales engine fully online by month 12</div>
+        </div>
+        <div class="phase-pricing">
+          <div class="phase-price" style="color:var(--red)">+ $20K–$50K<span style="font-size:18px">/mo</span></div>
+          <div class="phase-price-mrr">growth left on the table · captures Musa's $2–3M target</div>
+        </div>
+      </div>
+      <div class="phase-body">
+        <p>
+          Once Phase 1–2 are converting inbound and recovering after-hours, Phase 3 turns on the <strong>outbound and reactivation engine</strong> — the layer that actually drives the $2–3M number Musa called out. AI-drafted outbound sequences hit fresh prospect lists weekly. Dormant dealer accounts get reactivation campaigns. Past-customer database gets re-engaged. Plus the operations layer hardens: KPI war room, competitor monitoring, paid ad pilot if the math supports it.
+        </p>
+        <ul class="deliv-list">
+          <li><span><strong>AI Outbound Sales Layer</strong> · weekly ZIP-by-ZIP refresh of tire-shop prospects across GA + TX · personalized opener sequences · warm replies routed to human reps</span></li>
+          <li><span><strong>Database Reactivation Campaign</strong> · past-customer list segmented by recency, ticket size, and SKU mix · AI-driven re-engagement sequences</span></li>
+          <li><span><strong>KPI War Room dashboard</strong> · live view across GHL + WMS + QuickBooks + Google · competitor scrape included</span></li>
+          <li><span><strong>Google Ads pilot</strong> (optional, ad spend separate) · keyword research, campaign build, weekly optimization · only if Phase 2 close rate supports the math</span></li>
+          <li><span><strong>ChatGPT / Claude SEO optimization</strong> · structured content so USA Wheel surfaces in AI search results for "wholesale tire Atlanta" / "wheel distributor TX"</span></li>
+          <li><span><strong>Sales script library</strong> · cold call openers, objection handling, voicemail scripts · built from your top reps' patterns + ours</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COST OF STANDING STILL -->
+<section>
+  <div class="container">
+    <span class="section-label">Section 05 · The Cost of Standing Still</span>
+    <h2 class="section-heading">What Inaction Is Costing You — Right Now</h2>
+    <p class="section-sub">
+      Forget what fixing this would cost. Look at what NOT fixing it is already costing every month the systems aren't running. Every number below is conservative, anchored to the discovery call answers and the audit findings — and every dollar of it is money currently walking out the building to whoever picks up the phone next.
+    </p>
+
+    <div class="leak-grid">
+      <div class="leak-card">
+        <div class="leak-label">Leak 01 · Highest impact</div>
+        <div class="leak-title">73 hours/week of unmanned phones</div>
+        <div class="leak-amount">$8K–$16K</div>
+        <div class="leak-unit">per month · Atlanta alone</div>
+        <div class="leak-body">
+          5–10 recoverable after-hours calls per week × $400–$800 average wholesale ticket. That's revenue from shops calling to scope size, price, and availability for their morning orders — that today routes to voicemail, then to a competitor.
+        </div>
+        <div class="leak-where">Goes to: Snap, Peach Tires, Elite Tires, online-only.</div>
+      </div>
+
+      <div class="leak-card">
+        <div class="leak-label">Leak 02 · Business-hours</div>
+        <div class="leak-title">4–5% peak-hour miss rate</div>
+        <div class="leak-amount">$2K–$5K</div>
+        <div class="leak-unit">per month · per location</div>
+        <div class="leak-body">
+          200–300 calls/day × 4–5% missed × $200 average recovered ticket. Most call back — but ~50% buy from whoever they reached first. Missed-call text-back closes the gap inside 60 seconds, before the shopping-around cycle starts.
+        </div>
+        <div class="leak-where">Goes to: First competitor that answers.</div>
+      </div>
+
+      <div class="leak-card">
+        <div class="leak-label">Leak 03 · GHL gap</div>
+        <div class="leak-title">SMS reply rate stuck at ~1%</div>
+        <div class="leak-amount">$8K+</div>
+        <div class="leak-unit">per month · across all 3</div>
+        <div class="leak-body">
+          Thousands of SMS sent every cycle. ~10 replies per week. A properly tuned sequence hits 5%+ — that's <strong>40+ additional dealer conversations per week</strong>. At even 10% conversion × $400 average, that's nearly $100K/year sitting inside the GHL account you already pay for.
+        </div>
+        <div class="leak-where">Goes to: Dies in dealer inboxes.</div>
+      </div>
+
+      <div class="leak-card">
+        <div class="leak-label">Leak 04 · Social proof</div>
+        <div class="leak-title">34 reviews across 3 locations</div>
+        <div class="leak-amount">$1K–$3K</div>
+        <div class="leak-unit">per month · per location</div>
+        <div class="leak-body">
+          When a new shop searches "wholesale tire Atlanta" — they pick the operator that looks established. Competitors have hundreds of reviews. Every dealer who chose someone else this quarter because the social proof didn't land = recurring revenue lost for years.
+        </div>
+        <div class="leak-where">Goes to: Whoever shows up looking established.</div>
+      </div>
+
+      <div class="leak-card">
+        <div class="leak-label">Leak 05 · Growth ceiling</div>
+        <div class="leak-title">No outbound · No reactivation</div>
+        <div class="leak-amount">$25K–$50K</div>
+        <div class="leak-unit">per month · the $2–3M goal</div>
+        <div class="leak-body">
+          Musa's own number on the call: "Another two, three million in the door." Without an AI outbound layer + dormant-dealer reactivation, that growth either doesn't happen or it happens slower than it should — every month it doesn't = revenue that will never compound into the run rate.
+        </div>
+        <div class="leak-where">Goes to: Stays in competitor warehouses.</div>
+      </div>
+
+      <div class="leak-card">
+        <div class="leak-label">Leak 06 · Operating blind</div>
+        <div class="leak-title">No weekly KPI visibility</div>
+        <div class="leak-amount">$5K–$15K</div>
+        <div class="leak-unit">per month · decision quality</div>
+        <div class="leak-body">
+          Without weekly visibility on which dealers grew, which went dormant, which SKUs moved, and which reps closed — every staffing choice, every list call, every SKU push is intuition. Across a 3-location, 1M+ unit operation, intuition leaves <strong>5–10% of capturable revenue on the table</strong> every quarter.
+        </div>
+        <div class="leak-where">Goes to: Suboptimal staffing, dead SKUs, dormant dealers.</div>
+      </div>
+    </div>
+
+    <div class="leak-totals">
+      <div class="leak-totals-row head">
+        <div>Cumulative Opportunity Cost</div>
+        <div style="text-align:right">Monthly Leak</div>
+        <div style="text-align:right">Annual Leak</div>
+      </div>
+      <div class="leak-totals-row">
+        <div>
+          <div class="leak-totals-label">End of Phase 1 · Atlanta flagship live</div>
+          <div class="leak-totals-sub">Voice agent + missed-call text-back + GHL rebuild + review engine</div>
+        </div>
+        <div>
+          <div class="leak-totals-num">$13K–$30K</div>
+          <div class="leak-totals-num-sub">/ month</div>
+        </div>
+        <div>
+          <div class="leak-totals-num">$156K–$360K</div>
+          <div class="leak-totals-num-sub">/ year</div>
+        </div>
+      </div>
+      <div class="leak-totals-row">
+        <div>
+          <div class="leak-totals-label">End of Phase 2 · Houston + Mesquite live</div>
+          <div class="leak-totals-sub">All 3 locations on the unified stack · multi-state coverage</div>
+        </div>
+        <div>
+          <div class="leak-totals-num">$33K–$70K</div>
+          <div class="leak-totals-num-sub">/ month</div>
+        </div>
+        <div>
+          <div class="leak-totals-num">$396K–$840K</div>
+          <div class="leak-totals-num-sub">/ year</div>
+        </div>
+      </div>
+      <div class="leak-totals-row cum">
+        <div>
+          <div class="leak-totals-label">End of Phase 3 · Growth engine online</div>
+          <div class="leak-totals-sub">Outbound + reactivation + KPI war room · the full vision running</div>
+        </div>
+        <div>
+          <div class="leak-totals-num big">$53K–$120K</div>
+          <div class="leak-totals-num-sub">/ month</div>
+        </div>
+        <div>
+          <div class="leak-totals-num big">$640K–$1.4M</div>
+          <div class="leak-totals-num-sub">/ year</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout-block">
+      <strong>The bottom line.</strong> This isn't a forecast of upside. This is a count of what's leaving the building <em>every month</em> that the systems aren't running. Phase 1 — just Atlanta — closes <strong>$156K to $360K per year</strong> currently walking to competitors. Phase 2 doubles that as Texas comes online. Phase 3 captures the <strong>$2–3M growth target Musa called out on the call.</strong> Every month of standing still = another $13K to $120K out the door — money already earned by your inventory, already paid for, sitting one decision away from being collected.
+      <span class="quote">"We need somebody worried about the business 24/7." — Musa, May 19</span>
+    </div>
+  </div>
+</section>
+
+<!-- KPI GATES -->
+<section style="background:var(--surface-2)">
+  <div class="container">
+    <span class="section-label">Section 06 · KPI Gates</span>
+    <h2 class="section-heading">How We Measure Whether Phase 1 Worked</h2>
+    <p class="section-sub">
+      Six measurable targets by day 90 of Phase 1. If we hit them, Phase 2 is on the table. If we don't, the engagement ends — no multi-location commitment. These are the numbers, agreed up front.
+    </p>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-name">After-Hours Call Capture</div>
+        <div class="kpi-current">Today &nbsp;·&nbsp; <strong>0%</strong></div>
+        <div class="kpi-target">Day 90 target &nbsp;·&nbsp; <strong>85%+</strong> captured with quote or callback booked</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-name">Speed-to-Lead SLA</div>
+        <div class="kpi-current">Today &nbsp;·&nbsp; <strong>No SLA · no auto-response</strong></div>
+        <div class="kpi-target">Day 90 target &nbsp;·&nbsp; <strong>&lt; 5 minutes</strong> on 95% of form submissions</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-name">SMS Reply Rate</div>
+        <div class="kpi-current">Today &nbsp;·&nbsp; <strong>~1%</strong> (10 replies / week from thousands sent)</div>
+        <div class="kpi-target">Day 90 target &nbsp;·&nbsp; <strong>5%+</strong> on tuned sequences</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-name">Google Reviews — Atlanta</div>
+        <div class="kpi-current">Today &nbsp;·&nbsp; <strong>~34 total reviews</strong> across locations</div>
+        <div class="kpi-target">Day 90 target &nbsp;·&nbsp; <strong>+200 Google reviews</strong> Atlanta location alone</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-name">Voice Agent Resolution Rate</div>
+        <div class="kpi-current">Today &nbsp;·&nbsp; <strong>N/A · no agent deployed</strong></div>
+        <div class="kpi-target">Day 90 target &nbsp;·&nbsp; <strong>70%+</strong> of calls resolved or qualified without human handoff</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-name">Net New Dealer Conversations</div>
+        <div class="kpi-current">Today &nbsp;·&nbsp; <strong>Unmeasured</strong></div>
+        <div class="kpi-target">Day 90 target &nbsp;·&nbsp; <strong>+30/mo</strong> tracked from voice + SMS + form</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE OPERATE -->
+<section>
+  <div class="container">
+    <span class="section-label">Section 07 · How We Operate</span>
+    <h2 class="section-heading">Operators, Not Vendors</h2>
+    <p class="section-sub">
+      Four things that separate ViralityX from a typical agency or software vendor. Worth knowing before we sign anything.
+    </p>
+
+    <div class="operate-grid">
+      <div class="operate-card">
+        <h4>Discovery before pitch</h4>
+        <p>Every engagement starts by mapping the existing operational workflow before proposing solutions. We sell outcomes against real pain — never features against imagined problems. This roadmap was built from your discovery call answers, not from a template.</p>
+      </div>
+      <div class="operate-card">
+        <h4>We build, you own</h4>
+        <p>Every system ships with SOP documentation, login credentials, and the rebuild logic. If our relationship ends — for any reason — you keep the playbooks, the data, and a working operation. No vendor lock-in.</p>
+      </div>
+      <div class="operate-card">
+        <h4>Founders run your account</h4>
+        <p>Daniel runs strategy, sales architecture, and the relationship with you. Nikki runs every GHL build, every workflow, every voice agent integration personally. You will not be handed off to an account manager reading from a script.</p>
+      </div>
+      <div class="operate-card">
+        <h4>We eat our own cooking</h4>
+        <p>ViralityX runs the same GHL + Twilio + AI Voice stack we deploy for clients. Our partner channel, intake funnel, and follow-up sequences are all built on the system you would be buying. If it doesn't work for us, we don't sell it.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <span class="section-label">Side Note · Partner Channel Opportunity</span>
+    <h2 class="section-heading">The Tariq Drop-Ship Arrangement</h2>
+    <div class="callout-block">
+      Tariq raised a separate opportunity on the call: USA Wheel has offered him a unique direct-pickup arrangement that no other outside seller has — his customers can collect from your warehouse directly, removing the logistics burden that limits the two existing outside sellers. <strong>This is not part of this roadmap.</strong> It's a parallel build (Tariq-branded site + AI voice agent + ad funnel running on USA Wheel inventory) that would be scoped separately, with separate economics. We flag it here for transparency. If it materializes, USA Wheel becomes a referenced supplier in a partner channel — additive revenue, no operational lift on your side.
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <span class="section-label">Next Step</span>
+    <h2>Call the agent first. Then let's <em>turn it on at Morrow.</em></h2>
+    <p>
+      Before any scoping conversation — pick up the phone and test it live. Ask for a quote on any tire size. Push it after hours. Tell it you have a customer waiting. Try to break it. The agent on this line is the same framework that would deploy at the Morrow flagship inside 30 days of kickoff. Don't take our word for it — call it.
+    </p>
+    <div class="cta-phone-box">
+      <span class="cta-phone-label">Live · Working Right Now · 24/7</span>
+      <a class="cta-phone-number" href="tel:+16508005954">1 (650) 800-5954</a>
+      <span class="cta-phone-sub">Tap to call. Ask for a quote. After-hours, business-hours, urgent — try every scenario in the roadmap above.</span>
+    </div>
+    <a class="cta-btn" href="mailto:daniel@viralityx.com?subject=USA%20Wheel%20%26%20Tire%20-%20Phase%201%20Kickoff">After you've tested it · Schedule the scoping call →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="container">
+    <div class="logo">Virality<span class="x">×</span></div>
+    <div style="margin-top:10px">Confidential · Prepared for USA Wheel &amp; Tire Outlet leadership · May 2026 · Questions? +1 (404) 932-2311</div>
+  </div>
+</div>
+
+</body>
+</html>
