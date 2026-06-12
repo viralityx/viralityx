@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turf USA · Partner Briefing for CJ</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a26;--border:#2a2a3a;
+  --text:#e8e8f0;--text2:#9999aa;--text3:#666678;
+  --teal:#00cfa9;--teal-bg:rgba(0,207,169,0.1);--teal-border:rgba(0,207,169,0.25);
+  --gold:#d4a853;--gold-bg:rgba(212,168,83,0.1);--gold-border:rgba(212,168,83,0.25);
+  --red:#ff6b6b;--red-bg:rgba(255,107,107,0.1);
+  --green:#00d68f;
+  --radius:14px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.header{padding:56px 40px 40px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0a0a0f 0%,#10101a 100%)}
+.header-inner{max-width:820px;margin:0 auto}
+.eyebrow{display:inline-block;padding:6px 14px;background:var(--teal-bg);border:1px solid var(--teal-border);color:var(--teal);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:100px;margin-bottom:16px}
+.header h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.15;margin-bottom:10px}
+.header h1 em{font-style:italic;color:var(--teal)}
+.header .lede{font-size:15px;color:var(--text2);max-width:660px}
+.main{max-width:820px;margin:0 auto;padding:40px 40px 64px}
+.section{margin-bottom:36px}
+.section-num{font-family:'Playfair Display',serif;font-size:12px;font-style:italic;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;margin-bottom:14px;line-height:1.3}
+.section h2 em{font-style:italic;color:var(--teal)}
+.section p{font-size:15px;color:var(--text2);margin-bottom:12px;line-height:1.7}
+.section p strong{color:var(--text);font-weight:600}
+.section ul{list-style:none;padding:0;margin:12px 0}
+.section ul li{position:relative;padding:6px 0 6px 22px;color:var(--text2);font-size:14.5px;line-height:1.65}
+.section ul li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--teal)}
+.section ul li strong{color:var(--text);font-weight:600}
+.snapshot{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+.snapshot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:680px){.snapshot-grid{grid-template-columns:1fr}}
+.snap-item{display:flex;flex-direction:column;gap:2px}
+.snap-item .label{font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;font-weight:600}
+.snap-item .value{font-size:14.5px;color:var(--text);font-weight:500}
+.script-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;font-family:ui-monospace,monospace;font-size:14px;color:var(--text);line-height:1.75;white-space:pre-wrap;margin:14px 0}
+.script-block .placeholder{color:var(--gold);font-weight:600}
+.callout{background:var(--gold-bg);border:1px solid var(--gold-border);border-left:3px solid var(--gold);border-radius:10px;padding:18px 22px;margin:18px 0}
+.callout .label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px}
+.callout p{font-size:14px;color:var(--text);margin:0;line-height:1.7}
+.callout.teal{background:var(--teal-bg);border-color:var(--teal-border);border-left-color:var(--teal)}
+.callout.teal .label{color:var(--teal)}
+.callout.red{background:var(--red-bg);border-color:rgba(255,107,107,0.25);border-left-color:var(--red)}
+.callout.red .label{color:var(--red)}
+.three-cost{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media(max-width:680px){.three-cost{grid-template-columns:1fr}}
+.cost-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+.cost-box .label{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--teal);margin-bottom:8px;letter-spacing:0.5px}
+.cost-box .amount{font-size:22px;font-weight:700;color:var(--text);font-family:'Playfair Display',serif;margin-bottom:6px}
+.cost-box .desc{font-size:12.5px;color:var(--text2);line-height:1.5}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:32px 0}
+.footer{padding:32px 40px;border-top:1px solid var(--border);background:var(--bg2);text-align:center;font-size:11px;color:var(--text3)}
+.footer strong{color:var(--text);font-weight:600}
+.objection-block{margin:14px 0;padding:16px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:10px}
+.objection-block .obj{font-style:italic;color:var(--text);font-weight:500;margin-bottom:8px;font-size:14px}
+.objection-block .resp{font-size:13.5px;color:var(--text2);line-height:1.65}
+.objection-block .resp strong{color:var(--teal);font-style:normal;letter-spacing:0.5px;font-size:11px;text-transform:uppercase;font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <span class="eyebrow">Partner Briefing · For CJ · Confidential</span>
+    <h1>Turf USA · <em>Your Lead Pack</em></h1>
+    <p class="lede">Everything you need to walk into a conversation with Turf USA confident and informed. Custom intro lines, top opportunity costs, industry-specific findings, objection prep, and the close that gets the discovery call booked with Daniel.</p>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- SNAPSHOT -->
+<div class="snapshot">
+  <div class="snapshot-grid">
+    <div class="snap-item">
+      <span class="label">Business</span>
+      <span class="value">Turf USA · Wholesale synthetic turf</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">URL</span>
+      <span class="value">turfusa.com</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Locations</span>
+      <span class="value">Boca Raton (HQ) + Tampa</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Phone</span>
+      <span class="value">(561) 900-7155 · sales@turfusa.com</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Model</span>
+      <span class="value">B2B wholesale to installers + retailers</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Decision-maker</span>
+      <span class="value">Owner / Ops Lead (verify on call)</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT THEY ARE -->
+<div class="section">
+  <div class="section-num">Section 01</div>
+  <h2>What they actually do <em>(in plain language)</em></h2>
+  <p>Turf USA is a wholesale supplier of synthetic turf, ivy products, and installation materials. They sell to installers and retailers across Florida out of two warehouses (Boca Raton flagship, Tampa new-ish hub). Their customers are not homeowners. Their customers are the guys who install turf in homeowner backyards. That's the entire business.</p>
+  <p>They've been around long enough to carry a 15-year warranty and have a real footprint. They're not a startup. They're an established regional operator in a market that's growing 12.5% a year through 2031.</p>
+</div>
+
+<!-- THE STRATEGIC ANGLE -->
+<div class="section">
+  <div class="section-num">Section 02</div>
+  <h2>The strategic angle you lead with</h2>
+  <p>This is a wholesale operator riding a structural growth wave (artificial turf is $7.31B globally in 2026, North America = 38% of that). The macro is good. The problem is the operational infrastructure their dealer book depends on is leaking dealers to competitors with better digital systems (GreenPRO, ProGreen, Synthetic Turf International all have dealer programs Turf USA doesn't).</p>
+  <p><strong>Frame it operator to operator:</strong> "You're in a category that's about to compound for the next decade. The wholesalers who win this run are the ones whose dealer book doesn't leak out the back door. Right now your back door has a few holes worth talking about."</p>
+</div>
+
+<!-- INTRO LINE -->
+<div class="section">
+  <div class="section-num">Section 03</div>
+  <h2>Custom intro line <em>(memorize this)</em></h2>
+  <div class="script-block">Hey <span class="placeholder">[NAME]</span>, this is CJ with ViralityX.
+
+I run point on the AI ops side for service businesses. I took a look at Turf USA and a couple of your competitors in the wholesale turf space (GreenPRO, ProGreen, the Synthetic Turf International dealer program) and I noticed a few things that I think you'd want to know about how your dealer-side infrastructure compares to theirs.
+
+We're not a marketing agency, we don't run your ads. What we do is come into wholesale operations like yours, find the operational leaks (after-hours order capture, dealer follow-up, multi-location coordination, sample fulfillment, dealer loyalty programs) and build AI systems that plug them.
+
+I'd want to walk you through what we found in 15 to 20 minutes with our founder Daniel. He'll show you the specific gaps, the numbers behind them, and the playbook we'd run if we worked with you. No pitch, no pressure, you walk away with a free blueprint either way.
+
+What's better for you, this week or early next?</div>
+  <p style="margin-top:12px;font-size:13px;color:var(--text3);font-style:italic">If they push back on "what's the audit cost" or "is this a sales call," go straight to: "It's already done. I have it written up. The 20 minutes is just to walk you through it. Pick a time, I'll send the calendar and the audit before we hop on."</p>
+</div>
+
+<!-- THE 3 LEAKS TO MENTION -->
+<div class="section">
+  <div class="section-num">Section 04</div>
+  <h2>Top 3 opportunity costs <em>(drop these in conversation)</em></h2>
+  <p>These are the three findings to mention live on the call. Specific. Numbers attached. Easy to picture. Each one is in the audit doc so you can point at it on screen-share if they engage.</p>
+  <div class="three-cost">
+    <div class="cost-box">
+      <div class="label">After-Hours Leak</div>
+      <div class="amount">$24K – $48K /mo</div>
+      <div class="desc">Per location. Dealer calls after 5pm + weekends going to dead voicemail.</div>
+    </div>
+    <div class="cost-box">
+      <div class="label">Dealer Retention</div>
+      <div class="amount">$150K+ /yr</div>
+      <div class="desc">No tiered loyalty program. Competitors (GreenPRO, ProGreen) lock in dealers Turf USA can't.</div>
+    </div>
+    <div class="cost-box">
+      <div class="label">Multi-Location Drift</div>
+      <div class="amount">10 – 25%</div>
+      <div class="desc">Of dealer book leaks when 2 locations don't share a unified CRM. They have 2 warehouses.</div>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--text3);font-style:italic;margin-top:8px">All three lift directly into a $45K to $130K per month total recovery range. That's the headline number in the impact bar of the audit.</p>
+</div>
+
+<!-- INDUSTRY-SPECIFIC HOOKS -->
+<div class="section">
+  <div class="section-num">Section 05</div>
+  <h2>Industry-specific hooks <em>(only mention if natural)</em></h2>
+  <ul>
+    <li><strong>JavaScript-rendered site.</strong> turfusa.com is a single-page app that requires JS to render. Bad for SEO. Dealers searching "wholesale synthetic turf Boca" are finding competitors before they find Turf USA.</li>
+    <li><strong>No bilingual presence.</strong> South Florida has a heavy Spanish-speaking installer base. No Spanish-language sales line or site variant visible. Local competitors who do this are winning that segment quietly.</li>
+    <li><strong>No public dealer portal.</strong> GreenPRO, ProGreen, Synthetic Turf International all have dealer programs front and center. Turf USA's dealer program (if it exists) is invisible from the outside. Dealers evaluate visible loyalty programs.</li>
+    <li><strong>Two locations, no unified CRM visible.</strong> Boca and Tampa appear to operate as two phone numbers, one shared sales@ inbox, and not much else tying them together.</li>
+    <li><strong>Sample fulfillment is a black box.</strong> Installers need samples in 48 hours to close their own jobs. No visible sample-request workflow on the site.</li>
+  </ul>
+</div>
+
+<!-- DISCOVERY QUESTIONS -->
+<div class="section">
+  <div class="section-num">Section 06</div>
+  <h2>If they ask "what would Daniel even ask me?"</h2>
+  <p>Here's the short list of what the discovery call digs into. Share this if they want to see what the 20 minutes looks like before they commit.</p>
+  <ul>
+    <li>Inbound call volume per day across both locations, dealer vs retail split.</li>
+    <li>Number of active dealer accounts, average annual order value per dealer.</li>
+    <li>Dormant dealer accounts (90+ days no order). What's the reactivation conversion rate today?</li>
+    <li>Sample shipping volume per month, sample-to-order close rate.</li>
+    <li>How Boca and Tampa share dealer information today, if at all.</li>
+    <li>Spanish-speaking dealer share. Is there any informal Spanish support today?</li>
+    <li>Who are the top 2 to 3 competing wholesalers and what do dealers say when they leave?</li>
+    <li>Who internally owns the digital infrastructure decisions?</li>
+  </ul>
+</div>
+
+<!-- OBJECTION PREP -->
+<div class="section">
+  <div class="section-num">Section 07</div>
+  <h2>Objection prep <em>(rehearse these once)</em></h2>
+  <div class="objection-block">
+    <p class="obj">"We already have a marketing person / agency."</p>
+    <p class="resp"><strong>You:</strong> Good, that means you take growth seriously. But we're not marketing. Marketing drives traffic. We come in on the operations side and fix what happens AFTER the lead arrives. After-hours order capture, dealer follow-up, multi-location coordination, sample fulfillment. Different layer. We work alongside marketing teams all the time, we don't replace them. Worth 20 minutes to see what we'd add?</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"How much does this cost?"</p>
+    <p class="resp"><strong>You:</strong> Depends on what your operation actually needs. That's why the Blueprint Review with Daniel is the right next step. He'll walk you through what we'd build, in what order, and you'll get a real number against your real situation. Pricing without context just sounds like a number you'd argue with.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"We've tried tech / a CRM / an answering service before, didn't stick."</p>
+    <p class="resp"><strong>You:</strong> I hear that a lot. Most of those tools are generic, they treat a turf wholesaler the same as a roofing contractor. We build custom to how YOUR operation runs, your dealer tiers, your territory split, your inventory model. The 20 minutes with Daniel is partly diagnostic, but also a way for you to interrogate us on how we handle the wholesale-specific stuff. If we don't pass that bar, no harm done.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"I'm not sure I'm the decision-maker for this."</p>
+    <p class="resp"><strong>You:</strong> Totally fair. Two options. One, take the call yourself, see what you think, decide if it's worth bringing in whoever owns this decision. Two, bring them on the 20-minute call with you. Either works. The audit is sitting ready to go either way.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"Just send me the audit and I'll take a look."</p>
+    <p class="resp"><strong>You:</strong> Happy to. I'll send it right now. The audit is sharp on its own but the real value is the 20 minutes where Daniel walks through your specific numbers live. After you've read it, want me to lock you in for one of his time slots this week? Even a tentative hold. If it lands flat after you read, easy to cancel.</p>
+  </div>
+</div>
+
+<!-- THE CLOSE -->
+<div class="section">
+  <div class="section-num">Section 08</div>
+  <h2>The close <em>(the only line that matters)</em></h2>
+  <div class="script-block">Look, here's the move. I'm going to send you the audit right now so you have it. Daniel has time <span class="placeholder">[DAY]</span> at <span class="placeholder">[TIME]</span> or <span class="placeholder">[DAY]</span> at <span class="placeholder">[TIME]</span> for the 20-minute Blueprint Review. He'll walk you through everything in the doc live, answer questions, and you'll decide from there if it makes sense to keep talking. What works for you?</div>
+  <div class="callout teal">
+    <div class="label">Critical</div>
+    <p>Do NOT mention the Scan with this lead. CJ is in LIVE mode (phone or in-person). Per Scripts Pack v2.1 Section 3, live attention = book the discovery call direct. The Scan is for ASYNC channels. The audit is the lead magnet here, not the Scan.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- AFTER THE CALL -->
+<div class="section">
+  <div class="section-num">Section 09</div>
+  <h2>After the call <em>(what to do next)</em></h2>
+  <ul>
+    <li><strong>Send the audit immediately.</strong> Within 5 minutes of the call ending, send the link to the audit HTML.</li>
+    <li><strong>Send the calendar invite immediately.</strong> Don't say "I'll send it over." Send it on the call.</li>
+    <li><strong>Tag the lead in the CRM.</strong> Partner attribution clock starts the moment first contact lands. Make sure it's logged with your partner ID.</li>
+    <li><strong>SMS reminder 24 hours before.</strong> "Heads up, your call with Daniel is tomorrow at [TIME]. He's reviewed the audit, bring your questions."</li>
+    <li><strong>SMS reminder 1 hour before.</strong> "In an hour. Zoom link in the invite. If anything blew up, let me know now and we'll reschedule."</li>
+  </ul>
+</div>
+
+<!-- INTERNAL NOTES -->
+<div class="callout red">
+  <div class="label">Internal note for CJ</div>
+  <p>This audit was built without live access to the JS-rendered site. Findings are based on metadata, search results, competitor analysis, public Facebook + ZoomInfo, and 2026 industry data. If a question on the call surfaces a specific finding we can't back up, defer to Daniel on the Blueprint Review. Don't bluff. Honest "let me bring that into the Review" beats wrong specifics every time.</p>
+</div>
+
+</div>
+
+<div class="footer">
+  <strong>ViralityX · Turf USA Partner Briefing · For CJ Hardison (VX-SPA-003)</strong><br>
+  Confidential · Internal use only · June 11, 2026
+</div>
+
+</body>
+</html>
