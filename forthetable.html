@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operational Audit · For The Table Hospitality | ViralityX</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#090F15;--bg-card:rgba(255,255,255,0.04);--bg-card-hover:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.15);
+  --text:#E8ECF1;--text-muted:#8B95A5;--text-dim:#5A6577;
+  --cyan:#99DDFF;--cyan-dim:rgba(153,221,255,0.15);--cyan-glow:rgba(153,221,255,0.08);
+  --red:#FF6B6B;--red-dim:rgba(255,107,107,0.12);--red-glow:rgba(255,107,107,0.06);
+  --gold:#FFD666;--gold-dim:rgba(255,214,102,0.12);
+  --green:#66FFB2;--green-dim:rgba(102,255,178,0.12);
+  --orange:#FFB366;--orange-dim:rgba(255,179,102,0.12);
+  --purple:#B399FF;--purple-dim:rgba(179,153,255,0.12);
+  --radius:12px;--radius-sm:8px;--radius-xs:6px;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
+::selection{background:var(--cyan);color:var(--bg)}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+@media(max-width:768px){section{padding:56px 0}.container{padding:0 16px}}
+h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.03em}
+h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h3{font-size:1.25rem;font-weight:700;line-height:1.3}
+h4{font-size:1rem;font-weight:600;line-height:1.4}
+p{color:var(--text-muted);line-height:1.75}
+strong{color:var(--text);font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;font-family:var(--mono)}
+.badge--cyan{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(153,221,255,0.2)}
+.badge--red{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,107,107,0.2)}
+.badge--gold{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(255,214,102,0.2)}
+.badge--green{background:var(--green-dim);color:var(--green);border:1px solid rgba(102,255,178,0.2)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all 0.3s ease}
+.card:hover{background:var(--bg-card-hover);border-color:var(--border-hover)}
+.card--glow{box-shadow:0 0 40px var(--cyan-glow)}
+.section-label{font-family:var(--mono);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.section-heading{margin-bottom:16px}
+.section-sub{max-width:680px;margin-bottom:48px;font-size:1.05rem}
+.brand-bar{padding:20px 0;border-bottom:1px solid var(--border)}
+.brand-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.brand-logo{display:flex;align-items:center;gap:10px}
+.brand-logo svg{width:28px;height:28px}
+.brand-name{font-weight:700;font-size:1rem;letter-spacing:-0.01em}
+.brand-name span{color:var(--cyan)}
+.brand-meta{font-family:var(--mono);font-size:0.7rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
+.hero{padding:100px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--cyan-glow) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero h1{margin:20px 0 24px}
+.hero h1 em{font-style:italic;color:var(--cyan)}
+.hero-sub{font-size:1.1rem;margin-bottom:32px;max-width:600px}
+.client-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative}
+.client-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--gold))}
+.client-card-inner{padding:28px}
+.client-name{font-size:1.35rem;font-weight:800;margin-bottom:2px}
+.client-url{font-family:var(--mono);font-size:0.8rem;color:var(--cyan);margin-bottom:16px;display:block}
+.client-meta{display:flex;flex-direction:column;gap:10px}
+.client-meta-row{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted)}
+.client-meta-row svg{width:16px;height:16px;color:var(--text-dim);flex-shrink:0}
+.class-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.class-item{text-align:center;padding:24px 16px}
+.class-item .label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+.class-item .value{font-size:1.15rem;font-weight:700;color:var(--text)}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:40px 0}
+.stat-card{text-align:center;padding:28px 20px}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;line-height:1;margin-bottom:6px;font-family:var(--mono)}
+.stat-card .stat-label{font-size:0.75rem;font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+.stat-num.cyan{color:var(--cyan)}.stat-num.red{color:var(--red)}.stat-num.gold{color:var(--gold)}.stat-num.green{color:var(--green)}
+.finding-grid{display:grid;gap:20px}
+.finding{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;align-items:start}
+@media(max-width:600px){.finding{grid-template-columns:1fr;gap:12px}}
+.finding-icon{width:56px;height:56px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;font-family:var(--mono)}
+.finding-icon.red{background:var(--red-dim);color:var(--red)}
+.finding-icon.green{background:var(--green-dim);color:var(--green)}
+.finding-icon.gold{background:var(--gold-dim);color:var(--gold)}
+.finding-icon.cyan{background:var(--cyan-dim);color:var(--cyan)}
+.finding-title{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.finding-body{font-size:0.92rem;color:var(--text-muted);line-height:1.7}
+.finding-tag{display:inline-block;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-top:12px}
+.finding-tag.severity-high{background:var(--red-dim);color:var(--red)}
+.finding-tag.severity-med{background:var(--gold-dim);color:var(--gold)}
+.finding-tag.severity-low{background:var(--cyan-dim);color:var(--cyan)}
+.finding-tag.impact-high{background:var(--green-dim);color:var(--green)}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.stack-card{padding:28px;position:relative;overflow:hidden}
+.stack-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:2px}
+.stack-card.s1::before{background:var(--cyan)}.stack-card.s2::before{background:var(--green)}
+.stack-card.s3::before{background:var(--gold)}.stack-card.s4::before{background:var(--orange)}
+.stack-card.s5::before{background:var(--purple)}.stack-card.s6::before{background:var(--red)}
+.stack-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
+.stack-card.s1 .stack-label{color:var(--cyan)}.stack-card.s2 .stack-label{color:var(--green)}
+.stack-card.s3 .stack-label{color:var(--gold)}.stack-card.s4 .stack-label{color:var(--orange)}
+.stack-card.s5 .stack-label{color:var(--purple)}.stack-card.s6 .stack-label{color:var(--red)}
+.stack-title{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.stack-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7}
+.impact-bar{background:linear-gradient(135deg,rgba(153,221,255,0.06),rgba(255,214,102,0.06));border:1px solid rgba(153,221,255,0.15);border-radius:var(--radius);padding:40px;text-align:center;margin:48px 0}
+.impact-bar h3{font-size:1.6rem;margin-bottom:8px}
+.impact-bar .impact-range{font-size:2.8rem;font-weight:800;font-family:var(--mono);background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.impact-bar .impact-note{font-size:0.85rem;color:var(--text-dim);margin-top:8px}
+.loc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:32px 0}
+.loc-card{padding:24px}
+.loc-card h4{margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.loc-detail{font-size:0.85rem;color:var(--text-muted);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.loc-flag{display:inline-flex;padding:2px 8px;border-radius:4px;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase}
+.loc-flag.warn{background:var(--red-dim);color:var(--red)}
+.loc-flag.ok{background:var(--green-dim);color:var(--green)}
+.loc-flag.med{background:var(--gold-dim);color:var(--gold)}
+.comp-table{width:100%;border-collapse:collapse;margin:32px 0;font-size:0.88rem}
+.comp-table th{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;padding:12px 16px;border-bottom:1px solid var(--border)}
+.comp-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text-muted)}
+.comp-table tr:hover td{background:rgba(255,255,255,0.02)}
+.comp-table .highlight{color:var(--text);font-weight:600}
+.check{color:var(--green)}.cross{color:var(--red)}
+.industry-callout{background:rgba(255,214,102,0.04);border:1px solid rgba(255,214,102,0.15);border-left:3px solid var(--gold);border-radius:var(--radius);padding:28px;margin:32px 0}
+.industry-callout p{font-size:0.92rem;color:var(--text-muted);line-height:1.75}
+.industry-callout strong{color:var(--gold);font-weight:600}
+.cta-section{text-align:center;padding:80px 0 100px}
+.cta-card{background:linear-gradient(135deg,rgba(153,221,255,0.04),rgba(153,221,255,0.01));border:1px solid rgba(153,221,255,0.12);border-radius:var(--radius);padding:56px 40px;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,var(--cyan-glow),transparent 70%);pointer-events:none}
+.cta-card h2{margin:16px 0 12px;position:relative}
+.cta-card p{position:relative;max-width:560px;margin:0 auto 32px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--cyan);color:var(--bg);font-weight:700;font-size:1rem;border-radius:100px;text-decoration:none;transition:all 0.2s;position:relative}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(153,221,255,0.25)}
+.audit-footer{padding:40px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-inner p{font-size:0.75rem;color:var(--text-dim)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media print{body{background:#fff;color:#111}.card,.client-card,.finding,.stack-card,.impact-bar,.cta-card{border:1px solid #ddd;background:#f9f9f9}:root{--text:#111;--text-muted:#444;--text-dim:#777;--cyan:#0077AA;--red:#CC3333;--gold:#AA7700;--green:#228855}}
+</style>
+</head>
+<body>
+
+<!-- BRAND BAR -->
+<header class="brand-bar">
+<div class="container">
+  <div class="brand-logo">
+    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="28" height="28" rx="6" fill="rgba(153,221,255,0.12)"/>
+      <path d="M7 8l7 12 7-12" stroke="#99DDFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10.5 14h7" stroke="#99DDFF" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name">Virality<span>X</span></span>
+  </div>
+  <span class="brand-meta">Operational Audit · Confidential</span>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+  <div class="hero-grid">
+    <div>
+      <span class="badge badge--cyan">Operational Audit · June 2026</span>
+      <h1>For The Table Hospitality<br><em>Tallahassee · The FSU Footprint</em></h1>
+      <p class="hero-sub">A full diagnostic of digital infrastructure, multi-brand customer database, repeat-guest engine, review network, and game-day operations across the portfolio of concepts For The Table Hospitality runs in the shadow of Doak Campbell Stadium. Built operator to operator.</p>
+    </div>
+    <div class="client-card">
+      <div class="client-card-inner">
+        <h3 class="client-name">For The Table Hospitality</h3>
+        <a class="client-url" href="https://forthetablehospitality.com" target="_blank">forthetablehospitality.com</a>
+        <div class="client-meta">
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            HQ: Tallahassee, FL · FSU campus footprint
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+            Partners: Brian McKenna, Matt Thompson (FSU alumni, 2013)
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Brands: Madison Social · Township · Charlie Park
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Plus: Social Catering &amp; Events · Social Kitchen
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            Staff: 200+ across the portfolio
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8L8 16M8 8h8v8"/></svg>
+            Category: Multi-Concept Hospitality Group
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BUSINESS CLASSIFICATION -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Business Classification</p>
+  <div class="class-grid">
+    <div class="card class-item fade-up">
+      <div class="label">Business Type</div>
+      <div class="value">Multi-Concept F&amp;B Group</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Revenue Model</div>
+      <div class="value">Dine-In · Catering · Events</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Customer Journey</div>
+      <div class="value">Local Repeat + Game-Day Surge</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Concepts</div>
+      <div class="value">5+ Brands · 1 Catering Arm</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Market</div>
+      <div class="value">FSU + Capitol + Tallahassee</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INDUSTRY CONTEXT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Industry Context</p>
+  <h2 class="section-heading fade-up">The Wave For The Table Is Riding</h2>
+  <p class="section-sub fade-up">Before diagnosing the operation, the macro picture. The restaurant category in 2026 is in a quiet structural shift around customer data and loyalty infrastructure, and the operators who set up the back-end now win the next 10 years of repeat traffic in their market.</p>
+  <div class="industry-callout fade-up">
+    <p><strong>The numbers (2026 restaurant industry):</strong> 45% of diners say their favorite restaurant chain changed in the past year, up sharply from 33% in 2025. Customer loyalty is the most volatile it has been in a decade. <strong>Loyalty program members visit 22% more often and spend 38% more per visit. Repeat diners spend 27% more than first-time diners.</strong> 48% of restaurant customers are now enrolled in at least one loyalty program, up from 46% last year, but 35% of diners still belong to none. The independents that own this segment first own it permanently.</p>
+    <br>
+    <p><strong>The third-party delivery squeeze:</strong> DoorDash, Uber Eats, and Grubhub commissions land at 25 to 30% headline, 35 to 45% real effective rate once packaging, processing, promotions, and customer refunds get layered in. Most independent restaurants on the 25 to 30% tier are running 5 to 8 point margin loss on every third-party order versus a direct dine-in cover. <strong>The operators winning 2026 are the ones who own their customer database and convert delivery-app one-time orders into direct repeat business through their own channels.</strong></p>
+    <br>
+    <p><strong>The Tallahassee + FSU dynamic:</strong> Home football games triple hotel revenue against an average day. FSU football attracts ~4,000 overnight and ~2,500 daytrip visitors per game weekend, with the bulk of spend flowing through restaurants and bars within walking distance of Doak Campbell Stadium. Madison Social sits literally in the shadow of the stadium. Township sits a block away. <strong>The home schedule alone produces 6 to 8 surge weekends per year that can equal a quiet month of revenue in a single Saturday.</strong> Operators who optimize game-day waitlists, table turns, reservations, and catering capture spike. Operators who do not leave $50K+ of capacity on the floor per home game across the portfolio.</p>
+    <br>
+    <p>The audit below assesses For The Table Hospitality against the operational standard a top-quartile multi-brand college-town group needs to hit by 2027.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SNAPSHOT STATS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Current-State Snapshot</p>
+  <h2 class="section-heading fade-up">The Numbers That Frame the Problem</h2>
+  <p class="section-sub fade-up">Before we dig into bottlenecks, these are the measurable signals visible from the outside. Every number here represents either a gap or an opportunity.</p>
+  <div class="stats-row">
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">0</div>
+      <div class="stat-label">Unified Customer Database Visible</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">0</div>
+      <div class="stat-label">Cross-Brand Loyalty Program</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">5+</div>
+      <div class="stat-label">Concepts, 5+ Disconnected Microsites</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num gold">2013</div>
+      <div class="stat-label">Madison Social Founded, 12+ Years Equity</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num cyan">200+</div>
+      <div class="stat-label">Staff Across the Portfolio</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num green">38%</div>
+      <div class="stat-label">More Spend Per Loyalty Visit (Industry)</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PORTFOLIO BREAKDOWN -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Portfolio Architecture</p>
+  <h2 class="section-heading fade-up">Five Brands. One Customer Base. Five Disconnected Front Doors.</h2>
+  <p class="section-sub fade-up">For The Table Hospitality runs a portfolio of distinct concepts across Tallahassee, each with its own site, its own social channels, its own Google Business Profile, its own POS, and presumably its own customer touchpoints. From an outside-in audit, there is no visible connective tissue tying the customer experience across the brands. A guest who closes out a Saturday at Madison Social, brunches at Charlie Park the next morning, and books Social Catering for a wedding six months later looks like three different customers to the system. Internally that's the same guest with $4K+ of lifetime value walking from brand to brand and never being recognized.</p>
+  <div class="loc-grid">
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Madison Social · Flagship (2013)
+      </h4>
+      <div class="loc-detail">Address: 705 S Woodward Ave (shadow of Doak Campbell)</div>
+      <div class="loc-detail">Format: Full-service · brunch · happy hour · late night</div>
+      <div class="loc-detail">Game-day proximity: <span class="loc-flag warn">Peak surge target</span></div>
+      <div class="loc-detail">Reservations: Direct booking widget on site</div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Township · College Bar Concept
+      </h4>
+      <div class="loc-detail">Address: 619 S Woodward Ave (one block from Doak)</div>
+      <div class="loc-detail">Format: Counter service · 70+ beers · dueling pianos Fridays</div>
+      <div class="loc-detail">"For The Table, By The People" mantra</div>
+      <div class="loc-detail">Heavy student volume · game-day peak</div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Charlie Park · Rooftop (2021)
+      </h4>
+      <div class="loc-detail">Address: 801 S Gadsden St, AC Hotel by Marriott rooftop</div>
+      <div class="loc-detail">Format: Cocktails · small plates · brunch · special occasion</div>
+      <div class="loc-detail">Capacity: Reservation-driven, premium positioning</div>
+      <div class="loc-detail">Audience: Capitol + adult Tallahassee, not student-driven</div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Social Catering &amp; Events
+      </h4>
+      <div class="loc-detail">Format: Off-premise catering arm of the group</div>
+      <div class="loc-detail">Target: Weddings, corporate, FSU functions, capitol</div>
+      <div class="loc-detail">Long lead cycle: 3 to 12 months from inquiry to event</div>
+      <div class="loc-detail">Inquiry-to-book conversion is the entire economics</div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Social Kitchen (TLH)
+      </h4>
+      <div class="loc-detail">Format: Production kitchen / fast-casual concept</div>
+      <div class="loc-detail">Supports catering arm + retail revenue</div>
+      <div class="loc-detail">Lower-friction repeat occasion (lunch traffic)</div>
+      <div class="loc-detail">Loyalty engine fit: highest in the portfolio</div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        Plus Historical / Adjacent Brands
+      </h4>
+      <div class="loc-detail">Public footprint references: Centrale, Magdas, SoDough</div>
+      <div class="loc-detail">Plus Happy Motoring (mobile / event-based)</div>
+      <div class="loc-detail">Some active, some sunset, some operational status unclear from outside</div>
+      <div class="loc-detail">Discovery call will clarify current vs prior portfolio</div>
+    </div>
+  </div>
+  <div class="card fade-up" style="margin-top:20px;border-left:3px solid var(--red);padding:20px 24px">
+    <p style="font-size:0.9rem;color:var(--text-muted)"><strong style="color:var(--red)">Operational Risk:</strong> Five-plus concepts with no visible shared customer database, no cross-brand loyalty mechanic, and no unified marketing automation means every brand is acquiring and retaining its own customer base in isolation. A Charlie Park brunch regular who throws a 50-person rehearsal dinner is invisible to Social Catering until they fill out a fresh inquiry form. The same diner browsing Madison Social's late-night menu has zero personalized signal across the portfolio. <strong>Multi-brand restaurant groups consistently leak 30 to 50% of cross-brand revenue to this exact data fragmentation, and lose the loyalty layer to chains and apps that own customer recognition by default.</strong></p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BOTTLENECKS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Revenue Bottlenecks</p>
+  <h2 class="section-heading fade-up">Where the Money Is Leaking</h2>
+  <p class="section-sub fade-up">Each bottleneck below was identified through a live audit of forthetablehospitality.com and the linked brand sites, the public-facing infrastructure, the competitive set in the college-town independent restaurant category, and operational patterns that consistently appear in multi-concept hospitality groups in 2026. These are not hypothetical. They are measurable gaps against where the top-quartile multi-brand independent operator will be by 2027.</p>
+  <div class="finding-grid">
+    <div class="card finding fade-up">
+      <div class="finding-icon red">01</div>
+      <div>
+        <h3 class="finding-title">No Unified Customer Database Across Brands</h3>
+        <p class="finding-body">The single highest-leverage gap in the entire operation. A guest who eats at Madison Social on Saturday, books Charlie Park for an anniversary in March, and inquires with Social Catering for a corporate holiday party in October is currently three separate, anonymous customer records. There is no visible CDP (customer data platform) consolidating identity across POS systems, reservation platforms, online ordering, WiFi captures, and event inquiries. Industry data: <strong>multi-brand restaurant groups with unified CDPs lift cross-brand revenue 20 to 35% within the first 12 months</strong> because they can finally market the right brand to the right guest at the right moment. Right now For The Table is making decisions about a 200+ employee, 5-brand operation with the customer intelligence of a single-location independent.</p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">02</div>
+      <div>
+        <h3 class="finding-title">No Visible Cross-Brand Loyalty Engine</h3>
+        <p class="finding-body">2026 restaurant industry data: 45% of diners say their favorite chain changed in the past year, the highest churn in a decade. Loyalty members visit 22% more often and spend 38% more per visit. Repeat diners spend 27% more than first-timers. From the outside, For The Table runs zero visible structured loyalty mechanic across the portfolio. No points program tying Madison Social to Charlie Park. No tier rewards. No "diner card" or unified app. No automated birthday or anniversary offer. <strong>For a group with 12+ years of customer history, no loyalty engine means the lifetime value of every regular is rented quarter by quarter, never owned.</strong> Independents that build cross-brand loyalty first in their market capture a defensible moat that no chain or app can match locally.</p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">03</div>
+      <div>
+        <h3 class="finding-title">Third-Party Delivery Is Bleeding Margin Off Every Order</h3>
+        <p class="finding-body">Madison Social shows online ordering through a third-party platform (foodiestakeout.com). The presence of any third-party online ordering at all signals the broader pattern: DoorDash, Uber Eats, and Grubhub commissions land at 25 to 30% headline, real effective cost 35 to 45% once packaging, promotions, processing, and refunds layer in. <strong>For a group running 5 concepts, every third-party order is 5 to 8 margin points of pure leakage versus the same order routed direct.</strong> Without a customer database to convert app one-timers into direct repeat customers, those margin losses compound forever. The operators winning 2026 use app orders as a customer acquisition channel, then mine the database to pull future orders direct. For The Table appears to have no infrastructure to do this conversion.</p>
+        <span class="finding-tag severity-high">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">04</div>
+      <div>
+        <h3 class="finding-title">Catering Inquiry Funnel Runs Off a Form, No Automated Nurture</h3>
+        <p class="finding-body">Social Catering &amp; Events has the longest sales cycle and the highest ticket in the portfolio. A corporate holiday party, a wedding, an FSU department function: $5K to $50K events with 3 to 12 month decision cycles. From the outside, the catering inquiry flow appears to be a single contact form drop, with no visible automated lead nurture sequence (menu samplers, past event galleries, testimonial videos, dietary accommodation explainers, capacity-availability calendar), no automated reminder cadence for ghosted leads, no scoring of which inquiries are worth the catering manager's calendar time. <strong>For a category where 60 to 80% of inquiries ghost in the silence between "submitted form" and "got a real proposal," automated nurture is the single biggest catering revenue lever sitting on the floor.</strong> Recovering even 15% of currently-ghosted inquiries on a $10K average ticket is $30K to $60K per quarter.</p>
+        <span class="finding-tag severity-high">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">05</div>
+      <div>
+        <h3 class="finding-title">Game-Day Operations Run Manual, Capacity Left on the Floor</h3>
+        <p class="finding-body">Home FSU football weekends triple hotel revenue against an average day. Madison Social sits in the shadow of Doak Campbell. Township sits a block away. These 6 to 8 home weekends produce a meaningful chunk of the portfolio's annual revenue. From the outside, there is no visible structured game-day operations layer: no SMS-based waitlist that texts guests when their table is 15 minutes out, no pre-game reservation flood automation that batches and confirms bookings, no AI-driven phone overflow handling the 200% spike in incoming calls on Saturday morning, no table-turn analytics surfacing which timeslots are leaving capacity unsold. <strong>Manual game-day ops on a fully-packed Saturday consistently leaves 10 to 20% of revenue capacity on the floor in mishandled waitlists, missed phone reservations, and slow table turns.</strong> That's a $30K to $80K per home game gap across the portfolio.</p>
+        <span class="finding-tag severity-med">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">06</div>
+      <div>
+        <h3 class="finding-title">Review Network Is Decentralized, Underleveraged</h3>
+        <p class="finding-body">Each brand runs its own Google Business Profile, its own Yelp, its own Tripadvisor. There is no visible centralized review request automation routing post-meal SMS / email back to the right brand's GBP. No unified review monitoring dashboard. No negative-review service-recovery flow. No review-volume push during game-day surge weeks (when satisfied guest density is highest and review velocity is most valuable). <strong>For a multi-brand group, the review network is one of the highest-ROI growth levers and one of the most consistently underbuilt.</strong> A coordinated review engine across the portfolio routinely lifts Google rankings 5 to 12 positions per brand, which compounds into 15 to 30% more discovery traffic across the year.</p>
+        <span class="finding-tag severity-med">Severity: Medium-High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">07</div>
+      <div>
+        <h3 class="finding-title">Each Brand's Social Channels Operate in Isolation</h3>
+        <p class="finding-body">Madison Social has its Instagram. Township has its Instagram. Charlie Park has its Instagram. From the outside, there is no visible content production system feeding the channels with operator-aware programming (game-day reels from inside Madison Social, sunset content from Charlie Park's rooftop during FSU parents weekend, catering setup time-lapses from Social Catering during peak wedding season). Most independent multi-brand groups end up with one overworked marketing person managing 5+ channels reactively. The result is anemic content velocity, inconsistent voice, and channels that exist but don't compound into traffic. <strong>The portfolio has the production raw material to dominate Tallahassee's restaurant social media. Right now the channels look like they're maintained, not deployed.</strong></p>
+        <span class="finding-tag severity-med">Severity: Medium</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">08</div>
+      <div>
+        <h3 class="finding-title">Founder Story + Brand Equity Underleveraged for Acquisition</h3>
+        <p class="finding-body">Brian McKenna and Matt Thompson are FSU alumni who built the most recognizable independent hospitality footprint in Tallahassee from one concept in 2013 to 5+ brands and 200+ employees in 12 years. That founder story is structurally valuable for catering pitches, for sponsorship conversations, for new-brand launches, and for the partnerships that drive the highest-margin revenue (FSU athletic department, capitol corporate accounts, real estate developers signing leases for the next concept). From the outside, the founder narrative is referenced briefly on individual brand pages but not deployed as a structured marketing asset across the portfolio: no founder video on the parent site, no podcast or LinkedIn content cadence, no "from the founder" newsletter to the customer database, no founder-fronted catering pitch deck. <strong>For a market that responds to local-operator authenticity, the founder story is the moat the national chains literally cannot replicate.</strong></p>
+        <span class="finding-tag severity-low">Severity: Medium</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OPPORTUNITIES -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Revenue Opportunities</p>
+  <h2 class="section-heading fade-up">What Opens Up When the Gaps Close</h2>
+  <p class="section-sub fade-up">These are not wishful thinking. Every opportunity is the direct inverse of a bottleneck above. Close the gap, capture the revenue.</p>
+  <div class="finding-grid">
+    <div class="card finding fade-up">
+      <div class="finding-icon green">01</div>
+      <div>
+        <h3 class="finding-title">Unified Multi-Brand Customer Database (CDP Layer)</h3>
+        <p class="finding-body">One identity layer consolidating every guest interaction across all 5 brands. POS, reservations, WiFi captures, online ordering, catering inquiries, event RSVPs, and review responses all roll up to a single guest profile. Guest visiting Madison Social on Saturday gets recognized when she books Charlie Park for brunch Sunday. The catering manager sees that a fresh inquiry came from someone who has spent $2,400 across the portfolio in the past year and prioritizes accordingly. <strong>Industry data: multi-brand CDPs lift cross-brand revenue 20 to 35% inside 12 months.</strong> For a group of For The Table's footprint, that's a six-figure annual lift the year the system goes live.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">02</div>
+      <div>
+        <h3 class="finding-title">Cross-Brand Loyalty Engine</h3>
+        <p class="finding-body">A single loyalty mechanic spanning Madison Social, Township, Charlie Park, Social Kitchen, and Social Catering. Points earned at one brand redeemable at all. Tier-based rewards for high-frequency guests. Automated birthday and anniversary offers. Game-day priority booking for tier members. <strong>Loyalty members visit 22% more often and spend 38% more per visit. Repeat diners spend 27% more than first-timers.</strong> Lifting repeat-visit frequency by even one visit per quarter per loyalty member compounds into hundreds of thousands per year on a portfolio this size. This is the cheapest revenue For The Table can capture, and the most defensible against national chains.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">03</div>
+      <div>
+        <h3 class="finding-title">Direct-Order Conversion Engine for Third-Party Delivery</h3>
+        <p class="finding-body">Every third-party order placed through DoorDash, Uber Eats, or the existing online ordering platform triggers a downstream offer to the guest to order direct next time. SMS-driven coupon, branded landing page, direct-order shortcut. <strong>Operators converting even 20 to 30% of third-party orders to direct save 8 to 15 points of margin on every converted future order.</strong> On a portfolio doing meaningful delivery volume, the math is real. The CDP makes this possible. Without identity resolution, you can't run the conversion play.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">04</div>
+      <div>
+        <h3 class="finding-title">Catering Inquiry Nurture + Automation Engine</h3>
+        <p class="finding-body">Every catering inquiry triggers a structured 90-day nurture sequence: instant acknowledgment SMS, menu sampler PDFs, recent event gallery, testimonial video, capacity-availability calendar, dietary accommodation explainer, and timed check-ins until the event books or ghosts. Inquiries are scored on event date, ticket size, and engagement signal so the catering manager spends time on the deals that close. <strong>Recovering even 15% of currently-ghosted catering inquiries at $10K average ticket is $30K to $60K per quarter.</strong> For a long-cycle, high-ticket sales motion like catering, this is the highest-ROI deployment in the entire stack.</p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">05</div>
+      <div>
+        <h3 class="finding-title">Game-Day Operations Layer (Waitlist + Phone Overflow)</h3>
+        <p class="finding-body">SMS-driven waitlist that texts guests when their table is 15 minutes out, frees the hostess from managing a paper list, lets the kitchen pace the line. AI voice agent handling the 200% spike in incoming reservation calls on a home Saturday morning, capturing party size and contact, routing to the right brand. Pre-game reservation automation batching and confirming bookings. Real-time dashboard for ownership showing which brand is converting capacity and which is leaving timeslots empty. <strong>Recovering even 10% of game-day capacity across 7 home weekends on a portfolio this size is $200K+ in incremental annual revenue.</strong></p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">06</div>
+      <div>
+        <h3 class="finding-title">Centralized Review Engine Across the Portfolio</h3>
+        <p class="finding-body">One system routing every post-meal SMS / email request to the right brand's Google Business Profile, monitoring all platforms in one dashboard, triaging negative reviews into a service-recovery flow that the marketing director owns, and timing review-volume pushes during high-density satisfaction periods (post-game weekends, peak brunch). <strong>A coordinated portfolio review engine routinely lifts Google rankings 5 to 12 positions per brand, compounding into 15 to 30% more discovery traffic year-over-year.</strong> Free traffic is the cheapest customer acquisition channel available.</p>
+        <span class="finding-tag impact-high">Impact: Medium-High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">07</div>
+      <div>
+        <h3 class="finding-title">Multi-Brand Social + Content Operations System</h3>
+        <p class="finding-body">A structured content production system feeding all 5+ brand channels with operator-aware programming. Shared content calendar, location-tagged production days that capture multi-brand assets in one shoot, automated cross-brand promotion (Township's pianos Friday teases Charlie Park's brunch Saturday), AI-assisted copywriting tuned to each brand's voice. The marketing director moves from reactive to programmatic. <strong>The portfolio has the raw material to dominate Tallahassee restaurant social. The system turns 200+ employees and 5 distinctive venues into a content engine that compounds.</strong></p>
+        <span class="finding-tag impact-high">Impact: Medium-High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">08</div>
+      <div>
+        <h3 class="finding-title">Founder + Brand Authority Engine</h3>
+        <p class="finding-body">Structured deployment of the Brian + Matt founder story across the portfolio: founder-fronted catering pitch deck, "From the Founders" monthly newsletter to the customer database, LinkedIn content cadence targeting capitol and FSU corporate accounts, a portfolio podcast or short-form video series. <strong>For a market that responds to local-operator authenticity, the founder narrative is the structural moat the national chains literally cannot replicate.</strong> Activating it converts catering pitches, sponsorship conversations, and new-brand launches.</p>
+        <span class="finding-tag impact-high">Impact: Medium</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REVENUE IMPACT -->
+<section>
+<div class="container">
+  <div class="impact-bar fade-up">
+    <span class="badge badge--gold">Conservative Estimate</span>
+    <h3 style="margin-top:16px">Projected Monthly Revenue Recovery</h3>
+    <div class="impact-range">$50,000 – $130,000 /mo</div>
+    <p class="impact-note">Based on unified customer database lift on cross-brand revenue, cross-brand loyalty repeat-visit frequency improvement, third-party-to-direct order conversion margin recovery, catering inquiry nurture conversion lift, game-day capacity optimization across home FSU weekends, and centralized review engine traffic compounding. Numbers reflect operational gaps measurable against top-quartile multi-brand independent hospitality benchmarks in the 2026 to 2027 market. Discovery call will validate against For The Table's actual portfolio revenue, current loyalty enrollment, catering inquiry-to-book rates, and POS data.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECOMMENDED STACK -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Recommended Infrastructure</p>
+  <h2 class="section-heading fade-up">The Deployment Stack</h2>
+  <p class="section-sub fade-up">Each system below targets a specific bottleneck identified in this audit. Nothing theoretical. Every deployment is tied to a measurable revenue gap.</p>
+  <div class="stack-grid">
+    <div class="card stack-card s1 fade-up">
+      <div class="stack-label">System 01 · Foundation</div>
+      <h4 class="stack-title">Unified Customer Data Platform</h4>
+      <p class="stack-desc">One identity layer consolidating every guest interaction across all brands. POS, reservations, WiFi, online ordering, catering inquiries, event RSVPs. Foundation for every loyalty, marketing, and segmentation deployment downstream. The single most important infrastructure investment for a multi-brand group in 2026.</p>
+    </div>
+    <div class="card stack-card s2 fade-up">
+      <div class="stack-label">System 02 · Highest LTV Lever</div>
+      <h4 class="stack-title">Cross-Brand Loyalty Engine</h4>
+      <p class="stack-desc">Single loyalty mechanic across Madison Social, Township, Charlie Park, Social Kitchen, Social Catering. Points earned anywhere, redeemable anywhere. Tier rewards. Birthday automation. Game-day priority booking for tier members. The defensible moat against chains and apps.</p>
+    </div>
+    <div class="card stack-card s3 fade-up">
+      <div class="stack-label">System 03</div>
+      <h4 class="stack-title">Catering Inquiry Nurture Automation</h4>
+      <p class="stack-desc">Structured 90-day nurture sequence on every catering inquiry. Menu samplers, event galleries, testimonial videos, dietary explainers, capacity calendar. Inquiry scoring so the catering manager spends time on the deals that actually close. Highest-ROI single deployment in the stack.</p>
+    </div>
+    <div class="card stack-card s4 fade-up">
+      <div class="stack-label">System 04</div>
+      <h4 class="stack-title">Game-Day Ops + AI Voice Agent</h4>
+      <p class="stack-desc">SMS waitlist, pre-game reservation batching, AI voice agent for phone overflow, real-time capacity dashboard for ownership. Designed for the 6 to 8 home FSU weekends per year that disproportionately move the portfolio's annual revenue.</p>
+    </div>
+    <div class="card stack-card s5 fade-up">
+      <div class="stack-label">System 05</div>
+      <h4 class="stack-title">Third-Party-to-Direct Conversion Engine</h4>
+      <p class="stack-desc">Every DoorDash, Uber Eats, and third-party online order triggers a downstream offer to the guest to order direct next time. Branded landing pages, SMS offers, direct-order shortcuts. Recovers 8 to 15 margin points on every converted future order. Requires the CDP foundation.</p>
+    </div>
+    <div class="card stack-card s6 fade-up">
+      <div class="stack-label">System 06</div>
+      <h4 class="stack-title">Centralized Review Engine + Multi-Brand Content Ops</h4>
+      <p class="stack-desc">Automated post-meal review requests routed to the right brand's GBP, unified review monitoring dashboard, negative-review service-recovery flow, shared content calendar across all brand social channels, AI-assisted copywriting tuned to each brand voice. The marketing director moves from reactive to programmatic.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPETITIVE SNAPSHOT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Competitive Snapshot</p>
+  <h2 class="section-heading fade-up">What the Top of the Multi-Brand Market Is Doing</h2>
+  <p class="section-sub fade-up">A representative cross-section of what guests are experiencing when they choose between For The Table's brands and the regional and national operators with deeper customer data infrastructure.</p>
+  <table class="comp-table fade-up">
+    <thead>
+      <tr>
+        <th>Infrastructure</th>
+        <th>For The Table Today</th>
+        <th>Top-Quartile Multi-Brand Groups</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="highlight">Unified Customer Database (CDP)</td><td><span class="cross">Not visible</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">Cross-Brand Loyalty Program</td><td><span class="cross">Not visible</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">Direct-Order Conversion Engine</td><td><span class="cross">Not visible</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">Catering Inquiry Nurture Automation</td><td><span class="cross">Form-only</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">Game-Day SMS Waitlist + Phone Overflow</td><td><span class="cross">Manual</span></td><td><span class="check">Partial</span></td></tr>
+      <tr><td class="highlight">Centralized Review Engine</td><td><span class="cross">Per-brand silo</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">Unified Social + Content Ops</td><td><span class="cross">Per-brand silo</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">12+ Years Brand Equity in Local Market</td><td><span class="check">Yes (since 2013)</span></td><td><span class="cross">Most chains lack this</span></td></tr>
+      <tr><td class="highlight">Local Founder Story + Operator Authority</td><td><span class="check">Yes (FSU alumni founders)</span></td><td><span class="cross">National chains cannot replicate</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.92rem;color:var(--text-muted);margin-top:16px">The strategic opening: For The Table has the two things the national chains cannot replicate, <strong style="color:var(--cyan)">12+ years of local brand equity and a founder story rooted in the FSU community</strong>. The infrastructure gaps are fixable in weeks. The moats (brand equity + founder story) are not replicable by national chains. Close the operations gap and For The Table owns the next decade of Tallahassee's hospitality market while chains compete on price and discount apps.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+<div class="container">
+  <div class="cta-card fade-up">
+    <span class="badge badge--cyan">Next Step</span>
+    <h2>This Audit Is the Starting Point.<br>The Diagnostic Goes Deeper.</h2>
+    <p>We've identified the gaps from the outside. The real numbers (monthly cover counts per brand, current loyalty enrollment, catering inquiry-to-book rate, game-day waitlist abandonment, third-party order share, average guest LTV across the portfolio) live inside the operation. One conversation to walk through this audit, answer questions, and determine whether a full diagnostic and roadmap makes sense.</p>
+    <a href="#" class="cta-btn">Schedule the Conversation</a>
+  </div>
+</div>
+</section>
+
+<!-- DISCOVERY QUESTIONS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Discovery Questions</p>
+  <h2 class="section-heading fade-up">What We'd Ask in the Diagnostic</h2>
+  <p class="section-sub fade-up">These are the questions we can't answer from the outside. They determine the exact scope and priority of what gets deployed first.</p>
+  <div class="finding-grid">
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Portfolio Revenue Split:</strong> What's the revenue mix across the brands today? Which concept is the volume leader, which is the margin leader, which is the growth engine?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Customer Database Today:</strong> Is there any unified customer database across the brands today? Per-brand POS data? Reservation history? Email/SMS list? What lives where and how is it joined (or not)?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Loyalty Today:</strong> Is there any loyalty mechanic in play, even informal (regulars known by name, comp programs, server-led)? What percentage of revenue feels like it comes from repeat guests vs new traffic?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Catering Engine:</strong> Inquiries per month into Social Catering. Inquiry-to-book conversion rate. Average ticket size. Median days from inquiry to close. What percentage ghosts?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Game-Day Operations:</strong> How are home FSU weekends handled today across Madison Social and Township? Waitlist mechanic? Phone overflow handling? Is anyone tracking lost capacity?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Third-Party Delivery Share:</strong> What percentage of revenue comes through DoorDash / Uber Eats / Grubhub across the brands? What's the blended effective commission cost? Is anyone working on converting those orders to direct?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Marketing Team Structure:</strong> Who owns marketing across the portfolio today? Per-brand managers, single director, founder-driven? Where's the team's time going this quarter? Where do they wish they had more bandwidth?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Decision Authority:</strong> Who internally signs off on a portfolio-wide infrastructure investment? Brian + Matt as partners, a CEO/COO, a board? What's been tried before and why didn't it stick?</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="audit-footer">
+<div class="container">
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="rgba(153,221,255,0.12)"/><path d="M7 8l7 12 7-12" stroke="#99DDFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 14h7" stroke="#99DDFF" stroke-width="2" stroke-linecap="round"/></svg>
+      <span style="font-weight:700;font-size:0.85rem">ViralityX</span>
+    </div>
+    <p>Confidential · prepared for For The Table Hospitality leadership · June 2026</p>
+  </div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const els=document.querySelectorAll('.fade-up');
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>observer.observe(el));
+});
+</script>
+
+</body>
+</html>

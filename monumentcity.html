@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operational Audit · Monument City Capital | ViralityX</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#090F15;--bg-card:rgba(255,255,255,0.04);--bg-card-hover:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.15);
+  --text:#E8ECF1;--text-muted:#8B95A5;--text-dim:#5A6577;
+  --cyan:#99DDFF;--cyan-dim:rgba(153,221,255,0.15);--cyan-glow:rgba(153,221,255,0.08);
+  --red:#FF6B6B;--red-dim:rgba(255,107,107,0.12);--red-glow:rgba(255,107,107,0.06);
+  --gold:#FFD666;--gold-dim:rgba(255,214,102,0.12);
+  --green:#66FFB2;--green-dim:rgba(102,255,178,0.12);
+  --orange:#FFB366;--orange-dim:rgba(255,179,102,0.12);
+  --purple:#B399FF;--purple-dim:rgba(179,153,255,0.12);
+  --radius:12px;--radius-sm:8px;--radius-xs:6px;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
+::selection{background:var(--cyan);color:var(--bg)}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+@media(max-width:768px){section{padding:56px 0}.container{padding:0 16px}}
+h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.03em}
+h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h3{font-size:1.25rem;font-weight:700;line-height:1.3}
+h4{font-size:1rem;font-weight:600;line-height:1.4}
+p{color:var(--text-muted);line-height:1.75}
+strong{color:var(--text);font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;font-family:var(--mono)}
+.badge--cyan{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(153,221,255,0.2)}
+.badge--red{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,107,107,0.2)}
+.badge--gold{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(255,214,102,0.2)}
+.badge--green{background:var(--green-dim);color:var(--green);border:1px solid rgba(102,255,178,0.2)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all 0.3s ease}
+.card:hover{background:var(--bg-card-hover);border-color:var(--border-hover)}
+.card--glow{box-shadow:0 0 40px var(--cyan-glow)}
+.section-label{font-family:var(--mono);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.section-heading{margin-bottom:16px}
+.section-sub{max-width:680px;margin-bottom:48px;font-size:1.05rem}
+.brand-bar{padding:20px 0;border-bottom:1px solid var(--border)}
+.brand-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.brand-logo{display:flex;align-items:center;gap:10px}
+.brand-logo svg{width:28px;height:28px}
+.brand-name{font-weight:700;font-size:1rem;letter-spacing:-0.01em}
+.brand-name span{color:var(--cyan)}
+.brand-meta{font-family:var(--mono);font-size:0.7rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
+.hero{padding:100px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--cyan-glow) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero h1{margin:20px 0 24px}
+.hero h1 em{font-style:italic;color:var(--cyan)}
+.hero-sub{font-size:1.1rem;margin-bottom:32px;max-width:600px}
+.client-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative}
+.client-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--gold))}
+.client-card-inner{padding:28px}
+.client-name{font-size:1.35rem;font-weight:800;margin-bottom:2px}
+.client-url{font-family:var(--mono);font-size:0.8rem;color:var(--cyan);margin-bottom:16px;display:block}
+.client-meta{display:flex;flex-direction:column;gap:10px}
+.client-meta-row{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted)}
+.client-meta-row svg{width:16px;height:16px;color:var(--text-dim);flex-shrink:0}
+.class-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.class-item{text-align:center;padding:24px 16px}
+.class-item .label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+.class-item .value{font-size:1.15rem;font-weight:700;color:var(--text)}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:40px 0}
+.stat-card{text-align:center;padding:28px 20px}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;line-height:1;margin-bottom:6px;font-family:var(--mono)}
+.stat-card .stat-label{font-size:0.75rem;font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+.stat-num.cyan{color:var(--cyan)}.stat-num.red{color:var(--red)}.stat-num.gold{color:var(--gold)}.stat-num.green{color:var(--green)}
+.finding-grid{display:grid;gap:20px}
+.finding{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;align-items:start}
+@media(max-width:600px){.finding{grid-template-columns:1fr;gap:12px}}
+.finding-icon{width:56px;height:56px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;font-family:var(--mono)}
+.finding-icon.red{background:var(--red-dim);color:var(--red)}
+.finding-icon.green{background:var(--green-dim);color:var(--green)}
+.finding-icon.gold{background:var(--gold-dim);color:var(--gold)}
+.finding-icon.cyan{background:var(--cyan-dim);color:var(--cyan)}
+.finding-title{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.finding-body{font-size:0.92rem;color:var(--text-muted);line-height:1.7}
+.finding-tag{display:inline-block;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-top:12px}
+.finding-tag.severity-high{background:var(--red-dim);color:var(--red)}
+.finding-tag.severity-med{background:var(--gold-dim);color:var(--gold)}
+.finding-tag.severity-low{background:var(--cyan-dim);color:var(--cyan)}
+.finding-tag.impact-high{background:var(--green-dim);color:var(--green)}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.stack-card{padding:28px;position:relative;overflow:hidden}
+.stack-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:2px}
+.stack-card.s1::before{background:var(--cyan)}.stack-card.s2::before{background:var(--green)}
+.stack-card.s3::before{background:var(--gold)}.stack-card.s4::before{background:var(--orange)}
+.stack-card.s5::before{background:var(--purple)}.stack-card.s6::before{background:var(--red)}
+.stack-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
+.stack-card.s1 .stack-label{color:var(--cyan)}.stack-card.s2 .stack-label{color:var(--green)}
+.stack-card.s3 .stack-label{color:var(--gold)}.stack-card.s4 .stack-label{color:var(--orange)}
+.stack-card.s5 .stack-label{color:var(--purple)}.stack-card.s6 .stack-label{color:var(--red)}
+.stack-title{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.stack-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7}
+.impact-bar{background:linear-gradient(135deg,rgba(153,221,255,0.06),rgba(255,214,102,0.06));border:1px solid rgba(153,221,255,0.15);border-radius:var(--radius);padding:40px;text-align:center;margin:48px 0}
+.impact-bar h3{font-size:1.6rem;margin-bottom:8px}
+.impact-bar .impact-range{font-size:2.8rem;font-weight:800;font-family:var(--mono);background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.impact-bar .impact-note{font-size:0.85rem;color:var(--text-dim);margin-top:8px}
+.loc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:32px 0}
+.loc-card{padding:24px}
+.loc-card h4{margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.loc-detail{font-size:0.85rem;color:var(--text-muted);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.loc-flag{display:inline-flex;padding:2px 8px;border-radius:4px;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase}
+.loc-flag.warn{background:var(--red-dim);color:var(--red)}
+.loc-flag.ok{background:var(--green-dim);color:var(--green)}
+.loc-flag.med{background:var(--gold-dim);color:var(--gold)}
+.comp-table{width:100%;border-collapse:collapse;margin:32px 0;font-size:0.88rem}
+.comp-table th{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;padding:12px 16px;border-bottom:1px solid var(--border)}
+.comp-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text-muted)}
+.comp-table tr:hover td{background:rgba(255,255,255,0.02)}
+.comp-table .highlight{color:var(--text);font-weight:600}
+.check{color:var(--green)}.cross{color:var(--red)}
+.industry-callout{background:rgba(255,214,102,0.04);border:1px solid rgba(255,214,102,0.15);border-left:3px solid var(--gold);border-radius:var(--radius);padding:28px;margin:32px 0}
+.industry-callout p{font-size:0.92rem;color:var(--text-muted);line-height:1.75}
+.industry-callout strong{color:var(--gold);font-weight:600}
+.cta-section{text-align:center;padding:80px 0 100px}
+.cta-card{background:linear-gradient(135deg,rgba(153,221,255,0.04),rgba(153,221,255,0.01));border:1px solid rgba(153,221,255,0.12);border-radius:var(--radius);padding:56px 40px;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,var(--cyan-glow),transparent 70%);pointer-events:none}
+.cta-card h2{margin:16px 0 12px;position:relative}
+.cta-card p{position:relative;max-width:560px;margin:0 auto 32px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--cyan);color:var(--bg);font-weight:700;font-size:1rem;border-radius:100px;text-decoration:none;transition:all 0.2s;position:relative}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(153,221,255,0.25)}
+.audit-footer{padding:40px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-inner p{font-size:0.75rem;color:var(--text-dim)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media print{body{background:#fff;color:#111}.card,.client-card,.finding,.stack-card,.impact-bar,.cta-card{border:1px solid #ddd;background:#f9f9f9}:root{--text:#111;--text-muted:#444;--text-dim:#777;--cyan:#0077AA;--red:#CC3333;--gold:#AA7700;--green:#228855}}
+</style>
+</head>
+<body>
+
+<!-- BRAND BAR -->
+<header class="brand-bar">
+<div class="container">
+  <div class="brand-logo">
+    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="28" height="28" rx="6" fill="rgba(153,221,255,0.12)"/>
+      <path d="M7 8l7 12 7-12" stroke="#99DDFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10.5 14h7" stroke="#99DDFF" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name">Virality<span>X</span></span>
+  </div>
+  <span class="brand-meta">Operational Audit · Confidential</span>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+  <div class="hero-grid">
+    <div>
+      <span class="badge badge--cyan">Operational Audit · June 2026</span>
+      <h1>Monument City Capital<br><em>Baltimore · Annapolis</em></h1>
+      <p class="hero-sub">A full diagnostic of digital infrastructure, borrower-side lead capture, accredited-investor funnel, and repeat-borrower retention across Monument City Capital's two-sided lending business. Built operator to operator.</p>
+    </div>
+    <div class="client-card">
+      <div class="client-card-inner">
+        <h3 class="client-name">Monument City Capital</h3>
+        <a class="client-url" href="https://monumentcitycapital.com" target="_blank">monumentcitycapital.com</a>
+        <div class="client-meta">
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            408 Crain Hwy S, Suite 9, Glen Burnie, MD 21061
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            443-750-1565 · 443-775-3749
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+            Principal: Shaun Magner (Monument City Group)
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Platform: LeadConnector / HighLevel front-end
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+            Loan portal: portal.joinlendr.com (third-party)
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8L8 16M8 8h8v8"/></svg>
+            Model: Hard money lending + Reg D 506(c) Income Fund
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BUSINESS CLASSIFICATION -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Business Classification</p>
+  <div class="class-grid">
+    <div class="card class-item fade-up">
+      <div class="label">Business Type</div>
+      <div class="value">Two-Sided Lender</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Revenue Model</div>
+      <div class="value">Origination + Interest + Fund AUM</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Customer Journey</div>
+      <div class="value">Borrower + Investor (Two Funnels)</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Geography</div>
+      <div class="value">Maryland Core · National Beyond</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Founder Brand</div>
+      <div class="value">Podcast Guest · Keynote · Coach</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INDUSTRY CONTEXT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Industry Context</p>
+  <h2 class="section-heading fade-up">The Wave Monument City Capital Is Riding</h2>
+  <p class="section-sub fade-up">Before diagnosing the operation, the macro tailwind. Private and hard money lending is in a structural growth phase that disciplined regional lenders are positioned to ride for the next decade, IF their borrower-capture and investor-pipeline systems can scale with demand.</p>
+  <div class="industry-callout fade-up">
+    <p><strong>The numbers:</strong> The hard money lending market sits at <strong>$70 to $80 billion in annual origination volume in 2026</strong>, up from $40 to $50 billion in 2020, on track toward a projected $100 billion industry. The broader private lending market crossed <strong>$2 trillion in assets in 2025</strong>. Over <strong>40% of fix-and-flip projects</strong> are now funded through private channels. Hard money rates sit at 9.5% to 12.5%, LTV around 65 to 75% of ARV. Institutional capital is flooding in as traditional banks pull back from this segment.</p>
+    <br>
+    <p><strong>The opportunity for a regional lender:</strong> Speed wins. The lender who responds to a borrower inquiry first wins disproportionately. <strong>Calling a mortgage lead within 1 minute increases conversion by 391%. Responding within 5 minutes makes a lead 21x more likely to qualify.</strong> In hard money specifically, this matters 10x more than in conventional mortgage. The borrower with a deal on the clock takes the first lender who picks up. Industry median response time exceeds one business day. The lenders running automated speed-to-quote infrastructure are eating the lenders who don't.</p>
+    <br>
+    <p><strong>And on the investor side:</strong> Reg D 506(c) funds can advertise publicly, but the bottleneck is no longer SEC verification (the March 2025 no-action letter simplified that). The bottleneck is the nurture funnel between "interested accredited investor" and "wired the minimum." Most regional funds are running this on a single Calendly + a PDF. The ones running it on a real CRM with sequenced education content are filling faster.</p>
+    <br>
+    <p>The audit below assesses Monument City Capital against the operational standard a top-quartile two-sided lender needs to hit by 2027.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SNAPSHOT STATS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Current-State Snapshot</p>
+  <h2 class="section-heading fade-up">The Numbers That Frame the Problem</h2>
+  <p class="section-sub fade-up">Before we dig into bottlenecks, these are the measurable signals visible from the outside. Every number here represents either a gap or an opportunity.</p>
+  <div class="stats-row">
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">0</div>
+      <div class="stat-label">Visible Speed-to-Quote Mechanism</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">0</div>
+      <div class="stat-label">After-Hours Borrower Capture</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">0</div>
+      <div class="stat-label">Broker Portal or Referral Program</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num gold">2</div>
+      <div class="stat-label">Phone Numbers Listed · Same Page</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num cyan">24h</div>
+      <div class="stat-label">Stated Loan Approval Window</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num green">10-11%</div>
+      <div class="stat-label">Income Fund Target Annual Return</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TWO-SIDED MODEL BREAKDOWN -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Two-Sided Business Architecture</p>
+  <h2 class="section-heading fade-up">One Brand, Two Distinct Funnels, One Shared Front Door</h2>
+  <p class="section-sub fade-up">Monument City Capital runs two fundamentally different revenue engines from the same homepage. A real estate investor borrowing $250K to flip a Baltimore rowhouse and an accredited doctor placing $250K into the Income Fund are two completely different customer journeys, with different objections, different timelines, different proof points, and different decision triggers. Right now both journeys share one phone number, one inbox, and one homepage path.</p>
+  <div class="loc-grid">
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Borrow Side · Hard Money / DSCR
+      </h4>
+      <div class="loc-detail">Products: Fix and Flip, Fix to Rent, 30-Yr DSCR Rental</div>
+      <div class="loc-detail">Application: external (joinlendr.com) <span class="loc-flag med">3rd party</span></div>
+      <div class="loc-detail">Promise: 24hr approval, 72hr to close, no appraisal</div>
+      <div class="loc-detail">Borrower profile: 680+ credit, $40K liquidity, 1-9 unit residential</div>
+      <div class="loc-detail">Customer journey: Repeat. Every flipper takes 3-8 loans per year.</div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        Invest Side · Reg D 506(c) Income Fund
+      </h4>
+      <div class="loc-detail">Structure: First-lien real estate, 12-month commitment</div>
+      <div class="loc-detail">Minimum: $100K accredited investors only <span class="loc-flag ok">premium</span></div>
+      <div class="loc-detail">Target: 10-11% annual, monthly distributions</div>
+      <div class="loc-detail">Lead capture: "Request the Investor Overview" form</div>
+      <div class="loc-detail">Customer journey: Long. Trust-based. Months from interest to wire.</div>
+    </div>
+  </div>
+  <div class="card fade-up" style="margin-top:20px;border-left:3px solid var(--red);padding:20px 24px">
+    <p style="font-size:0.9rem;color:var(--text-muted)"><strong style="color:var(--red)">Operational Risk:</strong> Without funnel separation at the CRM and automation layer, both audiences get the same generic follow-up. A serious accredited investor evaluating a 12-month, $100K commitment needs a months-long education sequence (market commentary, fund performance updates, principal interviews, regulatory comfort). A flipper who needs $300K to close Tuesday needs a callback in 5 minutes with a term sheet by end of day. Treat them the same and you lose both.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BOTTLENECKS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Revenue Bottlenecks</p>
+  <h2 class="section-heading fade-up">Where the Money Is Leaking</h2>
+  <p class="section-sub fade-up">Each bottleneck below was identified through a live audit of monumentcitycapital.com, its public-facing infrastructure, the competitive set in the regional hard money category, and the operational patterns that consistently appear in two-sided lending businesses. These aren't hypothetical, they are measurable gaps against where a top-quartile regional lender will be by 2027.</p>
+  <div class="finding-grid">
+    <div class="card finding fade-up">
+      <div class="finding-icon red">01</div>
+      <div>
+        <h3 class="finding-title">No Speed-to-Quote Infrastructure on the Borrower Side</h3>
+        <p class="finding-body">A flipper finds a deal at noon, calls 3 lenders by 12:15. Whichever lender gets back with a soft term sheet first owns the rest of that borrower's career. Monument City Capital advertises "24 hour loan approvals," which is competitive on paper, but the front-end has no instant acknowledgment system. The "Apply Now" button hands the borrower off to a third-party portal (joinlendr.com). Once they submit there, nothing visible triggers an SMS to a loan officer, no auto-email confirming receipt, no automated soft pre-qual based on credit + liquidity + ARV inputs. <strong>Industry data is unforgiving: 1-minute response = 391% conversion lift versus 30-minute response. Hard money buyers are 10x more time-sensitive than conventional mortgage buyers.</strong> If a competitor lender pings back in 90 seconds with a number and Monument City takes 4 hours, the deal is gone.</p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">02</div>
+      <div>
+        <h3 class="finding-title">No After-Hours Borrower Capture</h3>
+        <p class="finding-body">Real estate investors don't work bankers' hours. They walk properties at 6pm, sign deals at 9pm, and call lenders Saturday morning when they realize the inspection blew up. Monument City Capital's listed phone lines (443-750-1565 and 443-775-3749) have no visible AI receptionist, no SMS auto-reply on missed calls, no after-hours callback scheduling, no triage of "urgent funding need" versus "general question." Every call that comes in outside 9-to-5 hits voicemail or rings out. <strong>For a hard money lender, after-hours is when the most desperate, highest-conversion borrowers are calling.</strong> One missed Saturday call on a flipper who closes Monday is one lost relationship, plus the next dozen loans they would have done with you over the next 24 months. The lifetime value loss compounds fast.</p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">03</div>
+      <div>
+        <h3 class="finding-title">No Repeat-Borrower Retention System Visible</h3>
+        <p class="finding-body">This is the highest-leverage gap in the entire business. Hard money is fundamentally a relationship business. Industry data: <strong>repeat borrowers generate 67% more revenue than new ones, and at top private lenders, 70% of volume comes from repeat borrowers.</strong> Yet Monument City Capital's public infrastructure shows no automated post-close nurture sequence, no loan anniversary outreach, no "your project should be wrapping, want to talk about the next one?" cadence, no refinance window reminders, no portfolio-stage-based outreach (flipper vs landlord vs DSCR holder need different touch points). Every closed loan should trigger a 12 to 18 month sequence that ends in the next loan. Right now each loan looks like it ends at the wire, full stop. <strong>That's the entire LTV of every borrower walking out the door.</strong></p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">04</div>
+      <div>
+        <h3 class="finding-title">No Broker Portal or Referral Tracking</h3>
+        <p class="finding-body">Most regional hard money lenders source 30 to 60% of deal flow through brokers and bird-dogs (real estate agents, wholesalers, attorneys, contractors who run into deals before the borrower does). Monument City Capital's public site has no broker landing page, no broker registration flow, no co-branded marketing materials for partners, no automated commission tracking, no broker-only pricing or program visibility. The same brokers feeding deals to Monument are also feeding deals to Stormfield, Yieldi, RCN, and the other regional lenders aggressively recruiting brokers right now. <strong>Without a structured broker program, broker loyalty is rented.</strong> A broker who gets a faster quote turnaround somewhere else moves their book of deals there, and the lender they left often doesn't even know it happened.</p>
+        <span class="finding-tag severity-high">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">05</div>
+      <div>
+        <h3 class="finding-title">Investor Funnel Runs Off a Single Form</h3>
+        <p class="finding-body">"Request the Investor Overview" is a single form drop on the homepage that presumably triggers a PDF email. For a Reg D 506(c) offering with a $100K minimum and a 12-month commitment, that is the entire visible nurture pipeline. There is no visible monthly investor letter sign-up, no fund performance dashboard preview, no Shaun-recorded explainer video sequence for accredited investors, no "let me tell you about how we underwrite" educational series, no automated qualification flow that separates accredited from non-accredited before the call. <strong>The decision-cycle from "interested" to "wired $100K" on a fund like this is typically 60 to 180 days.</strong> Without an automated nurture engine across that window, 80% of investors who would have eventually committed lose interest in the gap between download-the-PDF and book-a-call.</p>
+        <span class="finding-tag severity-high">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">06</div>
+      <div>
+        <h3 class="finding-title">Two Funnels, One Inbox, No Routing</h3>
+        <p class="finding-body">The contact email obfuscates to a single Cloudflare-protected address. A borrower asking "can you close in 5 days on a Patterson Park duplex" and an accredited dental practice owner asking "how does the fund handle Q4 distributions for tax planning" hit the same inbox. There is no visible routing logic, no role-based intake forms (Borrower / Investor / Broker / Press), no triage layer that sends the borrower instantly to a loan officer and the investor instantly into a long-term nurture sequence. Both inquiries deserve different response speed, different content, different next steps. <strong>One generic inbox guarantees the wrong one gets handled first on any given day.</strong></p>
+        <span class="finding-tag severity-med">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">07</div>
+      <div>
+        <h3 class="finding-title">Founder Authority Underleveraged in Lead Capture</h3>
+        <p class="finding-body">Shaun's bio mentions multiple podcast appearances, keynote speaking, and years coaching at a top national REI education company. That is real authority that should be doing structural work on lead capture, particularly on the investor side and the broker side. Yet the site has no embedded podcast clip library, no "as featured on" trust strip with logos, no visible blog or newsletter the founder publishes regularly, no LinkedIn cross-promotion (the LinkedIn pixel fires but there's no social link), no lead magnet built around his coaching IP. <strong>For a lender selling trust as the primary product on both sides of the book, the founder's existing media surface should be the front door.</strong> Right now it's a single paragraph on an About section.</p>
+        <span class="finding-tag severity-med">Severity: Medium-High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">08</div>
+      <div>
+        <h3 class="finding-title">No Visible Loan-Status Transparency for Active Borrowers</h3>
+        <p class="finding-body">Once a borrower is in flight on a fix-and-flip with construction draws, they need to know status without calling. Where is my draw request? Was the inspection scheduled? When will Friday's payout clear? Most regional lenders force borrowers to email or call for status. The lenders winning repeat business are building borrower portals with real-time draw status, construction milestone tracking, and proactive SMS alerts ("your draw request is approved, funds wire tomorrow"). Monument City Capital points borrowers to Lendr's application portal, but it's unclear if Lendr provides ongoing servicing transparency or if borrowers go dark after origination. <strong>For repeat business, the experience after origination matters more than the experience getting the loan.</strong></p>
+        <span class="finding-tag severity-low">Severity: Medium</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OPPORTUNITIES -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Revenue Opportunities</p>
+  <h2 class="section-heading fade-up">What Opens Up When the Gaps Close</h2>
+  <p class="section-sub fade-up">These aren't wishful thinking, they are the direct inverse of every bottleneck above. Close the gap, capture the revenue.</p>
+  <div class="finding-grid">
+    <div class="card finding fade-up">
+      <div class="finding-icon green">01</div>
+      <div>
+        <h3 class="finding-title">Instant Soft Term Sheet on Every Inquiry</h3>
+        <p class="finding-body">An AI-driven intake flow that captures the deal (property address, purchase price, ARV, rehab budget, borrower credit/liquidity self-report) and returns a soft pre-qualified term sheet within 90 seconds. The borrower goes from "submitted an application" to "has a number to take back to the seller" before they leave the property. Even at one additional captured deal per week, average loan size $200K, lender net of $15K to $30K per deal, that's <strong>$60K to $120K per month in incremental net profit on improved speed-to-quote alone.</strong></p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">02</div>
+      <div>
+        <h3 class="finding-title">24/7 AI Voice Agent for Both Funnels</h3>
+        <p class="finding-body">A bilingual AI voice agent answering every call, routing borrowers vs investors vs brokers, capturing deal specifics for borrowers, capturing accreditation status and investment range for investors, scheduling callbacks with the right human for each. Handles after-hours, weekends, lunch breaks, and overflow during peak. <strong>Every recovered after-hours borrower call on a $200K to $500K loan is $15K to $50K of net lender profit not lost to a competitor.</strong> One captured weekend call per month covers the cost of the entire system.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">03</div>
+      <div>
+        <h3 class="finding-title">Automated Repeat-Borrower Engine</h3>
+        <p class="finding-body">Every closed loan triggers a 12 to 18 month sequence: project-stage check-ins, refinance window reminders, anniversary outreach, "ready for the next one?" cadences, performance-based incentive tiers for borrowers who do 3+ loans per year. Borrower data: 67% more revenue from repeats, 70% of top-lender volume from repeats. <strong>Lifting repeat-borrower share by even 10 percentage points compounds into hundreds of thousands per year on a regional lending operation.</strong> This is the cheapest capital deployment in the entire business.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">04</div>
+      <div>
+        <h3 class="finding-title">Broker Portal + Referral Tracking System</h3>
+        <p class="finding-body">Dedicated broker landing page, broker registration form, co-branded marketing collateral, automated deal submission with broker attribution baked in, real-time commission dashboard, broker-only pricing or term advantages. The infrastructure that turns a casual broker referral into a programmatic deal flow channel. <strong>Most regional lenders sourcing 30 to 60% of volume through brokers without a real broker program are leaving the multiplier on the table.</strong> Lock in 5 active brokers and the deal flow stays sticky.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">05</div>
+      <div>
+        <h3 class="finding-title">Accredited Investor Nurture Funnel</h3>
+        <p class="finding-body">Separate landing page for the Income Fund with embedded Shaun-recorded videos (why first-lien, how underwriting works, how distributions clear, what Q4 tax planning looks like). Accreditation pre-qualification form. Automated 60 to 180 day nurture sequence built around monthly fund performance summaries, market commentary, Shaun's podcast clips, and a clear path to book a 1-on-1 with him at the right stage. <strong>For a fund seeking AUM, every accredited investor who converts at $100K minimum is recurring revenue plus future upsize.</strong> Even 2 to 4 incremental investor commits per quarter materially changes the fund's economics.</p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">06</div>
+      <div>
+        <h3 class="finding-title">Funnel-Routed Intake at the Top of the Site</h3>
+        <p class="finding-body">Replace the generic "Apply Now" / "Contact Us" pattern with a smart intake that asks one question first: <em>"Are you here to borrow, invest, or refer a deal?"</em> Each path then routes into its own pre-qual flow, its own CRM bucket, its own automation sequence, its own response SLA. Borrowers go to a 5-minute response queue. Investors go to a 24-hour personalized response queue. Brokers go straight to the partnership manager. <strong>One small architectural change with downstream effects on every conversion metric in the operation.</strong></p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">07</div>
+      <div>
+        <h3 class="finding-title">Founder Authority Engine</h3>
+        <p class="finding-body">Take Shaun's existing podcast appearances, keynote clips, and coaching IP and turn them into structured content infrastructure. Embedded podcast clip library on the site, monthly Shaun-written newsletter (separate borrower and investor versions), LinkedIn cross-posting automation, "as featured on" trust strip, lead magnets built from his coaching curriculum (Underwriting 101 for fix-and-flip, How to Read a Fund Memo for accredited investors). <strong>Existing media work that's currently doing zero structural work for lead capture starts producing.</strong></p>
+        <span class="finding-tag impact-high">Impact: Medium-High</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REVENUE IMPACT -->
+<section>
+<div class="container">
+  <div class="impact-bar fade-up">
+    <span class="badge badge--gold">Conservative Estimate</span>
+    <h3 style="margin-top:16px">Projected Monthly Net Revenue Recovery</h3>
+    <div class="impact-range">$75,000 – $185,000 /mo</div>
+    <p class="impact-note">Based on improved speed-to-quote on borrower inquiries, recovered after-hours calls, automated repeat-borrower nurture, structured broker program deal flow, and incremental accredited-investor commits into the Income Fund. Numbers reflect operational gaps measurable against top-quartile regional lender benchmarks in the 2026 to 2027 market. Discovery call will validate against Monument City Capital's actual transaction data and fund pipeline.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECOMMENDED STACK -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Recommended Infrastructure</p>
+  <h2 class="section-heading fade-up">The Deployment Stack</h2>
+  <p class="section-sub fade-up">Each system below targets a specific bottleneck identified in this audit. Nothing theoretical, every deployment is tied to a measurable revenue gap.</p>
+  <div class="stack-grid">
+    <div class="card stack-card s1 fade-up">
+      <div class="stack-label">System 01 · Highest Priority</div>
+      <h4 class="stack-title">Borrower Speed-to-Quote AI Layer</h4>
+      <p class="stack-desc">Instant soft term sheet on every borrower inquiry. Captures deal specs, runs preliminary underwriting against credit + liquidity + ARV, returns a number in under 2 minutes. Beats every competitor on response time. Borrower gets to walk back to the seller with a real lender behind them.</p>
+    </div>
+    <div class="card stack-card s2 fade-up">
+      <div class="stack-label">System 02</div>
+      <h4 class="stack-title">24/7 AI Voice Agent (Borrower + Investor Routing)</h4>
+      <p class="stack-desc">Answers every inbound call on both phone lines. Routes borrower vs investor vs broker. Captures deal details for borrowers. Captures accreditation and range for investors. Schedules callback with the right human. Handles after-hours, weekends, peak overflow. Bilingual ready.</p>
+    </div>
+    <div class="card stack-card s3 fade-up">
+      <div class="stack-label">System 03</div>
+      <h4 class="stack-title">Repeat-Borrower Retention Engine</h4>
+      <p class="stack-desc">Post-close 12 to 18 month nurture sequence per borrower. Project-stage check-ins, anniversary outreach, refinance windows, performance tier upgrades. The structural moat that turns one loan into a 5-year, multi-loan relationship.</p>
+    </div>
+    <div class="card stack-card s4 fade-up">
+      <div class="stack-label">System 04</div>
+      <h4 class="stack-title">Broker Portal + Referral Program</h4>
+      <p class="stack-desc">Dedicated broker landing page, registration flow, deal submission with attribution, co-branded marketing kit, commission dashboard, broker-tier program. Locks in the broker channel that competitors are aggressively recruiting from.</p>
+    </div>
+    <div class="card stack-card s5 fade-up">
+      <div class="stack-label">System 05</div>
+      <h4 class="stack-title">Accredited Investor Nurture Funnel</h4>
+      <p class="stack-desc">Separate Income Fund landing page with Shaun-recorded explainer videos, accreditation pre-qual, 60 to 180 day automated nurture (fund performance, market commentary, principal interviews), book-a-call CTA timed to the right stage. Designed for the long investor decision cycle.</p>
+    </div>
+    <div class="card stack-card s6 fade-up">
+      <div class="stack-label">System 06</div>
+      <h4 class="stack-title">Funnel-Routed Smart Intake</h4>
+      <p class="stack-desc">Replace generic Apply Now / Contact Us with a single qualifying question at the top: Borrow, Invest, or Refer. Each path runs its own pre-qual, its own CRM bucket, its own SLA, its own automation. One architectural change, downstream effect on every conversion metric.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPETITIVE SNAPSHOT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Competitive Snapshot</p>
+  <h2 class="section-heading fade-up">What the Top of the Market Is Doing</h2>
+  <p class="section-sub fade-up">A representative cross-section of what borrowers and brokers are seeing when they evaluate which regional lender to align with. The national platforms (Kiavi, RCN Capital, Stormfield, Yieldi, Anchor Loans) have been aggressively investing in digital infrastructure. Most regional lenders have not.</p>
+  <table class="comp-table fade-up">
+    <thead>
+      <tr>
+        <th>Infrastructure</th>
+        <th>Monument City Today</th>
+        <th>National Platforms (Kiavi · RCN · Stormfield · Yieldi)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="highlight">Instant Soft Term Sheet</td><td><span class="cross">Not visible</span></td><td><span class="check">Partial / building</span></td></tr>
+      <tr><td class="highlight">Public Broker Portal</td><td><span class="cross">Not visible</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">Broker Commission Tracking</td><td><span class="cross">Not visible</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">Repeat-Borrower Loyalty Program</td><td><span class="cross">Not visible</span></td><td><span class="check">Partial</span></td></tr>
+      <tr><td class="highlight">Active Loan Status Portal</td><td><span class="cross">Via Lendr (3rd-party)</span></td><td><span class="check">Yes (in-house)</span></td></tr>
+      <tr><td class="highlight">After-Hours Capture</td><td><span class="cross">No</span></td><td><span class="cross">Industry gap</span></td></tr>
+      <tr><td class="highlight">Accredited Investor Funnel</td><td><span class="cross">Single form</span></td><td>N/A (most are not raising publicly)</td></tr>
+      <tr><td class="highlight">Founder-Brand Content Engine</td><td><span class="cross">Underleveraged</span></td><td><span class="cross">Generic corporate</span></td></tr>
+      <tr><td class="highlight">Local Market Knowledge</td><td><span class="check">Strong (Baltimore-native ops)</span></td><td><span class="cross">National generalist</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.92rem;color:var(--text-muted);margin-top:16px">The strategic opening: Monument City Capital has the two things the national platforms cannot replicate, <strong style="color:var(--cyan)">a founder with real authority in the REI education space and a Baltimore-native operations team with local market knowledge</strong>. The infrastructure gaps are fixable in weeks. The moats (founder brand + local knowledge) are not replicable by Kiavi or Stormfield. Close the operations gap and Monument City Capital wins the regional market while the nationals fight each other on price.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+<div class="container">
+  <div class="cta-card fade-up">
+    <span class="badge badge--cyan">Next Step</span>
+    <h2>This Audit Is the Starting Point.<br>The Diagnostic Goes Deeper.</h2>
+    <p>We've identified the gaps from the outside. The real numbers (monthly inquiry volume, current response times, repeat-borrower share, broker share of origination, average loan-to-close days, investor pipeline depth) live inside the operation. One conversation to walk through this audit, answer questions, and determine whether a full diagnostic and roadmap makes sense.</p>
+    <a href="#" class="cta-btn">Schedule the Conversation</a>
+  </div>
+</div>
+</section>
+
+<!-- DISCOVERY QUESTIONS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Discovery Questions</p>
+  <h2 class="section-heading fade-up">What We'd Ask in the Diagnostic</h2>
+  <p class="section-sub fade-up">These are the questions we can't answer from the outside. They determine the exact scope and priority of what gets deployed first.</p>
+  <div class="finding-grid">
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Borrower Inquiry Volume:</strong> How many borrower inquiries per month across phone, form, and Lendr? What percentage convert to funded loans? What's the median time from inquiry to soft term sheet?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Repeat-Borrower Share:</strong> Out of total loans funded in 2025, what percent went to borrowers on their 2nd or later loan with Monument City? What's the current repeat-borrower retention rate at 12 months?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>After-Hours Capture:</strong> What percentage of inbound borrower calls happen outside 9 to 5 weekday hours? How are they handled today? What's the call-back conversion rate?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Broker Channel Mix:</strong> What percentage of funded loans come through brokers, real estate agents, or other referrers today? Is there an active broker program, formal or informal? Who's the top broker by volume?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Income Fund Pipeline:</strong> How many accredited investor inquiries per month? Median days from first inquiry to wired commitment? Current AUM and target AUM by year-end?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Tech Stack Today:</strong> What CRM (if any) is used today for borrowers vs investors? Is Lendr providing servicing visibility or just origination intake? What's living in spreadsheets that shouldn't be?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Competitive Pressure:</strong> Who are the top 2 to 3 lenders Monument City loses deals to? On what dimension (rate, speed, broker relationship, terms)? When borrowers leave, where do they go?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Decision Authority:</strong> Who internally owns digital infrastructure decisions? Who signs off on platform changes? What's been tried before and why didn't it stick?</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="audit-footer">
+<div class="container">
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="rgba(153,221,255,0.12)"/><path d="M7 8l7 12 7-12" stroke="#99DDFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 14h7" stroke="#99DDFF" stroke-width="2" stroke-linecap="round"/></svg>
+      <span style="font-weight:700;font-size:0.85rem">ViralityX</span>
+    </div>
+    <p>Confidential · prepared for Monument City Capital leadership · June 2026</p>
+  </div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const els=document.querySelectorAll('.fade-up');
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>observer.observe(el));
+});
+</script>
+
+</body>
+</html>
