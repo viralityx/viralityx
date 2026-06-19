@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketwise Valuation · Partner Briefing for CJ</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a26;--border:#2a2a3a;
+  --text:#e8e8f0;--text2:#9999aa;--text3:#666678;
+  --teal:#00cfa9;--teal-bg:rgba(0,207,169,0.1);--teal-border:rgba(0,207,169,0.25);
+  --gold:#d4a853;--gold-bg:rgba(212,168,83,0.1);--gold-border:rgba(212,168,83,0.25);
+  --red:#ff6b6b;--red-bg:rgba(255,107,107,0.1);
+  --green:#00d68f;
+  --radius:14px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.header{padding:56px 40px 40px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0a0a0f 0%,#10101a 100%)}
+.header-inner{max-width:820px;margin:0 auto}
+.eyebrow{display:inline-block;padding:6px 14px;background:var(--teal-bg);border:1px solid var(--teal-border);color:var(--teal);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:100px;margin-bottom:16px}
+.header h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.15;margin-bottom:10px}
+.header h1 em{font-style:italic;color:var(--teal)}
+.header .lede{font-size:15px;color:var(--text2);max-width:660px}
+.main{max-width:820px;margin:0 auto;padding:40px 40px 64px}
+.section{margin-bottom:36px}
+.section-num{font-family:'Playfair Display',serif;font-size:12px;font-style:italic;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;margin-bottom:14px;line-height:1.3}
+.section h2 em{font-style:italic;color:var(--teal)}
+.section p{font-size:15px;color:var(--text2);margin-bottom:12px;line-height:1.7}
+.section p strong{color:var(--text);font-weight:600}
+.section ul{list-style:none;padding:0;margin:12px 0}
+.section ul li{position:relative;padding:6px 0 6px 22px;color:var(--text2);font-size:14.5px;line-height:1.65}
+.section ul li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--teal)}
+.section ul li strong{color:var(--text);font-weight:600}
+.snapshot{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+.snapshot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:680px){.snapshot-grid{grid-template-columns:1fr}}
+.snap-item{display:flex;flex-direction:column;gap:2px}
+.snap-item .label{font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;font-weight:600}
+.snap-item .value{font-size:14.5px;color:var(--text);font-weight:500}
+.script-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;font-family:ui-monospace,monospace;font-size:14px;color:var(--text);line-height:1.75;white-space:pre-wrap;margin:14px 0}
+.script-block .placeholder{color:var(--gold);font-weight:600}
+.callout{background:var(--gold-bg);border:1px solid var(--gold-border);border-left:3px solid var(--gold);border-radius:10px;padding:18px 22px;margin:18px 0}
+.callout .label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px}
+.callout p{font-size:14px;color:var(--text);margin:0;line-height:1.7}
+.callout.teal{background:var(--teal-bg);border-color:var(--teal-border);border-left-color:var(--teal)}
+.callout.teal .label{color:var(--teal)}
+.callout.red{background:var(--red-bg);border-color:rgba(255,107,107,0.25);border-left-color:var(--red)}
+.callout.red .label{color:var(--red)}
+.three-cost{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media(max-width:680px){.three-cost{grid-template-columns:1fr}}
+.cost-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+.cost-box .label{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--teal);margin-bottom:8px;letter-spacing:0.5px}
+.cost-box .amount{font-size:22px;font-weight:700;color:var(--text);font-family:'Playfair Display',serif;margin-bottom:6px}
+.cost-box .desc{font-size:12.5px;color:var(--text2);line-height:1.5}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:32px 0}
+.footer{padding:32px 40px;border-top:1px solid var(--border);background:var(--bg2);text-align:center;font-size:11px;color:var(--text3)}
+.footer strong{color:var(--text);font-weight:600}
+.objection-block{margin:14px 0;padding:16px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:10px}
+.objection-block .obj{font-style:italic;color:var(--text);font-weight:500;margin-bottom:8px;font-size:14px}
+.objection-block .resp{font-size:13.5px;color:var(--text2);line-height:1.65}
+.objection-block .resp strong{color:var(--teal);font-style:normal;letter-spacing:0.5px;font-size:11px;text-transform:uppercase;font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <span class="eyebrow">Partner Briefing · For CJ · Confidential</span>
+    <h1>Marketwise Valuation · <em>Your Lead Pack</em></h1>
+    <p class="lede">Everything you need to walk into a conversation with Marcus Leoni confident, prepared, and positioned correctly. Custom intro tuned to the fact you already work there, top opportunity costs, AMC-specific findings, objection prep, and the close that gets the discovery call booked with Daniel.</p>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- THE BIG RED FLAG / OPPORTUNITY -->
+<div class="callout red">
+  <div class="label">Read this before anything else</div>
+  <p><strong>You already work here.</strong> Marcus Leoni's team page lists you as Business Development at Marketwise. That changes everything about how you approach this. You are not cold-calling a network contact. You are walking into your own CEO with a strategic infrastructure proposal sourced through your side capacity as a ViralityX Strategic Partner. The angle is "Marcus, I want to show you something I've been working on with a partner team that I think solves a few things I see internally every week." This is the strongest possible setup for any of your partner leads. Use the relationship as the door, not the audit.</p>
+</div>
+
+<!-- SNAPSHOT -->
+<div class="snapshot">
+  <div class="snapshot-grid">
+    <div class="snap-item">
+      <span class="label">Business</span>
+      <span class="value">Marketwise Valuation Services · Boutique AMC</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">URL</span>
+      <span class="value">marketwisevaluation.com</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">HQ</span>
+      <span class="value">Miami, FL · Coverage 51 states</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Phone</span>
+      <span class="value">(888) 602-9299 · appraisals@marketwisevaluation.com</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Decision-maker</span>
+      <span class="value">Marcus Leoni · President + Founder</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Your role</span>
+      <span class="value">Business Development (employee) + ViralityX SPA-003</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Model</span>
+      <span class="value">Per-order fee · Residential + Commercial AMC</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Validation</span>
+      <span class="value">Inc. 5000 2023 (rank 2629)</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT THEY ARE -->
+<div class="section">
+  <div class="section-num">Section 01</div>
+  <h2>What they actually do <em>(in plain language)</em></h2>
+  <p>You know this better than the audit document does, so this section is for the muscle memory of how you describe it to Daniel before the call. Marketwise is a boutique Appraisal Management Company. They sit between mortgage lenders (banks, credit unions, mortgage bankers) and licensed appraisers. The lender wants a property valued for a loan. Marketwise routes the order to a qualified appraiser on the panel, manages the report through QC, ensures USPAP and Dodd-Frank compliance, submits to UCDP, and delivers the final report back to the lender. The fee is a per-order split. The product is residential plus commercial, with AVM and Property Condition Report add-ons.</p>
+  <p>The business won the Inc. 5000 in 2023 at rank 2629. Marcus founded it in 2017 with a deliberate boutique thesis: stay small enough to actually pick up the phone, but cover every state so national lenders don't have to use a second AMC for out-of-footprint files. The bet has worked. The next 24 months are the test of whether the operational backbone scales past founder-led execution. <strong>That tension is the entire pitch.</strong></p>
+</div>
+
+<!-- THE STRATEGIC ANGLE -->
+<div class="section">
+  <div class="section-num">Section 02</div>
+  <h2>The strategic angle you lead with</h2>
+  <p>Marcus is sitting on three pressures simultaneously. (1) Class Valuation just rolled out an AI Underwriting Engine that promises 2 to 3 day turn times, which is a direct competitive threat to every boutique AMC's positioning. (2) Lenders are actively consolidating panels around whoever can prove the shortest, most predictable turn times. (3) The cost of human QC at boutique scale is brutal because Julie and Phillip are senior labor reviewing reports that AI can pre-screen in seconds.</p>
+  <p><strong>Frame it operator to operator:</strong> "Marcus, the boutique thesis is the right thesis. Marketwise wins the Southeast because nationals can't replicate Marcus-picks-up-the-phone responsiveness. But the technology gap between us and Class Valuation is widening. There's a way to close it without losing what makes us boutique, and I want to show you what I've been looking at."</p>
+  <p>The pitch is <strong>not</strong> "you have problems." The pitch is "the boutique advantage compounds with AI ops, and here's the deployment order that protects margin while we grow."</p>
+</div>
+
+<!-- INTRO LINE -->
+<div class="section">
+  <div class="section-num">Section 03</div>
+  <h2>Custom intro line <em>(this is the live opener with Marcus)</em></h2>
+  <div class="script-block">Hey Marcus, you got two minutes?
+
+You know how I do business dev for Marketwise during the day. On the side I've been working with an AI ops agency called ViralityX as one of their strategic partners. I've been quietly watching how they build for service businesses, and after a few months of seeing what they ship, I started thinking about us.
+
+I put together a pre-discovery audit on Marketwise with their team. Not as an employee, as a partner sourcing them what I think could be the right strategic build for what you and Phillip and Julie are dealing with on QC, turn times, and the Class Valuation pressure.
+
+I want you to take a 20-minute call with their founder Daniel. He'll walk you through the audit live. No pitch, no pressure. You'll come out of it with a real read on whether the AI ops layer is the right move for Marketwise in the next 12 months or whether it's premature. Either answer is useful to us.
+
+Can I lock you in for one of his time slots this week?</div>
+  <p style="margin-top:12px;font-size:13px;color:var(--text3);font-style:italic">If Marcus pushes back with "what's this going to cost me," go to: "Nothing right now. The audit is done. The 20 minutes is just Daniel walking through it. Pricing comes after the diagnostic if you want to keep going. Worst case you get a free strategic doc out of it."</p>
+  <p style="margin-top:8px;font-size:13px;color:var(--text3);font-style:italic">If he asks "why are you bringing me a vendor," go to: "Because I'm your business development guy. Sourcing the right vendors IS the job. And the partner side gives me visibility into what's actually working with other operators. That's why I think this one is real."</p>
+</div>
+
+<!-- THE 3 LEAKS TO MENTION -->
+<div class="section">
+  <div class="section-num">Section 04</div>
+  <h2>Top 3 opportunity costs <em>(drop these in conversation)</em></h2>
+  <p>These are the three findings to mention live with Marcus. Specific. Margin-attached. Easy for him to picture against what he sees every week. Each one is in the audit doc so you can point at it on screen-share if he engages.</p>
+  <div class="three-cost">
+    <div class="cost-box">
+      <div class="label">QC Margin Leak</div>
+      <div class="amount">60% revision rate</div>
+      <div class="desc">Industry traditional revision rate. AI pre-review catches 80%+ of comp defects instantly. Frees Julie and Phillip for actual judgment work.</div>
+    </div>
+    <div class="cost-box">
+      <div class="label">Status Anxiety Tax</div>
+      <div class="amount">70 to 90%</div>
+      <div class="desc">Reduction in lender "where is my appraisal" calls when a real status portal plus milestone push goes live. That labor goes back to the ops team.</div>
+    </div>
+    <div class="cost-box">
+      <div class="label">Class Valuation Gap</div>
+      <div class="amount">2 to 3 days</div>
+      <div class="desc">Class's new AI Underwriting Engine turn-time promise. Marketwise can match or beat with a different stack while keeping the boutique advantage.</div>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--text3);font-style:italic;margin-top:8px">All three lift directly into a $35K to $110K per month total recovery and margin reclamation range. That's the headline number in the impact bar of the audit. Translate "recovery" to "margin and capacity that comes back to the P&L" when you say it to Marcus, since he reads this as an AMC operator not a consumer.</p>
+</div>
+
+<!-- INDUSTRY-SPECIFIC HOOKS -->
+<div class="section">
+  <div class="section-num">Section 05</div>
+  <h2>AMC-specific hooks <em>(only mention if natural)</em></h2>
+  <ul>
+    <li><strong>The commercial page is the residential page re-skinned.</strong> Lede still says "comprehensive residential appraisal management services" on the commercial URL. Feature blocks still reference residential AVM. Commercial is meant to be a real lane and the site doesn't treat it that way yet.</li>
+    <li><strong>Website is a 2018 WordPress build.</strong> Slider Revolution 7.0.4 is loading on the homepage. Copyright still reads 2023. For an AMC trying to win panel slots against Class Valuation, the site should be qualifying 30 to 40% of lender prospects before anyone picks up the phone. Right now it does close to zero.</li>
+    <li><strong>Appraisal Scope handles the vendor side, not the lender side.</strong> The intake step (a lender emailing or calling with a new order) appears to be human-routed by the ops team. That's seven days lost on average per STRATMOR before the order even hits the panel.</li>
+    <li><strong>Appraiser recruitment is a contact form.</strong> No automated license verification, no E&O check, no auto-mapped coverage area, no bilingual outreach to the Spanish-speaking FL/GA/TX appraiser pool. Panel growth is throttled by Morgan's calendar.</li>
+    <li><strong>No public turn-time guarantee.</strong> Class Valuation publicly promises 2 to 3 days. Marketwise's homepage says "industry-leading turnaround times" without a number. Lenders evaluating panels want a number.</li>
+  </ul>
+</div>
+
+<!-- DISCOVERY QUESTIONS -->
+<div class="section">
+  <div class="section-num">Section 06</div>
+  <h2>If Marcus asks "what would Daniel even ask me?"</h2>
+  <p>Here's the short list of what the discovery call digs into. Share this if he wants to see what the 20 minutes looks like before he commits.</p>
+  <ul>
+    <li>Monthly order volume split by residential, commercial, PCR, review. Average turn time per type. Variance.</li>
+    <li>Current revision rate. First-revision and second-revision percentages. Labor cost of QC per report.</li>
+    <li>Top 5 lenders by order volume. Panel-share trend with each over the last 12 months. Any panels pruned recently and why.</li>
+    <li>Dormant lender accounts (90+ days no order). Any reactivation effort today.</li>
+    <li>Panel size, active vs inactive split, spread between top and bottom decile on quality.</li>
+    <li>Weekly volume of "where is my appraisal" inquiries. Who answers them. Cost in distracted senior labor.</li>
+    <li>Commercial strategy. Real lane or defensive offering. 24-month commercial revenue target.</li>
+    <li>Appraisal Scope contract and integration constraints.</li>
+    <li>Decision authority: Marcus solo or with Phillip and Morgan.</li>
+  </ul>
+</div>
+
+<!-- OBJECTION PREP -->
+<div class="section">
+  <div class="section-num">Section 07</div>
+  <h2>Objection prep <em>(rehearse these once)</em></h2>
+  <div class="objection-block">
+    <p class="obj">"We already have Appraisal Scope. Why do we need another vendor?"</p>
+    <p class="resp"><strong>You:</strong> Right, and Appraisal Scope is doing the vendor-side workflow well. Daniel's team isn't a VMS. They build the layer between Appraisal Scope and everything else. Pre-review QC that runs before Julie ever opens the report. Lender status portal and milestone push that Scope doesn't surface. AI voice on the (888) line. Smart panel scoring on top of Scope's assignment. It's additive infrastructure, not a replacement. The diagnostic is partly about confirming what stays in Scope and what gets layered on.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"AI in appraisal scares me. Compliance and USPAP risk."</p>
+    <p class="resp"><strong>You:</strong> Same instinct Marcus. That's exactly why the build is pre-review, not auto-decisioning. The AI flags comp variance, photo gaps, math errors, USPAP compliance language. Julie still signs every report. Phillip still owns the panel. The AI just stops them from spending 30 minutes finding the same five mistakes on every file. Class Valuation built this exact layer last year. Daniel can walk you through how the human-in-the-loop architecture protects compliance while killing the rework cycle.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"We're not Class Valuation. We don't have the volume to justify that kind of build."</p>
+    <p class="resp"><strong>You:</strong> That's the whole strategic point. You're not Class Valuation, which is why this matters more for us, not less. Class will eat boutique AMCs that can't match their turn time. The build Daniel proposes is sized for boutique economics, not Class's scale. The investment is in the tens of thousands, not the millions Class spent. We get 80% of the value at boutique pricing.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"What's the cost?"</p>
+    <p class="resp"><strong>You:</strong> Depends on what we actually build, which is the diagnostic's job. ViralityX's tiers run from a starter setup in the low five figures to a full enterprise scope. Daniel will scope against what Marketwise actually needs after he sees the numbers on the call. The audit is free. The 20 minutes is free. Pricing comes after we know what fits.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"How does this even work for you, CJ? You're my employee. Is this a conflict?"</p>
+    <p class="resp"><strong>You:</strong> Fair question and I want to answer it cleanly. ViralityX has a Strategic Partner Program. I'm SPA-003. I source leads I personally believe in. If Marketwise becomes a client, I receive partner commission from ViralityX, not from Marketwise. My job at Marketwise is to bring strategic infrastructure decisions to your desk, this is one of them. If you want to evaluate it with the partner side stripped out, I can route you straight to Daniel and step back from the introduction. Whatever makes you most comfortable.</p>
+  </div>
+</div>
+
+<!-- THE CLOSE -->
+<div class="section">
+  <div class="section-num">Section 08</div>
+  <h2>The close <em>(the only line that matters)</em></h2>
+  <div class="script-block">Look, here's the move Marcus. I'm sending you the audit right now so you can read it tonight. Daniel has time <span class="placeholder">[DAY]</span> at <span class="placeholder">[TIME]</span> or <span class="placeholder">[DAY]</span> at <span class="placeholder">[TIME]</span> for the 20-minute Blueprint Review. He'll walk you through the audit live, answer your questions, and you'll decide from there if it's worth keeping the conversation going. Bring Phillip or Morgan if you want a second set of ears. What works for you?</div>
+  <div class="callout teal">
+    <div class="label">Critical · LIVE-call doctrine</div>
+    <p>Do NOT mention the Operations Scan with Marcus. You are in LIVE mode (this is a face-to-face or live phone conversation with your own CEO). Per Scripts Pack v2.1 Section 3, live attention = book the discovery call direct. The Scan is for ASYNC channels (cold DM, cold email). The audit HTML is the lead magnet here. The Scan is not part of this play.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- AFTER THE CALL -->
+<div class="section">
+  <div class="section-num">Section 09</div>
+  <h2>After the call <em>(what to do next)</em></h2>
+  <ul>
+    <li><strong>Send the audit immediately.</strong> Within 5 minutes of the conversation, drop the link to the audit HTML in his inbox or Slack.</li>
+    <li><strong>Send the calendar hold immediately.</strong> Don't say "I'll send it over." Send it before you leave the room.</li>
+    <li><strong>Tag the lead in the ViralityX CRM under VX-SPA-003.</strong> Partner attribution clock starts the moment first contact is logged. Make sure Daniel's team sees it as your sourced lead.</li>
+    <li><strong>Loop Daniel before the call.</strong> Send him a short Slack: "Marcus is my CEO at Marketwise. He's read the audit. Posture is curious but careful around the conflict-of-interest question. Lead with the boutique-thesis-plus-AI angle, not the deficiency angle."</li>
+    <li><strong>SMS reminder 24 hours before.</strong> "Heads up Marcus, call with Daniel tomorrow at [TIME]. He's reviewed the audit and ready for your specifics."</li>
+    <li><strong>SMS reminder 1 hour before.</strong> "In an hour. Zoom link in the invite. Phillip joining or just you?"</li>
+  </ul>
+</div>
+
+<!-- WHY THIS MATTERS FOR YOU -->
+<div class="section">
+  <div class="section-num">Section 10</div>
+  <h2>Why this lead matters more than the others <em>(read once, internalize)</em></h2>
+  <p>Most partner leads start cold. Marketwise is the inverse. You have inside knowledge of the operational pain Marcus actually feels every week. You know what Julie complains about. You know which lenders are squeezing turn times. You know what Morgan's calendar looks like. The audit doc was built from the outside-in. Your job in the conversation is to validate which findings are real and which are guesses, then point Marcus at the live diagnostic where Daniel goes deeper.</p>
+  <p>If this lands, this is your strongest partner attribution to date. It also unlocks two compounding wins. <strong>One:</strong> Marcus sees you sourcing strategic builds, not just business development calls, which changes how he positions your role internally. <strong>Two:</strong> A Marketwise case study becomes a wedge for every other boutique AMC in the country, of which there are dozens, all dealing with the same Class Valuation pressure. That's a category opening for ViralityX and a recurring commission stream for you.</p>
+</div>
+
+<!-- INTERNAL NOTES -->
+<div class="callout red">
+  <div class="label">Internal research limitations</div>
+  <p>This audit was built from public-facing data: marketwisevaluation.com, the Appraisal Scope public footprint, LinkedIn for the team, Inc. 5000 profile, industry benchmark reports from LightBox, STRATMOR, Class Valuation public materials, and 2026 AMC software market data. We have no access to Marketwise's actual revision rate, monthly order volume, lender concentration, or Appraisal Scope contract terms. You know these numbers better than the audit does. If a finding in the doc doesn't match the reality you see internally, flag it before the call so Daniel can update the framing. Don't bluff specifics in front of Marcus. Honest "let me bring that into the diagnostic" beats wrong numbers every time.</p>
+</div>
+
+</div>
+
+<div class="footer">
+  <strong>ViralityX · Marketwise Valuation Partner Briefing · For CJ Hardison (VX-SPA-003)</strong><br>
+  Confidential · Internal use only · June 18, 2026
+</div>
+
+</body>
+</html>

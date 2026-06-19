@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operational Audit · Purovitalis | ViralityX</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#090F15;--bg-card:rgba(255,255,255,0.04);--bg-card-hover:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.15);
+  --text:#E8ECF1;--text-muted:#8B95A5;--text-dim:#5A6577;
+  --cyan:#99DDFF;--cyan-dim:rgba(153,221,255,0.15);--cyan-glow:rgba(153,221,255,0.08);
+  --red:#FF6B6B;--red-dim:rgba(255,107,107,0.12);--red-glow:rgba(255,107,107,0.06);
+  --gold:#FFD666;--gold-dim:rgba(255,214,102,0.12);
+  --green:#66FFB2;--green-dim:rgba(102,255,178,0.12);
+  --orange:#FFB366;--orange-dim:rgba(255,179,102,0.12);
+  --purple:#B399FF;--purple-dim:rgba(179,153,255,0.12);
+  --radius:12px;--radius-sm:8px;--radius-xs:6px;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
+::selection{background:var(--cyan);color:var(--bg)}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+@media(max-width:768px){section{padding:56px 0}.container{padding:0 16px}}
+h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.03em}
+h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h3{font-size:1.25rem;font-weight:700;line-height:1.3}
+h4{font-size:1rem;font-weight:600;line-height:1.4}
+p{color:var(--text-muted);line-height:1.75}
+strong{color:var(--text);font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;font-family:var(--mono)}
+.badge--cyan{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(153,221,255,0.2)}
+.badge--red{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,107,107,0.2)}
+.badge--gold{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(255,214,102,0.2)}
+.badge--green{background:var(--green-dim);color:var(--green);border:1px solid rgba(102,255,178,0.2)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all 0.3s ease}
+.card:hover{background:var(--bg-card-hover);border-color:var(--border-hover)}
+.card--glow{box-shadow:0 0 40px var(--cyan-glow)}
+.section-label{font-family:var(--mono);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.section-heading{margin-bottom:16px}
+.section-sub{max-width:680px;margin-bottom:48px;font-size:1.05rem}
+.brand-bar{padding:20px 0;border-bottom:1px solid var(--border)}
+.brand-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.brand-logo{display:flex;align-items:center;gap:10px}
+.brand-logo svg{width:28px;height:28px}
+.brand-name{font-weight:700;font-size:1rem;letter-spacing:-0.01em}
+.brand-name span{color:var(--cyan)}
+.brand-meta{font-family:var(--mono);font-size:0.7rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
+.hero{padding:100px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--cyan-glow) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero h1{margin:20px 0 24px}
+.hero h1 em{font-style:italic;color:var(--cyan)}
+.hero-sub{font-size:1.1rem;margin-bottom:32px;max-width:600px}
+.client-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative}
+.client-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--gold))}
+.client-card-inner{padding:28px}
+.client-name{font-size:1.35rem;font-weight:800;margin-bottom:2px}
+.client-url{font-family:var(--mono);font-size:0.8rem;color:var(--cyan);margin-bottom:16px;display:block}
+.client-meta{display:flex;flex-direction:column;gap:10px}
+.client-meta-row{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted)}
+.client-meta-row svg{width:16px;height:16px;color:var(--text-dim);flex-shrink:0}
+.class-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.class-item{text-align:center;padding:24px 16px}
+.class-item .label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+.class-item .value{font-size:1.15rem;font-weight:700;color:var(--text)}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:40px 0}
+.stat-card{text-align:center;padding:28px 20px}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;line-height:1;margin-bottom:6px;font-family:var(--mono)}
+.stat-card .stat-label{font-size:0.75rem;font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+.stat-num.cyan{color:var(--cyan)}.stat-num.red{color:var(--red)}.stat-num.gold{color:var(--gold)}.stat-num.green{color:var(--green)}
+.finding-grid{display:grid;gap:20px}
+.finding{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;align-items:start}
+@media(max-width:600px){.finding{grid-template-columns:1fr;gap:12px}}
+.finding-icon{width:56px;height:56px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;font-family:var(--mono)}
+.finding-icon.red{background:var(--red-dim);color:var(--red)}
+.finding-icon.green{background:var(--green-dim);color:var(--green)}
+.finding-icon.gold{background:var(--gold-dim);color:var(--gold)}
+.finding-icon.cyan{background:var(--cyan-dim);color:var(--cyan)}
+.finding-title{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.finding-body{font-size:0.92rem;color:var(--text-muted);line-height:1.7}
+.finding-tag{display:inline-block;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-top:12px}
+.finding-tag.severity-high{background:var(--red-dim);color:var(--red)}
+.finding-tag.severity-med{background:var(--gold-dim);color:var(--gold)}
+.finding-tag.severity-low{background:var(--cyan-dim);color:var(--cyan)}
+.finding-tag.impact-high{background:var(--green-dim);color:var(--green)}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.stack-card{padding:28px;position:relative;overflow:hidden}
+.stack-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:2px}
+.stack-card.s1::before{background:var(--cyan)}.stack-card.s2::before{background:var(--green)}
+.stack-card.s3::before{background:var(--gold)}.stack-card.s4::before{background:var(--orange)}
+.stack-card.s5::before{background:var(--purple)}.stack-card.s6::before{background:var(--red)}
+.stack-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
+.stack-card.s1 .stack-label{color:var(--cyan)}.stack-card.s2 .stack-label{color:var(--green)}
+.stack-card.s3 .stack-label{color:var(--gold)}.stack-card.s4 .stack-label{color:var(--orange)}
+.stack-card.s5 .stack-label{color:var(--purple)}.stack-card.s6 .stack-label{color:var(--red)}
+.stack-title{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.stack-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7}
+.impact-bar{background:linear-gradient(135deg,rgba(153,221,255,0.06),rgba(255,214,102,0.06));border:1px solid rgba(153,221,255,0.15);border-radius:var(--radius);padding:40px;text-align:center;margin:48px 0}
+.impact-bar h3{font-size:1.6rem;margin-bottom:8px}
+.impact-bar .impact-range{font-size:2.8rem;font-weight:800;font-family:var(--mono);background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.impact-bar .impact-note{font-size:0.85rem;color:var(--text-dim);margin-top:8px}
+.loc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:32px 0}
+.loc-card{padding:24px}
+.loc-card h4{margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.loc-detail{font-size:0.85rem;color:var(--text-muted);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.loc-flag{display:inline-flex;padding:2px 8px;border-radius:4px;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase}
+.loc-flag.warn{background:var(--red-dim);color:var(--red)}
+.loc-flag.ok{background:var(--green-dim);color:var(--green)}
+.loc-flag.med{background:var(--gold-dim);color:var(--gold)}
+.comp-table{width:100%;border-collapse:collapse;margin:32px 0;font-size:0.88rem}
+.comp-table th{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;padding:12px 16px;border-bottom:1px solid var(--border)}
+.comp-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text-muted)}
+.comp-table tr:hover td{background:rgba(255,255,255,0.02)}
+.comp-table .highlight{color:var(--text);font-weight:600}
+.check{color:var(--green)}.cross{color:var(--red)}
+.industry-callout{background:rgba(255,214,102,0.04);border:1px solid rgba(255,214,102,0.15);border-left:3px solid var(--gold);border-radius:var(--radius);padding:28px;margin:32px 0}
+.industry-callout p{font-size:0.92rem;color:var(--text-muted);line-height:1.75}
+.industry-callout strong{color:var(--gold);font-weight:600}
+.cta-section{text-align:center;padding:80px 0 100px}
+.cta-card{background:linear-gradient(135deg,rgba(153,221,255,0.04),rgba(153,221,255,0.01));border:1px solid rgba(153,221,255,0.12);border-radius:var(--radius);padding:56px 40px;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,var(--cyan-glow),transparent 70%);pointer-events:none}
+.cta-card h2{margin:16px 0 12px;position:relative}
+.cta-card p{position:relative;max-width:560px;margin:0 auto 32px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--cyan);color:var(--bg);font-weight:700;font-size:1rem;border-radius:100px;text-decoration:none;transition:all 0.2s;position:relative}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(153,221,255,0.25)}
+.audit-footer{padding:40px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-inner p{font-size:0.75rem;color:var(--text-dim)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media print{body{background:#fff;color:#111}.card,.client-card,.finding,.stack-card,.impact-bar,.cta-card{border:1px solid #ddd;background:#f9f9f9}:root{--text:#111;--text-muted:#444;--text-dim:#777;--cyan:#0077AA;--red:#CC3333;--gold:#AA7700;--green:#228855}}
+</style>
+</head>
+<body>
+
+<!-- BRAND BAR -->
+<header class="brand-bar">
+<div class="container">
+  <div class="brand-logo">
+    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="28" height="28" rx="6" fill="rgba(153,221,255,0.12)"/>
+      <path d="M7 8l7 12 7-12" stroke="#99DDFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10.5 14h7" stroke="#99DDFF" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name">Virality<span>X</span></span>
+  </div>
+  <span class="brand-meta">Operational Audit · Confidential</span>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+  <div class="hero-grid">
+    <div>
+      <span class="badge badge--cyan">Operational Audit · June 2026</span>
+      <h1>Purovitalis<br><em>Longevity Supplements + Aura App</em></h1>
+      <p class="hero-sub">A full diagnostic of the subscription engine, customer-service surface, retention infrastructure, and clinical-authority signals across the Purovitalis brand. Built from the outside-in on the public site, app stores, Trustpilot, founder positioning, and 2026 DTC supplement benchmarks.</p>
+    </div>
+    <div class="client-card">
+      <div class="client-card-inner">
+        <h3 class="client-name">Purovitalis</h3>
+        <a class="client-url" href="https://purovitalis.com" target="_blank">purovitalis.com</a>
+        <div class="client-meta">
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            HQ: Haarlem, North Holland, Netherlands
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            Founded 2021 by Koen Ridder (ex-international badminton)
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-1"/><path d="M16 12h6M19 9l3 3-3 3"/></svg>
+            Multi-region: EU site (EUR) + US site purovitalis.us
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            WordPress + Elementor · WooCommerce subscriptions
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            4.6 / 5 Trustpilot (412+ reviews)
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8L8 16M8 8h8v8"/></svg>
+            DTC e-commerce + Aura biomarker app + retail (Mongolia)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BUSINESS CLASSIFICATION -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Business Classification</p>
+  <div class="class-grid">
+    <div class="card class-item fade-up">
+      <div class="label">Primary Model</div>
+      <div class="value">DTC E-Commerce</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Revenue Engine</div>
+      <div class="value">Subscription · Start Plans</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Customer Journey</div>
+      <div class="value">Quiz · Aura · Subscribe</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Regions</div>
+      <div class="value">EU + US + Mongolia retail</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Product Line</div>
+      <div class="value">NMN · NAD+ · Resveratrol · 10+ SKUs</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ICP CONTEXT CALLOUT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">ICP Fit Note</p>
+  <h2 class="section-heading fade-up">A Different Operational Shape Than the Typical ViralityX Client</h2>
+  <p class="section-sub fade-up">Most ViralityX clients are local service businesses with phones that ring, technicians in the field, and a CRM that needs to route those calls. Purovitalis is a DTC supplement brand with a global subscription base and a companion biomarker app. The mechanics are different, but the operational AI layer is just as critical, the leaks live in different places.</p>
+  <div class="industry-callout fade-up">
+    <p><strong>Where the AI ops thesis still applies, even on a DTC brand:</strong></p>
+    <br>
+    <p>1. <strong>Subscription customer service is a service business.</strong> Every "where's my order," "can I take this with my blood-pressure meds," "I want to pause," and "how does NMN interact with X" is a support ticket. Industry data: AI phone + chat support resolves 35 to 45% of supplement support contacts within the first 90 days of deployment. BioLongevity Labs handles 79% of inbound calls fully autonomously. The economics here are not theoretical, they are happening now.</p>
+    <br>
+    <p>2. <strong>Subscription churn is the entire business.</strong> Supplement DTC averages 5 to 8% monthly churn on monthly billing, with first-month churn running 20 to 30%. Top-quartile brands have moved from 36% to 55%+ annual retention through structured save-flows, pause logic, and biomarker-tied re-engagement. Every percentage point of retention compounds into 7-figure LTV swing at Purovitalis scale.</p>
+    <br>
+    <p>3. <strong>The Aura biomarker app is a service layer.</strong> 50+ biomarkers, AI insight delivery, smartphone screening. That's a clinical-adjacent workflow with data privacy, repeat engagement, and protocol-recommendation logic baked in. It is a service business inside the e-commerce shell.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INDUSTRY CONTEXT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Industry Context</p>
+  <h2 class="section-heading fade-up">The Longevity Wave Purovitalis Is Riding</h2>
+  <p class="section-sub fade-up">Before diagnosing the operation, the macro. Longevity supplements moved from fringe to mainstream between 2021 and 2026, and the brands that own the next 36 months will be the ones that solved retention and clinical authority, not the ones that won acquisition.</p>
+  <div class="industry-callout fade-up">
+    <p><strong>The category:</strong> Longevity and healthy-aging supplements sit inside a global wellness market projected past $60B. NMN, NAD+, resveratrol, spermidine, and quercetin have all crossed into mainstream awareness, driven by Sinclair, Attia, Huberman, and the broader longevity media cycle. Purovitalis sells in this exact bucket with a European clean-label moat.</p>
+    <br>
+    <p><strong>The operational challenge:</strong> Customer acquisition cost in supplement DTC has roughly doubled since 2022. The brands winning today are not acquiring cheaper, they are retaining longer and selling deeper into existing subscribers. Annual retention has improved category-wide from 36% to 40%, top quartile sits at 55%+. The brands at 55%+ all have three things in common: structured pause-and-skip save flows, AI-driven customer service that handles 35%+ of contacts, and a clinical authority signal (founder, lab partner, or biomarker tie-in) that justifies premium pricing.</p>
+    <br>
+    <p><strong>Purovitalis is positioned to take the top quartile.</strong> The Aura app, the liposomal delivery story, the COA transparency, and the EU manufacturing story are all premium-pricing moats already built. The audit below assesses where the operational layer is leaving margin on the table.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SNAPSHOT STATS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Current-State Snapshot</p>
+  <h2 class="section-heading fade-up">The Numbers That Frame the Problem</h2>
+  <p class="section-sub fade-up">Every number here is either visible from the outside or pulled from 2026 industry benchmarks for DTC longevity supplement brands at Purovitalis's scale.</p>
+  <div class="stats-row">
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">5-8%</div>
+      <div class="stat-label">Industry Monthly Subscription Churn</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">20-30%</div>
+      <div class="stat-label">First-Month Churn (Trial Drop)</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num gold">40%</div>
+      <div class="stat-label">Category Annual Retention Average</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num green">55%+</div>
+      <div class="stat-label">Top-Quartile Annual Retention</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num cyan">35-45%</div>
+      <div class="stat-label">AI-Resolvable Support Contacts (90 days)</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num cyan">4.6</div>
+      <div class="stat-label">Trustpilot Score (412+ reviews)</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BRAND ARCHITECTURE -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Brand Architecture</p>
+  <h2 class="section-heading fade-up">One Brand, Three Customer Surfaces</h2>
+  <p class="section-sub fade-up">Purovitalis is not a single funnel. It is at least three customer-touching surfaces operating in parallel. From the outside, there is no visible unified intelligence layer connecting them. A customer who takes the quiz, downloads the Aura app, and subscribes to NMN should look like one identity. From the public site, they appear to live in three different systems.</p>
+  <div class="loc-grid">
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+        Surface 01 · DTC E-Commerce
+      </h4>
+      <div class="loc-detail">Stack: WordPress + Elementor + WooCommerce</div>
+      <div class="loc-detail">Funnel entry: Quiz, Bestsellers, Bundles</div>
+      <div class="loc-detail">Subscription engine: "Start Plans" (3-month framing)</div>
+      <div class="loc-detail">Loyalty: Vital Club Rewards <span class="loc-flag ok">live</span></div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        Surface 02 · Aura Biomarker App
+      </h4>
+      <div class="loc-detail">Platform: iOS + Android (Apple App Store, Google Play)</div>
+      <div class="loc-detail">Engine: YOUTH HealthTech smartphone screening</div>
+      <div class="loc-detail">Biomarkers: 50+ across CV, metabolic, cognitive, sleep</div>
+      <div class="loc-detail">Use case: biological-age estimate, AI insights <span class="loc-flag med">not medical use</span></div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        Surface 03 · Retail + Distribution
+      </h4>
+      <div class="loc-detail">Mongolia: 2 physical stores, "first longevity brand"</div>
+      <div class="loc-detail">EU distribution via partners (pravebio.cz et al.)</div>
+      <div class="loc-detail">US site: purovitalis.us (Shopify-style, separate stack)</div>
+      <div class="loc-detail">Affiliate + Ambassador programs <span class="loc-flag ok">listed</span></div>
+    </div>
+  </div>
+  <div class="card fade-up" style="margin-top:20px;border-left:3px solid var(--red);padding:20px 24px">
+    <p style="font-size:0.9rem;color:var(--text-muted)"><strong style="color:var(--red)">Operational Risk:</strong> Three surfaces, three likely separate data backbones. A customer who logs an Aura biomarker reading saying "low NAD energy" is not currently (from the outside) being auto-served a personalized NAD+ Booster offer in their email. A subscriber paused on the e-comm side has no visible Aura re-engagement loop pulling them back. <strong>The intelligence layer between the three surfaces is where the 7-figure retention upside lives.</strong></p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BOTTLENECKS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Revenue Bottlenecks</p>
+  <h2 class="section-heading fade-up">Where the Margin Is Leaking</h2>
+  <p class="section-sub fade-up">Each bottleneck below was identified through a live audit of purovitalis.com, the Aura app store listings, the Trustpilot review surface, the founder's positioning content, competitor longevity brands (Tru Niagen, Donotage, Renue By Science, NOVOS, Timeline), and 2026 DTC supplement subscription benchmarks. These are gaps measurable against the top-quartile longevity DTC operator in the 2026 to 2027 market.</p>
+  <div class="finding-grid">
+    <div class="card finding fade-up">
+      <div class="finding-icon red">01</div>
+      <div>
+        <h3 class="finding-title">No Visible AI Customer Service Layer Across Subscription Lifecycle</h3>
+        <p class="finding-body">A longevity supplement brand at this scale generates a predictable, high-volume stream of support contacts: "where's my order," "can I take this with my statin," "I want to pause this month," "what's the difference between liposomal NMN and the powder version," "do I take this with food." There is no visible AI chat agent, AI phone agent, or smart-help-center deployment on purovitalis.com beyond standard FAQ pages. Industry benchmark: AI phone + chat handles 35 to 45% of supplement support volume within 90 days of deployment. BioLongevity Labs resolves 79% of calls fully autonomously. <strong>For a brand with 412+ Trustpilot reviews and likely 5-figure monthly contact volume, this is the largest single operational cost still being paid in human labor.</strong></p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">02</div>
+      <div>
+        <h3 class="finding-title">Subscription Save-Flow + Pause Logic Likely Underbuilt</h3>
+        <p class="finding-body">The "Start Plans" framing is sharp (3 months is the right consistency window for NMN to show effect). What is not visible from the outside is the save-flow that fires when a customer hits cancel. Top-quartile DTC supplement brands run a structured cascade: offer pause, offer skip-a-month, offer downsize SKU, offer a free Aura re-scan to show progress, offer a one-time discount, then cancel cleanly. Each step preserves 6 to 12 months of LTV. Industry data: pause-and-skip save flows preserve up to 12 months of customer lifetime value vs hard-cancel. <strong>If Purovitalis is running monthly billing without a structured save-flow, the 20 to 30% first-month churn is recoverable revenue walking out the door.</strong></p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">03</div>
+      <div>
+        <h3 class="finding-title">Aura App + E-Comm Subscription Are Not Visibly Linked Into One Identity</h3>
+        <p class="finding-body">A subscriber who takes a baseline Aura biomarker reading in month 1 and a follow-up in month 3 should be auto-served: a personalized progress email tied to which biomarkers moved, a recommended SKU expansion based on what didn't move, an at-risk save offer the moment biomarkers stagnate. From the outside, there is no visible mechanism wiring Aura's 50+ biomarker output into the subscription engine. <strong>This is the single largest strategic asset Purovitalis is sitting on and not yet weaponizing.</strong> Aura should be the retention machine, not just a marketing acquisition app.</p>
+        <span class="finding-tag severity-high">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">04</div>
+      <div>
+        <h3 class="finding-title">Clinical Authority Signal Is Thin Relative to Premium Pricing</h3>
+        <p class="finding-body">Purovitalis charges premium prices ($49.99 subscription on NAD+ Booster, $42.99 on Spermidine, $26.50 on Berberine). The price is justified by liposomal delivery, EU manufacturing, and third-party COAs. What is missing from the public surface is the named clinical authority: medical advisory board, named PhD researchers, peer-reviewed publication ties, named hospital or university collaborators. Koen Ridder's founder story (badminton athlete, personal health wake-up) is a strong personal narrative but does not by itself carry the clinical credibility a NAD+ stack needs against named-clinician competitors like Tru Niagen (ChromaDex), Timeline (Mitopure / Amazentis SA), or Renue By Science. <strong>Premium pricing without premium authority signal is structurally vulnerable as the category professionalizes.</strong></p>
+        <span class="finding-tag severity-med">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">05</div>
+      <div>
+        <h3 class="finding-title">No Visible Refill-Prediction or Auto-Replenishment Intelligence</h3>
+        <p class="finding-body">A 30-capsule NMN bottle taken daily runs out on a known date. A smart subscription engine sends a refill reminder 5 days before run-out tied to actual consumption rate, not just the calendar. From the outside, the Purovitalis subscription appears to be calendar-billing only, no consumption-tied logic visible. The result: customers who skip a day occasionally either over-stock (then cancel because they have too much) or run out (then cancel because the brand "made me run out"). Either way, churn risk goes up. <strong>Consumption-tied subscription logic typically lifts retention 8 to 15 percentage points against straight calendar billing.</strong></p>
+        <span class="finding-tag severity-med">Severity: Medium-High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">06</div>
+      <div>
+        <h3 class="finding-title">Medication-Interaction and Safety-Question Routing Is Manual</h3>
+        <p class="finding-body">A meaningful percentage of supplement support contacts are safety questions: "I'm on metformin, can I take berberine," "I had thyroid surgery, is NMN okay," "I'm pregnant, what should I stop." These cannot be answered by a generic AI agent. Industry best practice: an AI triage layer routes safety questions to a trained human (or to a partner telehealth platform) while handling order-status and product-info questions autonomously. From the outside, there is no visible safety-question routing infrastructure. <strong>If a single safety-question response goes wrong, the regulatory and reputational cost is far larger than the labor savings of automation.</strong> This needs to be built right.</p>
+        <span class="finding-tag severity-med">Severity: Medium-High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">07</div>
+      <div>
+        <h3 class="finding-title">Review and UGC Generation Visible but Likely Under-Automated</h3>
+        <p class="finding-body">Trustpilot at 4.6 / 5 with 412+ reviews is good, not category-leading (Tru Niagen sits at 10K+ reviews on Trustpilot, Timeline above 5K). The on-site testimonial reel is dense but uses repeated short blurbs ("More energy and strength at workouts" - Nadia), which signal manual aggregation, not a triggered automated post-purchase review request hitting at the 3-month consistency window (the moment customers feel the effect). <strong>An automated review-generation engine timed to the moment of perceived benefit typically 3 to 5x review velocity within 90 days.</strong></p>
+        <span class="finding-tag severity-low">Severity: Medium</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">08</div>
+      <div>
+        <h3 class="finding-title">Affiliate + Ambassador Programs Listed but Not Visibly Operationalized</h3>
+        <p class="finding-body">Both an Affiliate Program and an Ambassador Program are linked from the explore menu. What is not visible from the outside: tiered affiliate commission structure, automated affiliate onboarding, ambassador content library, ambassador exclusive SKU drops, conversion tracking dashboards visible to affiliates. A longevity brand sitting on Koen Ridder's personal story plus the Aura biomarker app has unusually strong UGC potential (before-and-after biomarker screenshots are inherently shareable). <strong>The affiliate engine, properly operationalized, is the cheapest CAC channel a longevity brand can build.</strong></p>
+        <span class="finding-tag severity-low">Severity: Medium</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">09</div>
+      <div>
+        <h3 class="finding-title">Multi-Region Stack Fragmentation (EU + US + Mongolia + Distribution Partners)</h3>
+        <p class="finding-body">Purovitalis operates an EU site, a US site (purovitalis.us), retail in Mongolia, and distribution partners in additional EU markets. From the outside, the EU site and US site appear to run on different e-commerce stacks. The Aura app likely speaks to one but not the other. A customer who buys NMN in the US and then re-engages via Aura should be one identity. A Mongolia retail customer who later subscribes online should be the same person. <strong>Multi-region brands consistently lose 5 to 12% of revenue to stack fragmentation, duplicate identities, inconsistent pricing, and customer-service routing failures across regions.</strong></p>
+        <span class="finding-tag severity-low">Severity: Medium</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OPPORTUNITIES -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Revenue Opportunities</p>
+  <h2 class="section-heading fade-up">What Opens Up When the Gaps Close</h2>
+  <p class="section-sub fade-up">Each opportunity below is the direct inverse of a bottleneck above. Close the gap, capture the margin.</p>
+  <div class="finding-grid">
+    <div class="card finding fade-up">
+      <div class="finding-icon green">01</div>
+      <div>
+        <h3 class="finding-title">AI Customer Service Layer (Chat + Email + Phone Triage)</h3>
+        <p class="finding-body">Deploy an AI chat agent trained on the full Purovitalis product line, the FAQ surface, order-status integration, subscription management (pause, skip, swap SKU), and an explicit guardrail layer that routes any medication-interaction or pregnancy-related question to a trained human or partner telehealth platform. At industry-benchmark resolution (35 to 45% of contacts autonomous within 90 days), the labor savings alone justify the build. <strong>For a brand at Purovitalis scale, this is conservatively a 6-figure annual savings, before counting the conversion lift from sub-minute response time.</strong></p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">02</div>
+      <div>
+        <h3 class="finding-title">Structured Subscription Save-Flow Engine</h3>
+        <p class="finding-body">Build a cascade: cancel intent triggers pause offer, then skip-a-month, then downsize SKU, then free Aura re-scan ("see what you've already moved"), then one-time discount, then clean cancel. Each step's conversion is tracked, optimized, and tied to the specific cancel reason captured. Industry benchmark: structured save-flows preserve up to 12 months of customer LTV per saved subscription. <strong>For a brand losing 20 to 30% of first-month subscribers, even a 30% save-flow conversion is a 7-figure annual revenue retention.</strong></p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">03</div>
+      <div>
+        <h3 class="finding-title">Aura-Tied Retention Intelligence Layer</h3>
+        <p class="finding-body">Wire Aura biomarker output into the subscription engine. A subscriber who shows positive movement on cardiovascular biomarkers gets a celebration email and a Heart Health SKU expansion offer. A subscriber whose energy biomarker stagnates gets a "let's adjust your stack" offer for the NAD+ Booster. A subscriber who skips two consecutive scans gets a re-engagement flow. <strong>This is the single largest strategic moat Purovitalis can build, no other longevity DTC brand has wired a proprietary biomarker app into a subscription engine this tightly.</strong> The Aura app is wasted potential until it does this.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">04</div>
+      <div>
+        <h3 class="finding-title">Clinical Authority Build-Out (Advisory Board + Named Researchers)</h3>
+        <p class="finding-body">Recruit 2 to 4 named clinical advisors with PhD or MD credentials in metabolic, longevity, or nutritional biochemistry. Publish their bios. Tie specific products to named lab partners or named research. Build a "Science Council" or "Medical Review Board" page with photos and credentials. The brands above Purovitalis on the category retention chart (Tru Niagen, Timeline, NOVOS) all do this aggressively. <strong>Clinical authority is the lock that justifies premium pricing in the post-2026 longevity category.</strong></p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">05</div>
+      <div>
+        <h3 class="finding-title">Consumption-Tied Refill Prediction + Smart Reorder</h3>
+        <p class="finding-body">Replace pure-calendar billing with consumption-tied logic. Customers can mark "I missed yesterday" in the app, the next refill auto-adjusts. Refill reminders fire 5 days before predicted run-out, not 30 days from last billing. Refill bundles are recommended ("you're due for NMN, want to add Resveratrol at 15% off?"). <strong>Conversion-tied refill engines typically lift retention 8 to 15 percentage points and grow average order value 12 to 25%.</strong></p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">06</div>
+      <div>
+        <h3 class="finding-title">Safety-Question Triage with Optional Telehealth Bolt-On</h3>
+        <p class="finding-body">Build a guardrailed triage layer: AI handles "where is my order" and "what does spermidine do" without restriction. Anything that mentions medication, pregnancy, diagnosed condition, or specific health concern routes to a queued human reviewer or to a partner telehealth provider (Plush Care, Hims-style infrastructure). This is both a risk-reduction play (one wrong answer is regulatory exposure) and a revenue play (telehealth-attached supplement protocols command 2 to 3x retention).</p>
+        <span class="finding-tag impact-high">Impact: Medium-High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">07</div>
+      <div>
+        <h3 class="finding-title">Triggered Review-Generation Engine at 90-Day Mark</h3>
+        <p class="finding-body">Automated review request fires at day 90 of consistent subscription, when the customer is most likely to have felt the effect (Purovitalis itself says "for best results, use for at least 3 months"). Request includes a one-click path to Trustpilot, Google, and a UGC video upload that can be auto-routed to the social team. <strong>This is the cheapest path to closing the Trustpilot-volume gap with Tru Niagen and Timeline.</strong></p>
+        <span class="finding-tag impact-high">Impact: Medium</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">08</div>
+      <div>
+        <h3 class="finding-title">Affiliate + Ambassador Operationalization</h3>
+        <p class="finding-body">Build a real affiliate dashboard with tiered commissions, automated payouts, content library, conversion tracking, and an ambassador-exclusive SKU drop calendar. The Aura biomarker app gives affiliates and ambassadors uniquely shareable content (before-and-after biological-age screenshots). Properly operationalized, this is a paid-media CAC alternative at a fraction of the cost. <strong>Longevity DTC brands with strong affiliate engines are running 30 to 50% of total revenue through that channel.</strong></p>
+        <span class="finding-tag impact-high">Impact: Medium</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REVENUE IMPACT -->
+<section>
+<div class="container">
+  <div class="impact-bar fade-up">
+    <span class="badge badge--gold">Conservative Estimate</span>
+    <h3 style="margin-top:16px">Projected Annual Revenue Recovery</h3>
+    <div class="impact-range">$600K – $2.4M /yr</div>
+    <p class="impact-note">Based on retention lift from structured save-flows, support-cost reduction via AI customer service, Aura-tied subscription intelligence, refill-prediction logic, and clinical authority unlock on premium pricing. Range assumes Purovitalis is currently operating at mid-category retention (~40% annual) and moves toward top-quartile (55%+) over 12 months. Discovery call required to validate against Purovitalis's actual subscriber count, churn curves, ACV, and support volume.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECOMMENDED STACK -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Recommended Infrastructure</p>
+  <h2 class="section-heading fade-up">The Deployment Stack</h2>
+  <p class="section-sub fade-up">Each system below targets a specific bottleneck identified in this audit. Sequenced by impact and dependency.</p>
+  <div class="stack-grid">
+    <div class="card stack-card s1 fade-up">
+      <div class="stack-label">System 01 · Highest Priority</div>
+      <h4 class="stack-title">AI Customer Service Layer (Chat + Email + Phone Triage)</h4>
+      <p class="stack-desc">Chat agent trained on full product line, order status integration, subscription management actions (pause, skip, swap), safety-question guardrails that route to humans, multi-language support across EU + US markets.</p>
+    </div>
+    <div class="card stack-card s2 fade-up">
+      <div class="stack-label">System 02</div>
+      <h4 class="stack-title">Subscription Save-Flow Engine</h4>
+      <p class="stack-desc">Structured cancel-intent cascade: pause, skip, downsize, free Aura re-scan, one-time discount, clean cancel. Each step tracked, optimized, tied to captured cancel reason. Reporting dashboard for retention KPIs by SKU and cohort.</p>
+    </div>
+    <div class="card stack-card s3 fade-up">
+      <div class="stack-label">System 03</div>
+      <h4 class="stack-title">Aura Biomarker Intelligence Layer</h4>
+      <p class="stack-desc">Wire Aura biomarker output to subscription engine. Triggered personalized offers based on biomarker movement. Celebration emails for positive change. Re-engagement flows for stagnated metrics. The retention moat no other longevity brand has built.</p>
+    </div>
+    <div class="card stack-card s4 fade-up">
+      <div class="stack-label">System 04</div>
+      <h4 class="stack-title">Clinical Authority Build-Out</h4>
+      <p class="stack-desc">Named advisory board recruitment, science page redesign, named-researcher product ties, COA-to-SKU dashboard, peer-reviewed publication index. The premium-pricing lock for the next 36 months.</p>
+    </div>
+    <div class="card stack-card s5 fade-up">
+      <div class="stack-label">System 05</div>
+      <h4 class="stack-title">Consumption-Tied Refill + Reorder Logic</h4>
+      <p class="stack-desc">Replace pure-calendar billing with consumption-aware refill prediction. "I missed yesterday" logic. Predictive refill reminders. Bundled reorder recommendations. Average order value lift built in.</p>
+    </div>
+    <div class="card stack-card s6 fade-up">
+      <div class="stack-label">System 06</div>
+      <h4 class="stack-title">Triggered Review + Affiliate Engine</h4>
+      <p class="stack-desc">Day-90 automated review request to Trustpilot, Google, and UGC submission. Affiliate dashboard with tiered commissions, content library, ambassador SKU calendar. Aura-tied shareable biomarker assets as the affiliate hook.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPETITIVE SNAPSHOT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Competitive Snapshot</p>
+  <h2 class="section-heading fade-up">What the Top of the Category Is Doing</h2>
+  <p class="section-sub fade-up">A representative cross-section of how Purovitalis stacks against the named premium players in the longevity DTC category.</p>
+  <table class="comp-table fade-up">
+    <thead>
+      <tr>
+        <th>Infrastructure</th>
+        <th>Purovitalis Today</th>
+        <th>Tru Niagen / Timeline / NOVOS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="highlight">Named Clinical Advisory Board</td><td><span class="cross">Not visible</span></td><td><span class="check">Yes</span></td></tr>
+      <tr><td class="highlight">Proprietary Biomarker App</td><td><span class="check">Aura</span></td><td><span class="cross">No</span></td></tr>
+      <tr><td class="highlight">Liposomal Delivery Story</td><td><span class="check">Strong</span></td><td><span class="cross">Mixed</span></td></tr>
+      <tr><td class="highlight">EU Manufacturing + COA Transparency</td><td><span class="check">Strong</span></td><td><span class="cross">US-mfr</span></td></tr>
+      <tr><td class="highlight">AI Customer Service Layer</td><td><span class="cross">Not visible</span></td><td><span class="cross">Industry gap</span></td></tr>
+      <tr><td class="highlight">Structured Save-Flow Engine</td><td><span class="cross">Unclear</span></td><td><span class="check">Partial</span></td></tr>
+      <tr><td class="highlight">Trustpilot Review Volume</td><td><span class="cross">412+</span></td><td><span class="check">5K-10K+</span></td></tr>
+      <tr><td class="highlight">Tiered Affiliate Program</td><td><span class="cross">Listed only</span></td><td><span class="check">Operationalized</span></td></tr>
+      <tr><td class="highlight">Biomarker-Tied Retention Loops</td><td><span class="cross">Not visible</span></td><td><span class="cross">Industry gap</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.92rem;color:var(--text-muted);margin-top:16px">The strategic opening: <strong style="color:var(--cyan)">Purovitalis owns two assets that no premium competitor has (the Aura biomarker app + the liposomal EU clean-label story).</strong> The premium competitors own one asset Purovitalis hasn't built (named clinical authority). Closing that one gap while operationalizing the AI ops layer puts Purovitalis in unique territory the category has not yet seen: a clean-label EU brand with a proprietary biomarker app, named clinical authority, and an AI ops layer none of them have. That is the 36-month window.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+<div class="container">
+  <div class="cta-card fade-up">
+    <span class="badge badge--cyan">Next Step</span>
+    <h2>This Audit Is the Starting Point.<br>The Diagnostic Goes Deeper.</h2>
+    <p>The numbers that matter most (real subscriber count, real churn curves, real ACV, real support volume, real Aura engagement rates) live inside the operation. One 20-minute conversation to walk through this audit, answer questions, and determine whether a full diagnostic and roadmap makes sense.</p>
+    <a href="#" class="cta-btn">Schedule the Conversation →</a>
+  </div>
+</div>
+</section>
+
+<!-- DISCOVERY QUESTIONS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Discovery Questions</p>
+  <h2 class="section-heading fade-up">What We'd Ask in the Diagnostic</h2>
+  <p class="section-sub fade-up">These are the questions we can't answer from the outside. They determine the exact scope and priority of what gets deployed first.</p>
+  <div class="finding-grid">
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Subscriber Base:</strong> How many active subscribers across EU + US? What is the active vs paused vs cancelled split? What's the average ACV per subscriber per year?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Churn Curves:</strong> What does month 1, month 3, month 6, and month 12 retention look like today by SKU? How does retention differ between the NMN-led cohorts and the NAD+ Booster-led cohorts?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Customer Service Volume:</strong> How many support contacts per week (email + chat + phone)? What's the rough category split: order status, product question, safety question, subscription action, complaint? Average response time today?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Save-Flow Today:</strong> When a customer hits cancel, what happens? Is there a pause or skip option offered? Is there cancel-reason capture? What's the current save rate?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Aura App Engagement:</strong> How many monthly active Aura users? What's the overlap between Aura users and active subscribers? Are Aura biomarker readings currently feeding any downstream marketing or retention logic?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Multi-Region Stack:</strong> Is purovitalis.com and purovitalis.us on the same backend or separate stacks? How does customer identity reconcile across regions? Who owns each region operationally?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Clinical Authority:</strong> Is there an existing advisory board, even informal? Named researchers Purovitalis has worked with? Lab partners willing to be publicly named? Path to building a Science Council in the next 6 months?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Decision Authority:</strong> Who internally owns the e-commerce stack? The Aura app roadmap? The retention strategy? What's been tried before on AI customer service or save-flow and why didn't it stick?</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="audit-footer">
+<div class="container">
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="rgba(153,221,255,0.12)"/><path d="M7 8l7 12 7-12" stroke="#99DDFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 14h7" stroke="#99DDFF" stroke-width="2" stroke-linecap="round"/></svg>
+      <span style="font-weight:700;font-size:0.85rem">ViralityX</span>
+    </div>
+    <p>Confidential · prepared for Purovitalis leadership · June 2026</p>
+  </div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const els=document.querySelectorAll('.fade-up');
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>observer.observe(el));
+});
+</script>
+
+</body>
+</html>

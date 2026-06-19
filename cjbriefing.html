@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purovitalis · Partner Briefing for CJ</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a26;--border:#2a2a3a;
+  --text:#e8e8f0;--text2:#9999aa;--text3:#666678;
+  --teal:#00cfa9;--teal-bg:rgba(0,207,169,0.1);--teal-border:rgba(0,207,169,0.25);
+  --gold:#d4a853;--gold-bg:rgba(212,168,83,0.1);--gold-border:rgba(212,168,83,0.25);
+  --red:#ff6b6b;--red-bg:rgba(255,107,107,0.1);
+  --green:#00d68f;
+  --radius:14px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.header{padding:56px 40px 40px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#0a0a0f 0%,#10101a 100%)}
+.header-inner{max-width:820px;margin:0 auto}
+.eyebrow{display:inline-block;padding:6px 14px;background:var(--teal-bg);border:1px solid var(--teal-border);color:var(--teal);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:100px;margin-bottom:16px}
+.header h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.15;margin-bottom:10px}
+.header h1 em{font-style:italic;color:var(--teal)}
+.header .lede{font-size:15px;color:var(--text2);max-width:660px}
+.main{max-width:820px;margin:0 auto;padding:40px 40px 64px}
+.section{margin-bottom:36px}
+.section-num{font-family:'Playfair Display',serif;font-size:12px;font-style:italic;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.section h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;margin-bottom:14px;line-height:1.3}
+.section h2 em{font-style:italic;color:var(--teal)}
+.section p{font-size:15px;color:var(--text2);margin-bottom:12px;line-height:1.7}
+.section p strong{color:var(--text);font-weight:600}
+.section ul{list-style:none;padding:0;margin:12px 0}
+.section ul li{position:relative;padding:6px 0 6px 22px;color:var(--text2);font-size:14.5px;line-height:1.65}
+.section ul li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--teal)}
+.section ul li strong{color:var(--text);font-weight:600}
+.snapshot{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:24px}
+.snapshot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:680px){.snapshot-grid{grid-template-columns:1fr}}
+.snap-item{display:flex;flex-direction:column;gap:2px}
+.snap-item .label{font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;font-weight:600}
+.snap-item .value{font-size:14.5px;color:var(--text);font-weight:500}
+.script-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:10px;padding:20px 24px;font-family:ui-monospace,monospace;font-size:14px;color:var(--text);line-height:1.75;white-space:pre-wrap;margin:14px 0}
+.script-block .placeholder{color:var(--gold);font-weight:600}
+.callout{background:var(--gold-bg);border:1px solid var(--gold-border);border-left:3px solid var(--gold);border-radius:10px;padding:18px 22px;margin:18px 0}
+.callout .label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:6px}
+.callout p{font-size:14px;color:var(--text);margin:0;line-height:1.7}
+.callout.teal{background:var(--teal-bg);border-color:var(--teal-border);border-left-color:var(--teal)}
+.callout.teal .label{color:var(--teal)}
+.callout.red{background:var(--red-bg);border-color:rgba(255,107,107,0.25);border-left-color:var(--red)}
+.callout.red .label{color:var(--red)}
+.three-cost{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+@media(max-width:680px){.three-cost{grid-template-columns:1fr}}
+.cost-box{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+.cost-box .label{font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:var(--teal);margin-bottom:8px;letter-spacing:0.5px}
+.cost-box .amount{font-size:22px;font-weight:700;color:var(--text);font-family:'Playfair Display',serif;margin-bottom:6px}
+.cost-box .desc{font-size:12.5px;color:var(--text2);line-height:1.5}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:32px 0}
+.footer{padding:32px 40px;border-top:1px solid var(--border);background:var(--bg2);text-align:center;font-size:11px;color:var(--text3)}
+.footer strong{color:var(--text);font-weight:600}
+.objection-block{margin:14px 0;padding:16px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:10px}
+.objection-block .obj{font-style:italic;color:var(--text);font-weight:500;margin-bottom:8px;font-size:14px}
+.objection-block .resp{font-size:13.5px;color:var(--text2);line-height:1.65}
+.objection-block .resp strong{color:var(--teal);font-style:normal;letter-spacing:0.5px;font-size:11px;text-transform:uppercase;font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <span class="eyebrow">Partner Briefing · For CJ · Confidential</span>
+    <h1>Purovitalis · <em>Your Lead Pack</em></h1>
+    <p class="lede">Everything you need to walk into a conversation with Purovitalis confident and informed. ICP-fit honest assessment, custom intro line, top opportunity costs, industry-specific findings, objection prep, and the close that gets the discovery call booked with Daniel.</p>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- SNAPSHOT -->
+<div class="snapshot">
+  <div class="snapshot-grid">
+    <div class="snap-item">
+      <span class="label">Business</span>
+      <span class="value">Purovitalis · DTC longevity supplements</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">URL</span>
+      <span class="value">purovitalis.com (EU) · purovitalis.us</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">HQ</span>
+      <span class="value">Haarlem, Netherlands · founded 2021</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Founder</span>
+      <span class="value">Koen Ridder (ex-international badminton)</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Model</span>
+      <span class="value">E-comm subscription + Aura biomarker app</span>
+    </div>
+    <div class="snap-item">
+      <span class="label">Decision-maker</span>
+      <span class="value">Koen Ridder (CEO) or Head of E-Comm / Ops (verify on call)</span>
+    </div>
+  </div>
+</div>
+
+<!-- ICP FIT HONEST CALL -->
+<div class="callout red">
+  <div class="label">ICP-Fit Note · Read This First</div>
+  <p>Purovitalis is closer to a DTC e-commerce subscription brand than a typical ViralityX service-business client. We usually work with operators who have phones that ring, technicians in the field, and a CRM that needs to route those calls. Purovitalis sells supplements globally on a Shopify-style stack with a companion biomarker app. The AI ops thesis still applies (subscription customer service IS a service business), but qualify hard for fit on the call. If Koen is purely looking for paid-ad scaling or Klaviyo email-flow optimization, that's not our sweet spot, refer or pass. If he's open to AI customer service, save-flow engineering, and Aura-tied retention intelligence, we are the right partner.</p>
+</div>
+
+<!-- WHAT THEY ARE -->
+<div class="section">
+  <div class="section-num">Section 01</div>
+  <h2>What they actually do <em>(in plain language)</em></h2>
+  <p>Purovitalis is a premium European longevity supplement brand. They sell NMN, NAD+ boosters, resveratrol, spermidine, quercetin, GlyNAC, berberine, collagen, and a handful of other longevity SKUs. Everything is liposomal (better absorption story) and made in Europe (clean-label moat against US competitors). Their hook is a 3-month "Start Plan" subscription priced around $25 to $50 per month per SKU.</p>
+  <p>Founded in 2021 by Koen Ridder, a Dutch ex-international badminton player who got a health wake-up at 34 and went deep on longevity science. They have a companion app called Aura that uses smartphone screening (face video, voice, selfie) to estimate biological age across 50+ biomarkers. They also have retail stores in Mongolia (first longevity brand to land there) and EU distribution partners.</p>
+  <p>4.6 stars on Trustpilot with 412+ reviews. Real brand, real product, real customer base. Not a startup, not a dropshipper.</p>
+</div>
+
+<!-- THE STRATEGIC ANGLE -->
+<div class="section">
+  <div class="section-num">Section 02</div>
+  <h2>The strategic angle you lead with</h2>
+  <p>Acquisition cost in supplement DTC has roughly doubled since 2022. The brands winning today are not winning on cheaper CAC, they are winning on retention. Top-quartile longevity brands have moved from 36% to 55%+ annual retention through three things: structured save-flows, AI customer service, and a clinical authority signal that justifies premium pricing.</p>
+  <p><strong>Frame it founder to founder:</strong> "You built a premium European brand with a moat (liposomal + clean-label + Aura biomarker app). The question for the next 36 months is not how to acquire more customers, it's how to keep the ones you have for 18 months instead of 4. That's where ViralityX comes in. We don't run your ads. We rebuild the operations layer that determines whether a subscriber sticks for 4 months or 18."</p>
+</div>
+
+<!-- INTRO LINE -->
+<div class="section">
+  <div class="section-num">Section 03</div>
+  <h2>Custom intro line <em>(memorize this)</em></h2>
+  <div class="script-block">Hey <span class="placeholder">[KOEN / NAME]</span>, this is CJ with ViralityX.
+
+I run point on the AI operations side for premium DTC brands. I spent some time on Purovitalis, the Aura app, your Trustpilot, and how you stack against Tru Niagen, Timeline, Renue By Science, and NOVOS on the retention side.
+
+You've built something genuinely rare. The liposomal delivery story, the EU manufacturing, the Aura biomarker app, that's a moat the US-led longevity brands don't have. What I noticed is the retention and customer-service layer underneath isn't yet doing the work that moat deserves.
+
+We're not a marketing agency, we don't run your ads. What we do is come into subscription operations like yours, find the leaks (subscription save-flows, AI customer service, biomarker-tied retention loops, refill prediction) and build AI systems that close them.
+
+I'd want to walk you through what we found in 15 to 20 minutes with our founder Daniel. He'll show you the specific gaps, the retention math, and what the playbook would look like for Purovitalis. No pitch, no pressure, you walk away with a free blueprint either way.
+
+What's better for you, this week or early next?</div>
+  <p style="margin-top:12px;font-size:13px;color:var(--text3);font-style:italic">If they ask "is this a sales call," go straight to: "It's a working session. I have the audit written up already. The 20 minutes is to walk you through it live with Daniel. Pick a time, I'll send the calendar and the audit before we hop on."</p>
+</div>
+
+<!-- THE 3 LEAKS TO MENTION -->
+<div class="section">
+  <div class="section-num">Section 04</div>
+  <h2>Top 3 opportunity costs <em>(drop these in conversation)</em></h2>
+  <p>These are the three findings to mention live on the call. Specific. Numbers attached. Each one is in the audit doc so you can point at it on screen-share if they engage.</p>
+  <div class="three-cost">
+    <div class="cost-box">
+      <div class="label">Save-Flow Leak</div>
+      <div class="amount">12 mo LTV</div>
+      <div class="desc">Structured pause / skip / downsize save-flows preserve up to 12 months of LTV per saved subscriber. First-month churn runs 20-30% in supplements without one.</div>
+    </div>
+    <div class="cost-box">
+      <div class="label">Support Cost</div>
+      <div class="amount">35-45%</div>
+      <div class="desc">Of support contacts are AI-resolvable within 90 days of deployment. At Purovitalis scale, 6-figure annual labor savings before counting conversion lift.</div>
+    </div>
+    <div class="cost-box">
+      <div class="label">Aura Untapped</div>
+      <div class="amount">7-fig moat</div>
+      <div class="desc">No other longevity brand has wired a proprietary biomarker app into a subscription engine. This is the single largest retention asset Purovitalis is sitting on.</div>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--text3);font-style:italic;margin-top:8px">All three lift into a $600K to $2.4M annual retention recovery range. That's the headline number in the impact bar of the audit.</p>
+</div>
+
+<!-- INDUSTRY-SPECIFIC HOOKS -->
+<div class="section">
+  <div class="section-num">Section 05</div>
+  <h2>Industry-specific hooks <em>(only mention if natural)</em></h2>
+  <ul>
+    <li><strong>Aura app is wasted potential until it's wired in.</strong> Right now it looks like a marketing-acquisition app. The 50+ biomarkers should be feeding the subscription engine: positive cardiovascular movement triggers a heart-health SKU offer, stagnated energy biomarkers trigger an NAD+ Booster offer, missed scans trigger re-engagement. None of that is visibly wired today.</li>
+    <li><strong>Clinical authority is thin relative to price.</strong> Koen's founder story is strong but does not by itself carry the clinical weight a premium NAD+ stack needs. Tru Niagen has ChromaDex. Timeline has Amazentis SA. Purovitalis charges premium prices but doesn't yet show named PhD or MD advisors. This is a structural vulnerability as the category professionalizes.</li>
+    <li><strong>Safety-question routing is a regulatory landmine.</strong> "I'm on metformin, can I take berberine" is a question that needs a guarded routing layer, not a generic AI answer. One wrong response is bigger than the labor savings of automation. We build the guardrails into the AI agent before it goes live.</li>
+    <li><strong>Trustpilot volume gap.</strong> 412 reviews vs Tru Niagen's 10K+ and Timeline's 5K+. The 3-month Start Plan framing is perfect for a triggered review request at day 90 (the moment the customer feels the effect). Cheapest path to closing that gap.</li>
+    <li><strong>Multi-region stack.</strong> EU site + US site + Mongolia retail + EU distribution partners. Likely separate backends, separate customer identities, separate support routing. Multi-region brands lose 5 to 12% of revenue to this fragmentation.</li>
+  </ul>
+</div>
+
+<!-- DISCOVERY QUESTIONS -->
+<div class="section">
+  <div class="section-num">Section 06</div>
+  <h2>If they ask "what would Daniel even ask me?"</h2>
+  <p>Here's the short list of what the discovery call digs into. Share this if they want to see what the 20 minutes looks like before they commit.</p>
+  <ul>
+    <li>Total active subscribers across EU + US. Active vs paused vs cancelled split.</li>
+    <li>Month 1, month 3, month 6, month 12 retention curves by SKU.</li>
+    <li>Support contact volume per week, channel split, average response time today.</li>
+    <li>Current cancel flow: is there pause or skip offered? Cancel-reason capture? Current save rate?</li>
+    <li>Aura app monthly actives. Overlap with subscriber base. Is biomarker data feeding any retention logic today?</li>
+    <li>Multi-region: same stack or separate? How does identity reconcile across EU and US?</li>
+    <li>Is there any advisory board (even informal)? Path to publishing a named Science Council?</li>
+    <li>Who owns the e-comm stack internally? The Aura app? The retention strategy?</li>
+  </ul>
+</div>
+
+<!-- OBJECTION PREP -->
+<div class="section">
+  <div class="section-num">Section 07</div>
+  <h2>Objection prep <em>(rehearse these once)</em></h2>
+  <div class="objection-block">
+    <p class="obj">"We already have a marketing agency / Klaviyo flows / paid ads team."</p>
+    <p class="resp"><strong>You:</strong> Good, that means you take growth seriously. But we're not marketing. Marketing drives traffic. We come in on the operations side and fix what happens AFTER the subscriber lands. AI customer service, save-flows, Aura-tied retention loops, refill prediction. Different layer. We work alongside marketing and email teams all the time, we don't replace them. Worth 20 minutes to see what we'd add?</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"We're a European brand, are you set up to work across regions?"</p>
+    <p class="resp"><strong>You:</strong> Yes. Multi-region stacks are actually one of the operational gaps we close, not a constraint. Daniel can walk through how we'd handle the EU and US backends, the Aura app, and the multi-language customer service layer in the Blueprint Review. It's a normal part of how we scope.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"How much does this cost?"</p>
+    <p class="resp"><strong>You:</strong> Depends on what your operation actually needs and which systems get prioritized first. That's why the Blueprint Review with Daniel is the right next step. He'll walk you through what we'd build, in what order, and you'll get a real number against your real situation. Pricing without context just sounds like a number you'd argue with.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"We've tried AI chatbots / save-flow apps before. Didn't work for us."</p>
+    <p class="resp"><strong>You:</strong> I hear that a lot. Most of those tools are generic, they treat a longevity supplement brand the same as a SaaS or a fashion store. Our agents are custom-trained on your product line, your safety guardrails, your subscription logic, your Aura data. The 20 minutes with Daniel is partly diagnostic, but also a way for you to interrogate us on how we handle the supplement-specific stuff (medication interactions, dosage questions, the consistency window). If we don't pass that bar, no harm done.</p>
+  </div>
+  <div class="objection-block">
+    <p class="obj">"Just send me the audit and I'll take a look."</p>
+    <p class="resp"><strong>You:</strong> Happy to. I'll send it right now. The audit is sharp on its own but the real value is the 20 minutes where Daniel walks through your specific numbers live, especially the Aura retention loop because that's the asset no other longevity brand has. After you've read it, want me to lock you in for one of his time slots this week? Even a tentative hold. If it lands flat after you read, easy to cancel.</p>
+  </div>
+</div>
+
+<!-- THE CLOSE -->
+<div class="section">
+  <div class="section-num">Section 08</div>
+  <h2>The close <em>(the only line that matters)</em></h2>
+  <div class="script-block">Look, here's the move. I'm going to send you the audit right now so you have it. Daniel has time <span class="placeholder">[DAY]</span> at <span class="placeholder">[TIME]</span> or <span class="placeholder">[DAY]</span> at <span class="placeholder">[TIME]</span> for the 20-minute Blueprint Review. He'll walk you through everything in the doc live, especially how we'd wire Aura into the subscription engine, answer questions, and you'll decide from there if it makes sense to keep talking. What works for you?</div>
+  <div class="callout teal">
+    <div class="label">Critical · Live Doctrine</div>
+    <p>Do NOT mention the Scan with this lead. CJ is in LIVE mode (phone or in-person). Per Scripts Pack v2.1 Section 3, live attention = book the discovery call direct. The Scan is for ASYNC channels. The audit is the lead magnet here, not the Scan.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- AFTER THE CALL -->
+<div class="section">
+  <div class="section-num">Section 09</div>
+  <h2>After the call <em>(what to do next)</em></h2>
+  <ul>
+    <li><strong>Send the audit immediately.</strong> Within 5 minutes of the call ending, send the link to the audit HTML.</li>
+    <li><strong>Send the calendar invite immediately.</strong> Don't say "I'll send it over." Send it on the call.</li>
+    <li><strong>Tag the lead in the CRM.</strong> Partner attribution clock starts the moment first contact lands. Make sure it's logged under VX-SPA-003.</li>
+    <li><strong>Time-zone the calendar.</strong> Purovitalis is HQ'd in the Netherlands (CET / CEST). Daniel is US. Pre-check time-zone math before proposing slots.</li>
+    <li><strong>SMS reminder 24 hours before.</strong> "Heads up, your call with Daniel is tomorrow at [TIME CET]. He's reviewed the audit, bring your questions."</li>
+    <li><strong>SMS reminder 1 hour before.</strong> "In an hour. Zoom link in the invite. If anything blew up, let me know now and we'll reschedule."</li>
+  </ul>
+</div>
+
+<!-- INTERNAL NOTES -->
+<div class="callout red">
+  <div class="label">Internal note for CJ · Research limitations</div>
+  <p>This audit was built without live access to the Purovitalis admin, the Aura app analytics, or any internal subscriber data. Findings are based on the public site, the EU and US storefronts, Trustpilot, Koen Ridder's LinkedIn and founder content, the Aura app store listings, competitor longevity brands (Tru Niagen, Timeline, NOVOS, Renue By Science), and 2026 DTC subscription benchmarks from Eightx, Foundry CRO, Recharge, and Ringly industry reports. If a question on the call surfaces a specific finding we can't back up, defer to Daniel on the Blueprint Review. Don't bluff. Honest "let me bring that into the Review" beats wrong specifics every time. Also remember: this is closer to e-comm than our normal service-business ICP. Qualify hard for fit on the call before pushing for a hard book.</p>
+</div>
+
+</div>
+
+<div class="footer">
+  <strong>ViralityX · Purovitalis Partner Briefing · For CJ Hardison (VX-SPA-003)</strong><br>
+  Confidential · Internal use only · June 18, 2026
+</div>
+
+</body>
+</html>

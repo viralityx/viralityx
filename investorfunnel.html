@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investor Funnel Audit · Monument City Capital Income Fund | ViralityX</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#090F15;--bg-card:rgba(255,255,255,0.04);--bg-card-hover:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.15);
+  --text:#E8ECF1;--text-muted:#8B95A5;--text-dim:#5A6577;
+  --cyan:#99DDFF;--cyan-dim:rgba(153,221,255,0.15);--cyan-glow:rgba(153,221,255,0.08);
+  --red:#FF6B6B;--red-dim:rgba(255,107,107,0.12);--red-glow:rgba(255,107,107,0.06);
+  --gold:#FFD666;--gold-dim:rgba(255,214,102,0.12);
+  --green:#66FFB2;--green-dim:rgba(102,255,178,0.12);
+  --orange:#FFB366;--orange-dim:rgba(255,179,102,0.12);
+  --purple:#B399FF;--purple-dim:rgba(179,153,255,0.12);
+  --radius:12px;--radius-sm:8px;--radius-xs:6px;
+  --font:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
+::selection{background:var(--cyan);color:var(--bg)}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+@media(max-width:768px){section{padding:56px 0}.container{padding:0 16px}}
+h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-0.03em}
+h2{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h3{font-size:1.25rem;font-weight:700;line-height:1.3}
+h4{font-size:1rem;font-weight:600;line-height:1.4}
+p{color:var(--text-muted);line-height:1.75}
+strong{color:var(--text);font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;font-family:var(--mono)}
+.badge--cyan{background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(153,221,255,0.2)}
+.badge--red{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,107,107,0.2)}
+.badge--gold{background:var(--gold-dim);color:var(--gold);border:1px solid rgba(255,214,102,0.2)}
+.badge--green{background:var(--green-dim);color:var(--green);border:1px solid rgba(102,255,178,0.2)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:all 0.3s ease}
+.card:hover{background:var(--bg-card-hover);border-color:var(--border-hover)}
+.card--glow{box-shadow:0 0 40px var(--cyan-glow)}
+.section-label{font-family:var(--mono);font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px}
+.section-heading{margin-bottom:16px}
+.section-sub{max-width:680px;margin-bottom:48px;font-size:1.05rem}
+.brand-bar{padding:20px 0;border-bottom:1px solid var(--border)}
+.brand-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.brand-logo{display:flex;align-items:center;gap:10px}
+.brand-logo svg{width:28px;height:28px}
+.brand-name{font-weight:700;font-size:1rem;letter-spacing:-0.01em}
+.brand-name span{color:var(--cyan)}
+.brand-meta{font-family:var(--mono);font-size:0.7rem;color:var(--text-dim);letter-spacing:0.08em;text-transform:uppercase}
+.hero{padding:100px 0 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--cyan-glow) 0%,transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:start}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero h1{margin:20px 0 24px}
+.hero h1 em{font-style:italic;color:var(--cyan)}
+.hero-sub{font-size:1.1rem;margin-bottom:32px;max-width:600px}
+.client-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;position:relative}
+.client-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--gold))}
+.client-card-inner{padding:28px}
+.client-name{font-size:1.35rem;font-weight:800;margin-bottom:2px}
+.client-url{font-family:var(--mono);font-size:0.8rem;color:var(--cyan);margin-bottom:16px;display:block}
+.client-meta{display:flex;flex-direction:column;gap:10px}
+.client-meta-row{display:flex;align-items:center;gap:10px;font-size:0.85rem;color:var(--text-muted)}
+.client-meta-row svg{width:16px;height:16px;color:var(--text-dim);flex-shrink:0}
+.class-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.class-item{text-align:center;padding:24px 16px}
+.class-item .label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px}
+.class-item .value{font-size:1.15rem;font-weight:700;color:var(--text)}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:40px 0}
+.stat-card{text-align:center;padding:28px 20px}
+.stat-card .stat-num{font-size:2.5rem;font-weight:800;line-height:1;margin-bottom:6px;font-family:var(--mono)}
+.stat-card .stat-label{font-size:0.75rem;font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim)}
+.stat-num.cyan{color:var(--cyan)}.stat-num.red{color:var(--red)}.stat-num.gold{color:var(--gold)}.stat-num.green{color:var(--green)}
+.finding-grid{display:grid;gap:20px}
+.finding{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:28px;align-items:start}
+@media(max-width:600px){.finding{grid-template-columns:1fr;gap:12px}}
+.finding-icon{width:56px;height:56px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;font-family:var(--mono)}
+.finding-icon.red{background:var(--red-dim);color:var(--red)}
+.finding-icon.green{background:var(--green-dim);color:var(--green)}
+.finding-icon.gold{background:var(--gold-dim);color:var(--gold)}
+.finding-icon.cyan{background:var(--cyan-dim);color:var(--cyan)}
+.finding-title{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+.finding-body{font-size:0.92rem;color:var(--text-muted);line-height:1.7}
+.finding-tag{display:inline-block;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-top:12px}
+.finding-tag.severity-high{background:var(--red-dim);color:var(--red)}
+.finding-tag.severity-med{background:var(--gold-dim);color:var(--gold)}
+.finding-tag.severity-low{background:var(--cyan-dim);color:var(--cyan)}
+.finding-tag.impact-high{background:var(--green-dim);color:var(--green)}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.stack-card{padding:28px;position:relative;overflow:hidden}
+.stack-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;border-radius:2px}
+.stack-card.s1::before{background:var(--cyan)}.stack-card.s2::before{background:var(--green)}
+.stack-card.s3::before{background:var(--gold)}.stack-card.s4::before{background:var(--orange)}
+.stack-card.s5::before{background:var(--purple)}.stack-card.s6::before{background:var(--red)}
+.stack-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px}
+.stack-card.s1 .stack-label{color:var(--cyan)}.stack-card.s2 .stack-label{color:var(--green)}
+.stack-card.s3 .stack-label{color:var(--gold)}.stack-card.s4 .stack-label{color:var(--orange)}
+.stack-card.s5 .stack-label{color:var(--purple)}.stack-card.s6 .stack-label{color:var(--red)}
+.stack-title{font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.stack-desc{font-size:0.88rem;color:var(--text-muted);line-height:1.7}
+.impact-bar{background:linear-gradient(135deg,rgba(153,221,255,0.06),rgba(255,214,102,0.06));border:1px solid rgba(153,221,255,0.15);border-radius:var(--radius);padding:40px;text-align:center;margin:48px 0}
+.impact-bar h3{font-size:1.6rem;margin-bottom:8px}
+.impact-bar .impact-range{font-size:2.8rem;font-weight:800;font-family:var(--mono);background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2}
+.impact-bar .impact-note{font-size:0.85rem;color:var(--text-dim);margin-top:8px}
+.loc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:32px 0}
+.loc-card{padding:24px}
+.loc-card h4{margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.loc-detail{font-size:0.85rem;color:var(--text-muted);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.loc-flag{display:inline-flex;padding:2px 8px;border-radius:4px;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase}
+.loc-flag.warn{background:var(--red-dim);color:var(--red)}
+.loc-flag.ok{background:var(--green-dim);color:var(--green)}
+.loc-flag.med{background:var(--gold-dim);color:var(--gold)}
+.comp-table{width:100%;border-collapse:collapse;margin:32px 0;font-size:0.88rem}
+.comp-table th{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;padding:12px 16px;border-bottom:1px solid var(--border)}
+.comp-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--text-muted)}
+.comp-table tr:hover td{background:rgba(255,255,255,0.02)}
+.comp-table .highlight{color:var(--text);font-weight:600}
+.check{color:var(--green)}.cross{color:var(--red)}
+.industry-callout{background:rgba(255,214,102,0.04);border:1px solid rgba(255,214,102,0.15);border-left:3px solid var(--gold);border-radius:var(--radius);padding:28px;margin:32px 0}
+.industry-callout p{font-size:0.92rem;color:var(--text-muted);line-height:1.75}
+.industry-callout strong{color:var(--gold);font-weight:600}
+.cta-section{text-align:center;padding:80px 0 100px}
+.cta-card{background:linear-gradient(135deg,rgba(153,221,255,0.04),rgba(153,221,255,0.01));border:1px solid rgba(153,221,255,0.12);border-radius:var(--radius);padding:56px 40px;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,var(--cyan-glow),transparent 70%);pointer-events:none}
+.cta-card h2{margin:16px 0 12px;position:relative}
+.cta-card p{position:relative;max-width:560px;margin:0 auto 32px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--cyan);color:var(--bg);font-weight:700;font-size:1rem;border-radius:100px;text-decoration:none;transition:all 0.2s;position:relative}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(153,221,255,0.25)}
+.audit-footer{padding:40px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-inner p{font-size:0.75rem;color:var(--text-dim)}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.flow-step{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:18px 24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:12px}
+.flow-num{width:48px;height:48px;border-radius:50%;background:var(--cyan-dim);color:var(--cyan);font-family:var(--mono);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.flow-step.gap .flow-num{background:var(--red-dim);color:var(--red)}
+.flow-content h4{margin-bottom:4px}
+.flow-content p{font-size:0.88rem;margin:0}
+@media print{body{background:#fff;color:#111}.card,.client-card,.finding,.stack-card,.impact-bar,.cta-card{border:1px solid #ddd;background:#f9f9f9}:root{--text:#111;--text-muted:#444;--text-dim:#777;--cyan:#0077AA;--red:#CC3333;--gold:#AA7700;--green:#228855}}
+</style>
+</head>
+<body>
+
+<!-- BRAND BAR -->
+<header class="brand-bar">
+<div class="container">
+  <div class="brand-logo">
+    <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="28" height="28" rx="6" fill="rgba(153,221,255,0.12)"/>
+      <path d="M7 8l7 12 7-12" stroke="#99DDFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10.5 14h7" stroke="#99DDFF" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name">Virality<span>X</span></span>
+  </div>
+  <span class="brand-meta">Investor Funnel Audit · Confidential</span>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+  <div class="hero-grid">
+    <div>
+      <span class="badge badge--cyan">Investor-Side Audit · June 2026</span>
+      <h1>Monument City Capital<br><em>Income Fund Investor Funnel</em></h1>
+      <p class="hero-sub">A targeted diagnostic of the accredited-investor capital-raise funnel running on investwithmcc.com. Built as the companion to the borrower-side operational audit. Same operator, same brand, completely different customer journey, completely different infrastructure standard. This is where capital comes in, and where it leaks before it arrives.</p>
+    </div>
+    <div class="client-card">
+      <div class="client-card-inner">
+        <h3 class="client-name">Monument City Capital · Income Fund</h3>
+        <a class="client-url" href="https://investwithmcc.com/opt2-365689" target="_blank">investwithmcc.com</a>
+        <div class="client-meta">
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Glen Burnie, MD · Baltimore + Annapolis metro
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            443-750-1565 (shared with borrower funnel)
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+            Principal: Shaun Magner
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Funnel host: automatethejourney.com (3rd party)
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+            Variant URL detected: /opt2-365689 (A/B split)
+          </div>
+          <div class="client-meta-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 8L8 16M8 8h8v8"/></svg>
+            Offering: SEC Reg D 506(c), $100K min, 12-mo lockup
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTEXT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Why This Audit Exists</p>
+  <h2 class="section-heading fade-up">The Companion to the Operational Audit</h2>
+  <p class="section-sub fade-up">The first audit ViralityX delivered to Monument City Capital diagnosed the borrower side of the business in depth: speed-to-quote, after-hours capture, repeat-borrower retention, broker channel. This second audit is the other half. The Income Fund is what feeds the lending machine. Without disciplined capital raise, the borrower-side wins compound slower. This is a focused look at the investor-acquisition funnel running on investwithmcc.com, the variant URL that surfaced through outreach traffic, and the post-opt-in nurture window where most of the leakage lives.</p>
+  <div class="industry-callout fade-up">
+    <p><strong>What changed in our research between the first audit and this one:</strong> The borrower-side audit was built off the public marketing site (monumentcitycapital.com). This audit examines the dedicated investor-acquisition funnel hosted separately on a third-party builder. That separation itself is a finding. The investor funnel runs on infrastructure outside Monument City Capital's owned stack, which means analytics, lead routing, retargeting pixels, sequenced nurture, and CRM continuity all live in a layer Shaun's team may or may not fully control. For a Reg D 506(c) raise where every accredited lead is worth a six-figure commitment, that's a structural fragility worth surfacing.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BUSINESS CLASSIFICATION -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Funnel Classification</p>
+  <div class="class-grid">
+    <div class="card class-item fade-up">
+      <div class="label">Funnel Type</div>
+      <div class="value">Capital Raise (B2I)</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Offering Structure</div>
+      <div class="value">SEC Reg D 506(c)</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Minimum Check</div>
+      <div class="value">$100K Accredited</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Decision Cycle</div>
+      <div class="value">60 to 180 Days</div>
+    </div>
+    <div class="card class-item fade-up">
+      <div class="label">Target LTV</div>
+      <div class="value">12-mo Commit + Renewals</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INDUSTRY CONTEXT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Industry Context</p>
+  <h2 class="section-heading fade-up">Why the Investor-Side Window Is Wide Open</h2>
+  <p class="section-sub fade-up">Reg D 506(c) raises sit at a unique inflection point in 2026. The infrastructure to run them well exists, the regulatory environment just got easier, and most regional fund sponsors are still raising the same way they did in 2018.</p>
+  <div class="industry-callout fade-up">
+    <p><strong>The regulatory shift:</strong> The SEC's March 2025 no-action letter and follow-up staff guidance materially simplified accredited investor verification under Rule 506(c). Sponsors can now rely on minimum investment thresholds plus written representations rather than full document review for most investors. Translation: the friction at the bottom of the funnel just dropped. The bottleneck moved upstream, into the nurture window between "submitted form" and "wired capital."</p>
+    <br>
+    <p><strong>The funnel reality:</strong> Across private real estate debt funds, the median accredited investor decision cycle runs <strong>60 to 180 days from first interest to first wire.</strong> Most regional sponsors lose 70 to 85% of opted-in leads in that gap, simply because there is no sequenced education running. The investor's question is never "is 10% interesting?" The question is "do I trust you enough to send $100K?" That trust is built in the 6 to 12 touches between the opt-in and the call, not on the landing page.</p>
+    <br>
+    <p><strong>The competitive lens:</strong> Operators like PeerStreet, Groundfloor, Fund That Flip, and the Yieldi accredited investor channel run sophisticated multi-stage nurture (monthly performance reports, retargeting pixels, narrated explainer libraries, automated DRIP onboarding, accredited verification baked into the form). Regional sponsors who are raising in-person, by word-of-mouth, or off a single landing page are competing against that infrastructure whether they realize it or not. Every accredited investor evaluating a $100K placement is comparing the experience.</p>
+    <br>
+    <p>The audit below assesses the Monument City Capital Income Fund investor funnel against the standard a top-quartile Reg D 506(c) sponsor needs to hit in 2026 to 2027.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SNAPSHOT STATS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Funnel Snapshot</p>
+  <h2 class="section-heading fade-up">The Numbers Visible From the Outside</h2>
+  <p class="section-sub fade-up">Before bottlenecks, these are the measurable signals from the public funnel itself. Each one is either a credibility marker, a leak, or an unanswered question that the diagnostic call will resolve.</p>
+  <div class="stats-row">
+    <div class="card stat-card fade-up">
+      <div class="stat-num gold">10%+</div>
+      <div class="stat-label">Target Annual Return</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num cyan">$25M+</div>
+      <div class="stat-label">Historical Loan Volume</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num cyan">150+</div>
+      <div class="stat-label">Loans Funded Since 2021</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">3</div>
+      <div class="stat-label">Placeholder Testimonials On Page</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">0</div>
+      <div class="stat-label">Visible Post-Opt-In Nurture Sequence</div>
+    </div>
+    <div class="card stat-card fade-up">
+      <div class="stat-num red">0</div>
+      <div class="stat-label">Self-Serve Accreditation Verification</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FUNNEL FLOW BREAKDOWN -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">The Funnel As It Runs Today</p>
+  <h2 class="section-heading fade-up">Step-by-Step Walkthrough of the Investor Journey</h2>
+  <p class="section-sub fade-up">This is what happens when an accredited investor clicks on a Monument City Capital ad, podcast mention, or referral link today. The steps marked in red are where the journey loses people.</p>
+  <div style="margin:24px 0">
+    <div class="flow-step fade-up">
+      <div class="flow-num">1</div>
+      <div class="flow-content">
+        <h4>Investor lands on investwithmcc.com/opt2-365689</h4>
+        <p>Variant landing page on a third-party host. Clean copy, six-layer risk breakdown, founder bio, side-by-side comparison vs CDs and S&P 500. Conversion-optimized hero with stats. Solid first impression.</p>
+      </div>
+    </div>
+    <div class="flow-step fade-up">
+      <div class="flow-num">2</div>
+      <div class="flow-content">
+        <h4>Optional: takes the Accreditation Qualifier</h4>
+        <p>5-question self-attestation modal. Returns a "You May Qualify" or "You May Not Qualify" result. Good first step but currently runs as a dead-end UI element. Not tied to CRM scoring or routing.</p>
+      </div>
+    </div>
+    <div class="flow-step fade-up">
+      <div class="flow-num">3</div>
+      <div class="flow-content">
+        <h4>Submits 2-step Investor Overview form</h4>
+        <p>Step 1: Name, phone, email. Step 2: State, target investment range ($100K to $1M+), accredited Y/N/Unsure, source attribution. Good progressive disclosure. Captures real intent data.</p>
+      </div>
+    </div>
+    <div class="flow-step gap fade-up">
+      <div class="flow-num">4</div>
+      <div class="flow-content">
+        <h4>Receives confirmation: "You're All Set"</h4>
+        <p><strong>Visible gap:</strong> The confirmation tells the investor an email is coming and "Shaun or a member of the team will follow up shortly." No automated calendar booking link, no immediate SMS confirmation, no pre-call video, no PPM preview, no investor-only resource library access. The lead is now waiting on a human.</p>
+      </div>
+    </div>
+    <div class="flow-step gap fade-up">
+      <div class="flow-num">5</div>
+      <div class="flow-content">
+        <h4>Manual follow-up window (unknown duration)</h4>
+        <p><strong>Visible gap:</strong> No public visibility into response SLA. Industry data on capital-raise funnels: leads that don't get a personalized response within 24 hours drop to under 12% conversion. Leads that get the first touch within 1 hour convert at 3 to 5x the rate. With Shaun running both borrower and investor operations off the same shared phone line, this window almost certainly stretches.</p>
+      </div>
+    </div>
+    <div class="flow-step gap fade-up">
+      <div class="flow-num">6</div>
+      <div class="flow-content">
+        <h4>30-minute call with Shaun</h4>
+        <p><strong>Visible gap:</strong> Whether scheduled or recovered, this step depends entirely on the prospect's persistence and Shaun's calendar bandwidth. There is no automated booking, no pre-call qualification questionnaire, no pre-call materials sent to compress call time, no automated reminder sequence.</p>
+      </div>
+    </div>
+    <div class="flow-step gap fade-up">
+      <div class="flow-num">7</div>
+      <div class="flow-content">
+        <h4>Subscription docs, accreditation verification, wire</h4>
+        <p><strong>Visible gap:</strong> The handoff from interested-prospect to documented-subscriber appears entirely manual. No third-party accreditation verification integrated (VerifyInvestor, Parallel Markets, EarlyIQ, or InvestReady). No e-signature subscription doc flow visible. No automated wire instructions issuance. This step likely takes weeks where it could take days.</p>
+      </div>
+    </div>
+    <div class="flow-step gap fade-up">
+      <div class="flow-num">8</div>
+      <div class="flow-content">
+        <h4>Post-wire: monthly distributions begin</h4>
+        <p><strong>Visible gap:</strong> No visible investor portal for distribution statements, tax document delivery (K-1s), DRIP toggle, or fund performance reporting. Investors likely receive PDFs by email. For LPs writing $250K+ checks, the post-commitment experience is the single biggest driver of upsizing and referral.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TWO-SIDED MODEL CONTEXT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Borrower-Side vs Investor-Side</p>
+  <h2 class="section-heading fade-up">Same Founder, Two Funnels, Two Standards</h2>
+  <p class="section-sub fade-up">The prior audit examined the borrower-acquisition operation. This audit examines the investor-acquisition operation. They are not the same business mechanically. The investor funnel needs longer nurture, more proof, more documentation, and a fundamentally different speed standard. Most regional fund sponsors run both off the same generic stack and bleed conversions on both ends.</p>
+  <div class="loc-grid">
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Borrower Funnel · Already Audited
+      </h4>
+      <div class="loc-detail">Standard: speed-to-quote in under 5 min</div>
+      <div class="loc-detail">Decision cycle: hours to days <span class="loc-flag ok">fast</span></div>
+      <div class="loc-detail">LTV per close: 3-8 loans/yr from one borrower</div>
+      <div class="loc-detail">Capture channel: phone, web form, Lendr portal</div>
+      <div class="loc-detail">Tooling gap: AI voice + after-hours + repeat retention</div>
+    </div>
+    <div class="card loc-card fade-up">
+      <h4>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        Investor Funnel · This Audit
+      </h4>
+      <div class="loc-detail">Standard: nurture sequence in 60-180 day window</div>
+      <div class="loc-detail">Decision cycle: months <span class="loc-flag med">long</span></div>
+      <div class="loc-detail">LTV per close: $100K-$1M+ initial, upsize over years</div>
+      <div class="loc-detail">Capture channel: investwithmcc.com landing variants</div>
+      <div class="loc-detail">Tooling gap: post-opt-in nurture, portal, social proof</div>
+    </div>
+  </div>
+  <div class="card fade-up" style="margin-top:20px;border-left:3px solid var(--gold);padding:20px 24px">
+    <p style="font-size:0.9rem;color:var(--text-muted)"><strong style="color:var(--gold)">Architectural observation:</strong> The borrower-side audit found one structural risk (no funnel separation between borrowers and investors at the CRM layer). This audit confirms the inverse from the investor side. The investor funnel lives on a separate third-party domain (investwithmcc.com hosted at automatethejourney.com). That gives MCC the right URL hygiene at the top of funnel, which is good. But the question becomes what happens to the data once it leaves that landing page. Without visible integration between the funnel host and Monument City Capital's primary CRM, leads risk getting stranded in the gap.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BOTTLENECKS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Capital-Raise Bottlenecks</p>
+  <h2 class="section-heading fade-up">Where Investor Trust Is Leaking</h2>
+  <p class="section-sub fade-up">Each bottleneck below was identified through a direct review of investwithmcc.com (the standard URL and the /opt2-365689 variant), benchmarked against the standard top-quartile Reg D 506(c) sponsors are running in 2026. The investor funnel does many things right at the top. The breakage is downstream.</p>
+  <div class="finding-grid">
+    <div class="card finding fade-up">
+      <div class="finding-icon red">01</div>
+      <div>
+        <h3 class="finding-title">Placeholder Testimonials Are Live on the Page</h3>
+        <p class="finding-body">The single biggest credibility hit visible right now. The investor testimonial section displays the literal text <em>"Placeholder testimonials, awaiting real investor quotes"</em> above three sample quotes from "James R., Retired CFO," "Dr. David K., Physician," and "Michael T., Business Owner." For an accredited investor evaluating a $100K placement, that exact label reads as "they don't yet have investor testimonials they can publish." That is not what an accredited LP wants to see at the moment they're weighing trust. <strong>Top sponsors publish real, photographed, attributable investor quotes with full bios, often with video. The gap between placeholder and real isn't a copywriting issue, it's the entire trust transfer mechanism.</strong> Until those are live and credible, the landing page is doing less than half the persuasion work it could be.</p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">02</div>
+      <div>
+        <h3 class="finding-title">No Visible Post-Opt-In Nurture Sequence</h3>
+        <p class="finding-body">The end-state of the funnel is a confirmation screen that says "Check your email for the Investor Overview and Business Plan. Shaun or a member of the team will follow up shortly." That sentence is the entire post-opt-in mechanism visible from the outside. For a Reg D 506(c) raise where the typical decision cycle is <strong>60 to 180 days</strong>, that means 8 to 24 weeks of weekly touches that should be happening automatically, are not visibly happening at all. No monthly fund performance summary, no Shaun-narrated short videos delivered over time, no market commentary, no investor education series, no "what your first month would look like" walkthrough, no retargeting on the user's pixel. <strong>80% of accredited investors who would have converted on a 90-day timeline disengage in week 3 to 4 if the nurture sequence is empty.</strong> Right now it appears to be empty.</p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">03</div>
+      <div>
+        <h3 class="finding-title">Accreditation Qualifier Is a Dead-End UI Element</h3>
+        <p class="finding-body">The funnel has a self-attestation Accreditation Qualifier that returns "You May Qualify" or "You May Not Qualify." That is good UX. But it appears to run entirely on the client side, with no CRM-side scoring, no segmentation of leads who qualified vs didn't, no automated routing of qualified leads into a fast-track sequence, no triggered hand-off of unqualified leads into a "stay on our list for when your situation changes" path. <strong>Self-attestation is the easy part. Real accreditation verification through VerifyInvestor, Parallel Markets, EarlyIQ, or InvestReady is the part Reg D 506(c) sponsors at scale automate.</strong> Without it, every investor commitment requires Shaun's team to handle accreditation evidence by email, which compounds time-to-wire on a deal-by-deal basis.</p>
+        <span class="finding-tag severity-high">Severity: Critical</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon red">04</div>
+      <div>
+        <h3 class="finding-title">No Investor Portal for Active LPs</h3>
+        <p class="finding-body">After an LP wires capital, the funnel goes dark from a public visibility standpoint. There is no LP login on the public domain, no monthly statement portal, no embedded performance dashboard, no document vault for the PPM, subscription agreements, K-1s, or distribution statements. Accredited LPs writing $100K to $1M checks expect the same caliber of post-commitment experience they see from iCapital, CAIS, AppFolio Investment Manager, or InvestNext. <strong>Without that, every distribution period creates a manual operations burden on Shaun's team, and every K-1 season creates 50+ individualized emails.</strong> The post-wire experience is also the highest-leverage upsize and referral driver. An LP who feels like an institutional investor placements $250K next year instead of holding at $100K.</p>
+        <span class="finding-tag severity-high">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">05</div>
+      <div>
+        <h3 class="finding-title">Founder Authority Underused on the Investor Side</h3>
+        <p class="finding-body">Shaun has a real authority surface: years coaching at a top national REI education company, multiple podcast appearances, keynote speaking experience. On the investor funnel, the only use of that authority is a static "Meet Shaun Magner" section, a 3-minute overview video, and one mid-page pull quote. For accredited investors weighing months of due diligence, the Shaun-narrated content should be doing far more structural work. A monthly investor letter from Shaun, podcast-style audio summaries of each month's lending activity, a "Q&A with the Founder" segment, an embedded library of his prior podcast appearances on real estate strategy. <strong>His credibility is the single most underleveraged asset in the entire investor funnel.</strong> Right now it sits as one page section instead of running as a content engine.</p>
+        <span class="finding-tag severity-med">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">06</div>
+      <div>
+        <h3 class="finding-title">Single Shared Phone Line Across Borrowers and Investors</h3>
+        <p class="finding-body">The investor landing page lists 443-750-1565, the same line that serves the borrower funnel. A flipper calling about a 72-hour close and an accredited physician calling about a $250K placement both ring the same phone. Beyond the routing issue the first audit raised, there's a deeper problem on the investor side. <strong>Accredited investors calling about a six-figure placement will draw inferences about fund operations from how the phone gets answered.</strong> If they call during business hours and get voicemail because Shaun is on a borrower call, the implicit signal is "this is a small operation that I would be a meaningful percentage of." That's not the impression a $100K minimum, $25M-history fund wants to leave with a first-time prospect.</p>
+        <span class="finding-tag severity-med">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">07</div>
+      <div>
+        <h3 class="finding-title">Referral Program Has No Activation Infrastructure</h3>
+        <p class="finding-body">The funnel mentions a 1% referral program: "Earn 1% of their initial investment through our referral program, or choose to donate your referral fee to a charity of your choice." That is a smart, low-cost growth lever. But it's a sentence on a static page. There is no visible referral-link generator for existing LPs, no automated tracking of who referred whom, no payout automation, no "share with a colleague" CTA in the post-wire experience, no LP-facing dashboard showing referral status. <strong>For a fund whose primary growth channel SHOULD be word-of-mouth between accredited investors, leaving the referral program manual is leaving the multiplier on the table.</strong> An LP who places $250K and has 4 accredited friends in their network is the cheapest capital acquisition path in the entire business.</p>
+        <span class="finding-tag severity-med">Severity: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">08</div>
+      <div>
+        <h3 class="finding-title">Third-Party Funnel Host Limits Stack Continuity</h3>
+        <p class="finding-body">The funnel runs on automatethejourney.com infrastructure rather than on monumentcitycapital.com directly. That's a normal pattern for paid-traffic landing pages, but it raises questions about data continuity. <strong>What happens when an investor opts in on the variant URL? Where does that lead live? Is it piped into a CRM that also sees the borrower-side data? Are retargeting pixels firing across both domains? Is Shaun's team able to see the full marketing-to-distribution lifecycle in one place, or is it scattered across the third-party builder, an email tool, a spreadsheet, and the fund administrator's portal?</strong> The structural risk is that the marketing layer and the operations layer don't talk to each other, which means follow-up sequences depend on someone manually exporting CSVs.</p>
+        <span class="finding-tag severity-low">Severity: Medium</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon gold">09</div>
+      <div>
+        <h3 class="finding-title">No Visible Investor Comfort on Compliance Posture</h3>
+        <p class="finding-body">Reg D 506(c) raises require the sponsor to take "reasonable steps to verify" accredited status. The funnel mentions the PPM and offering documents in disclosures, which is appropriate, but the front-end communicates almost nothing about the compliance and operational rigor behind the scenes. Sophisticated LPs want to see references to the fund administrator, the auditor, the legal counsel, the third-party servicer for distributions, the AML/KYC partner, the accreditation verification partner. <strong>For LPs comparing this fund against an iCapital or PeerStreet, the absence of those signals reads as "small shop without institutional plumbing."</strong> Whether or not that's true matters less than what the prospect perceives.</p>
+        <span class="finding-tag severity-low">Severity: Medium</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- OPPORTUNITIES -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Capital-Raise Opportunities</p>
+  <h2 class="section-heading fade-up">What Opens Up When the Investor Funnel Tightens</h2>
+  <p class="section-sub fade-up">Each opportunity below maps directly to a bottleneck above. For a fund whose unit economics depend on AUM growth, closing these gaps compounds across every investor cohort.</p>
+  <div class="finding-grid">
+    <div class="card finding fade-up">
+      <div class="finding-icon green">01</div>
+      <div>
+        <h3 class="finding-title">Authentic Investor Proof Library</h3>
+        <p class="finding-body">Replace the placeholder testimonials with real LP video testimonials, written quotes with photos, and named case studies. For a fund with 150+ funded loans and $25M+ in historical volume, there are LPs who have lived through a full cycle and can speak to it. <strong>Even three real, named, photographed investor stories with permission would 2x to 3x the conversion of the existing landing page traffic.</strong> One captured $250K commitment from improved social proof more than pays for the entire production.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">02</div>
+      <div>
+        <h3 class="finding-title">Automated 90-Day Nurture Sequence Post-Opt-In</h3>
+        <p class="finding-body">Every accredited investor who fills out the Investor Overview form enters a 90-day automated sequence: PPM walkthrough video on day 0, lending-strategy explainer on day 2, monthly market commentary cadence, Shaun-narrated "how distributions actually work" piece, K-1 and tax planning explainer for accredited LPs, named LP testimonial features, FAQ pieces, calendar booking CTAs at the right stage. <strong>On a fund whose median decision cycle is 60 to 180 days, this is the single highest-ROI build in the entire investor funnel.</strong> Lifting opt-in-to-wire conversion from a regional-typical 5 to 8% up to a top-quartile 18 to 25% is a 3x improvement on the same paid traffic spend.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">03</div>
+      <div>
+        <h3 class="finding-title">Integrated Accreditation Verification</h3>
+        <p class="finding-body">Integration with VerifyInvestor, Parallel Markets, EarlyIQ, or InvestReady at the form layer. The investor self-attests, then receives a same-day automated workflow to upload supporting documents or use the verification partner's instant network checks. <strong>Compresses the time-to-wire window from weeks to days on every commitment, removes manual document chase from Shaun's team, and gives the LP an institutional-quality experience the moment they decide to commit.</strong> The verification step is also a powerful psychological commitment device. LPs who complete verification are dramatically more likely to wire.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon green">04</div>
+      <div>
+        <h3 class="finding-title">Investor Portal for Active LPs</h3>
+        <p class="finding-body">A branded LP portal where active investors log in for monthly statements, distribution history, K-1 documents, DRIP settings, fund performance reporting, and PPM access. Built on top of the existing fund administrator's data feed. <strong>Transforms the post-commitment experience from "PDFs by email" to "institutional-grade visibility on demand."</strong> Direct downstream effect: LPs who feel taken care of upsize their commitment at the 12-month renewal window, and refer accredited friends without prompting.</p>
+        <span class="finding-tag impact-high">Impact: Very High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">05</div>
+      <div>
+        <h3 class="finding-title">Founder Content Engine for the Investor Audience</h3>
+        <p class="finding-body">Turn Shaun's authority into a structural content engine specifically tuned to accredited LPs. Monthly investor letter from Shaun (published privately to opt-ins, gated behind email). Podcast-style monthly fund update audio. Embedded library of his prior podcast appearances. Quarterly "State of the Maryland Lending Market" video. LinkedIn posts cross-syndicated through the investor list. <strong>The same authority surface that today does almost no structural work starts producing 6 to 10 high-trust touchpoints per quarter across the investor base.</strong></p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">06</div>
+      <div>
+        <h3 class="finding-title">Activated Referral Program with LP Dashboard</h3>
+        <p class="finding-body">Turn the existing 1% referral mention into a real growth engine. Per-LP unique referral links, automated tracking of opt-ins and wires attributed to each LP, payout automation at the right milestone, an LP-facing dashboard showing pipeline status, and a quarterly "thank you" sequence for active referrers. <strong>For a fund where one happy LP averages 2 to 4 accredited friends in their personal network, an activated referral program is the cheapest capital acquisition channel in the operation.</strong></p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">07</div>
+      <div>
+        <h3 class="finding-title">Investor-Side Dedicated Phone Line + AI Receptionist</h3>
+        <p class="finding-body">Dedicated investor line, separate from the borrower line. Handled by an AI voice agent during off-hours and overflow, with the same quality bar as a Reg D fund's typical investor relations team. Greeting tailored to accredited LPs. Routing to Shaun or a designated IR contact within stated SLAs. Triage layer that separates "scheduling my discovery call" from "I have a tax question on my K-1" from "I want to upsize my commitment." <strong>Creates the institutional impression that matches the fund's $100K minimum and $25M+ track record.</strong></p>
+        <span class="finding-tag impact-high">Impact: High</span>
+      </div>
+    </div>
+    <div class="card finding fade-up">
+      <div class="finding-icon cyan">08</div>
+      <div>
+        <h3 class="finding-title">Compliance Posture Surfaced Where LPs Look</h3>
+        <p class="finding-body">A trust strip showing fund administrator, auditor, legal counsel, accreditation verification partner, and distribution servicer. A "How We Operate" page that walks through the operational rigor. For LPs who have seen iCapital and Yieldi, this kind of transparency reads as "this fund operates at institutional standards." Costs nothing to surface, and significantly closes the perception gap. <strong>The institutional plumbing already exists, it just isn't being told to the LP.</strong></p>
+        <span class="finding-tag impact-high">Impact: Medium-High</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- REVENUE IMPACT -->
+<section>
+<div class="container">
+  <div class="impact-bar fade-up">
+    <span class="badge badge--gold">Conservative AUM Impact</span>
+    <h3 style="margin-top:16px">Projected Annual AUM Acceleration</h3>
+    <div class="impact-range">$3M to $9M /yr in incremental commits</div>
+    <p class="impact-note">Based on improved opt-in to wire conversion (industry-typical 5 to 8% lifted to top-quartile 18 to 25%), reduced lead leakage during the 60 to 180 day nurture window, faster time-to-wire from automated accreditation verification, and activated referral program. AUM impact compounds because the fund redeploys each placed dollar into 9.5% to 12.5% interest-bearing loans. Discovery call will validate against Monument City Capital's actual investor pipeline data, current conversion rates, and capital deployment capacity.</p>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RECOMMENDED STACK -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Recommended Investor-Funnel Infrastructure</p>
+  <h2 class="section-heading fade-up">The Deployment Stack for the Capital-Raise Side</h2>
+  <p class="section-sub fade-up">Each system below targets a specific gap in the investor funnel. This stack runs in parallel to the borrower-side stack identified in the prior audit. Together they form the two halves of a complete two-sided lending operation.</p>
+  <div class="stack-grid">
+    <div class="card stack-card s1 fade-up">
+      <div class="stack-label">System 01 · Highest Priority</div>
+      <h4 class="stack-title">90-Day Accredited Investor Nurture Engine</h4>
+      <p class="stack-desc">Multi-channel automated sequence triggered on every opt-in: email, SMS, retargeting, drip video. Maps to the 60 to 180 day decision cycle. Built around Shaun-narrated content, monthly performance summaries, named LP stories, and stage-appropriate calendar booking CTAs.</p>
+    </div>
+    <div class="card stack-card s2 fade-up">
+      <div class="stack-label">System 02</div>
+      <h4 class="stack-title">Authentic LP Proof Library</h4>
+      <p class="stack-desc">Real investor video testimonials, named written quotes with permissions, and case studies featuring LPs who have lived through a 12-month commitment cycle. Replaces the existing placeholder block. Embedded throughout the funnel at high-friction decision moments.</p>
+    </div>
+    <div class="card stack-card s3 fade-up">
+      <div class="stack-label">System 03</div>
+      <h4 class="stack-title">Integrated Accreditation Verification</h4>
+      <p class="stack-desc">VerifyInvestor or equivalent integration at the form layer. Self-attestation flows directly into automated document collection and verified status. Cuts time-to-wire from weeks to days. Creates institutional-grade impression at the moment of commitment.</p>
+    </div>
+    <div class="card stack-card s4 fade-up">
+      <div class="stack-label">System 04</div>
+      <h4 class="stack-title">LP Portal with Distribution Visibility</h4>
+      <p class="stack-desc">Post-wire branded portal: monthly statements, distribution history, K-1 vault, DRIP controls, fund performance dashboard. Built on top of the existing fund administrator's data feed. Drives upsizing at renewal and referral activity from satisfied LPs.</p>
+    </div>
+    <div class="card stack-card s5 fade-up">
+      <div class="stack-label">System 05</div>
+      <h4 class="stack-title">Founder Authority Content Engine</h4>
+      <p class="stack-desc">Monthly Shaun-authored investor letter, monthly fund update audio, podcast appearance library, quarterly market commentary video. Turns dormant authority surface into structural lead nurture and LP retention infrastructure.</p>
+    </div>
+    <div class="card stack-card s6 fade-up">
+      <div class="stack-label">System 06</div>
+      <h4 class="stack-title">Activated Referral Program with LP Dashboard</h4>
+      <p class="stack-desc">Per-LP unique referral links, automated attribution tracking, payout automation, LP dashboard showing referred pipeline. Turns the existing 1% mention into the cheapest capital acquisition channel in the fund.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPETITIVE SNAPSHOT -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Competitive Snapshot</p>
+  <h2 class="section-heading fade-up">What Accredited LPs Are Seeing Elsewhere</h2>
+  <p class="section-sub fade-up">A representative cross-section of what an accredited investor evaluating real estate debt placements is seeing across the market. The platforms below set the standard prospects are subconsciously benchmarking against, even when they don't say so out loud.</p>
+  <table class="comp-table fade-up">
+    <thead>
+      <tr>
+        <th>Investor Funnel Infrastructure</th>
+        <th>Monument City Capital Today</th>
+        <th>Top Reg D 506(c) Sponsors (PeerStreet · Groundfloor · Yieldi · iCapital channel)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="highlight">Real Investor Testimonials</td><td><span class="cross">Placeholder text live</span></td><td><span class="check">Named video + written</span></td></tr>
+      <tr><td class="highlight">Post-Opt-In Nurture Sequence</td><td><span class="cross">Not visible</span></td><td><span class="check">90-day automated</span></td></tr>
+      <tr><td class="highlight">Integrated Accreditation Verification</td><td><span class="cross">Self-attest only</span></td><td><span class="check">VerifyInvestor / Parallel</span></td></tr>
+      <tr><td class="highlight">LP Portal Post-Commitment</td><td><span class="cross">Not visible</span></td><td><span class="check">Branded dashboard</span></td></tr>
+      <tr><td class="highlight">Founder Content Cadence</td><td><span class="cross">Static bio</span></td><td><span class="check">Monthly investor letter</span></td></tr>
+      <tr><td class="highlight">Active Referral Tracking</td><td><span class="cross">1% mention only</span></td><td><span class="check">Yes (per-LP links)</span></td></tr>
+      <tr><td class="highlight">Compliance Trust Strip</td><td><span class="cross">Disclosure only</span></td><td><span class="check">Administrator, auditor, counsel surfaced</span></td></tr>
+      <tr><td class="highlight">Dedicated Investor Phone Line</td><td><span class="cross">Shared with borrower</span></td><td><span class="check">Yes (IR line)</span></td></tr>
+      <tr><td class="highlight">Founder Operator-Investor Story</td><td><span class="check">Strong (Shaun's track record)</span></td><td><span class="cross">Corporate / generalist</span></td></tr>
+      <tr><td class="highlight">Local Market Specificity</td><td><span class="check">Maryland focus</span></td><td><span class="cross">National generalist</span></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.92rem;color:var(--text-muted);margin-top:16px">The strategic opening on the investor side mirrors the opening on the borrower side. Monument City Capital has the two assets the national platforms cannot replicate: <strong style="color:var(--cyan)">a real operator-turned-fund-manager story with a 10+ year track record, and a hyper-specific Maryland and South-Central Pennsylvania lending thesis</strong>. The infrastructure gaps on the investor funnel are fixable in weeks. The moats (founder authority + regional specialization) are not replicable by national platforms. Close the operations gap and the fund raises faster while telling a more credible story than any platform competitor.</p>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+<div class="container">
+  <div class="cta-card fade-up">
+    <span class="badge badge--cyan">Next Step</span>
+    <h2>This Audit Pairs with the Borrower-Side Audit.<br>The Full Picture Lives in the Diagnostic.</h2>
+    <p>This investor-side audit identifies the gaps visible from outside the operation. The real numbers (monthly opt-in volume on investwithmcc.com, current opt-in-to-wire conversion, median days from interest to wire, LP retention at the 12-month renewal, referral attribution share of AUM) live inside the fund. One conversation to walk through both audits, answer questions, and determine the right deployment order across borrower and investor sides.</p>
+    <a href="#" class="cta-btn">Schedule the Conversation</a>
+  </div>
+</div>
+</section>
+
+<!-- DISCOVERY QUESTIONS -->
+<section>
+<div class="container">
+  <p class="section-label fade-up">Discovery Questions</p>
+  <h2 class="section-heading fade-up">What the Investor-Side Diagnostic Will Surface</h2>
+  <p class="section-sub fade-up">These are the questions only the operation can answer. They determine deployment priority and exact scope for the investor funnel build.</p>
+  <div class="finding-grid">
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Opt-In Volume:</strong> How many accredited investor opt-ins per month across investwithmcc.com and its variants? Source split (paid ads, podcast, organic, referral)?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Conversion Rate:</strong> Current opt-in-to-wire conversion rate? Median days from first form fill to first wire? Where in the funnel do most leads disengage?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Current Nurture Cadence:</strong> What follow-up actually happens after the form submission today? Manual vs automated? Owned by whom?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Accreditation Verification:</strong> How is accreditation verified today? Document review, third-party service, advisor letter? Average time from commitment intent to verified status?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Fund Administrator + Stack:</strong> Which fund administrator (Phoenix American, NAV Fund Services, others)? What does the LP receive monthly today? K-1 timing and delivery method?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Current AUM and Target:</strong> Where is AUM today vs target by year-end? Which $ ranges represent the biggest LP cohorts ($100K, $250K, $500K, $1M+)?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Renewal and Upsizing:</strong> 12-month renewal rate? Average upsizing $ from renewing LPs? Referral attribution share of new AUM today?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Paid Traffic Spend:</strong> Monthly ad spend driving traffic to investwithmcc.com? CPL and CPA today? Which variant URL (/opt2-365689 is one of how many) performs best?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Funnel Host Stack:</strong> What does automatethejourney.com handle vs what's pulled into Monument City Capital's CRM? Where do leads live after submission? Who has visibility?</p>
+    </div>
+    <div class="card fade-up" style="padding:20px 28px;border-left:3px solid var(--cyan)">
+      <p style="font-size:0.92rem;color:var(--text-muted)"><strong>Testimonial Permissions:</strong> Which existing LPs have indicated willingness to provide named, photographed, or video testimonials? Realistic timeline to publish 3 to 5 real ones?</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="audit-footer">
+<div class="container">
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="rgba(153,221,255,0.12)"/><path d="M7 8l7 12 7-12" stroke="#99DDFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.5 14h7" stroke="#99DDFF" stroke-width="2" stroke-linecap="round"/></svg>
+      <span style="font-weight:700;font-size:0.85rem">ViralityX</span>
+    </div>
+    <p>Confidential · prepared for Monument City Capital leadership · Investor-side companion audit · June 2026</p>
+  </div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const els=document.querySelectorAll('.fade-up');
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(el=>observer.observe(el));
+});
+</script>
+
+</body>
+</html>
