@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ============================================================
+  JAKE-FACING — Game Plan + PROPOSED ADS preview (for his approval).
+  Brand matched to calviewfilms.com (dark teal). Veteran-owned is NOT asserted —
+  it's a confirm-first ask, since it's unverified and not on his own site.
+  Heat claim always "up to 85% on select films." Daniel coordinates the call; no "call me" CTA.
+  ============================================================
+-->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calview Films — Your Plan & Your Ads</title>
+<style>
+  :root{
+    --teal:#0d5350;--teal-dark:#0a3f3d;--teal-deep:#06302e;
+    --tan:#eaf1f0;--ink:#16201f;--line:#cfe0de;
+    --soft:#e2efed;--cream:#f6faf9;
+    --accent:#e2873a;--accent-dark:#c9722b;--bad:#b3402a;
+  }
+  *{box-sizing:border-box;-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--tan);color:var(--ink);line-height:1.55;font-size:18px}
+  .wrap{max-width:640px;margin:0 auto;padding:0 16px 60px}
+  header{background:var(--teal);color:#fff;padding:30px 18px 26px;text-align:center}
+  header .badge{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.5);
+    border-radius:30px;padding:5px 15px;font-size:13px;letter-spacing:.8px;text-transform:uppercase;
+    margin-bottom:13px;font-weight:700}
+  header h1{margin:0;font-size:27px;letter-spacing:.3px}
+  header .sub{margin-top:9px;font-size:16px;opacity:.92}
+  .hi{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px;margin:20px 0;font-size:17px}
+  .hi b{color:var(--teal-dark)}
+  h2.sec{font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--teal);
+    margin:32px 0 6px;font-weight:800}
+  .sec-note{font-size:15px;color:#5e6b6a;margin:0 0 12px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin:12px 0}
+  .card h3{margin:0 0 6px;font-size:19px;color:var(--teal-dark)}
+  .planrow{display:flex;gap:12px;align-items:flex-start;margin:12px 0}
+  .planrow .ic{flex:0 0 40px;height:40px;border-radius:11px;background:var(--soft);color:var(--teal-dark);
+    display:flex;align-items:center;justify-content:center;font-size:20px}
+  .planrow .t{font-size:16px}
+  .planrow .t b{color:var(--teal-dark)}
+
+  /* Google ad mock */
+  .phone{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin:12px 0}
+  .sbar{display:flex;align-items:center;gap:8px;background:#f1f3f4;border-radius:30px;
+    padding:9px 14px;font-size:14px;color:#5f6368;margin-bottom:14px}
+  .vtag{font-size:12px;font-weight:800;color:var(--teal-dark);background:var(--soft);
+    display:inline-block;padding:3px 10px;border-radius:6px;margin-bottom:9px}
+  .gad{padding:4px 2px 12px;border-bottom:1px solid #ededed}
+  .gad .meta{display:flex;align-items:center;gap:7px;font-size:13px;color:#202124;margin-bottom:3px}
+  .gad .adlbl{font-weight:800;color:#202124}
+  .gad .dot,.gad .url{color:#5f6368}
+  .gad .h{color:#1a0dab;font-size:20px;line-height:1.25;margin:3px 0 4px;font-weight:500}
+  .gad .d{color:#4d5156;font-size:15px;line-height:1.45}
+  .gad .sl{margin-top:9px;line-height:1.75}
+  .gad .sl span{color:#1a0dab;font-size:13.5px;margin-right:16px;white-space:nowrap}
+  .caption{font-size:14px;color:#7a8584;margin:4px 2px 0;font-style:italic}
+
+  /* landing preview */
+  .lp{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:12px 0}
+  .lp .lphero{background:var(--teal);color:#fff;padding:22px 18px;text-align:center}
+  .lp .lphero .b{display:inline-block;border:1px solid rgba(255,255,255,.55);border-radius:20px;padding:3px 11px;
+    font-size:11px;letter-spacing:.8px;text-transform:uppercase;margin-bottom:9px;font-weight:700}
+  .lp .lphero .hh{font-size:22px;font-weight:800;line-height:1.25}
+  .lp .lphero .ss{font-size:14px;opacity:.93;margin-top:8px}
+  .lp .lpbtn{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:15px;
+    padding:12px 20px;border-radius:30px;margin-top:14px}
+  .lp .lpbody{padding:16px 18px}
+  .lp .trust{font-size:13px;color:var(--teal-dark);text-align:center;font-weight:700;margin-bottom:12px}
+  .lp .chips{text-align:center;margin-bottom:13px}
+  .lp .chips span{display:inline-block;background:var(--soft);color:var(--teal-dark);border-radius:14px;
+    padding:3px 10px;font-size:12px;font-weight:700;margin:2px 3px}
+  .lp .rev{background:var(--cream);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;
+    padding:12px 14px;font-size:15px;font-style:italic;color:#444;margin-bottom:8px}
+  .lp .rev .who{display:block;font-style:normal;font-weight:700;color:var(--teal-dark);margin-top:6px;font-size:13px}
+
+  .status{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}
+  .status .row{display:flex;gap:11px;align-items:flex-start;margin:10px 0;font-size:16px}
+  .status .ck{flex:0 0 24px;height:24px;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-size:14px;font-weight:800;color:#fff}
+  .status .ck.d{background:var(--teal)}
+  .status .ck.w{background:var(--accent);font-size:12px}
+  .status .row b{color:var(--teal-dark)}
+
+  .need{background:#fff;border:2px solid var(--teal);border-radius:14px;padding:16px;margin:11px 0}
+  .need h3{margin:0 0 4px;font-size:18px;color:var(--teal-dark);display:flex;align-items:center;gap:10px}
+  .need .why{font-size:14px;color:#5e6b6a;margin:0}
+  .need .num{flex:0 0 28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+  .need.opt{border-color:var(--accent);border-style:dashed}
+  .need.opt .num{background:var(--accent)}
+
+  .cta{background:var(--teal);color:#fff;border-radius:14px;padding:24px 18px;text-align:center;margin:24px 0}
+  .cta h3{margin:0 0 6px;color:#fff;font-size:21px}
+  .cta p{margin:6px 0 0;font-size:16px;opacity:.95}
+  footer{text-align:center;font-size:14px;color:#8a9594;margin-top:30px}
+  b{color:var(--teal-dark)}
+  table.cmp{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);
+    border-radius:14px;overflow:hidden;font-size:15px;margin:0 0 14px}
+  table.cmp th{padding:11px 10px;font-weight:700;font-size:13.5px}
+  table.cmp .hl{background:var(--teal-dark);color:#fff;text-align:left}
+  table.cmp .you-h{background:var(--teal);color:#fff}
+  table.cmp td{padding:11px 10px;border-top:1px solid var(--line)}
+  table.cmp td.lab{font-weight:600}
+  table.cmp td.other{text-align:center;color:var(--bad);font-weight:700}
+  table.cmp td.you{text-align:center;background:var(--soft);color:var(--teal-dark);font-weight:800}
+</style>
+</head>
+<body>
+<header>
+  <div class="badge">Orange County · 5.0★ Rated</div>
+  <h1>Your Plan & Your Ads, Jake</h1>
+  <div class="sub">The real work we've done — and what's left to get you live.</div>
+</header>
+
+<div class="wrap">
+
+  <div class="hi">
+    Jake — we've been building. Below is your game plan plus the <b>actual ads and web page we've written for you.</b>
+    Take a look so you're in the loop, then we just need your photos and logo to flip it on. <b>Let's get you booked.</b>
+  </div>
+
+  <!-- THE PLAN -->
+  <h2 class="sec">Your game plan</h2>
+  <p class="sec-note">The simple version of how we get you booked with bigger jobs.</p>
+
+  <div class="card">
+    <div class="planrow"><div class="ic">🎯</div><div class="t"><b>Who we chase.</b> Homeowners and businesses with a hot, bright room — and solid <b>$1,000+ jobs</b>. No auto tint, no tiny work.</div></div>
+    <div class="planrow"><div class="ic">💵</div><div class="t"><b>Where your money goes.</b> Your full <b>$500/month into Google Search</b>, where ready-to-buy people look. We skip Yelp ads — you already get small jobs there free.</div></div>
+    <div class="planrow"><div class="ic">📣</div><div class="t"><b>Your offer.</b> Free same-day estimate · quote back within the hour · lifetime warranty. No discounting — fast, fair, and flawless beats cheap.</div></div>
+    <div class="planrow"><div class="ic">📊</div><div class="t"><b>Your scoreboard.</b> We track every call and job so you see exactly which ads bring you work — no guessing.</div></div>
+  </div>
+
+  <!-- THE ADS -->
+  <h2 class="sec">The ads we wrote for you</h2>
+  <p class="sec-note">This is what people see on Google. We test two angles and keep whichever books more jobs.</p>
+
+  <div class="phone">
+    <div class="sbar">🔍 <span>home window tinting orange county</span></div>
+    <div class="vtag">VERSION A · leads with the result</div>
+    <div class="gad">
+      <div class="meta"><span class="adlbl">Ad</span><span class="dot">·</span><span class="url">calviewfilms.com</span></div>
+      <div class="h">Cooler Rooms, Less Glare | Free Same-Day Estimate</div>
+      <div class="d">5.0★-rated window film in Orange County. Blocks 99% UV and up to 85% heat on select films. Clean installs, lifetime warranty, fair pricing.</div>
+      <div class="sl"><span>Residential Film</span><span>Commercial Film</span><span>Security Film</span><span>5-Star Reviews</span></div>
+    </div>
+    <div class="vtag" style="margin:16px 0 9px">VERSION B · leads with trust</div>
+    <div class="gad" style="border-bottom:0">
+      <div class="meta"><span class="adlbl">Ad</span><span class="dot">·</span><span class="url">calviewfilms.com</span></div>
+      <div class="h">5.0★ Window Tinting in OC | Quote Back in an Hour</div>
+      <div class="d">Homeowners & businesses trust Calview. Free same-day estimate, lifetime warranty. We answer fast and do it right the first time.</div>
+      <div class="sl"><span>Residential Film</span><span>Commercial Film</span><span>Security Film</span><span>5-Star Reviews</span></div>
+    </div>
+  </div>
+  <p class="caption">Same business, two angles. We run both and let your booked jobs pick the winner — that's the test.</p>
+
+  <!-- THE PAGE -->
+  <h2 class="sec">Your new web page</h2>
+  <p class="sec-note">When someone taps your ad, they land here — built to turn a click into a call.</p>
+
+  <div class="lp">
+    <div class="lphero">
+      <div class="b">Serving All of Orange County</div>
+      <div class="hh">Hot rooms, glare, and zero privacy? We fix that.</div>
+      <div class="ss">Premium window film that blocks 99% of UV and up to 85% of the heat on select films — installed clean and backed for life.</div>
+      <div class="lpbtn">📞 Call Now — Free Same-Day Estimate</div>
+    </div>
+    <div class="lpbody">
+      <div class="trust">★ 5.0 Google (24) · ★ 5.0 Yelp (15) · Lifetime Warranty · Quote Back in an Hour</div>
+      <div class="chips"><span>Residential</span><span>Commercial</span><span>Security</span><span>Decorative</span><span>Heat &amp; Glare</span></div>
+      <div class="rev">"If you want a professional job performed to perfection, call Jake from Calview! He takes his time to make the job look perfect. His attention to detail is the best."<span class="who">— Google review, 5★</span></div>
+      <div class="rev">"Absolutely amazing from start to finish. Extremely responsive, easy to communicate with, and very professional."<span class="who">— Google review, 5★</span></div>
+      <div class="rev">"Fair pricing and the quality exceeded expectations. He installed film on my son's nursery to block heat — the difference was noticeable right away."<span class="who">— Google review, 5★</span></div>
+    </div>
+  </div>
+  <p class="caption">Your real reviews and clean, honest reputation do the selling — right where the customer decides to call.</p>
+
+  <!-- EDGE / BENCHMARK -->
+  <h2 class="sec">Why you'll stand out in Orange County</h2>
+  <p class="sec-note">Here's how your new setup compares to a typical Orange County tint shop:</p>
+  <table class="cmp">
+    <tr><th class="hl">What customers want</th><th>Typical shop</th><th class="you-h">You</th></tr>
+    <tr><td class="lab">Reviews up front</td><td class="other">Usually buried</td><td class="you">✓ Yes</td></tr>
+    <tr><td class="lab">One tap to call</td><td class="other">Often missing</td><td class="you">✓ Yes</td></tr>
+    <tr><td class="lab">Built for homes &amp; offices</td><td class="other">Mostly car tint</td><td class="you">✓ Yes</td></tr>
+    <tr><td class="lab">Lifetime warranty</td><td class="other">Limited / varies</td><td class="you">✓ Yes</td></tr>
+    <tr><td class="lab">Fresh, modern page</td><td class="other">Often dated</td><td class="you">✓ Yes</td></tr>
+  </table>
+  <div class="card">
+    <div class="planrow"><div class="ic">🏠</div><div class="t"><b>Built for homes &amp; businesses.</b> Most shops push car tint first. Everything we're building is about your work — cooler rooms, offices, storefronts.</div></div>
+    <div class="planrow"><div class="ic">📞</div><div class="t"><b>Easy to reach.</b> A lot of them make people hunt for a number. Yours is one tap to call — and you answer within the hour.</div></div>
+    <div class="planrow"><div class="ic">⭐</div><div class="t"><b>Your reviews lead.</b> Most bury reviews or let them go stale. Your 5.0 stars sit right up front where customers decide.</div></div>
+    <div class="planrow"><div class="ic">🛡️</div><div class="t"><b>Backed for life.</b> Lifetime warranty on interior residential film — clean, careful work you stand behind.</div></div>
+  </div>
+
+  <!-- HONEST STATUS -->
+  <h2 class="sec">Where we are — straight with you</h2>
+  <div class="status">
+    <div class="row"><span class="ck d">✓</span><div>Read your business inside and out (from your form)</div></div>
+    <div class="row"><span class="ck d">✓</span><div><b>Game plan built</b> — who we target, your budget, your offer</div></div>
+    <div class="row"><span class="ck d">✓</span><div><b>Ads written</b> — the ones you see above, ready to launch</div></div>
+    <div class="row"><span class="ck d">✓</span><div><b>Web page written</b> — the preview above, ready to build live</div></div>
+    <div class="row"><span class="ck w">→</span><div><b>Next:</b> you approve, we connect your accounts, turn on the scoreboard, and go live</div></div>
+  </div>
+
+  <!-- WHAT WE NEED -->
+  <h2 class="sec">⚡ What we need from you</h2>
+  <p class="sec-note">Just one thing on your end — we handle everything else.</p>
+
+  <div class="need"><h3>📸 Photos &amp; logo</h3><p class="why">3–5 before/after job photos (homes and offices) and your logo file. The better the photos, the more jobs the ads close.</p></div>
+
+  <!-- CLOSE -->
+  <div class="cta">
+    <h3>Let's get you live, Jake</h3>
+    <p>Send over your photos and logo and your ads can be running this week.</p>
+  </div>
+
+  <footer>Calview Films × ViralityX &nbsp;·&nbsp; We win when you win.</footer>
+</div>
+</body>
+</html>
