@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tampa Bay Pay — Operational Audit | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;--bg2:#0d0f12;
+    --text:#f4f1ea;--muted:#9b9488;
+    --gold:#e5c077;--gold-deep:#c08328;--gold-bright:#f2cb07;
+    --red:#e93d3d;
+    --card:#15120b;--line:#2a2418;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Roboto',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:48px;}
+  h1,h2,h3,.dm{font-family:'DM Sans',sans-serif;}
+  .eyebrow,.sec-h,.hlabel,.label{font-family:'Sora',sans-serif;}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:50px;border-bottom:1px solid var(--line);padding-bottom:22px;}
+  .topbar img{height:42px;width:auto;}
+  .topbar .by{font-family:'Sora',sans-serif;font-size:.66rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;text-align:right;line-height:1.6;}
+  .topbar .by b{color:var(--gold);font-weight:600;}
+  .biz-name{font-size:2.6rem;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-.01em;}
+  .biz-desc{color:var(--muted);font-size:1.05rem;margin-top:14px;max-width:700px;}
+  .chip{display:inline-block;margin-top:20px;border:1px solid var(--gold);color:var(--gold);font-family:'Sora',sans-serif;font-size:.68rem;letter-spacing:.1em;padding:5px 12px;border-radius:999px;}
+  .chip.alt{border-color:var(--muted);color:var(--muted);margin-left:8px;}
+  .block{margin-top:64px;}
+  .sec-h{color:var(--gold);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;font-weight:600;}
+  .hero{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+  .hcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 22px;}
+  .hlabel{font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:500;}
+  .hnum{font-family:'DM Sans',sans-serif;font-size:3rem;font-weight:700;line-height:1;letter-spacing:-.02em;}
+  .hnum.red{color:var(--red);} .hnum.gold{color:var(--gold);}
+  .hsub{font-size:.74rem;color:var(--muted);margin-top:10px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:16px;}
+  .card.leak{border-left:4px solid var(--red);} .card.opp{border-left:4px solid var(--gold);}
+  .card h3{font-size:1.25rem;font-weight:600;color:#fff;margin-bottom:10px;}
+  .card p{color:var(--muted);font-size:.97rem;}
+  .metric{font-family:'DM Sans',sans-serif;font-weight:700;margin-top:16px;font-size:1.02rem;}
+  .metric.red{color:var(--red);} .metric.gold{color:var(--gold);}
+  .assume{font-size:.8rem;font-style:italic;color:var(--gold-deep);margin-top:6px;line-height:1.45;}
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;}
+  .mcard h4{font-family:'DM Sans',sans-serif;color:#fff;font-size:1rem;margin-bottom:10px;font-weight:600;}
+  .mcard p{color:var(--muted);font-size:.9rem;}
+  .mcard .stat{color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;}
+  .wedge{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:14px;}
+  .wedge .wname{font-family:'DM Sans',sans-serif;color:#fff;font-size:1rem;font-weight:600;margin-bottom:8px;}
+  .wedge .wframe{color:var(--muted);font-size:.88rem;}
+  .wnet{font-family:'DM Sans',sans-serif;color:var(--gold);font-size:1.1rem;font-weight:700;text-align:right;}
+  .wnet small{display:block;font-family:'Sora',sans-serif;color:var(--muted);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-weight:500;}
+  .sumrow{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem;}
+  .sumrow span:first-child{color:var(--muted);}
+  .sumrow .v{font-family:'DM Sans',sans-serif;font-weight:700;}
+  .sumrow .red{color:var(--red);} .sumrow .gold{color:var(--gold);} .sumrow .white{color:#fff;}
+  .inaction{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:48px 32px;text-align:center;margin-top:24px;}
+  .inaction .lbl{font-family:'Sora',sans-serif;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+  .inaction .big{font-family:'DM Sans',sans-serif;font-size:5rem;font-weight:700;color:var(--red);line-height:1;margin:18px 0;letter-spacing:-.02em;}
+  .inaction .note{color:var(--muted);font-size:.95rem;}
+  .footer{margin-top:64px;border-top:1px solid var(--line);padding-top:32px;}
+  .cred{color:var(--muted);font-size:.85rem;font-style:italic;max-width:700px;}
+  .cta{display:inline-block;margin-top:24px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#1a1304;font-family:'DM Sans',sans-serif;font-weight:700;text-decoration:none;padding:16px 28px;border-radius:8px;font-size:1rem;}
+  .ftiny{color:var(--muted);font-size:.7rem;font-family:'Sora',sans-serif;letter-spacing:.06em;margin-top:18px;line-height:1.7;}
+  .ftiny .g{color:var(--gold);}
+  @media (max-width:720px){
+    .wrap{padding:24px;}.topbar img{height:34px;}.biz-name{font-size:1.9rem;}
+    .hero{grid-template-columns:1fr;}.mgrid{grid-template-columns:1fr;}
+    .wedge{grid-template-columns:1fr;gap:14px;}.wnet{text-align:left;}
+    .inaction .big{font-size:3rem;}.hnum{font-size:2.4rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <img src="https://assets.cdn.filesafe.space/M6ZQcbY8mafN4E2WcreB/media/69c2c0e3284ace49ea7ee319.png" alt="Tampa Bay Pay">
+    <div class="by">Operational Audit<br>Prepared by <b>ViralityX</b></div>
+  </div>
+
+  <!-- HEADER -->
+  <div>
+    <div class="biz-name">Tampa Bay Pay</div>
+    <div class="biz-desc">Independent merchant services and payment processing team, St. Petersburg, FL. 250+ businesses served, 5.0 rating across 176 reviews. Founder and CEO Zachary Gottlieb. Already running on GoHighLevel and reselling websites, SEO, and POS to merchants.</div>
+    <span class="chip">FINTECH / MERCHANT SERVICES ISO</span>
+    <span class="chip alt">CONFIDENCE: HIGH</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hcard"><div class="hlabel">Monthly Revenue Leak</div><div class="hnum red">$32K</div><div class="hsub">Residual erosion + unrealized revenue</div></div>
+    <div class="hcard"><div class="hlabel">Net Monthly Upside</div><div class="hnum gold">$18K</div><div class="hsub">Recovery once gaps are closed</div></div>
+    <div class="hcard"><div class="hlabel">12-Month Cost of Inaction</div><div class="hnum red">$384K</div><div class="hsub">Annualized, before portfolio-value erosion</div></div>
+  </div>
+
+  <!-- MARKET CONTEXT -->
+  <div class="block">
+    <div class="sec-h">Market &amp; Portfolio Context</div>
+    <div class="mgrid">
+      <div class="mcard"><h4>Your book's value is a multiple of residual</h4><p>Buyers value a processing portfolio at roughly <span class="stat">22 to 30x monthly residual</span>. A clean book earns the top of that range, a leaky one earns the bottom. Everything you do to the book either builds or erodes that number.</p></div>
+      <div class="mcard"><h4>Attrition sets the multiple</h4><p>Books under <span class="stat">10% annual attrition</span> earn premium multiples. Books that shed <span class="stat">25%+ in a year</span> get paid at the bottom of the range. Every point of churn you cut is multiplied into enterprise value.</p></div>
+      <div class="mcard"><h4>You already sell more than payments</h4><p>Websites, SEO, GoHighLevel, POS. Your 250+ merchants trust you as a technology partner, not just a processor. That trusted book is a distribution channel almost no other ISO has.</p></div>
+      <div class="mcard"><h4>Your moat is service, and service is manual</h4><p>A 10-person team promising a direct line to 250+ merchants is your edge. It does not scale linearly. Without leverage, growth makes the promise harder to keep.</p></div>
+    </div>
+  </div>
+
+  <!-- COMPETITIVE LANDSCAPE -->
+  <div class="block">
+    <div class="sec-h">Competitive Landscape</div>
+    <div class="mgrid">
+      <div class="mcard"><h4>Local ISOs (PayFrog, Nock Pay, EMS)</h4><p>PayFrog has run Tampa since 2010 on the same transparent, no-contract message you use. Nock Pay targets restaurants, e-commerce, and healthcare. They compete on your exact pitch, so rate alone is a race to the bottom. Stickiness and service are how you win, not price.</p></div>
+      <div class="mcard"><h4>The PayFac threat (Square, Stripe, Toast)</h4><p>This is the real attrition risk. They win on instant signup and software, then freeze funds and hide behind an 800 number. Your true merchant account, interchange-plus pricing, and local support are the counter, and for any merchant above <span class="stat">$15 to 20k/mo</span> in volume, you are the cheaper sustainable option.</p></div>
+      <div class="mcard"><h4>Where you win</h4><p>Local, human, transparent, no contracts, next-day funding, and a 5.0 reputation. On a level field you beat both the local ISOs and the PayFacs. The gap is that nothing systematizes that advantage or defends it after the sale.</p></div>
+      <div class="mcard"><h4>Where you're exposed</h4><p>Your differentiators live in people's heads and inboxes. A competitor undercutting on rate, or a Square rep promising simplicity, can pull a merchant you have no early warning on. That is the exact hole a retention engine closes.</p></div>
+    </div>
+  </div>
+
+  <!-- REGULATORY -->
+  <div class="block">
+    <div class="sec-h">Regulatory Signal — Dual Pricing</div>
+    <div class="card">
+      <p>You lead with dual pricing, and the market is moving your way. Over <span style="color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;">60% of SMBs</span> now run surcharge or dual pricing, and dual pricing is legal in all 50 states. But the rules are shifting. Virginia and Minnesota passed "all-in pricing" laws in 2025 that push merchants off surcharging and toward dual pricing, and non-compliance fines run <span style="color:var(--red);font-family:'DM Sans',sans-serif;font-weight:700;">$50K to $1M</span>. Every merchant you put on dual pricing needs correct signage, 30-day card-brand notice, and ongoing compliance. That is a manual burden today and an automation opportunity tomorrow, and being the processor who keeps merchants compliant is one more reason they never leave.</p>
+    </div>
+  </div>
+
+  <!-- BOTTLENECKS -->
+  <div class="block">
+    <div class="sec-h">Bottlenecks</div>
+
+    <div class="card leak">
+      <h3>1. No proactive retention system on the residual book</h3>
+      <p>The book is defended by great service, but service is reactive. There is no automated early-warning on merchants whose volume is dropping, whose statements signal they are shopping, or who have gone quiet. In this business, a churned merchant is not one lost sale, it is a lost recurring residual stream and a cut to portfolio value.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $9,000</div>
+      <div class="assume">Assumption: 250+ merchant book. Industry valuation data treats under 10%/yr attrition as a clean book and 25%+/yr as a leaky one; at a midpoint, roughly 3 to 4 merchants lost per month at an estimated ~$120/mo average residual. Modeled as eroding recurring residual plus the reacquisition cost to stay flat. Each lost residual dollar also cuts portfolio value at the 22 to 30x multiple. Estimate pending operator validation.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>2. The statement / rate analysis is manual, and it is your sales engine</h3>
+      <p>Your best closing tool is the line-by-line statement breakdown that shows a merchant exactly what they overpay. Today a human does that for every prospect. That caps how many merchants each rep can work, and slow turnaround loses deals to whoever answered first.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $8,000</div>
+      <div class="assume">Assumption: manual analysis limits throughput. Instant analysis could realistically add ~2 signings/mo at ~$120/mo residual with multi-year life, plus reclaimed rep time. Modeled conservatively at ~$8K/mo in delayed and lost opportunity.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>3. Speed-to-lead on statement uploads and consult requests</h3>
+      <p>A merchant who uploads a statement or books a consult is shopping, and they are usually talking to more than one processor. If that upload is not worked within minutes, the warmest moment is gone. There is no sign of instant acknowledgment or automated routing behind the rate-review form.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $6,000</div>
+      <div class="assume">Assumption: ~2 convertible merchants lost per quarter to slow response, valued at residual lifetime and spread monthly (~$6K/mo).</div>
+    </div>
+
+    <div class="card leak">
+      <h3>4. The hands-on support promise does not scale with the team</h3>
+      <p>The brand is built on a direct line and no 800 number for 250+ merchants. As the book grows, support volume pulls account managers and execs off selling and retention. The promise that wins merchants becomes the thing that caps growth.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $4,000</div>
+      <div class="assume">Assumption: rising support load diverts ~$4K/mo of selling and retention capacity from a ~10-person team, plus the risk of the service promise slipping as volume grows.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>5. The 250-merchant book is an unmonetized distribution channel</h3>
+      <p>You already resell websites, SEO, and GoHighLevel. Your merchants trust you. That same book wants AI voice agents, review engines, CRM, and automation, and almost none of them have it. Right now that channel sits unworked, and it is the same offer that would make those merchants stickier.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $5,000 unrealized</div>
+      <div class="assume">Assumption: a 10% attach across 250 merchants at ~$200/mo margin to Tampa Bay Pay is ~$5K/mo of unrealized recurring revenue, ramping. It also directly lowers attrition on Bottleneck 1.</div>
+    </div>
+  </div>
+
+  <!-- OPPORTUNITIES -->
+  <div class="block">
+    <div class="sec-h">Opportunities</div>
+
+    <div class="card opp">
+      <h3>Build a retention engine on the residual book</h3>
+      <p>Closes Bottleneck 1. CRM with merchant health scoring, automated alerts when volume drops or a merchant goes quiet, and win-back sequences. You stop attrition before it happens instead of finding out at month end.</p>
+      <div class="metric gold">ESTIMATED MONTHLY RECOVERY: $5,500</div>
+      <div class="assume">Assumption: proactive retention plus the value-add stack cuts attrition meaningfully, capturing ~60% of the attrition leak and lifting portfolio value.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Deploy an AI statement-analysis engine</h3>
+      <p>Closes Bottleneck 2. A merchant uploads a statement, AI returns the effective rate, hidden fees, and apples-to-apples savings in minutes, branded as Tampa Bay Pay. Reps work more prospects and close faster, and it becomes a lead magnet on its own.</p>
+      <div class="metric gold">ESTIMATED MONTHLY RECOVERY: $5,000</div>
+      <div class="assume">Assumption: instant analysis 2 to 3x's qualified proposals, capturing ~60% of the throughput leak.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Speed-to-lead plus a 24/7 voice agent on inbound</h3>
+      <p>Closes Bottleneck 3. Every statement upload and consult request gets an instant response and a booked next step, day or night. The warmest moment never goes unanswered.</p>
+      <div class="metric gold">ESTIMATED MONTHLY RECOVERY: $3,500</div>
+      <div class="assume">Assumption: instant capture recovers ~60% of the slow-response leak.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Add an AI support layer behind the human promise</h3>
+      <p>Closes Bottleneck 4. AI handles tier-one merchant questions instantly and routes anything real to your team. You keep the direct-line promise and free your people for selling and retention.</p>
+      <div class="metric gold">ESTIMATED MONTHLY RECOVERY: $2,500</div>
+      <div class="assume">Assumption: support automation reclaims ~60% of diverted selling and retention capacity.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Turn the merchant book into a value-add revenue line</h3>
+      <p>Closes Bottleneck 5. White-label the ViralityX AI ops stack (voice agents, review engine, CRM, automation) as a Tampa Bay Pay offering your merchants already trust you to recommend. New recurring revenue for you, and stickier merchants who now run their business on your tools.</p>
+      <div class="metric gold">ESTIMATED MONTHLY RECOVERY: $3,500</div>
+      <div class="assume">Assumption: modest attach across the book ramps to ~$3.5K/mo margin and compounds retention.</div>
+    </div>
+  </div>
+
+  <!-- BUILD STACK -->
+  <div class="block">
+    <div class="sec-h">Recommended Build Stack</div>
+    <div class="wedge"><div><div class="wname">AI Statement-Analysis Engine</div><div class="wframe">Instant, branded savings analysis from an uploaded statement. Your manual sales tool, automated and turned into a lead magnet.</div></div><div class="wnet"><small>Primary Impact</small>More signings, faster</div></div>
+    <div class="wedge"><div><div class="wname">Merchant Retention System</div><div class="wframe">CRM with health scoring, at-risk alerts, and win-back sequences across the residual book.</div></div><div class="wnet"><small>Primary Impact</small>Lower attrition, higher value</div></div>
+    <div class="wedge"><div><div class="wname">AI Speed-to-Lead</div><div class="wframe">Instant response and booking on every statement upload and consult request.</div></div><div class="wnet"><small>Primary Impact</small>Fewer merchants lost</div></div>
+    <div class="wedge"><div><div class="wname">AI Voice + Support Agent (24/7)</div><div class="wframe">Extends the direct-line promise without burning the team, tier-one handled, real issues routed to people.</div></div><div class="wnet"><small>Primary Impact</small>Support that scales</div></div>
+    <div class="wedge"><div><div class="wname">Merchant Value-Add Stack (white-label)</div><div class="wframe">AI ops products you resell to your 250+ book, a new revenue line that makes merchants stickier.</div></div><div class="wnet"><small>Primary Impact</small>New revenue + retention</div></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="block">
+    <div class="sec-h">Total Impact Summary</div>
+    <div class="sumrow"><span>Total monthly leak across all bottlenecks</span><span class="v red">$32,000</span></div>
+    <div class="sumrow"><span>Annualized leak (x12)</span><span class="v red">$384,000</span></div>
+    <div class="sumrow"><span>Estimated monthly recovery if all opportunities closed</span><span class="v gold">$20,000</span></div>
+    <div class="sumrow"><span>Net monthly upside</span><span class="v gold">~$18,000</span></div>
+    <div class="sumrow"><span>12-month cost of inaction</span><span class="v red">$384,000</span></div>
+  </div>
+
+  <div class="block">
+    <div class="inaction">
+      <div class="lbl">12-Month Cost of Inaction</div>
+      <div class="big">$384,000</div>
+      <div class="note">And that is before the compounding hit to portfolio value from every merchant lost.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="cred">These estimates are based on verified merchant-services portfolio economics (portfolio multiples and attrition bands), current surcharge and dual-pricing regulation, the Tampa competitive landscape, and the visible operational signals on tampabaypay.com. They are starting figures for an operator conversation, not a quote.</div>
+    <a class="cta" href="https://tampabaypay.com/learn-more">Book a strategy call →</a>
+    <div class="ftiny">SOURCES: Velocity Funding &amp; CCSalesPro (portfolio valuation, 22-30x monthly residual, attrition bands) · AllayPay / Stax / Centime (2026 surcharge &amp; dual-pricing law) · PayFrog, Nock Pay, EMS (Tampa competitors) · tampabaypay.com (operational signals)<br><br><span class="g">ViralityX</span> // Operational + AI Systems Architecture · prepared for Tampa Bay Pay</div>
+  </div>
+
+</div>
+</body>
+</html>

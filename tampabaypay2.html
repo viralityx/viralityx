@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tampa Bay Pay — Discovery Call Gameplan (Internal) | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0c0c0c;--text:#e8e8e8;--muted:#888;--lime:#d4ff00;--red:#ff4d4d;--amber:#ffb84d;--card:#151515;--line:#262626;--blue:#7db8ff;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:48px;}
+  .topbar{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:var(--muted);margin-bottom:40px;}
+  .topbar b{color:var(--lime);font-weight:600;} .topbar .int{color:var(--amber);}
+  h1{font-family:'IBM Plex Mono',monospace;font-size:2.2rem;color:#fff;font-weight:600;line-height:1.1;}
+  .sub{color:var(--muted);margin-top:12px;font-size:1.02rem;}
+  .block{margin-top:56px;}
+  .sec-h{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;}
+  .brief{background:linear-gradient(180deg,#131500,#0c0c0c);border:1px solid var(--lime);border-radius:12px;padding:26px;}
+  .brief h3{color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.95rem;margin-bottom:12px;}
+  .brief p{font-size:.97rem;margin-bottom:10px;} .brief .hot{color:#fff;font-weight:600;} .brief .warn{color:var(--amber);}
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;}
+  .rcard h4{font-family:'IBM Plex Mono',monospace;font-size:1rem;margin-bottom:10px;}
+  .rcard.josh h4{color:var(--blue);} .rcard.danny h4{color:var(--lime);}
+  .rcard ul{margin-left:18px;color:var(--muted);font-size:.92rem;} .rcard li{margin-bottom:7px;}
+  .flow{border-left:2px solid var(--line);margin-left:8px;}
+  .step{position:relative;padding:0 0 22px 26px;}
+  .step::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--lime);}
+  .step .t{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--amber);letter-spacing:.06em;}
+  .step .n{color:#fff;font-weight:600;font-size:1.05rem;margin:3px 0;}
+  .step .d{color:var(--muted);font-size:.9rem;}
+  .step .who{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--blue);}
+  .qcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:14px;}
+  .qcard .cat{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.82rem;letter-spacing:.08em;margin-bottom:4px;}
+  .qcard .need{font-size:.78rem;font-style:italic;color:var(--amber);margin-bottom:14px;}
+  .qcard ul{margin-left:18px;} .qcard li{margin-bottom:10px;font-size:.97rem;color:var(--text);}
+  .qcard li .cue{display:block;font-size:.8rem;color:var(--muted);font-style:italic;margin-top:3px;}
+  .wand{background:#1a1400;border:1px solid var(--amber);border-radius:12px;padding:28px;}
+  .wand h3{color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:1rem;margin-bottom:14px;}
+  .wand .big{color:#fff;font-size:1.2rem;font-weight:600;line-height:1.5;margin-bottom:16px;}
+  .wand ul{margin-left:18px;color:var(--text);} .wand li{margin-bottom:10px;} .wand .tip{color:var(--muted);font-size:.88rem;font-style:italic;margin-top:14px;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px;}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;}
+  td .trig{color:var(--amber);font-style:italic;} td .wedge{color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.85rem;}
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .docard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;}
+  .docard h4{font-family:'IBM Plex Mono',monospace;font-size:.85rem;letter-spacing:.08em;margin-bottom:12px;}
+  .docard.do h4{color:var(--lime);} .docard.dont h4{color:var(--red);}
+  .docard ul{margin-left:18px;color:var(--muted);font-size:.9rem;} .docard li{margin-bottom:8px;}
+  .close-script{background:var(--card);border-left:4px solid var(--lime);border-radius:10px;padding:22px;color:var(--text);font-size:.98rem;} .close-script em{color:var(--muted);}
+  @media(max-width:720px){.wrap{padding:24px;}h1{font-size:1.6rem;}.roles,.dos{grid-template-columns:1fr;}table{font-size:.82rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar"><b>VIRALITYX</b> // DISCOVERY CALL GAMEPLAN <span class="int">[INTERNAL — DANNY + JOSH ONLY]</span></div>
+
+  <h1>Tampa Bay Pay<br>Discovery Call Playbook</h1>
+  <div class="sub">Zac Gottlieb, Founder / CEO. Merchant services ISO, St. Petersburg. This is a discovery call, not a sales call. Zac is sharp and runs his own consultative process. Match him operator to operator. He talks 80, we talk 20.</div>
+
+  <!-- BRIEF -->
+  <div class="block">
+    <div class="sec-h">60-Second Pre-Call Brief</div>
+    <div class="brief">
+      <h3>Read this before you dial</h3>
+      <p><span class="hot">Who he is:</span> Zac built Tampa Bay Pay into the highest-rated payments team in Tampa Bay. 250+ merchants, 5.0 rating across 157+ reviews, a 10-person team, bilingual support. He already resells websites, SEO, and GoHighLevel, and runs his own 8-step consultative sales process. He is not a beginner.</p>
+      <p><span class="hot">The way in:</span> Two doors, both better than a generic ops pitch. One, his 250-merchant book is a distribution channel for the ViralityX AI stack that also makes those merchants stickier and protects his residual. Two, his core sales tool, the statement rate-analysis, is still manual. Lead with portfolio economics and the channel, not "your website."</p>
+      <p><span class="hot">Shared stack rapport:</span> He runs on GoHighLevel. So do we. Use it. You speak the same language, that builds instant trust.</p>
+      <p><span class="hot">Who he competes with:</span> Locally, PayFrog (Tampa since 2010, same no-contract pitch) and Nock Pay. His real attrition threat is the PayFacs (Square, Stripe, Toast) who win on instant signup then freeze funds. His edge over them is a true merchant account, interchange-plus, and local human support. Tailwind to mention: 60%+ of SMBs now run dual pricing, his lead model, but VA and MN "all-in pricing" laws are reshaping it, so compliance is a live opening.</p>
+      <p><span class="warn">Do NOT pitch website fixes, missed-call recovery, or review generation as the headline.</span> His marketing and reputation are already excellent. He sells that stuff himself. Respect it or you lose credibility in 30 seconds.</p>
+    </div>
+  </div>
+
+  <!-- ROLES -->
+  <div class="block">
+    <div class="sec-h">Who Runs What</div>
+    <div class="roles">
+      <div class="rcard josh">
+        <h4>JOSH — Relationship &amp; Frame</h4>
+        <ul>
+          <li>Opens, sets the tone, peer to peer. He sourced Zac, so the relationship is warm.</li>
+          <li>Frames it: "Not a pitch, we want to understand how you run and where we might fit, as a partner or for your own ops."</li>
+          <li>Asks the story and vision questions.</li>
+          <li>Reads which door lights Zac up: the channel partnership or fixing his own engine.</li>
+        </ul>
+      </div>
+      <div class="rcard danny">
+        <h4>DANNY — Operational Dig</h4>
+        <ul>
+          <li>Drives the portfolio, sales-engine, retention, and tech questions.</li>
+          <li>Signals fluency in ISO economics: residuals, attrition, portfolio value.</li>
+          <li>Flags build opportunities silently for the proposal.</li>
+          <li>Lands the magic wand, sets the next step.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOW -->
+  <div class="block">
+    <div class="sec-h">Call Flow (target 35–45 min)</div>
+    <div class="flow">
+      <div class="step"><div class="t">0–3 MIN</div><div class="n">Open &amp; frame</div><div class="d">"We did our homework on Tampa Bay Pay, the reviews and the team are no joke. Today's about understanding your business so anything we bring you actually fits. We'll listen more than we talk."</div><div class="who">JOSH</div></div>
+      <div class="step"><div class="t">3–8 MIN</div><div class="n">His story &amp; vision</div><div class="d">How he started, where the book is now, where he wants to take it. Listen for whether he wants to grow the book, sell it, or build the value-add side.</div><div class="who">JOSH</div></div>
+      <div class="step"><div class="t">8–16 MIN</div><div class="n">The book &amp; how he wins merchants</div><div class="d">Portfolio size, how merchants come in, the statement-analysis engine, who does it, how long it takes, throughput limits.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">16–24 MIN</div><div class="n">Retention &amp; attrition</div><div class="d">How he keeps merchants, whether he tracks at-risk accounts, what attrition looks like, what it costs him. This is where ISO fluency earns trust.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">24–32 MIN</div><div class="n">The value-add side &amp; the channel</div><div class="d">What he already resells (websites, SEO, GHL), how it goes, and whether he's thought about offering AI ops to his book. This opens the partnership door.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">32–40 MIN</div><div class="n">Team, support load &amp; the magic wand</div><div class="d">Where the team's time goes, the support promise at scale, then the wand. Ask one, stay silent.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">40–45 MIN</div><div class="n">Next step</div><div class="d">"We'll build you a custom blueprint, mapped to your book and your goals." Book the follow-up live.</div><div class="who">BOTH</div></div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="block">
+    <div class="sec-h">Question Bank (open-ended, mapped to intel we need)</div>
+
+    <div class="qcard">
+      <div class="cat">1. STORY &amp; VISION</div>
+      <div class="need">We need: where the book is, where he wants it, grow vs sell vs diversify.</div>
+      <ul>
+        <li>"Walk us through Tampa Bay Pay. How'd you get from your first merchant to 250-plus?"</li>
+        <li>"What are you most proud of building?"</li>
+        <li>"Where do you want this in two or three years? Bigger book, sell the portfolio, or build out the value-add side?"<span class="cue">This answer decides whether we lead with growth, retention/valuation, or the channel.</span></li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">2. THE BOOK &amp; HOW HE WINS MERCHANTS</div>
+      <div class="need">We need: portfolio size/volume, lead sources, the sales engine, throughput limits.</div>
+      <ul>
+        <li>"How many merchants are you actively processing for right now, and how does new business come in? Referrals, partners, outbound?"</li>
+        <li>"Walk me through the rate analysis. When a merchant sends a statement, what actually happens and who does it?"<span class="cue">If it's manual / per-rep → AI statement-analysis engine is the headline build.</span></li>
+        <li>"How long from statement to proposal? How many can a rep realistically work in a week?"</li>
+        <li>"When a merchant uploads a statement or books a consult, how fast does someone get to them?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">3. RETENTION &amp; ATTRITION</div>
+      <div class="need">We need: attrition rate, how he sees churn coming, what a lost merchant costs.</div>
+      <ul>
+        <li>"What does attrition look like for you? Do merchants ever leave, and do you usually see it coming?"</li>
+        <li>"Do you have any way to flag a merchant whose volume is dropping or who's gone quiet, before they cancel?"<span class="cue">If "no" → retention engine + health scoring. Big residual and valuation lever.</span></li>
+        <li>"When you think about selling or valuing the book someday, how much does retention factor in?"<span class="cue">If he cares about portfolio value → tie everything to stickiness and the 3-5x vs 1-2x multiple.</span></li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">4. THE VALUE-ADD SIDE &amp; THE CHANNEL</div>
+      <div class="need">We need: what he resells, how it performs, appetite to offer AI ops to his book.</div>
+      <ul>
+        <li>"You already do websites, SEO, GoHighLevel for merchants. How's that side going for you?"</li>
+        <li>"Have you thought about offering your merchants the AI stuff, voice agents, review automation, CRM? They trust you, and almost none of them have it."<span class="cue">This is the partnership door. If he leans in → frame ViralityX as his white-label engine.</span></li>
+        <li>"Would a value-add bundle that makes merchants stickier be interesting, given what stickiness does to your residual and your book's value?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">5. TEAM &amp; SUPPORT LOAD</div>
+      <div class="need">We need: team size/roles, where time goes, how the support promise scales.</div>
+      <ul>
+        <li>"Your whole brand is the direct line, no 800 number. As the book grows, how's the team holding up on support?"</li>
+        <li>"Where does your week go? What are you doing that you wish you weren't?"</li>
+        <li>"If support ran itself for the simple stuff, where would you put that time?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">6. TECH STACK</div>
+      <div class="need">We need: what they run so we integrate, not replace. We know GHL already.</div>
+      <ul>
+        <li>"You're on GoHighLevel, same as us. What else are you running for CRM, residual tracking, onboarding?"</li>
+        <li>"What works, and what do you fight with?"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WAND -->
+  <div class="block">
+    <div class="sec-h">The Close — Magic Wand</div>
+    <div class="wand">
+      <h3>Save the most important question for last. Ask ONE. Then shut up.</h3>
+      <div class="big">"If you had a magic wand and could fix or automate one thing in the business tomorrow, what would it be?"</div>
+      <ul>
+        <li>"What's the one thing that, if it worked the way you wanted, would change the game for Tampa Bay Pay?"</li>
+        <li>"Of everything we covered, what do you need the most help with right now?"</li>
+      </ul>
+      <div class="tip">Ask it, then go completely silent. Whatever he says first is the headline of the proposal. Write it word for word.</div>
+    </div>
+  </div>
+
+  <!-- LISTENING MAP -->
+  <div class="block">
+    <div class="sec-h">Listening Map — what he says → what we build</div>
+    <table>
+      <thead><tr><th>If he says</th><th>It signals</th><th>Proposal wedge</th></tr></thead>
+      <tbody>
+        <tr><td><span class="trig">"We do the statement analysis by hand"</span></td><td>Sales engine capped by labor</td><td><span class="wedge">AI statement-analysis engine</span></td></tr>
+        <tr><td><span class="trig">"Merchants leave / we lose some"</span></td><td>Residual + portfolio value bleeding</td><td><span class="wedge">Retention engine + health scoring</span></td></tr>
+        <tr><td><span class="trig">"I want to sell the book someday"</span></td><td>Valuation is the goal</td><td><span class="wedge">Stickiness story, 3-5x vs 1-2x multiple</span></td></tr>
+        <tr><td><span class="trig">"The website/SEO side does ok"</span></td><td>Already a value-add reseller</td><td><span class="wedge">White-label AI ops channel</span></td></tr>
+        <tr><td><span class="trig">"Support is eating us alive"</span></td><td>Human promise not scaling</td><td><span class="wedge">AI support layer + voice agent</span></td></tr>
+        <tr><td><span class="trig">"Leads sit / reps are slammed"</span></td><td>Speed-to-lead gap on uploads</td><td><span class="wedge">Speed-to-lead automation</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DOS -->
+  <div class="block">
+    <div class="sec-h">On The Call</div>
+    <div class="dos">
+      <div class="docard do">
+        <h4>DO</h4>
+        <ul>
+          <li>Open by acknowledging his reviews and team. He built something real.</li>
+          <li>Talk his language: residuals, attrition, portfolio value, basis points.</li>
+          <li>Use the shared GoHighLevel stack to build rapport.</li>
+          <li>Probe both doors: client work and the channel partnership.</li>
+          <li>Ask, then go quiet. Book the follow-up before you hang up.</li>
+        </ul>
+      </div>
+      <div class="docard dont">
+        <h4>DON'T</h4>
+        <ul>
+          <li>Pitch website, SEO, missed calls, or reviews as the headline. He sells those.</li>
+          <li>Talk down to him or over-explain AI. He's sophisticated.</li>
+          <li>Quote a price. This is discovery.</li>
+          <li>Promise a specific dollar number live. Gather, then model.</li>
+          <li>Open random new ideas. Stay on his book and his goals.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="block">
+    <div class="sec-h">Closing Script</div>
+    <div class="close-script">
+      "Zac, this is exactly what we needed. Here's what's next. We take what you walked us through and build you a custom blueprint, mapped to your book and where you want to take it, whether that's tightening your own engine or turning your merchant base into a channel. <em>Let's get the next call on the calendar right now so we can walk you through it.</em>"
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
