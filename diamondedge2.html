@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Edge — Discovery Call Gameplan (Internal) | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c0c;--text:#e8e8e8;--muted:#888;--lime:#d4ff00;--red:#ff4d4d;--amber:#ffb84d;
+    --card:#151515;--line:#262626;--blue:#7db8ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:48px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .topbar{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:var(--muted);margin-bottom:40px;}
+  .topbar b{color:var(--lime);font-weight:600;}
+  .topbar .int{color:var(--amber);}
+  h1{font-family:'IBM Plex Mono',monospace;font-size:2.2rem;color:#fff;font-weight:600;line-height:1.1;}
+  .sub{color:var(--muted);margin-top:12px;font-size:1.02rem;}
+  .block{margin-top:56px;}
+  .sec-h{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;}
+
+  .brief{background:linear-gradient(180deg,#131500,#0c0c0c);border:1px solid var(--lime);border-radius:12px;padding:26px;}
+  .brief h3{color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.95rem;margin-bottom:12px;}
+  .brief p{font-size:.97rem;margin-bottom:10px;}
+  .brief .hot{color:#fff;font-weight:600;}
+  .brief .warn{color:var(--amber);}
+
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;}
+  .rcard h4{font-family:'IBM Plex Mono',monospace;font-size:1rem;margin-bottom:10px;}
+  .rcard.josh h4{color:var(--blue);}
+  .rcard.danny h4{color:var(--lime);}
+  .rcard ul{margin-left:18px;color:var(--muted);font-size:.92rem;}
+  .rcard li{margin-bottom:7px;}
+
+  .flow{border-left:2px solid var(--line);margin-left:8px;padding-left:0;}
+  .step{position:relative;padding:0 0 22px 26px;}
+  .step::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--lime);}
+  .step .t{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--amber);letter-spacing:.06em;}
+  .step .n{color:#fff;font-weight:600;font-size:1.05rem;margin:3px 0;}
+  .step .d{color:var(--muted);font-size:.9rem;}
+  .step .who{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--blue);}
+
+  .qcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:14px;}
+  .qcard .cat{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.82rem;letter-spacing:.08em;margin-bottom:4px;}
+  .qcard .need{font-size:.78rem;font-style:italic;color:var(--amber);margin-bottom:14px;}
+  .qcard ul{margin-left:18px;}
+  .qcard li{margin-bottom:10px;font-size:.97rem;color:var(--text);}
+  .qcard li .cue{display:block;font-size:.8rem;color:var(--muted);font-style:italic;margin-top:3px;}
+
+  .wand{background:#1a1400;border:1px solid var(--amber);border-radius:12px;padding:28px;}
+  .wand h3{color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:1rem;margin-bottom:14px;}
+  .wand .big{color:#fff;font-size:1.2rem;font-weight:600;line-height:1.5;margin-bottom:16px;}
+  .wand ul{margin-left:18px;color:var(--text);}
+  .wand li{margin-bottom:10px;}
+  .wand .tip{color:var(--muted);font-size:.88rem;font-style:italic;margin-top:14px;}
+
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px;}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;}
+  td .trig{color:var(--amber);font-style:italic;}
+  td .wedge{color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.85rem;}
+
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .docard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;}
+  .docard h4{font-family:'IBM Plex Mono',monospace;font-size:.85rem;letter-spacing:.08em;margin-bottom:12px;}
+  .docard.do h4{color:var(--lime);}
+  .docard.dont h4{color:var(--red);}
+  .docard ul{margin-left:18px;color:var(--muted);font-size:.9rem;}
+  .docard li{margin-bottom:8px;}
+
+  .close-script{background:var(--card);border-left:4px solid var(--lime);border-radius:10px;padding:22px;color:var(--text);font-size:.98rem;}
+  .close-script em{color:var(--muted);}
+
+  @media(max-width:720px){
+    .wrap{padding:24px;}
+    h1{font-size:1.6rem;}
+    .roles,.dos{grid-template-columns:1fr;}
+    table{font-size:.82rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar"><b>VIRALITYX</b> // DISCOVERY CALL GAMEPLAN <span class="int">[INTERNAL — DANNY + JOSH ONLY]</span></div>
+
+  <h1>Diamond Edge Builders<br>Discovery Call Playbook</h1>
+  <div class="sub">Robert Jackson, Owner / CEO. Commercial GC + multifamily developer. This is a discovery call, not a sales call. Goal: gather enough intel to build a custom blueprint. He talks 80, we talk 20.</div>
+
+  <!-- 60 SECOND BRIEF -->
+  <div class="block">
+    <div class="sec-h">60-Second Pre-Call Brief</div>
+    <div class="brief">
+      <h3>Read this before you dial</h3>
+      <p><span class="hot">Who he is:</span> Robert runs a commercial general contracting and multifamily development firm out of Central Texas, with projects in TX, FL, NY, and CO (Pickleball Kingdom, Chamonix Condos, Algarita Apartments, Sbarro NYC, Babe Coffee Denver). He is Service-Disabled Veteran-Owned and SAM-verified. Rated 4.9 on Angi.</p>
+      <p><span class="hot">The way in:</span> His SDVOSB certification is his most valuable and most underused asset. The private Austin multifamily pipeline is shrinking. Federal set-aside work is fenced off from his big competitors and he is already certified for it. If he is not working that channel, that is the headline of the proposal.</p>
+      <p><span class="warn">Do NOT pitch missed calls or $400 leads.</span> He is not a home-services contractor. That framing kills your credibility in 30 seconds. Talk pipeline, bids, win rate, GovCon, and subcontractor bench.</p>
+    </div>
+  </div>
+
+  <!-- ROLE SPLIT -->
+  <div class="block">
+    <div class="sec-h">Who Runs What</div>
+    <div class="roles">
+      <div class="rcard josh">
+        <h4>JOSH — Relationship &amp; Frame</h4>
+        <ul>
+          <li>Opens the call, sets the tone, builds rapport.</li>
+          <li>Frames it: "This is not a pitch, we want to understand how you actually run."</li>
+          <li>Asks the warmup and vision questions.</li>
+          <li>Watches Robert's energy, notes what lights him up.</li>
+          <li>Then gets out of the way and lets Danny drive the operational dig.</li>
+        </ul>
+      </div>
+      <div class="rcard danny">
+        <h4>DANNY — Operational Dig</h4>
+        <ul>
+          <li>Drives the pipeline, GovCon, delivery, and tech questions.</li>
+          <li>Listens for build opportunities and flags them silently for the proposal.</li>
+          <li>Keeps the call moving through the categories, watches the clock.</li>
+          <li>Lands the magic wand close at the end.</li>
+          <li>Sets the next step: the custom blueprint walkthrough.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CALL FLOW -->
+  <div class="block">
+    <div class="sec-h">Call Flow (target 35–45 min)</div>
+    <div class="flow">
+      <div class="step"><div class="t">0–3 MIN</div><div class="n">Open &amp; frame</div><div class="d">Warm greeting, then set the rules: "We did our homework on Diamond Edge. Today is about us understanding your business so anything we build actually fits you. We'll ask a lot of questions, so we're going to listen more than we talk. Cool?"</div><div class="who">JOSH</div></div>
+      <div class="step"><div class="t">3–8 MIN</div><div class="n">His story &amp; vision</div><div class="d">Let him talk. How he started, where the business is, where he wants it. This relaxes him and hands you half your intel for free.</div><div class="who">JOSH</div></div>
+      <div class="step"><div class="t">8–15 MIN</div><div class="n">Business model &amp; how he wins work</div><div class="d">Revenue mix, project size, and the core: how new work comes in, bid volume, win rate, who does BD and estimating, how pursuits are tracked.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">15–22 MIN</div><div class="n">GovCon probe</div><div class="d">The asset. Are they working set-asides, who watches SAM.gov, past performance, what has stopped them. Go slow here.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">22–32 MIN</div><div class="n">Delivery, subs, team, tech</div><div class="d">How jobs run, where margin and time leak, sub sourcing and bench depth, where Robert's week goes, what software they live in.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">32–40 MIN</div><div class="n">Reputation &amp; the magic wand close</div><div class="d">How clients find them, review habits, then the wand. Ask one wand question and let the silence work.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">40–45 MIN</div><div class="n">Next step</div><div class="d">"This is exactly what we needed. We'll build you a custom blueprint mapped to your business, not a template, and walk you through it." Book the follow-up live.</div><div class="who">BOTH</div></div>
+    </div>
+  </div>
+
+  <!-- QUESTION BANK -->
+  <div class="block">
+    <div class="sec-h">Question Bank (open-ended, mapped to intel we need)</div>
+
+    <div class="qcard">
+      <div class="cat">1. STORY &amp; VISION</div>
+      <div class="need">We need: where he is today, where he wants to go, what he cares about.</div>
+      <ul>
+        <li>"Walk us through Diamond Edge. How'd you get started and where's the business today?"</li>
+        <li>"What are you most proud of building so far?"</li>
+        <li>"Where do you want this to be in two or three years?"<span class="cue">Listen for: growth target, exit ambition, the work he wants more of.</span></li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">2. BUSINESS MODEL &amp; REVENUE MIX</div>
+      <div class="need">We need: what kind of work, what size, what's actually profitable.</div>
+      <ul>
+        <li>"Break it down for us. What's the split between commercial buildouts, multifamily and condo, and any government work?"</li>
+        <li>"What does an average project look like in size and dollars?"</li>
+        <li>"Which work do you actually want more of, and which just keeps the lights on?"<span class="cue">Listen for: the high-margin lane to point the whole proposal at.</span></li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">3. HOW HE WINS WORK (PIPELINE / BD) — CORE</div>
+      <div class="need">We need: lead sources, bid volume, win rate, who owns BD, how pursuits are tracked.</div>
+      <ul>
+        <li>"How does new work come to you today? Referrals, bid boards, repeat developers, relationships?"</li>
+        <li>"Roughly how many projects are you bidding or chasing in a given month?"</li>
+        <li>"When you bid, how often do you win? What's the difference between the ones you win and the ones you lose?"</li>
+        <li>"Who handles business development and estimating right now? Is that mostly you?"</li>
+        <li>"Walk me through what happens the moment a bid invite or lead comes in. Where does it live, how do you track it?"<span class="cue">If the answer is "Excel" or "in my head" → CRM pipeline wedge, flag it.</span></li>
+        <li>"When a pursuit goes quiet, who owns the follow-up?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">4. GOVCON — THE ASSET</div>
+      <div class="need">We need: are they working set-asides, who watches SAM.gov, past performance, the blocker.</div>
+      <ul>
+        <li>"I saw you're Service-Disabled Veteran-Owned and SAM-verified. Are you actively going after federal or state set-aside work right now?"</li>
+        <li>"Who's watching SAM.gov for opportunities that fit you?"</li>
+        <li>"Do you have past performance on government jobs, or is that a lane you want to open?"</li>
+        <li>"What's stopped you from pushing harder on the set-aside side?"<span class="cue">This is the wedge that makes the proposal. If he says "no time" or "don't know where to start" → GovCon monitoring agent is your headline.</span></li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">5. DELIVERY &amp; OPERATIONS</div>
+      <div class="need">We need: where time and margin leak once a job is won.</div>
+      <ul>
+        <li>"Once you win a job, what does running it look like? What are you using to manage schedule, budget, and the field?"</li>
+        <li>"Where do projects usually slip? Where does time or margin leak once you're building?"</li>
+        <li>"How much of the day-to-day still lives in your head or in spreadsheets?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">6. SUBCONTRACTORS</div>
+      <div class="need">We need: how they source and qualify subs, bench depth, the pain.</div>
+      <ul>
+        <li>"How do you find and qualify subs today?"</li>
+        <li>"In this labor market, how deep is your bench? Is sub availability ever what holds up a job?"</li>
+        <li>"When a sub applies through your site, what actually happens next?"<span class="cue">We already know: nothing. Let him say it.</span></li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">7. TEAM &amp; ROBERT'S TIME</div>
+      <div class="need">We need: org size, where the owner's time goes, what he hates doing.</div>
+      <ul>
+        <li>"How big's the team and who does what?"</li>
+        <li>"Where does most of your week go? What are you doing that you wish you weren't?"</li>
+        <li>"If you had ten more hours a week, where would you put them?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">8. TECH STACK</div>
+      <div class="need">We need: what they run now so the proposal integrates instead of replaces blindly.</div>
+      <ul>
+        <li>"What software are you running for accounting, project management, estimating, CRM?"</li>
+        <li>"What do you like, and what do you fight with every day?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">9. REPUTATION &amp; MARKETING</div>
+      <div class="need">We need: how clients find them, review habits, how much presence matters to their buyers.</div>
+      <ul>
+        <li>"How do most clients find you today?"</li>
+        <li>"Do you have any system for asking for reviews after a project wraps?"</li>
+        <li>"How much does your online presence matter to the kind of buyers and partners you want?"<span class="cue">We know the 4.9 is invisible and socials are dead. Let him feel the gap.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MAGIC WAND -->
+  <div class="block">
+    <div class="sec-h">The Close — Magic Wand</div>
+    <div class="wand">
+      <h3>Save the most important question for last. Ask ONE. Then shut up.</h3>
+      <div class="big">"If you had a magic wand and could fix or automate one thing in the business tomorrow, what would it be?"</div>
+      <ul>
+        <li>"What's the one thing that, if it worked the way you wanted, would change the game for Diamond Edge?"</li>
+        <li>"Of everything we covered, what do you need the most help with right now?"</li>
+      </ul>
+      <div class="tip">Ask it, then go completely silent. Do not fill the gap. Whatever he says first is the headline of your proposal. Write it down word for word.</div>
+    </div>
+  </div>
+
+  <!-- LISTENING MAP -->
+  <div class="block">
+    <div class="sec-h">Listening Map — what he says → what we build</div>
+    <table>
+      <thead><tr><th>If he says</th><th>It signals</th><th>Proposal wedge</th></tr></thead>
+      <tbody>
+        <tr><td><span class="trig">"I track bids in Excel / in my head"</span></td><td>No BD system, pursuits going cold</td><td><span class="wedge">8-stage CRM pipeline + AI bid scoring</span></td></tr>
+        <tr><td><span class="trig">"We're not really doing government work"</span></td><td>Dormant SDVOSB asset</td><td><span class="wedge">GovCon set-aside monitoring agent</span></td></tr>
+        <tr><td><span class="trig">"Subs are hard to find / slow"</span></td><td>Bench gap in a labor crisis</td><td><span class="wedge">Automated sub intake + qualification</span></td></tr>
+        <tr><td><span class="trig">"I'm the one chasing everything"</span></td><td>Owner is the bottleneck</td><td><span class="wedge">Speed-to-lead + voice agent + sequences</span></td></tr>
+        <tr><td><span class="trig">"We don't ask for reviews"</span></td><td>4.9 rating wasted, weak credibility</td><td><span class="wedge">AI review engine + site proof</span></td></tr>
+        <tr><td><span class="trig">"Projects slip / margin gets eaten"</span></td><td>Delivery visibility gap</td><td><span class="wedge">PM dashboard + status automation</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DOS AND DONTS -->
+  <div class="block">
+    <div class="sec-h">On The Call</div>
+    <div class="dos">
+      <div class="docard do">
+        <h4>DO</h4>
+        <ul>
+          <li>Open with one sharp observation about his business so he knows you did the work.</li>
+          <li>Ask, then go quiet. Count to three before you speak.</li>
+          <li>Mirror his words back: "So the bottleneck is really X?"</li>
+          <li>Take notes visibly. It signals this becomes something real.</li>
+          <li>Book the follow-up before you hang up.</li>
+        </ul>
+      </div>
+      <div class="docard dont">
+        <h4>DON'T</h4>
+        <ul>
+          <li>Pitch features or quote a price. This is discovery.</li>
+          <li>Mention missed calls or $400 leads. Wrong business.</li>
+          <li>Talk over him to fill silence.</li>
+          <li>Promise a specific dollar recovery yet. Gather first, model in the proposal.</li>
+          <li>Open more new verticals or ideas. Stay on his business.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING SCRIPT -->
+  <div class="block">
+    <div class="sec-h">Closing Script</div>
+    <div class="close-script">
+      "Robert, this is exactly what we needed. Here's what happens next. We take everything you just walked us through and build you a custom blueprint, mapped to Diamond Edge specifically, not a template. We'll lay out where the opportunity is, what it's worth, and what we'd build first. <em>Let's get the next call on the calendar right now so I can walk you through it.</em>"
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

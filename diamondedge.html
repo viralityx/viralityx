@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Edge Builders — Operational Audit | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c0c;
+    --text:#e8e8e8;
+    --muted:#888;
+    --lime:#d4ff00;
+    --red:#ff4d4d;
+    --amber:#ffb84d;
+    --card:#151515;
+    --line:#262626;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans',system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:48px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .topbar{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:var(--muted);margin-bottom:56px;}
+  .topbar b{color:var(--lime);font-weight:600;}
+
+  .biz-name{font-family:'IBM Plex Mono',monospace;font-size:2.6rem;font-weight:600;color:#fff;line-height:1.1;}
+  .biz-desc{color:var(--muted);font-size:1.05rem;margin-top:14px;max-width:680px;}
+  .chip{display:inline-block;margin-top:20px;border:1px solid var(--lime);color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;padding:5px 12px;border-radius:999px;}
+  .chip.amberchip{border-color:var(--amber);color:var(--amber);margin-left:8px;}
+
+  .block{margin-top:64px;}
+  .sec-h{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px;}
+
+  .hero{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+  .hcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 22px;}
+  .hlabel{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+  .hnum{font-family:'IBM Plex Mono',monospace;font-size:3rem;font-weight:600;line-height:1;}
+  .hnum.red{color:var(--red);}
+  .hnum.lime{color:var(--lime);}
+  .hsub{font-size:.74rem;color:var(--muted);margin-top:10px;}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:16px;}
+  .card.leak{border-left:4px solid var(--red);}
+  .card.opp{border-left:4px solid var(--lime);}
+  .card h3{font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:10px;}
+  .card p{color:var(--muted);font-size:.97rem;}
+  .metric{font-family:'IBM Plex Mono',monospace;font-weight:600;margin-top:16px;font-size:1.02rem;}
+  .metric.red{color:var(--red);}
+  .metric.lime{color:var(--lime);}
+  .assume{font-size:.8rem;font-style:italic;color:var(--amber);margin-top:6px;line-height:1.45;}
+
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;}
+  .mcard h4{font-family:'IBM Plex Mono',monospace;color:#fff;font-size:.95rem;margin-bottom:10px;}
+  .mcard p{color:var(--muted);font-size:.9rem;}
+  .mcard .stat{color:var(--lime);font-family:'IBM Plex Mono',monospace;}
+
+  .wedge{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:14px;}
+  .wedge .wname{font-family:'IBM Plex Mono',monospace;color:#fff;font-size:1rem;font-weight:600;margin-bottom:8px;}
+  .wedge .wframe{color:var(--muted);font-size:.88rem;}
+  .wnet{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:1.35rem;font-weight:600;text-align:right;}
+  .wnet small{display:block;color:var(--muted);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;font-weight:400;}
+
+  .sumrow{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono',monospace;font-size:.95rem;}
+  .sumrow span:first-child{color:var(--muted);}
+  .sumrow .red{color:var(--red);font-weight:600;}
+  .sumrow .lime{color:var(--lime);font-weight:600;}
+  .sumrow .white{color:#fff;font-weight:600;}
+
+  .inaction{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:48px 32px;text-align:center;margin-top:24px;}
+  .inaction .lbl{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
+  .inaction .big{font-family:'IBM Plex Mono',monospace;font-size:5rem;font-weight:600;color:var(--red);line-height:1;margin:18px 0;}
+  .inaction .note{color:var(--muted);font-size:.95rem;}
+
+  .footer{margin-top:64px;border-top:1px solid var(--line);padding-top:32px;}
+  .cred{color:var(--muted);font-size:.85rem;font-style:italic;max-width:680px;}
+  .cta{display:inline-block;margin-top:24px;background:var(--lime);color:#000;font-family:'IBM Plex Mono',monospace;font-weight:600;text-decoration:none;padding:16px 28px;border-radius:8px;font-size:1rem;}
+  .ftiny{color:var(--muted);font-size:.7rem;font-family:'IBM Plex Mono',monospace;letter-spacing:.08em;margin-top:18px;}
+
+  @media (max-width:720px){
+    .wrap{padding:24px;}
+    .biz-name{font-size:1.9rem;}
+    .hero{grid-template-columns:1fr;}
+    .mgrid{grid-template-columns:1fr;}
+    .wedge{grid-template-columns:1fr;gap:14px;}
+    .wnet{text-align:left;}
+    .inaction .big{font-size:3rem;}
+    .hnum{font-size:2.4rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar"><b>VIRALITYX</b> // OPERATIONAL AUDIT</div>
+
+  <!-- HEADER -->
+  <div>
+    <div class="biz-name">DIAMOND EDGE BUILDERS</div>
+    <div class="biz-desc">Commercial general contractor and multifamily developer, Central Texas with multi-state projects (TX, FL, NY, CO). Service-Disabled Veteran-Owned, SAM-verified. License #CBC1269686.</div>
+    <span class="chip">VERTICAL: COMMERCIAL GENERAL CONTRACTOR</span>
+    <span class="chip amberchip">CONFIDENCE: HIGH</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hcard">
+      <div class="hlabel">Monthly Revenue Leak</div>
+      <div class="hnum red">$47K</div>
+      <div class="hsub">Across 5 pipeline and intake gaps</div>
+    </div>
+    <div class="hcard">
+      <div class="hlabel">Net Monthly Upside</div>
+      <div class="hnum lime">$26K</div>
+      <div class="hsub">Recovery once gaps are closed</div>
+    </div>
+    <div class="hcard">
+      <div class="hlabel">12-Month Cost of Inaction</div>
+      <div class="hnum red">$564K</div>
+      <div class="hsub">Annualized leak at current state</div>
+    </div>
+  </div>
+
+  <!-- MARKET CONTEXT -->
+  <div class="block">
+    <div class="sec-h">Market &amp; Competitive Context</div>
+    <div class="mgrid">
+      <div class="mcard">
+        <h4>The private pipeline is contracting</h4>
+        <p>Austin multifamily under construction sits near <span class="stat">18,000 units, roughly 65% below the 2023 peak</span>. Fewer starts means slower pipelines for GCs and margin compression on every private bid you chase.</p>
+      </div>
+      <div class="mcard">
+        <h4>Your SDVOSB status is a protected lane</h4>
+        <p>The federal government targets <span class="stat">3% of ~$500B/yr</span> to SDVOSB set-asides. Most of the large Central Texas GCs you bid against are not SDVOSB. That channel is fenced off for firms like yours and it is counter-cyclical to the private slowdown.</p>
+      </div>
+      <div class="mcard">
+        <h4>Labor is the bottleneck, not demand</h4>
+        <p>About <span class="stat">94% of contractors</span> cannot fill open positions. Your subcontractor pipeline is now a competitive weapon, and right now it is a static web form.</p>
+      </div>
+      <div class="mcard">
+        <h4>Win rate is a systems problem</h4>
+        <p>A healthy commercial GC wins <span class="stat">1 in 5 bids</span>. AI bid matching and predictive scoring lift win rates <span class="stat">22% to 31%</span>. On million-dollar pursuits, one extra win a year pays for everything below many times over.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTLENECKS -->
+  <div class="block">
+    <div class="sec-h">Bottlenecks</div>
+
+    <div class="card leak">
+      <h3>1. Business development runs on spreadsheets, not a pipeline</h3>
+      <p>There is no visible CRM or structured pursuit tracking. For a commercial GC, the money is in the bid pipeline: which owners and developers you are talking to, where each pursuit sits, and who owes the next follow-up. Estimators lose hours hunting project data, and winnable pursuits go cold because nobody owned the next touch.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $12,000</div>
+      <div class="assume">Assumption: ~4 active bids/mo tracked manually, industry win rate near 1 in 5. Recovering one additional ~$900K commercial buildout per year at ~13% GC gross margin (~$117K) is ~$9.7K/mo, plus ~6 hrs/wk of estimator time lost to data hunting at ~$60/hr (~$1.5K/mo).</div>
+    </div>
+
+    <div class="card leak">
+      <h3>2. The SDVOSB / GovCon channel is certified but unworked</h3>
+      <p>The site carries the Service-Disabled Veteran-Owned badge and a SAM-verified seal, but there is no sign of systematic SAM.gov set-aside pursuit. That certification is the single most valuable asset Diamond Edge owns. Federal SDVOSB construction set-asides run sole-source up to $5M, and most competitors cannot bid them.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $20,000</div>
+      <div class="assume">Assumption: no active set-aside monitoring detected. Capturing one $300K set-aside per year at ~15% margin is a conservative floor; one ~$1M task order per year at ~13% (~$130K) is the mid case. Blended to ~$20K/mo. Estimate pending operator validation of current GovCon activity.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>3. Subcontractor pipeline is a static form in a labor crisis</h3>
+      <p>The "Become a Subcontractor" page collects a form and stops. There is no automated qualification, no acknowledgment, no onboarding sequence. With sub availability driving schedules, slow or dropped sub intake turns into crew downtime, schedule slips, and rework on active jobs.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $6,000</div>
+      <div class="assume">Assumption: one avoidable 2-week schedule slip per quarter from sub shortages. General conditions burn alone runs thousands per day; conservatively scoped to crew downtime and rework at ~$6K/mo.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>4. Inbound owner and developer inquiries hit a slow contact form</h3>
+      <p>The only way in is a single contact form with no instant acknowledgment and no after-hours capture. Owners and developers shopping a GC contact several at once, and the first credible response shapes the relationship. A new site with no automation behind the form means qualified inquiries sit.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $5,000</div>
+      <div class="assume">Assumption: ~2 qualified inbound inquiries/mo, slow or missing response on one convertible pursuit per quarter at ~$900K x ~13% margin, spread monthly (~$5K/mo).</div>
+    </div>
+
+    <div class="card leak">
+      <h3>5. A 4.9-star reputation that nobody can see</h3>
+      <p>Diamond Edge is rated 4.9 on Angi, but that proof appears nowhere on the site, and the Facebook, Instagram, and YouTube links are dead placeholders. The footer still reads "Address here." For B2B and government buyers who vet hard before awarding, thin digital credibility lengthens the sales cycle and quietly loses pursuits.</p>
+      <div class="metric red">ESTIMATED MONTHLY LEAK: $4,000</div>
+      <div class="assume">Assumption: weak surfaced credibility extends sales cycles and loses ~$4K/mo in delayed or lost pursuits across the funnel. Estimate pending operator validation.</div>
+    </div>
+  </div>
+
+  <!-- OPPORTUNITIES -->
+  <div class="block">
+    <div class="sec-h">Opportunities</div>
+
+    <div class="card opp">
+      <h3>Put every pursuit in an 8-stage bid pipeline</h3>
+      <p>Closes Bottleneck 1. Every owner, developer, and bid lives in one pipeline with stage, value, and next action. Layer AI bid scoring so estimators chase the winnable pursuits and stop burning hours on low-probability bids.</p>
+      <div class="metric lime">ESTIMATED MONTHLY RECOVERY: $7,000</div>
+      <div class="assume">Assumption: 22% to 31% win-rate uplift from AI bid matching plus follow-up discipline, capturing ~60% of the BD leak.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Deploy a GovCon set-aside monitoring agent</h3>
+      <p>Closes Bottleneck 2. An AI agent scans SAM.gov daily for SDVOSB and small-business construction set-asides matched to your NAICS codes and place of performance, and routes live opportunities to you with deadlines. This turns a dormant certification into a working channel.</p>
+      <div class="metric lime">ESTIMATED MONTHLY RECOVERY: $12,000</div>
+      <div class="assume">Assumption: surfacing matched set-asides daily captures ~60% of the unworked channel value modeled above.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Automate subcontractor intake and qualification</h3>
+      <p>Closes Bottleneck 3. Subs who apply get instant acknowledgment, a qualification questionnaire, document collection, and a tagged record in the CRM. You build a ready bench before you need it instead of scrambling mid-project.</p>
+      <div class="metric lime">ESTIMATED MONTHLY RECOVERY: $3,500</div>
+      <div class="assume">Assumption: faster sub onboarding avoids ~60% of the schedule-slip and downtime leak.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Speed-to-lead plus a 24/7 voice agent on inbound</h3>
+      <p>Closes Bottleneck 4. Every form fill and every call gets an instant response and a booked next step, including after hours. For a multi-state GC, no qualified inquiry waits for a callback that may not come.</p>
+      <div class="metric lime">ESTIMATED MONTHLY RECOVERY: $3,000</div>
+      <div class="assume">Assumption: instant acknowledgment and capture recovers ~60% of the slow-response leak.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Turn the 4.9 rating into a review and credibility engine</h3>
+      <p>Closes Bottleneck 5. Automated review requests after project milestones, the rating surfaced on the site, and live social links and case studies. Credibility a government or developer buyer can verify in 30 seconds.</p>
+      <div class="metric lime">ESTIMATED MONTHLY RECOVERY: $2,500</div>
+      <div class="assume">Assumption: surfaced proof shortens sales cycle and recovers ~60% of the credibility leak.</div>
+    </div>
+  </div>
+
+  <!-- WEDGE STACK (benefit-framed, no internal cost basis) -->
+  <div class="block">
+    <div class="sec-h">Recommended Build Stack</div>
+
+    <div class="wedge">
+      <div><div class="wname">Full CRM Pipeline (8-stage)</div><div class="wframe">One source of truth for every owner, developer, and pursuit, with AI bid scoring so the team chases the winnable work.</div></div>
+      <div class="wnet"><small>Primary Impact</small>Higher win rate</div>
+    </div>
+
+    <div class="wedge">
+      <div><div class="wname">AI Speed-to-Lead</div><div class="wframe">Instant response on owner and developer inquiries so the first credible reply is yours, plus the engine behind the GovCon set-aside agent.</div></div>
+      <div class="wnet"><small>Primary Impact</small>Fewer lost pursuits</div>
+    </div>
+
+    <div class="wedge">
+      <div><div class="wname">AI Voice Agent (24/7)</div><div class="wframe">Captures owner, developer, and subcontractor calls around the clock for a multi-state operation across four time zones.</div></div>
+      <div class="wnet"><small>Primary Impact</small>Nothing slips</div>
+    </div>
+
+    <div class="wedge">
+      <div><div class="wname">SMS + Email Sequences</div><div class="wframe">Nurtures long GC sales cycles and runs subcontractor onboarding so no relationship goes cold between touches.</div></div>
+      <div class="wnet"><small>Primary Impact</small>Stronger pipeline</div>
+    </div>
+
+    <div class="wedge">
+      <div><div class="wname">AI Review Engine</div><div class="wframe">Surfaces the 4.9 rating, automates review requests after milestones, and builds the verifiable credibility B2B and government buyers demand.</div></div>
+      <div class="wnet"><small>Primary Impact</small>Faster trust</div>
+    </div>
+  </div>
+
+  <!-- TOTAL IMPACT SUMMARY -->
+  <div class="block">
+    <div class="sec-h">Total Impact Summary</div>
+    <div class="sumrow"><span>Total monthly leak across all bottlenecks</span><span class="red">$47,000</span></div>
+    <div class="sumrow"><span>Annualized leak (x12)</span><span class="red">$564,000</span></div>
+    <div class="sumrow"><span>Estimated monthly recovery if all opportunities closed</span><span class="lime">$28,000</span></div>
+    <div class="sumrow"><span>Net monthly upside</span><span class="lime">~$26,000</span></div>
+    <div class="sumrow"><span>12-month cost of inaction</span><span class="red">$564,000</span></div>
+  </div>
+
+  <!-- INACTION -->
+  <div class="block">
+    <div class="inaction">
+      <div class="lbl">12-Month Cost of Inaction</div>
+      <div class="big">$564,000</div>
+      <div class="note">Every month this stays broken, that number grows.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="cred">These estimates are based on typical commercial-GC and small-business labor economics, current Central Texas market conditions, and the visible operational signals on the site. They are starting figures for an operator conversation, not a quote.</div>
+    <a class="cta" href="https://diamondedgebuilders.com/contact">Book a strategy call →</a>
+    <div class="ftiny">ViralityX // Operational + AI Systems Architecture</div>
+  </div>
+
+</div>
+</body>
+</html>
