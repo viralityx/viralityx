@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Edge Construction — Growth Partnership Proposal | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#003366;--navy2:#1f3a6b;--navy-soft:#ebf2fe;
+    --gold:#d4af37;--gold-deep:#b8932e;
+    --ink:#16202e;--body:#44505f;--muted:#6b7280;
+    --bg:#ffffff;--soft:#f6f8fb;--line:#e4e8ef;
+    --leak:#c0392b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'Lato',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4,.mont{font-family:'Montserrat',sans-serif;color:var(--ink);}
+  .wrap{max-width:860px;margin:0 auto;padding:0 0 64px;}
+  .pad{padding-left:54px;padding-right:54px;}
+
+  /* header band */
+  .hero{background:linear-gradient(135deg,var(--navy),#06203f);color:#fff;padding:44px 54px 48px;}
+  .hero .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;}
+  .hero .top img{height:46px;width:auto;}
+  .hero .top .by{font-family:'Montserrat',sans-serif;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#cdd8e8;text-align:right;line-height:1.7;}
+  .hero .by b{color:var(--gold);}
+  .hero .eyebrow{font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .hero h1{color:#fff;font-size:2.5rem;font-weight:800;line-height:1.1;margin:14px 0 14px;letter-spacing:-.01em;}
+  .hero p{color:#d4ddea;font-size:1.05rem;max-width:620px;}
+  .hero .meta{margin-top:26px;display:flex;gap:30px;flex-wrap:wrap;font-size:.85rem;color:#aebed3;}
+  .hero .meta b{color:#fff;font-weight:700;display:block;font-family:'Montserrat',sans-serif;font-size:.95rem;}
+
+  .section{margin-top:52px;}
+  .kicker{font-family:'Montserrat',sans-serif;color:var(--gold-deep);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:12px;}
+  h2{font-size:1.7rem;font-weight:700;margin-bottom:16px;letter-spacing:-.01em;}
+  h3{font-size:1.2rem;font-weight:700;}
+  p.lead{font-size:1.05rem;}
+  .section p + p{margin-top:12px;}
+
+  .rule{height:3px;width:54px;background:var(--gold);border-radius:2px;margin-bottom:22px;}
+
+  /* situation list */
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;}
+  .fact{background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:18px 20px;}
+  .fact .k{font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:6px;}
+  .fact p{font-size:.92rem;color:var(--body);}
+
+  /* pillars */
+  .pillar{border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:12px;padding:26px 28px;margin-bottom:18px;background:#fff;}
+  .pillar .tag{font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;}
+  .pillar h3{margin:6px 0 10px;}
+  .pillar ul{margin:14px 0 0 18px;}
+  .pillar li{margin-bottom:8px;font-size:.95rem;}
+  .badge-row{display:flex;align-items:center;gap:18px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);}
+  .badge-row img{height:74px;width:auto;border-radius:6px;}
+  .badge-row p{font-size:.9rem;color:var(--body);}
+
+  /* phases */
+  .phase{display:grid;grid-template-columns:88px 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px;}
+  .phase .num{background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 0;}
+  .phase .num span{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.6rem;color:var(--gold);line-height:1;}
+  .phase .num small{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#aebed3;margin-top:6px;text-align:center;}
+  .phase .body{padding:22px 26px;}
+  .phase h3{margin-bottom:4px;}
+  .phase .when{font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:10px;}
+  .phase ul{margin:0 0 0 18px;} .phase li{margin-bottom:7px;font-size:.94rem;}
+
+  /* impact */
+  .impact{background:var(--navy-soft);border:1px solid #cfe0fb;border-radius:12px;padding:28px;}
+  .impact h3{color:var(--navy);}
+  .impact .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:18px;}
+  .impact .stat{text-align:center;}
+  .impact .stat .n{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.9rem;color:var(--navy);line-height:1;}
+  .impact .stat .l{font-size:.8rem;color:var(--muted);margin-top:8px;}
+
+  /* investment */
+  .invest{border:2px solid var(--navy);border-radius:14px;overflow:hidden;}
+  .invest .head{background:var(--navy);color:#fff;padding:16px 26px;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.04em;}
+  .irow{display:grid;grid-template-columns:1.5fr 1fr;gap:16px;padding:20px 26px;border-bottom:1px solid var(--line);align-items:start;}
+  .irow:last-child{border-bottom:none;}
+  .irow .label{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--ink);font-size:1rem;}
+  .irow .desc{font-size:.88rem;color:var(--muted);margin-top:4px;}
+  .irow .price{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--navy);font-size:1.25rem;text-align:right;}
+  .irow .price small{display:block;font-weight:600;color:var(--muted);font-size:.7rem;letter-spacing:.04em;}
+  .perf{background:var(--soft);}
+  .example{background:#fff;border:1px dashed var(--gold);border-radius:10px;padding:14px 18px;margin-top:14px;font-size:.9rem;color:var(--body);}
+  .example b{color:var(--ink);font-family:'Montserrat',sans-serif;}
+
+  .why{background:linear-gradient(135deg,var(--navy),#06203f);color:#fff;border-radius:14px;padding:30px 32px;}
+  .why h3{color:#fff;} .why p{color:#d4ddea;margin-top:10px;} .why .g{color:var(--gold);font-weight:700;}
+
+  .cta{background:var(--gold);color:#1a1304;border-radius:14px;padding:30px 32px;text-align:center;}
+  .cta h3{color:#1a1304;font-size:1.4rem;}
+  .cta p{color:#3a2e08;margin-top:8px;}
+  .cta .btn{display:inline-block;margin-top:18px;background:var(--navy);color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:700;padding:14px 30px;border-radius:8px;}
+
+  .foot{margin-top:40px;color:var(--muted);font-size:.78rem;text-align:center;}
+  .foot b{color:var(--navy);}
+  .note{font-size:.8rem;color:var(--muted);font-style:italic;margin-top:10px;}
+
+  @media(max-width:720px){
+    .pad,.hero{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:1.8rem;}
+    .facts,.impact .grid{grid-template-columns:1fr;}
+    .irow{grid-template-columns:1fr;}.irow .price{text-align:left;}
+    .phase{grid-template-columns:1fr;}.phase .num{flex-direction:row;gap:10px;padding:12px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="top">
+      <img src="https://diamondedgebuilders.com/wp-content/uploads/2025/12/diamond-edge-builders-logo.webp" alt="Diamond Edge Construction">
+      <div class="by">Growth Partnership Proposal<br>Prepared by <b>ViralityX</b></div>
+    </div>
+    <div class="eyebrow">Prepared for Robert Jackson</div>
+    <h1>Build the engine.<br>Then build the empire.</h1>
+    <p>A partnership to give Diamond Edge the operational backbone it needs to stop relying on referrals, win back the government channel you already qualify for, and free you up to do what you do best: lead and close.</p>
+    <div class="meta">
+      <div><b>Diamond Edge Construction</b>Commercial &amp; Multifamily, Central FL</div>
+      <div><b>Service-Disabled Veteran Owned</b>SAM Verified · Lic. CBC1269686</div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <!-- WHERE YOU ARE -->
+    <div class="section">
+      <div class="kicker">Where you are</div>
+      <div class="rule"></div>
+      <h2>A strong builder in a rebuild year</h2>
+      <p class="lead">You did $5.6M in contracts last year and built a real track record from Texas to Florida. Right now you are rebuilding lean after the lawsuit, running solo, and carrying three projects that are still in engineering. The work is good. The problem is not your building. It is everything around it.</p>
+      <div class="facts">
+        <div class="fact"><div class="k">Referral dependent</div><p>Almost all new work comes from referrals. Great, but it is not predictable, and it does not pay the bills between big jobs.</p></div>
+        <div class="fact"><div class="k">Leads leak</div><p>Your site forms go nowhere, there is no automation behind them, and "address here" is still on the footer. Florida does not know Diamond Edge yet.</p></div>
+        <div class="fact"><div class="k">Government channel untapped</div><p>Service-disabled veteran owned, SAM verified, past performance at MacDill. Nobody is systematically working right-sized set-asides for you.</p></div>
+        <div class="fact"><div class="k">No second hat</div><p>You are doing sales, estimating, and ops at once. Your own words: you need a real sales team and a project coordinator, plus tighter processes.</p></div>
+      </div>
+    </div>
+
+    <!-- WHERE WE TAKE YOU -->
+    <div class="section">
+      <div class="kicker">Where we take you</div>
+      <div class="rule"></div>
+      <h2>The operators behind your growth</h2>
+      <p class="lead">We are not a marketing agency. We are operators who build and run the systems that capture leads, win contracts, and keep your pipeline full, so you can focus on leading and closing. We start lean, prove it with results, and scale as the revenue comes back. The three-year target is the company you described: your own developments, your own team, an asset management business with your name on it.</p>
+    </div>
+
+    <!-- THE PLAN: PILLARS -->
+    <div class="section">
+      <div class="kicker">The plan</div>
+      <div class="rule"></div>
+      <h2>Three pillars we build for you</h2>
+
+      <div class="pillar">
+        <div class="tag">Pillar 1 · Capture &amp; Presence</div>
+        <h3>Stop losing leads, start getting found</h3>
+        <p>Every lead you already get gets captured, and Florida starts to recognize the Diamond Edge name.</p>
+        <ul>
+          <li>Connect your website forms to a live pipeline with instant email and text follow-up, so no inquiry dies in a form.</li>
+          <li>Finish and tighten the site: surface your 4.9 Angi rating, fix the dead links and placeholder text, add real trust signals.</li>
+          <li>Build and optimize your Google Business Profile and pull in reviews from past clients, the first thing a buyer checks.</li>
+          <li>Start the historical data and KPI tracking you do not have today, so we can see win rates and double down on what works.</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <div class="tag">Pillar 2 · The Government Channel</div>
+        <h3>Turn your biggest asset into a working pipeline</h3>
+        <p>Your veteran-owned status is the most valuable thing Diamond Edge owns, and right now it is idle.</p>
+        <ul>
+          <li>Deploy an AI set-aside monitoring agent that scans SAM.gov and other portals daily, filtered to your NAICS codes, size, and place of performance.</li>
+          <li>No more 400M-dollar jobs you cannot bond. Only right-sized set-asides you can actually win, delivered with deadlines.</li>
+          <li>Position your past performance (MacDill) and certifications so you stand out where most competitors cannot even bid.</li>
+        </ul>
+        <div class="badge-row">
+          <img src="https://diamondedgebuilders.com/wp-content/uploads/2026/06/VDisabled-Logo.jpg" alt="Service-Disabled Veteran Owned">
+          <p>Federal targets roughly 3% of all contracting dollars to service-disabled veteran-owned firms. That lane is fenced off from most of your competition. We help you actually use it.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="tag">Pillar 3 · Pipeline &amp; Sales Engine</div>
+        <h3>Build toward the team you described</h3>
+        <p>The magic wand you named: a real sales function and a project coordinator who owns the client from hello to handoff.</p>
+        <ul>
+          <li>An 8-stage bid pipeline with AI bid scoring, so pursuits stop going cold and you chase the jobs you can win.</li>
+          <li>Automated subcontractor intake and qualification, building the labor bench you are trying to grow.</li>
+          <li>A 24/7 voice agent that captures calls and books appointments when you are on a site or after hours.</li>
+          <li>As revenue returns, we help recruit, train, and systemize your sales team and the project-coordinator role, with SOPs and dashboards.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ROADMAP -->
+    <div class="section">
+      <div class="kicker">The roadmap</div>
+      <div class="rule"></div>
+      <h2>How we roll it out</h2>
+
+      <div class="phase">
+        <div class="num"><span>01</span><small>Weeks 1-4</small></div>
+        <div class="body">
+          <h3>Foundation</h3>
+          <div class="when">Quick wins first</div>
+          <ul>
+            <li>Lead capture connected to your pipeline with full follow-up automation.</li>
+            <li>Google Business Profile + review engine live, 4.9 rating surfaced.</li>
+            <li>Government set-aside agent deployed and feeding you live opportunities.</li>
+            <li>Subcontractor intake automated, KPI tracking turned on.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="num"><span>02</span><small>Months 2-3</small></div>
+        <div class="body">
+          <h3>Presence &amp; Lead Engine</h3>
+          <div class="when">Get known, get found</div>
+          <ul>
+            <li>SEO and Google authority so Diamond Edge ranks when buyers search.</li>
+            <li>Targeted ads and funnels for commercial, multifamily, and restoration work.</li>
+            <li>Social, blog, and newsletter presence so the name shows up before the bid does.</li>
+            <li>AI bid scoring live on the pipeline.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="num"><span>03</span><small>Months 3-6+</small></div>
+        <div class="body">
+          <h3>Sales &amp; Ops Buildout</h3>
+          <div class="when">Build the team</div>
+          <ul>
+            <li>Recruit and train your sales function and the project-coordinator role.</li>
+            <li>SOPs, processes, and dashboards so the business runs without living in your head.</li>
+            <li>Scale the channels that are producing and retire the ones that are not.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPACT -->
+    <div class="section">
+      <div class="kicker">What it is worth</div>
+      <div class="rule"></div>
+      <div class="impact">
+        <h3>The math is in the volume</h3>
+        <p>You told us you should be looking at 30 to 40 opportunities a month and you are closer to 10. More opportunities, captured and worked properly, is the whole game.</p>
+        <div class="grid">
+          <div class="stat"><div class="n">$45-100K</div><div class="l">Gross profit on a single commercial job at your 30-40% margins</div></div>
+          <div class="stat"><div class="n">1 win</div><div class="l">From the government channel can anchor a quarter</div></div>
+          <div class="stat"><div class="n">3-4x</div><div class="l">The opportunity volume you said you need to hit</div></div>
+        </div>
+        <p class="note">Figures use your own numbers from our call. They are illustrative of the upside, not a guarantee. The point is simple: one or two extra jobs a month pays for this many times over.</p>
+      </div>
+    </div>
+
+    <!-- INVESTMENT -->
+    <div class="section">
+      <div class="kicker">The structure</div>
+      <div class="rule"></div>
+      <h2>Built so we win when you win</h2>
+      <p class="lead" style="margin-bottom:22px;">You said it on the call: a fair deal is one where we share the risk. So we kept the fixed cost low and tied our real upside to results we actually create. We never touch your existing referral business.</p>
+
+      <div class="invest">
+        <div class="head">Investment</div>
+        <div class="irow">
+          <div><div class="label">Foundation Setup</div><div class="desc">One-time build of Pillar 1 and the government agent. Split across start and go-live. A one-time founder accommodation given where the business is right now.</div></div>
+          <div class="price">$3,000<small>one-time, split</small></div>
+        </div>
+        <div class="irow">
+          <div><div class="label">Operating Retainer</div><div class="desc">All systems managed, optimized, and supported month to month. This is your bare-minimum operating cost, nothing more.</div></div>
+          <div class="price">$1,500<small>per month</small></div>
+        </div>
+        <div class="irow perf">
+          <div><div class="label">Performance · Sourced Jobs</div><div class="desc">A share of the profit only on jobs our systems bring you. Nothing on your own referrals, ever.</div></div>
+          <div class="price">10%<small>of gross profit</small></div>
+        </div>
+        <div class="irow perf">
+          <div><div class="label">Performance · Government Awards</div><div class="desc">A flat success fee per contract awarded through the set-aside agent. Scales for larger contracts.</div></div>
+          <div class="price">$3,000<small>per award</small></div>
+        </div>
+      </div>
+
+      <div class="example">
+        <b>What that looks like:</b> a $200,000 commercial job our systems source, at a 35% margin, is about $70,000 of profit to you. Our fee is $7,000. You keep $63,000 on a job you would not have had, and we only get paid because it closed.
+      </div>
+      <p class="note">Numbers are the recommended starting structure and are adjustable before we sign. As revenue returns, we step up to a full growth retainer and add the Phase 2 lead engine and Phase 3 sales buildout.</p>
+    </div>
+
+    <!-- WHY -->
+    <div class="section">
+      <div class="why">
+        <h3>Why this works for you</h3>
+        <p>You are not paying a big retainer and hoping it works. You are getting the systems built, a low monthly that just keeps the lights on, and a partner whose real money only shows up <span class="g">when you close work we created.</span> That is the fair trade you asked for, and it is exactly how we like to build, as operators and partners, not a vendor.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="section">
+      <div class="cta">
+        <h3>Let's pick the starting line</h3>
+        <p>30 minutes to confirm Phase 1 scope, lock the structure, and get the government agent live.</p>
+        <a class="btn" href="#">Book the kickoff call →</a>
+      </div>
+      <div class="foot">
+        Prepared by <b>ViralityX</b> · Operational + AI Systems Architecture<br>
+        For Diamond Edge Construction · Robert Jackson
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
