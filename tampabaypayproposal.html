@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tampa Bay Pay — Growth Partnership Proposal | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;--bg2:#0d0f12;
+    --text:#f4f1ea;--muted:#9b9488;
+    --gold:#e5c077;--gold-deep:#c08328;--gold-bright:#f2cb07;
+    --card:#15120b;--line:#2a2418;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Roboto',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4,.dm{font-family:'DM Sans',sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 0 64px;}
+  .pad{padding-left:54px;padding-right:54px;}
+
+  .hero{background:linear-gradient(135deg,#1b1407,#0a0a0a);border-bottom:1px solid var(--line);padding:44px 54px 50px;}
+  .hero .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:42px;}
+  .hero .top img{height:46px;width:auto;}
+  .hero .top .by{font-family:'Sora',sans-serif;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.7;}
+  .hero .by b{color:var(--gold);font-weight:600;}
+  .hero .eyebrow{font-family:'Sora',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .hero h1{font-family:'DM Sans',sans-serif;color:#fff;font-size:2.5rem;font-weight:800;line-height:1.1;margin:14px 0;letter-spacing:-.01em;}
+  .hero p{color:#cfc7b9;font-size:1.05rem;max-width:640px;}
+  .hero .meta{margin-top:26px;display:flex;gap:30px;flex-wrap:wrap;font-size:.85rem;color:var(--muted);}
+  .hero .meta b{color:#fff;font-weight:600;display:block;font-family:'DM Sans',sans-serif;font-size:.95rem;}
+
+  .section{margin-top:52px;}
+  .kicker{font-family:'Sora',sans-serif;color:var(--gold);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:12px;}
+  h2{font-size:1.7rem;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:-.01em;}
+  h3{font-size:1.2rem;font-weight:600;color:#fff;}
+  p.lead{font-size:1.05rem;color:var(--text);}
+  .section p{color:var(--muted);} .section p.lead{color:#e8e2d6;}
+  .rule{height:3px;width:54px;background:var(--gold);border-radius:2px;margin-bottom:22px;}
+
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;}
+  .fact .k{font-family:'Sora',sans-serif;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;}
+  .fact p{font-size:.92rem;color:var(--muted);}
+
+  .pillar{border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:26px 28px;margin-bottom:18px;background:var(--card);}
+  .pillar .tag{font-family:'Sora',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .pillar h3{margin:6px 0 10px;}
+  .pillar > p{color:var(--muted);}
+  .pillar ul{margin:14px 0 0 18px;}
+  .pillar li{margin-bottom:8px;font-size:.95rem;color:var(--text);}
+
+  .phase{display:grid;grid-template-columns:92px 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px;}
+  .phase .num{background:#16130c;border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 0;}
+  .phase .num span{font-family:'DM Sans',sans-serif;font-weight:800;font-size:1.6rem;color:var(--gold);line-height:1;}
+  .phase .num small{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px;text-align:center;font-family:'Sora',sans-serif;}
+  .phase .body{padding:22px 26px;}
+  .phase h3{margin-bottom:4px;}
+  .phase .when{font-family:'Sora',sans-serif;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:10px;}
+  .phase ul{margin:0 0 0 18px;} .phase li{margin-bottom:7px;font-size:.94rem;color:var(--text);}
+
+  .impact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px;}
+  .impact h3{color:var(--gold);}
+  .impact p{color:var(--muted);}
+  .impact .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:18px;}
+  .impact .stat{text-align:center;}
+  .impact .stat .n{font-family:'DM Sans',sans-serif;font-weight:800;font-size:1.8rem;color:var(--gold);line-height:1;}
+  .impact .stat .l{font-size:.8rem;color:var(--muted);margin-top:8px;}
+  .note{font-size:.8rem;color:var(--gold-deep);font-style:italic;margin-top:12px;}
+
+  .model{border:2px solid var(--gold-deep);border-radius:14px;overflow:hidden;}
+  .model .head{background:linear-gradient(135deg,var(--gold-deep),#8f6418);color:#1a1304;padding:16px 26px;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:.03em;}
+  .mrow{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:20px 26px;border-bottom:1px solid var(--line);align-items:start;background:var(--card);}
+  .mrow:last-child{border-bottom:none;}
+  .mrow .dot{width:30px;height:30px;border-radius:50%;background:#1c1708;border:2px solid var(--gold);color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+  .mrow .label{font-family:'DM Sans',sans-serif;font-weight:600;color:#fff;font-size:1.02rem;margin-bottom:3px;}
+  .mrow .desc{font-size:.92rem;color:var(--muted);}
+
+  .why{background:linear-gradient(135deg,#1b1407,#0a0a0a);border:1px solid var(--gold-deep);border-radius:14px;padding:30px 32px;}
+  .why h3{color:var(--gold);} .why p{color:#cfc7b9;margin-top:10px;} .why .g{color:var(--gold);font-weight:600;}
+
+  .cta{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#1a1304;border-radius:14px;padding:32px;text-align:center;}
+  .cta h3{color:#1a1304;font-size:1.4rem;}
+  .cta p{color:#3a2e08;margin-top:8px;}
+  .cta .btn{display:inline-block;margin-top:18px;background:#0a0a0a;color:var(--gold);text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:700;padding:14px 30px;border-radius:8px;}
+
+  .foot{margin-top:40px;color:var(--muted);font-size:.78rem;text-align:center;}
+  .foot b{color:var(--gold);}
+
+  @media(max-width:720px){
+    .pad,.hero{padding-left:24px;padding-right:24px;}
+    .hero h1{font-size:1.8rem;}.hero .top img{height:34px;}
+    .facts,.impact .grid{grid-template-columns:1fr;}
+    .phase{grid-template-columns:1fr;}.phase .num{flex-direction:row;gap:10px;padding:12px;border-right:none;border-bottom:1px solid var(--line);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="top">
+      <img src="https://assets.cdn.filesafe.space/M6ZQcbY8mafN4E2WcreB/media/69c2c0e3284ace49ea7ee319.png" alt="Tampa Bay Pay">
+      <div class="by">Growth Partnership Proposal<br>Prepared by <b>ViralityX</b></div>
+    </div>
+    <div class="eyebrow">Prepared for Zac Gottlieb</div>
+    <h1>Turn your book<br>into a second business.</h1>
+    <p>You built the highest-rated payments team in Tampa Bay. Now let's switch on the tools you already pay for, lock in your merchants, and open a new high-margin revenue line on top of the 250+ businesses that already trust you. You keep building. We run the engine.</p>
+    <div class="meta">
+      <div><b>Tampa Bay Pay</b>Merchant Services ISO · St. Petersburg, FL</div>
+      <div><b>250+ Merchants · 5.0 Rated</b>Built from the ground up since 2020</div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <div class="section">
+      <div class="kicker">Where you are</div>
+      <div class="rule"></div>
+      <h2>A strong book with upside you already own</h2>
+      <p class="lead">16x growth since 2020, 250+ merchants, five new reps, a 5.0 reputation. You are healthy and growing. The gap is not your business, it is the value sitting unused inside it. You run on GoHighLevel, the same stack we do, which means most of this is switching things on, not starting over.</p>
+      <div class="facts">
+        <div class="fact"><div class="k">Tools paid for, not used</div><p>You paid to have automations built and they never got turned on or taught. They are sitting idle right now.</p></div>
+        <div class="fact"><div class="k">No retention radar</div><p>No way to flag a merchant whose volume is dropping before they cancel. And retention is what your book's value is built on.</p></div>
+        <div class="fact"><div class="k">Manual sales engine</div><p>Your statement analysis runs through a third party by hand. You started building an AI version, it just never got finished.</p></div>
+        <div class="fact"><div class="k">A channel you aren't working</div><p>250+ merchants trust you, and almost none of them have AI voice, reviews, or text marketing. That is a second business you have not opened.</p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Where we take you</div>
+      <div class="rule"></div>
+      <h2>Operators on your stack, not another vendor</h2>
+      <p class="lead">We run on GoHighLevel just like you, so we plug straight into what you already have. We make your book stickier, finish and run the systems you started, and white-label an AI product line you sell to your merchants and your reps earn on. The goal you named on our call: double or triple the monthly revenue per merchant, without selling a single new processing account.</p>
+    </div>
+
+    <div class="section">
+      <div class="kicker">The plan</div>
+      <div class="rule"></div>
+      <h2>Three pillars we build for you</h2>
+
+      <div class="pillar">
+        <div class="tag">Pillar 1 · Activate &amp; Retain</div>
+        <h3>Switch on what you own, then defend the book</h3>
+        <p>Your magic wand, handled. We turn the dormant tools on and put a radar over the residual book.</p>
+        <ul>
+          <li>Turn on and rebuild the automations you already paid for, and actually run them.</li>
+          <li>Clean and structure the CRM so every field is A1, the foundation that makes upsells possible.</li>
+          <li>Build a retention engine with merchant health scoring and at-risk alerts when volume drops or a merchant goes quiet.</li>
+          <li>Automated check-in touchpoints and win-back sequences so retention stops being manual.</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <div class="tag">Pillar 2 · The Statement Engine</div>
+        <h3>Finish the AI tool you started</h3>
+        <p>Your best closing tool, automated and branded as Tampa Bay Pay.</p>
+        <ul>
+          <li>Finish and deploy your AI statement analyzer, a merchant uploads a statement and gets the savings breakdown in minutes.</li>
+          <li>Arm your five reps so each one works more prospects without waiting on a third party.</li>
+          <li>Turn it into a lead magnet on your site so it generates inbound, not just closes it.</li>
+        </ul>
+      </div>
+
+      <div class="pillar">
+        <div class="tag">Pillar 3 · The White-Label Channel</div>
+        <h3>The second business inside your book</h3>
+        <p>This is the upside you got most excited about. We power it, you and your reps sell it.</p>
+        <ul>
+          <li>White-label the AI ops stack: voice agents, review automation, text and SMS marketing, CRM, websites, the SaaS model on GoHighLevel.</li>
+          <li>Your merchants already trust your recommendations. That restaurant client who said "set it up" is the proof.</li>
+          <li>A new recurring revenue line for you, another way for your reps to earn, and merchants who get stickier the more of your tools they run on.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">The roadmap</div>
+      <div class="rule"></div>
+      <h2>How we roll it out</h2>
+
+      <div class="phase">
+        <div class="num"><span>01</span><small>Weeks 1-4</small></div>
+        <div class="body">
+          <h3>Activate &amp; Clean</h3>
+          <div class="when">Quick wins first</div>
+          <ul>
+            <li>Dormant automations turned on, rebuilt, and running.</li>
+            <li>CRM cleaned and every field structured for upsells.</li>
+            <li>Retention engine and health scoring live, at-risk alerts on.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="num"><span>02</span><small>Months 2-3</small></div>
+        <div class="body">
+          <h3>Statement Engine + First Products</h3>
+          <div class="when">Sharpen the sale, open the channel</div>
+          <ul>
+            <li>AI statement analyzer finished, branded, and in your reps' hands.</li>
+            <li>First white-label products packaged (text marketing, reviews) and piloted to a set of merchants.</li>
+            <li>Reps trained and equipped to sell the value-add as a second line.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="num"><span>03</span><small>Months 3-6+</small></div>
+        <div class="body">
+          <h3>Scale the Channel</h3>
+          <div class="when">Compound the book</div>
+          <ul>
+            <li>Full white-label catalog live across the book with upsell sequences.</li>
+            <li>Rep enablement and incentives dialed in.</li>
+            <li>Monthly revenue per merchant climbing toward the double or triple you targeted.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">What it is worth</div>
+      <div class="rule"></div>
+      <div class="impact">
+        <h3>It compounds two ways at once</h3>
+        <p>Every product a merchant adds is more monthly revenue and more reason they never leave. More revenue per merchant plus lower attrition both push the same number up: the value of your book.</p>
+        <div class="grid">
+          <div class="stat"><div class="n">2-3x</div><div class="l">The monthly revenue per merchant you said is in reach</div></div>
+          <div class="stat"><div class="n">250+</div><div class="l">Merchants who already trust you, waiting to be offered this</div></div>
+          <div class="stat"><div class="n">22-30x</div><div class="l">The residual multiple your book is valued at, retention drives it</div></div>
+        </div>
+        <p class="note">Figures use your own numbers and verified industry benchmarks. They show the upside, not a guarantee. The point: this grows the business you want to hold, not just this month's revenue.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">How we work together</div>
+      <div class="rule"></div>
+      <h2>A partnership, not a retainer you gamble on</h2>
+      <p class="lead" style="margin-bottom:22px;">You already think like a partner, you offered an SEO guy a rev share on the spot. So that is how we built this. A lean fixed piece to run your internal systems, and real partnership on the upside we create together.</p>
+
+      <div class="model">
+        <div class="head">The Model</div>
+        <div class="mrow"><div class="dot">1</div><div><div class="label">A lean monthly to run your engine</div><div class="desc">Covers building and running your internal systems, the automations, CRM, retention engine, and statement tool. Modest and fixed.</div></div></div>
+        <div class="mrow"><div class="dot">2</div><div><div class="label">The white-label channel is a revenue share</div><div class="desc">We power the AI products, you and your reps sell them to your book, we split the recurring. We only grow when your merchants adopt, so our incentive is your adoption.</div></div></div>
+        <div class="mrow"><div class="dot">3</div><div><div class="label">Your processing business stays 100% yours</div><div class="desc">Your residuals, your merchants, your book. We share only in the new value-add revenue we help you create on top.</div></div></div>
+        <div class="mrow"><div class="dot">4</div><div><div class="label">It scales with adoption</div><div class="desc">Start with the internal fixes and a pilot, expand the catalog across the book as it proves out. You never get ahead of the results.</div></div></div>
+      </div>
+      <p class="note">We will set the exact retainer and the rev-share split together on our next call.</p>
+    </div>
+
+    <div class="section">
+      <div class="why">
+        <h3>Why this works for you</h3>
+        <p>You keep doing what you are great at, building merchants and motivating reps. We run the engine that makes your book stickier and opens a second revenue line on top of it. Our real upside only grows <span class="g">when your merchants adopt and your book gets more valuable.</span> Same stack, shared incentive, partner not vendor.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="cta">
+        <h3>Let's set the numbers and start</h3>
+        <p>30 minutes to confirm Phase 1, agree the split, and switch your automations back on.</p>
+        <a class="btn" href="https://api.leadconnectorhq.com/widget/booking/rm3ExwrEq1sEX6nYkUZI">Book the call →</a>
+      </div>
+      <div class="foot">
+        Prepared by <b>ViralityX</b> · Operational + AI Systems Architecture<br>
+        For Tampa Bay Pay · Zac Gottlieb
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
