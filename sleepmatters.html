@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sleep Matters MD — Operational Audit | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple:#662992;--purple-deep:#4e1f70;--blue:#0071bc;--blue-deep:#005a96;
+    --ink:#1b1f2e;--body:#454b57;--muted:#7a838b;
+    --bg:#ffffff;--soft:#edf3f6;--line:#e2e8ee;--leak:#c0392b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4,.pop{font-family:'Poppins',sans-serif;color:var(--ink);}
+  .wrap{max-width:860px;margin:0 auto;padding:0 0 64px;}
+  .pad{padding-left:54px;padding-right:54px;}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:26px 54px;border-bottom:1px solid var(--line);}
+  .topbar img{height:52px;width:auto;}
+  .topbar .by{font-family:'Poppins',sans-serif;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.7;}
+  .topbar .by b{color:var(--purple);font-weight:700;}
+
+  .hero{background:linear-gradient(135deg,var(--purple),var(--blue));color:#fff;padding:40px 54px 44px;}
+  .hero .eyebrow{font-family:'Poppins',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#e7d8f5;font-weight:600;}
+  .hero h1{color:#fff;font-size:2.2rem;font-weight:800;line-height:1.12;margin:12px 0;}
+  .hero p{color:#eae4f2;font-size:1.02rem;max-width:640px;}
+  .herostats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;}
+  .hs{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:18px 18px;}
+  .hs .l{font-family:'Poppins',sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#e7d8f5;margin-bottom:8px;}
+  .hs .n{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.9rem;color:#fff;line-height:1;}
+  .hs .s{font-size:.72rem;color:#d9cfe8;margin-top:8px;}
+
+  .section{margin-top:52px;}
+  .kicker{font-family:'Poppins',sans-serif;color:var(--purple);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:12px;}
+  h2{font-size:1.6rem;font-weight:700;margin-bottom:8px;}
+  h3{font-size:1.18rem;font-weight:700;}
+  .rule{height:3px;width:54px;background:var(--purple);border-radius:2px;margin:10px 0 22px;}
+
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .mcard{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:20px 22px;}
+  .mcard h4{font-size:.98rem;margin-bottom:8px;color:var(--ink);}
+  .mcard p{font-size:.9rem;color:var(--body);}
+  .mcard .stat{color:var(--blue);font-family:'Poppins',sans-serif;font-weight:700;}
+
+  .hipaa{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#f2ecfa,#e7f1f8);border:1px solid #d9c9ef;border-radius:12px;padding:18px 22px;margin-top:16px;}
+  .hipaa .b{flex:none;width:52px;height:52px;border-radius:12px;background:var(--purple);color:#fff;font-family:'Poppins',sans-serif;font-weight:800;font-size:.82rem;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1;}
+  .hipaa p{font-size:.92rem;color:var(--ink);}
+  .hipaa b{color:var(--purple);}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:16px;}
+  .card.leak{border-left:5px solid var(--leak);}
+  .card.opp{border-left:5px solid var(--blue);}
+  .card h3{margin-bottom:8px;}
+  .card p{color:var(--body);font-size:.96rem;}
+  .metric{font-family:'Poppins',sans-serif;font-weight:700;margin-top:14px;font-size:1rem;}
+  .metric.leak{color:var(--leak);} .metric.opp{color:var(--blue);}
+  .assume{font-size:.8rem;font-style:italic;color:var(--muted);margin-top:6px;line-height:1.45;}
+
+  .wedge{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:14px;}
+  .wedge .wname{font-family:'Poppins',sans-serif;color:var(--ink);font-size:1rem;font-weight:700;margin-bottom:6px;}
+  .wedge .wframe{color:var(--body);font-size:.88rem;}
+  .wnet{font-family:'Poppins',sans-serif;color:var(--purple);font-size:1rem;font-weight:700;text-align:right;}
+  .wnet small{display:block;color:var(--muted);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;font-weight:600;}
+
+  .sumrow{display:flex;justify-content:space-between;padding:14px 2px;border-bottom:1px solid var(--line);font-family:'Poppins',sans-serif;font-size:.95rem;}
+  .sumrow span:first-child{color:var(--body);font-family:'DM Sans',sans-serif;}
+  .sumrow .leak{color:var(--leak);font-weight:700;} .sumrow .opp{color:var(--blue);font-weight:700;} .sumrow .ink{color:var(--ink);font-weight:700;}
+
+  .inaction{background:linear-gradient(135deg,var(--purple),var(--blue));border-radius:14px;padding:44px 32px;text-align:center;margin-top:24px;color:#fff;}
+  .inaction .lbl{font-family:'Poppins',sans-serif;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#e7d8f5;}
+  .inaction .big{font-family:'Poppins',sans-serif;font-size:4.4rem;font-weight:800;color:#fff;line-height:1;margin:16px 0;}
+  .inaction .note{color:#eae4f2;font-size:.95rem;}
+
+  .footer{margin-top:56px;border-top:1px solid var(--line);padding-top:30px;}
+  .cred{color:var(--muted);font-size:.84rem;font-style:italic;max-width:700px;}
+  .cta{display:inline-block;margin-top:22px;background:var(--purple);color:#fff;font-family:'Poppins',sans-serif;font-weight:700;text-decoration:none;padding:15px 28px;border-radius:8px;}
+  .ftiny{color:var(--muted);font-size:.72rem;font-family:'Poppins',sans-serif;letter-spacing:.04em;margin-top:16px;line-height:1.7;}
+  .ftiny .g{color:var(--purple);font-weight:700;}
+
+  @media(max-width:720px){
+    .pad,.hero,.topbar{padding-left:22px;padding-right:22px;}
+    .hero h1{font-size:1.6rem;}
+    .herostats,.mgrid{grid-template-columns:1fr;}
+    .wedge{grid-template-columns:1fr;gap:12px;}.wnet{text-align:left;}
+    .inaction .big{font-size:3rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <img src="https://sleepmattersmd.com/wp-content/uploads/2023/02/sleep-matters-removebg-preview.png" alt="Sleep Matters MD">
+    <div class="by">Operational Audit<br>Prepared by <b>ViralityX</b></div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Prepared for Dr. Puja Sethi</div>
+    <h1>Great care. A practice the internet can't reach.</h1>
+    <p>Your patients love you, and it shows in every review. But the systems around the care, your hours, your website, your follow-up, are quietly turning patients away and leaving recurring revenue on the table. Here is where, and what it is worth.</p>
+    <div class="herostats">
+      <div class="hs"><div class="l">Monthly Revenue Leak</div><div class="n">$14K</div><div class="s">Across 5 capture and follow-up gaps</div></div>
+      <div class="hs"><div class="l">Net Monthly Upside</div><div class="n">$8K</div><div class="s">Recovery once gaps are closed</div></div>
+      <div class="hs"><div class="l">12-Month Cost of Inaction</div><div class="n">$168K</div><div class="s">Annualized at current state</div></div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <!-- CONTEXT -->
+    <div class="section">
+      <div class="kicker">The context</div>
+      <div class="rule"></div>
+      <h2>Demand is not your problem. Capture is.</h2>
+      <div class="mgrid" style="margin-top:20px;">
+        <div class="mcard"><h4>The patients are out there</h4><p>Over <span class="stat">70 million Americans</span> have sleep problems, and most of them research at 2am, when they cannot sleep. The demand is enormous. The question is only whether they can reach you.</p></div>
+        <div class="mcard"><h4>You are reachable 18 hours a week</h4><p>Open Tuesday, Wednesday, Thursday, 9:30 to 3:30. Every other hour, a new patient or referral who calls hits a wall, and in this field they simply call the next clinic.</p></div>
+        <div class="mcard"><h4>Sleep medicine is a recall business</h4><p>CPAP adherence, resupply, annual follow-ups. A large share of your reimbursable revenue lives in the follow-up, and nothing automated is running it today.</p></div>
+        <div class="mcard"><h4>Patients vet you online first</h4><p>Before booking, they check your reviews and your website. Your reputation is excellent. Your digital presence is quietly working against it.</p></div>
+      </div>
+      <div class="hipaa">
+        <div class="b">HIPAA</div>
+        <p><b>Why we can do this and most vendors can't:</b> everything we build for a medical practice runs on HIPAA-compliant infrastructure. Patient data stays protected end to end, which is exactly why generic automation tools can't touch a practice like yours.</p>
+      </div>
+    </div>
+
+    <!-- BOTTLENECKS -->
+    <div class="section">
+      <div class="kicker">Where it leaks</div>
+      <div class="rule"></div>
+      <h2>Five gaps costing you patients and revenue</h2>
+
+      <div class="card leak">
+        <h3>1. Limited hours, and no way to capture anyone outside them</h3>
+        <p>You are open three days a week for six hours. There is no after-hours line, no chat, no text capture. A patient with insomnia searching at night, or a primary-care office referring on a Friday, reaches voicemail or nothing. In sleep medicine, that patient does not wait. They book elsewhere.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $5,000</div>
+        <div class="assume">Assumption: roughly 4 to 5 new-patient inquiries per month lost to the hours you are closed, at an estimated first-year value of $1,000+ each (consult, sleep study, CPAP setup, and follow-ups, insurance reimbursed). Estimate pending your actuals.</div>
+      </div>
+
+      <div class="card leak">
+        <h3>2. The website is undermining a doctor patients already trust</h3>
+        <p>Your live site still carries placeholder Latin text, a "Services" section showing finance-consulting and marketing template blocks instead of your sleep services, dead social icons, a public gmail address, and buttons that point to leftover staging URLs. A prospective patient checking your credibility sees a site that does not match the caliber of care you give.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $3,000</div>
+        <div class="assume">Assumption: a meaningful share of prospective patients who reach the site leave without booking because the presentation reads as unfinished or untrustworthy. Estimate pending validation.</div>
+      </div>
+
+      <div class="card leak">
+        <h3>3. Booking is fragmented and intake is manual</h3>
+        <p>There are several different booking paths (a contact form, a healow link, old staging pages) and no single clean way to self-schedule. New-patient paperwork is a PDF packet the patient prints and fills by hand. That is friction at the exact moment a patient is ready to commit, and it burns your front-desk time.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $2,500</div>
+        <div class="assume">Assumption: booking friction and manual intake delay or lose new patients and consume staff hours that could go to care. Estimate pending validation.</div>
+      </div>
+
+      <div class="card leak">
+        <h3>4. No recall or CPAP-adherence engine</h3>
+        <p>Sleep patients are lifelong: CPAP compliance monitoring (which insurers require), resupply, annual studies, and the patients who quietly fall off therapy. With no automated recall, lapsed patients stay lapsed, and reimbursable follow-up visits never get booked.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $2,500</div>
+        <div class="assume">Assumption: lapsed CPAP and follow-up patients not re-engaged. Each reactivation is a reimbursable visit and often ongoing management. Estimate pending validation.</div>
+      </div>
+
+      <div class="card leak">
+        <h3>5. A 5-star reputation that isn't working for you</h3>
+        <p>Your testimonials are genuinely strong, patients who followed you across practices for years. But that proof is not surfaced where new patients and referring physicians look. For a solo practice competing with large suburban groups, reviews are how you get found and trusted.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $1,000</div>
+        <div class="assume">Assumption: under-collected and unsurfaced reviews suppress new-patient discovery and referral confidence. Estimate pending validation.</div>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITIES -->
+    <div class="section">
+      <div class="kicker">Where we recover it</div>
+      <div class="rule"></div>
+      <h2>The fixes, in order</h2>
+
+      <div class="card opp">
+        <h3>A HIPAA-compliant AI voice agent, on 24/7</h3>
+        <p>Closes Gap 1. The four days you are closed, and every hour after 3:30, a patient still gets answered, screened, and booked. Referrals never hit a dead end. All on HIPAA-compliant infrastructure.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $3,000</div>
+        <div class="assume">Assumption: capturing and booking the after-hours and closed-day inquiries you lose today, at ~60% of the leak.</div>
+      </div>
+
+      <div class="card opp">
+        <h3>Rebuild the site around your actual practice</h3>
+        <p>Closes Gap 2. Real sleep-medicine content, your services and disorders laid out clearly, your reputation surfaced, trust signals in place, and every broken link and placeholder gone. A site that matches your care.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $1,800</div>
+        <div class="assume">Assumption: a credible site converts more of the prospective patients already landing on it.</div>
+      </div>
+
+      <div class="card opp">
+        <h3>One clean way to book, with digital intake</h3>
+        <p>Closes Gap 3. Self-scheduling that fits your eClinicalWorks and healow setup, plus digital intake forms patients complete before they arrive. Less friction for them, less paperwork for your desk.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $1,500</div>
+        <div class="assume">Assumption: easier booking and pre-visit intake lift completed bookings and reclaim staff time, at ~60% of the leak.</div>
+      </div>
+
+      <div class="card opp">
+        <h3>An automated recall and CPAP-adherence engine</h3>
+        <p>Closes Gap 4. Automated follow-up for compliance checks, resupply reminders, annual studies, and win-back outreach to lapsed patients. The recurring revenue that is already yours, actually captured.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $1,500</div>
+        <div class="assume">Assumption: systematic recall reactivates a portion of lapsed patients into reimbursable visits and ongoing management.</div>
+      </div>
+
+      <div class="card opp">
+        <h3>A review and referral engine</h3>
+        <p>Closes Gap 5. Automated review requests after visits so Dr. Sethi's reputation shows up first, and a cleaner intake for the primary-care referrals that feed the practice.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $600</div>
+        <div class="assume">Assumption: surfaced reviews and smoother referral intake lift new-patient volume over time.</div>
+      </div>
+    </div>
+
+    <!-- BUILD STACK -->
+    <div class="section">
+      <div class="kicker">What we'd build</div>
+      <div class="rule"></div>
+      <h2>Your patient-capture stack</h2>
+      <div class="wedge"><div><div class="wname">HIPAA-Compliant AI Voice Agent (24/7)</div><div class="wframe">Answers, screens, and books patients the four days you're closed and every hour after 3:30.</div></div><div class="wnet"><small>Primary Impact</small>Never miss a patient</div></div>
+      <div class="wedge"><div><div class="wname">Website Rebuild + Trust</div><div class="wframe">Real sleep-medicine content, clean booking, reputation surfaced, every broken link gone.</div></div><div class="wnet"><small>Primary Impact</small>Credibility that converts</div></div>
+      <div class="wedge"><div><div class="wname">Online Scheduling + Digital Intake</div><div class="wframe">Self-book into your healow setup, paperwork done before they walk in.</div></div><div class="wnet"><small>Primary Impact</small>Less friction, less admin</div></div>
+      <div class="wedge"><div><div class="wname">Recall &amp; CPAP-Adherence Engine</div><div class="wframe">Automated compliance, resupply, annual studies, and lapsed-patient win-back.</div></div><div class="wnet"><small>Primary Impact</small>Recurring revenue captured</div></div>
+      <div class="wedge"><div><div class="wname">Review &amp; Referral Engine</div><div class="wframe">Surface your 5-star reputation and streamline primary-care referrals.</div></div><div class="wnet"><small>Primary Impact</small>Get found, get trusted</div></div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section">
+      <div class="kicker">The numbers</div>
+      <div class="rule"></div>
+      <div class="sumrow"><span>Total monthly leak across all gaps</span><span class="leak">$14,000</span></div>
+      <div class="sumrow"><span>Annualized leak (x12)</span><span class="leak">$168,000</span></div>
+      <div class="sumrow"><span>Estimated monthly recovery if all gaps closed</span><span class="opp">$8,400</span></div>
+      <div class="sumrow"><span>Net monthly upside</span><span class="opp">~$8,000</span></div>
+      <div class="sumrow"><span>12-month cost of inaction</span><span class="leak">$168,000</span></div>
+    </div>
+
+    <div class="section">
+      <div class="inaction">
+        <div class="lbl">12-Month Cost of Inaction</div>
+        <div class="big">$168,000</div>
+        <div class="note">Every week this stays broken, more patients reach a wall and book elsewhere.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="cred">These estimates are based on typical solo-practice medical economics, sleep-medicine recall and reimbursement patterns, and the visible operational signals on sleepmattersmd.com. They are starting figures for an operator conversation, not a quote, and are meant to be replaced by your real numbers.</div>
+      <a class="cta" href="https://sleepmattersmd.com/contact/">Book a strategy call →</a>
+      <div class="ftiny"><span class="g">ViralityX</span> // Operational + AI Systems Architecture · HIPAA-compliant · prepared for Sleep Matters MD</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
