@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Edge Construction — How Your System Works | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#003366;--navy2:#1f3a6b;--navy-soft:#ebf2fe;
+    --gold:#d4af37;--gold-deep:#b8932e;
+    --ink:#16202e;--body:#44505f;--muted:#6b7280;
+    --bg:#ffffff;--soft:#f6f8fb;--line:#e4e8ef;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'Lato',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4,.mont{font-family:'Montserrat',sans-serif;color:var(--ink);}
+  .wrap{max-width:860px;margin:0 auto;padding:0 0 64px;}
+  .pad{padding-left:54px;padding-right:54px;}
+  .hero{background:linear-gradient(135deg,var(--navy),#06203f);color:#fff;padding:40px 54px 44px;}
+  .hero .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px;}
+  .hero .top img{height:44px;width:auto;}
+  .hero .top .by{font-family:'Montserrat',sans-serif;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#cdd8e8;text-align:right;line-height:1.7;}
+  .hero .by b{color:var(--gold);}
+  .hero .eyebrow{font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .hero h1{color:#fff;font-size:2.2rem;font-weight:800;line-height:1.12;margin:12px 0;}
+  .hero p{color:#d4ddea;font-size:1.02rem;max-width:640px;}
+  .section{margin-top:50px;}
+  .kicker{font-family:'Montserrat',sans-serif;color:var(--gold-deep);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:12px;}
+  h2{font-size:1.55rem;font-weight:700;margin-bottom:8px;}
+  .rule{height:3px;width:54px;background:var(--gold);border-radius:2px;margin:10px 0 22px;}
+  p.lead{font-size:1.04rem;}
+  .note-box{background:var(--navy-soft);border:1px solid #cfe0fb;border-radius:12px;padding:20px 22px;margin-top:16px;}
+  .note-box p{color:var(--ink);font-size:.95rem;} .note-box b{color:var(--navy);}
+
+  .mod{border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:12px;padding:24px 26px;margin-bottom:16px;background:#fff;}
+  .mod .n{font-family:'Montserrat',sans-serif;color:var(--gold-deep);font-weight:800;font-size:.8rem;letter-spacing:.08em;}
+  .mod h3{margin:4px 0 12px;font-size:1.18rem;}
+  .mod .lab{font-family:'Montserrat',sans-serif;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);font-weight:700;margin-bottom:4px;}
+  .mod .row{margin-bottom:12px;} .mod .row:last-child{margin-bottom:0;}
+  .mod .row p{font-size:.95rem;color:var(--body);}
+
+  .flow{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:26px;}
+  .flowline{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;}
+  .fstep{flex:1 1 120px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:10px;padding:14px 12px;text-align:center;min-width:110px;}
+  .fstep .fn{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--navy);font-size:.78rem;}
+  .fstep .fd{font-size:.76rem;color:var(--muted);margin-top:5px;}
+
+  .out{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .ocard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
+  .ocard .k{font-family:'Montserrat',sans-serif;color:var(--gold-deep);font-weight:700;font-size:.85rem;margin-bottom:6px;}
+  .ocard p{font-size:.9rem;color:var(--body);}
+
+  .start{border:2px solid var(--navy);border-radius:14px;overflow:hidden;}
+  .start .head{background:var(--navy);color:#fff;padding:16px 26px;font-family:'Montserrat',sans-serif;font-weight:700;}
+  .srow{padding:18px 26px;border-bottom:1px solid var(--line);}
+  .srow:last-child{border-bottom:none;}
+  .srow .label{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--ink);margin-bottom:6px;}
+  .srow ul{margin:0 0 0 18px;} .srow li{font-size:.94rem;margin-bottom:6px;}
+  .srow p{font-size:.94rem;color:var(--body);}
+
+  .foot{margin-top:44px;color:var(--muted);font-size:.78rem;text-align:center;border-top:1px solid var(--line);padding-top:28px;}
+  .foot b{color:var(--navy);}
+
+  @media(max-width:720px){.pad,.hero{padding-left:22px;padding-right:22px;}.hero h1{font-size:1.7rem;}.out{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="top">
+      <img src="https://diamondedgebuilders.com/wp-content/uploads/2025/12/diamond-edge-builders-logo.webp" alt="Diamond Edge Construction">
+      <div class="by">How Your System Works<br>Prepared by <b>ViralityX</b></div>
+    </div>
+    <div class="eyebrow">Prepared for Robert Jackson</div>
+    <h1>Your operating system, in plain view.</h1>
+    <p>You asked to see how this actually runs. Here it is, built for Diamond Edge specifically. This shows what each part of your system does and what it means for your day. The engineering behind it stays on our side. You get the results.</p>
+  </div>
+
+  <div class="pad">
+
+    <div class="section">
+      <p class="lead">Think of this as the machine we run for you. Leads come in one end, qualified opportunities and won jobs come out the other, and nothing falls through the middle. Below is each part, what it does, what it looks like in practice, and what you get.</p>
+      <div class="note-box">
+        <p><b>One note.</b> We keep the exact tools and build methods on our side. That is what you are paying us to run so you never have to. What you see here is everything you need to understand how your system operates and what it produces.</p>
+      </div>
+    </div>
+
+    <!-- MODULES -->
+    <div class="section">
+      <div class="kicker">The system, part by part</div>
+      <div class="rule"></div>
+
+      <div class="mod">
+        <div class="n">01</div>
+        <h3>Lead Capture</h3>
+        <div class="row"><div class="lab">What it does</div><p>Every inquiry, from your website, your phone, and referrals, lands in one place the moment it happens. No lead sits in a form or a voicemail you find later.</p></div>
+        <div class="row"><div class="lab">In practice</div><p>Someone reaches out. Within seconds, they are captured and logged, and you can see them. It works the four days your office is quiet and after hours, the same as during the day.</p></div>
+        <div class="row"><div class="lab">What you get</div><p>Not a single interested person slips away because no one was at the desk.</p></div>
+      </div>
+
+      <div class="mod">
+        <div class="n">02</div>
+        <h3>Instant Response &amp; Follow-Up</h3>
+        <div class="row"><div class="lab">What it does</div><p>The moment a lead comes in, they get an immediate, professional response, and then a paced follow-up cadence until they book a conversation or tell us they are not ready.</p></div>
+        <div class="row"><div class="lab">In practice</div><p>First touch within minutes. Then a structured sequence of follow-ups over the following days, by text and email, in your voice, so you are the first credible builder to respond and the one who stays top of mind.</p></div>
+        <div class="row"><div class="lab">What you get</div><p>You beat competitors on speed without lifting a finger, and warm leads stop going cold.</p></div>
+      </div>
+
+      <div class="mod">
+        <div class="n">03</div>
+        <h3>Government Opportunity Monitoring</h3>
+        <div class="row"><div class="lab">What it does</div><p>Your system watches the federal and state contracting sources every day and surfaces only the set-aside opportunities that fit your size, your trade, and your region, with their deadlines.</p></div>
+        <div class="row"><div class="lab">In practice</div><p>Instead of oversized jobs you cannot bond, you get a short, relevant list of right-sized opportunities you are actually positioned to win as a service-disabled veteran-owned builder, delivered to you on a regular cadence.</p></div>
+        <div class="row"><div class="lab">What you get</div><p>The certification you already hold finally works as a real, steady pipeline.</p></div>
+      </div>
+
+      <div class="mod">
+        <div class="n">04</div>
+        <h3>Pipeline &amp; Tracking</h3>
+        <div class="row"><div class="lab">What it does</div><p>Every opportunity, bid, and job moves through clear stages, so you always know where each pursuit stands and what the next step is. We track your win rates as the data builds.</p></div>
+        <div class="row"><div class="lab">In practice</div><p>Nothing lives in your head or a spreadsheet anymore. You open one view and see the whole board, and over time we can see which kinds of jobs you win so we point your energy there.</p></div>
+        <div class="row"><div class="lab">What you get</div><p>Control of the pipeline, and real historical data for the first time.</p></div>
+      </div>
+
+      <div class="mod">
+        <div class="n">05</div>
+        <h3>Subcontractor Intake</h3>
+        <div class="row"><div class="lab">What it does</div><p>Subs who reach out are captured, acknowledged right away, and organized into a ready bench with the details you need.</p></div>
+        <div class="row"><div class="lab">In practice</div><p>Instead of a form that goes nowhere, every applicant is logged and sorted, so when a job lands you already have a labor pool to pull from.</p></div>
+        <div class="row"><div class="lab">What you get</div><p>A bench built before you need it, not scrambled together mid-job.</p></div>
+      </div>
+
+      <div class="mod">
+        <div class="n">06</div>
+        <h3>Reputation</h3>
+        <div class="row"><div class="lab">What it does</div><p>After a job wraps, a request goes out to collect a review, and your rating gets surfaced where prospective clients and referral partners look.</p></div>
+        <div class="row"><div class="lab">In practice</div><p>Your strong reviews stop being invisible and start showing up first when someone checks you out before choosing a builder.</p></div>
+        <div class="row"><div class="lab">What you get</div><p>In a market where they do not know you yet, you get found and trusted faster.</p></div>
+      </div>
+    </div>
+
+    <!-- FLOW -->
+    <div class="section">
+      <div class="kicker">Start to finish</div>
+      <div class="rule"></div>
+      <div class="flow">
+        <div class="flowline">
+          <div class="fstep"><div class="fn">Inquiry</div><div class="fd">Site, call, or referral</div></div>
+          <div class="fstep"><div class="fn">Captured</div><div class="fd">Instantly, any hour</div></div>
+          <div class="fstep"><div class="fn">Responded</div><div class="fd">Within minutes + cadence</div></div>
+          <div class="fstep"><div class="fn">In Pipeline</div><div class="fd">Staged and tracked</div></div>
+          <div class="fstep"><div class="fn">Your Call</div><div class="fd">You close</div></div>
+          <div class="fstep"><div class="fn">Won</div><div class="fd">Built and delivered</div></div>
+          <div class="fstep"><div class="fn">Review</div><div class="fd">Reputation grows</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTCOMES -->
+    <div class="section">
+      <div class="kicker">What changes for you</div>
+      <div class="rule"></div>
+      <div class="out">
+        <div class="ocard"><div class="k">No missed opportunities</div><p>Every lead and referral is captured and worked, day, night, and the days you are closed.</p></div>
+        <div class="ocard"><div class="k">A live government pipeline</div><p>Right-sized set-asides matched to you, on a steady cadence.</p></div>
+        <div class="ocard"><div class="k">A pipeline you can see</div><p>Clear stages, real win-rate data, nothing slipping through.</p></div>
+        <div class="ocard"><div class="k">Your time back</div><p>The system runs the chasing and the admin, so you lead and close.</p></div>
+      </div>
+    </div>
+
+    <!-- GETTING STARTED -->
+    <div class="section">
+      <div class="kicker">Getting started</div>
+      <div class="rule"></div>
+      <div class="start">
+        <div class="head">Kickoff</div>
+        <div class="srow">
+          <div class="label">Week one, your quick wins</div>
+          <p>We stand up lead capture, instant response and follow-up, and the government opportunity monitor first, so you see movement in the first few days.</p>
+        </div>
+        <div class="srow">
+          <div class="label">What we'll need from you to begin</div>
+          <ul>
+            <li>Access to your website and your Google business listing.</li>
+            <li>Your certification details and the trades and regions you want targeted for government work.</li>
+            <li>A list of past clients we can invite to leave reviews.</li>
+            <li>Access to your current job-tracking so we connect the pipeline cleanly.</li>
+          </ul>
+        </div>
+        <div class="srow">
+          <div class="label">How we work together</div>
+          <p>You focus on leading and closing. We build and run the engine, keep it optimized, and report to you on what it is producing. As jobs start generating revenue, we grow the system with you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      Prepared by <b>ViralityX</b> · Operational + AI Systems Architecture<br>
+      For Diamond Edge Construction · Robert Jackson
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

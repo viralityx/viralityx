@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%231A1A2E%22/><text x=%2250%22 y=%2268%22 font-size=%2248%22 font-weight=%22700%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22system-ui%22>VX</text></svg>">
+<title>Tariq Khan | ViralityX Strategic Partner, Southeast Region</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0F1117;
+    --ink-soft: #2A2D38;
+    --ink-muted: #6B7084;
+    --ink-light: #9499AD;
+    --surface: #FFFFFF;
+    --surface-warm: #FAFAF8;
+    --surface-subtle: #F4F4F2;
+    --accent: #1A1A2E;
+    --accent-blue: #2D5BFF;
+    --accent-blue-soft: #EEF2FF;
+    --gold: #B8924A;
+    --gold-soft: #F9F5ED;
+    --red-soft: #FEF2F2;
+    --red: #DC2626;
+    --green: #16A34A;
+    --green-soft: #F0FDF4;
+    --border: #E8E8E6;
+    --border-light: #F0F0EE;
+    --radius: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  html { scroll-behavior: smooth; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: 'Playfair Display', Georgia, serif; }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+  .container-narrow { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+
+  /* ── CONFIDENTIAL BANNER ── */
+  .conf-banner {
+    background: var(--accent);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 10px 24px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* ── NAV ── */
+  .nav-wrapper {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav {
+    padding: 18px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .nav-logo-mark {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 15px;
+  }
+  .nav-logo-text { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+  .nav-partner-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--gold-soft); border: 1px solid rgba(184,146,74,0.2);
+    border-radius: 100px; padding: 7px 16px;
+    font-size: 12px; font-weight: 600; color: var(--gold); letter-spacing: 0.3px;
+  }
+  .nav-partner-badge svg { flex-shrink: 0; }
+
+  /* ── HERO ── */
+  .hero { padding: 100px 0 72px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--accent-blue); margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 32px; height: 2px;
+    background: var(--accent-blue); border-radius: 2px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(36px, 4.5vw, 50px);
+    font-weight: 600; line-height: 1.15;
+    letter-spacing: -0.5px; margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent-blue);
+  }
+  .hero-description {
+    font-size: 17px; line-height: 1.8;
+    color: var(--ink-muted); max-width: 540px; margin-bottom: 40px;
+  }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; }
+
+  /* ── PARTNER CARD ── */
+  .partner-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .partner-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--accent-blue));
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .partner-avatar {
+    width: 110px; height: 110px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #2D3555);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 34px; font-weight: 600; color: white;
+    font-family: 'Playfair Display', Georgia, serif;
+    box-shadow: 0 4px 20px rgba(15,17,23,0.15);
+    overflow: hidden;
+  }
+  .partner-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .partner-name { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+  .partner-title { font-size: 13px; font-weight: 600; color: var(--accent-blue); margin-bottom: 4px; }
+  .partner-region { font-size: 13px; color: var(--ink-light); margin-bottom: 24px; }
+  .partner-divider { width: 40px; height: 1px; background: var(--border); margin: 0 auto 24px; }
+  .partner-contact-btn {
+    display: block; width: 100%;
+    padding: 14px 24px; background: var(--accent); color: white;
+    border: none; border-radius: 10px;
+    font-size: 14px; font-weight: 600; font-family: inherit;
+    cursor: pointer; transition: all 0.25s ease;
+    text-decoration: none; text-align: center;
+  }
+  .partner-contact-btn:hover { background: #1a1a35; transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 32px; border-radius: 10px;
+    font-size: 14px; font-weight: 600; font-family: inherit;
+    text-decoration: none; cursor: pointer; transition: all 0.25s ease; border: none;
+  }
+  .btn-primary { background: var(--accent-blue); color: white; box-shadow: 0 2px 12px rgba(45,91,255,0.25); }
+  .btn-primary:hover { background: #2450E6; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(45,91,255,0.35); }
+  .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border); }
+  .btn-outline:hover { border-color: var(--ink-light); background: var(--surface-subtle); }
+
+  /* ── CREDIBILITY BAND ── */
+  .cred-band {
+    background: var(--accent);
+    color: white;
+    padding: 44px 0;
+  }
+  .cred-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .cred-item { text-align: center; }
+  .cred-figure {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 26px; font-weight: 600; color: white; line-height: 1.15; margin-bottom: 8px;
+  }
+  .cred-figure span { color: var(--gold); }
+  .cred-label {
+    font-size: 12.5px; color: rgba(255,255,255,0.55); line-height: 1.5;
+    letter-spacing: 0.2px;
+  }
+
+  /* ── HEALTHCARE / HIPAA MOAT ── */
+  .moat-section { padding: 96px 0; background: var(--surface-warm); border-bottom: 1px solid var(--border-light); }
+  .moat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .moat-text .section-label { color: var(--green); }
+  .moat-text h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 3.2vw, 38px);
+    font-weight: 600; line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 20px;
+  }
+  .moat-text p { font-size: 15.5px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 16px; }
+  .moat-text p:last-child { margin-bottom: 0; }
+  .moat-text strong { color: var(--ink); font-weight: 600; }
+  .moat-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+  }
+  .moat-panel::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--accent-blue));
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .moat-panel-title {
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--ink-light); margin-bottom: 24px;
+  }
+  .moat-check {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 15px 0; border-bottom: 1px solid var(--border-light);
+  }
+  .moat-check:last-child { border-bottom: none; padding-bottom: 0; }
+  .moat-check-icon {
+    width: 22px; height: 22px; min-width: 22px; border-radius: 50%;
+    background: var(--green-soft);
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .moat-check h4 { font-size: 14.5px; font-weight: 600; margin-bottom: 3px; }
+  .moat-check p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; margin: 0; }
+
+  /* ── PROBLEM SECTION ── */
+  .problem-section {
+    padding: 88px 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    border-left: 4px solid var(--red);
+  }
+  .problem-card h3 {
+    font-size: 17px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.2px;
+  }
+  .problem-card p {
+    font-size: 14px; color: var(--ink-muted); line-height: 1.7;
+  }
+  .problem-stat {
+    display: inline-block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px; font-weight: 600; color: var(--red);
+    margin-bottom: 12px;
+  }
+
+  /* ── SECTIONS ── */
+  .section { padding: 96px 0; }
+  .section-alt { background: var(--surface-warm); }
+  .section-label {
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--accent-blue); margin-bottom: 16px;
+  }
+  .section-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 600; letter-spacing: -0.5px; line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-subtitle {
+    font-size: 16px; color: var(--ink-muted); max-width: 600px; line-height: 1.7;
+  }
+  .section-header { margin-bottom: 56px; }
+
+  /* ── WHAT WE DEPLOY ── */
+  .deploy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .deploy-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    display: flex; gap: 20px; align-items: flex-start;
+    transition: all 0.3s ease;
+  }
+  .deploy-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+  .deploy-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .deploy-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.2px; }
+  .deploy-card p { font-size: 13px; color: var(--ink-muted); line-height: 1.65; }
+
+  /* ── OPERATOR MODEL ── */
+  .operator-section { padding: 96px 0; }
+  .operator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .operator-text h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px; font-weight: 600; line-height: 1.25;
+    letter-spacing: -0.5px; margin-bottom: 20px;
+  }
+  .operator-text p {
+    font-size: 15px; color: var(--ink-muted); line-height: 1.8; margin-bottom: 16px;
+  }
+  .operator-text p:last-child { margin-bottom: 0; }
+  .operator-text strong { color: var(--ink); font-weight: 600; }
+  .operator-principles {
+    background: var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    color: white;
+  }
+  .operator-principles h3 {
+    font-size: 13px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1.5px; opacity: 0.5; margin-bottom: 32px;
+  }
+  .principle {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .principle:last-child { border-bottom: none; }
+  .principle-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px; font-weight: 600; color: var(--gold);
+    min-width: 28px;
+  }
+  .principle h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .principle p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* ── INDUSTRIES ── */
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .industry-tag {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 20px;
+    font-size: 14px; font-weight: 500; color: var(--ink-soft);
+    transition: all 0.2s ease;
+  }
+  .industry-tag:hover { border-color: var(--accent-blue); color: var(--accent-blue); background: var(--accent-blue-soft); }
+  .industry-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-tier1 { background: var(--accent-blue); }
+  .dot-tier2 { background: var(--gold); }
+  .dot-tier3 { background: var(--ink-light); }
+  .industry-note {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--ink-light);
+    font-style: italic;
+  }
+
+  /* ── PROCESS ── */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .process-grid::before {
+    content: ''; position: absolute;
+    top: 32px; left: 60px; right: 60px; height: 2px;
+    background: var(--border); z-index: 0;
+  }
+  .process-step { text-align: center; position: relative; z-index: 1; padding: 0 16px; }
+  .process-number {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--surface); border: 2px solid var(--border);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px; font-weight: 600; margin-bottom: 24px;
+    transition: all 0.3s ease;
+  }
+  .process-step:hover .process-number {
+    border-color: var(--accent-blue); color: var(--accent-blue);
+    box-shadow: 0 0 0 4px var(--accent-blue-soft);
+  }
+  .process-step h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .process-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* ── CTA ── */
+  .cta-section { padding: 96px 0 120px; }
+  .cta-box {
+    background: var(--accent); border-radius: 24px;
+    padding: 80px 64px; text-align: center; color: white;
+    position: relative; overflow: hidden;
+  }
+  .cta-box::before {
+    content: ''; position: absolute;
+    top: -50%; right: -20%; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(45,91,255,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  .cta-box > * { position: relative; z-index: 1; }
+  .cta-box h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 600; margin-bottom: 16px; letter-spacing: -0.5px;
+  }
+  .cta-box p {
+    font-size: 16px; color: rgba(255,255,255,0.6);
+    max-width: 520px; margin: 0 auto 40px; line-height: 1.7;
+  }
+  .cta-context {
+    display: inline-block;
+    font-size: 13px; font-weight: 600;
+    color: var(--gold); letter-spacing: 0.3px;
+    margin-bottom: 32px;
+    padding: 8px 20px;
+    border: 1px solid rgba(184,146,74,0.3);
+    border-radius: 100px;
+  }
+  .btn-white {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: white; color: var(--accent);
+    padding: 16px 36px; border-radius: 10px;
+    font-size: 15px; font-weight: 600; font-family: inherit;
+    text-decoration: none; transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+
+  /* ── FOOTER ── */
+  footer { padding: 40px 0; border-top: 1px solid var(--border-light); text-align: center; }
+  footer p { font-size: 13px; color: var(--ink-light); }
+  footer a { color: var(--ink-muted); text-decoration: none; }
+  .footer-note { font-size: 11px; color: var(--ink-light); margin-top: 8px; font-style: italic; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .partner-card { max-width: 360px; margin: 0 auto; }
+    .cred-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .moat-grid { grid-template-columns: 1fr; gap: 40px; }
+    .deploy-grid { grid-template-columns: 1fr; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .operator-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .process-grid::before { display: none; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 64px 0 48px; }
+    .hero-ctas { flex-direction: column; }
+    .hero-ctas .btn { width: 100%; justify-content: center; }
+    .cred-grid { grid-template-columns: 1fr; gap: 24px; }
+    .process-grid { grid-template-columns: 1fr; }
+    .cta-box { padding: 48px 28px; }
+    .container, .container-narrow { padding: 0 20px; }
+    .industries-grid { grid-template-columns: 1fr 1fr; }
+    .operator-principles { padding: 32px 24px; }
+    .moat-panel { padding: 32px 24px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @media (prefers-reduced-motion: no-preference) {
+    .deploy-card, .industry-tag, .process-step, .problem-card, .principle, .moat-check {
+      opacity: 0; transform: translateY(16px);
+      animation: fadeUp 0.45s ease forwards;
+    }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .problem-card:nth-child(1) { animation-delay: 0.1s; }
+    .problem-card:nth-child(2) { animation-delay: 0.2s; }
+    .problem-card:nth-child(3) { animation-delay: 0.3s; }
+    .deploy-card:nth-child(1) { animation-delay: 0.1s; }
+    .deploy-card:nth-child(2) { animation-delay: 0.15s; }
+    .deploy-card:nth-child(3) { animation-delay: 0.2s; }
+    .deploy-card:nth-child(4) { animation-delay: 0.25s; }
+    .deploy-card:nth-child(5) { animation-delay: 0.3s; }
+    .deploy-card:nth-child(6) { animation-delay: 0.35s; }
+    .process-step:nth-child(1) { animation-delay: 0.1s; }
+    .process-step:nth-child(2) { animation-delay: 0.2s; }
+    .process-step:nth-child(3) { animation-delay: 0.3s; }
+    .process-step:nth-child(4) { animation-delay: 0.4s; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Confidential -->
+<div class="conf-banner">Private and Confidential &nbsp;&bull;&nbsp; Shared by Invitation Only</div>
+
+<!-- Nav -->
+<div class="nav-wrapper">
+<div class="container">
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark">VX</div>
+      <span class="nav-logo-text">ViralityX</span>
+    </a>
+    <div class="nav-partner-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
+      Strategic Partner, Southeast
+    </div>
+  </nav>
+</div>
+</div>
+
+<!-- Hero -->
+<div class="container">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Southeast Regional Partner</div>
+        <h1>Serious Operators Are Rebuilding How Their Businesses <em>Run</em></h1>
+        <p class="hero-description">The organizations pulling ahead right now are not buying more software. They are rebuilding their operations from the inside, with AI infrastructure engineered around their own numbers. ViralityX builds and deploys that infrastructure directly into the business. Tariq Khan leads that work across the Southeast.</p>
+        <div class="hero-ctas">
+          <a href="tel:+14049322311" class="btn btn-primary">
+            Start a Conversation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+          <a href="#how" class="btn btn-outline">How We Operate</a>
+        </div>
+      </div>
+
+      <!-- Tariq Card -->
+      <div class="partner-card">
+        <div class="partner-avatar"><img src="tariq.jpg" alt="Tariq Khan"></div>
+        <div class="partner-name">Tariq Khan</div>
+        <div class="partner-title">Strategic Partner, Southeast Region</div>
+        <div class="partner-region">Georgia &bull; Tennessee &bull; Florida &bull; Alabama</div>
+        <div class="partner-divider"></div>
+        <a href="tel:+14049322311" class="partner-contact-btn">Reach Tariq Directly</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Credibility Band -->
+<section class="cred-band">
+  <div class="container">
+    <div class="cred-grid">
+      <div class="cred-item">
+        <div class="cred-figure"><span>HIPAA</span> Compliant</div>
+        <div class="cred-label">Built into every deployment, not bolted on later</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-figure">Multi<span>-</span>Location</div>
+        <div class="cred-label">Systems already live across distributed operations</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-figure">24<span>/</span>7</div>
+        <div class="cred-label">Voice, follow-up, and routing that never clock out</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-figure">Embedded</div>
+        <div class="cred-label">Operators inside the business, not a vendor you manage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Healthcare / HIPAA Moat -->
+<section class="moat-section">
+  <div class="container">
+    <div class="moat-grid">
+      <div class="moat-text">
+        <div class="section-label">Infrastructure Most Firms Cannot Deploy</div>
+        <h2>Healthcare-Grade Compliance, Built Into Everything We Ship</h2>
+        <p>Every ViralityX environment is HIPAA compliant. Not as an add-on, not as a promise for later. It is the foundation every voice agent, pipeline, and automation gets built on.</p>
+        <p>That matters because most firms working at our level cannot touch a hospital system, a medical group, or any regulated operation. They are not built for it. <strong>We are.</strong> The same infrastructure that answers calls and recovers revenue for a distributor can be deployed inside an environment where patient data and compliance are not negotiable.</p>
+        <p>For hospital leadership and healthcare operators, that is the difference between a conversation that goes somewhere and one that stops cold at the first compliance question.</p>
+      </div>
+      <div class="moat-panel">
+        <div class="moat-panel-title">What Compliant Deployment Means</div>
+        <div class="moat-check">
+          <div class="moat-check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><h4>Patient Data Handled to Standard</h4><p>Intake, messaging, and records move through infrastructure that meets healthcare privacy requirements end to end.</p></div>
+        </div>
+        <div class="moat-check">
+          <div class="moat-check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><h4>Voice Agents Cleared for Regulated Use</h4><p>Call answering and appointment handling that can run inside medical and hospital environments, not just retail ones.</p></div>
+        </div>
+        <div class="moat-check">
+          <div class="moat-check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><h4>Automations That Respect the Rules</h4><p>Follow-up, reminders, and reactivation built so compliance is never the thing that breaks under load.</p></div>
+        </div>
+        <div class="moat-check">
+          <div class="moat-check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div><h4>One Standard Across the Board</h4><p>Every client sits on the same compliant foundation, so a regulated build is our default, not a special project.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The Problem -->
+<section class="problem-section">
+  <div class="container">
+    <div class="section-label">The Cost Nobody Measures</div>
+    <h2 class="section-heading">Most Operations Are Losing Revenue<br>They Have Never Put a Number On</h2>
+    <p class="section-subtitle">The leads come in. The team is busy. But between missed calls, slow response, and handoffs that fall through, there is a gap between what a business spends to create demand and what it actually closes. Most organizations have never measured that gap. We start by measuring it.</p>
+
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-stat">62%</div>
+        <h3>Of Calls Go Unanswered</h3>
+        <p>After hours, over lunch, when the team is with someone else. Every missed call is a prospect or a patient who reaches the next name on the list.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-stat">5 min</div>
+        <h3>Decides Who Wins the Lead</h3>
+        <p>Respond inside five minutes and the odds of connecting jump sharply. Most operations take hours. Some never respond at all.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-stat">40-60%</div>
+        <h3>Of Leads Are Never Worked</h3>
+        <p>A form, an inquiry, a voicemail, then nothing. The team is stretched, the lead goes cold, and the money quietly leaves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Operating Model -->
+<section class="operator-section" id="how">
+  <div class="container">
+    <div class="operator-grid">
+      <div class="operator-text">
+        <div class="section-label">How We Operate</div>
+        <h2>We Do Not Pitch.<br>We Diagnose.</h2>
+        <p>Most firms arrive with a slide deck and a price sheet. We arrive with questions. <strong>What is your real call volume? How fast does your team respond? How many leads went cold last month? What is your no-show rate?</strong></p>
+        <p>We do not start building until we know exactly where revenue is leaking. Then we deploy AI infrastructure at those specific points, and we measure whether it moved the number.</p>
+        <p><strong>We are not a marketing agency.</strong> We are solutions architects who get embedded in the operation and stay until the results say we should.</p>
+      </div>
+      <div class="operator-principles">
+        <h3>The Standard We Hold</h3>
+        <div class="principle">
+          <div class="principle-number">01</div>
+          <div>
+            <h4>Diagnose Before We Build</h4>
+            <p>We identify the exact revenue leaks before writing a line of code or deploying a single automation.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-number">02</div>
+          <div>
+            <h4>Deploy at the Failure Point</h4>
+            <p>Every system targets a specific place where the operation is losing money. Not theoretical. Measurable.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-number">03</div>
+          <div>
+            <h4>Stay Until It Works</h4>
+            <p>We do not hand off and disappear. We monitor, optimize, and scale. If the numbers are not moving, neither are we.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="principle-number">04</div>
+          <div>
+            <h4>Results or Nothing</h4>
+            <p>More booked appointments. More closed business. Fewer missed leads. Less pressure on payroll. If we cannot move those, we will say so.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Deploy -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">What We Deploy</div>
+      <h2 class="section-heading">AI Infrastructure That Runs<br>When Your Team Cannot</h2>
+      <p class="section-subtitle">These are not tools we hand over. They are systems we deploy, integrate into the operation, and keep running. You get the results. We handle the machinery.</p>
+    </div>
+
+    <div class="deploy-grid">
+      <div class="deploy-card">
+        <div class="deploy-icon" style="background: var(--accent-blue-soft);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <h3>AI Voice Agents</h3>
+          <p>Answer every call, around the clock. Qualify leads, book appointments, route emergencies. The phones never go unanswered again.</p>
+        </div>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-icon" style="background: #F0FDF4;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <h3>Missed-Call Text-Back</h3>
+          <p>Every missed call triggers an instant text. It keeps the lead warm, opens a conversation, and recovers revenue that would have walked.</p>
+        </div>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-icon" style="background: #FFF7ED;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+        </div>
+        <div>
+          <h3>Lead Qualification &amp; Routing</h3>
+          <p>Inbound leads scored, qualified, and routed automatically. Your team only spends time on the ones ready to move.</p>
+        </div>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-icon" style="background: #F5F3FF;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div>
+          <h3>Outbound Follow-Up Engine</h3>
+          <p>AI-driven sequences that re-engage every lead that did not close. Persistent and personalized, without your team lifting a finger.</p>
+        </div>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-icon" style="background: var(--gold-soft);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <h3>Booking &amp; No-Show Recovery</h3>
+          <p>Automated scheduling, confirmations, reminders, and rescheduling. It fills the calendar and keeps it full.</p>
+        </div>
+      </div>
+      <div class="deploy-card">
+        <div class="deploy-icon" style="background: #FDF2F8;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DB2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <h3>Database Reactivation</h3>
+          <p>Your dead leads and past customers are not dead. AI-driven reactivation campaigns pull revenue back out of the database you already own.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Industries -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Where We Operate</div>
+      <h2 class="section-heading">Deployed Across High-Revenue Verticals</h2>
+      <p class="section-subtitle">Every vertical below shares one thing: it runs on inbound demand, booked appointments, and speed of response. When a business lives on those, we can move its numbers. When it also lives under compliance, we are one of the few who can.</p>
+    </div>
+
+    <div class="industries-grid">
+      <div class="industry-tag"><span class="industry-dot dot-tier1"></span>Hospital &amp; Health Systems</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier1"></span>Medical &amp; Dental Groups</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier1"></span>Physical Therapy</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier1"></span>Chiropractic</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier1"></span>Hospitality &amp; Resorts</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier2"></span>HVAC &amp; Plumbing</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier2"></span>Legal</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier2"></span>Wholesale &amp; Distribution</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier2"></span>Real Estate</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier2"></span>Roofing &amp; Home Services</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier3"></span>Auto Collision &amp; Repair</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier3"></span>Barber &amp; Beauty</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier3"></span>Commercial Drone Services</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier3"></span>Fitness &amp; Training</div>
+      <div class="industry-tag"><span class="industry-dot dot-tier3"></span>E-Commerce</div>
+    </div>
+    <p class="industry-note">If your organization runs on leads, calls, or appointments, the infrastructure applies. The starting point is a diagnostic, not a pitch.</p>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header text-center" style="max-width:640px; margin-left:auto; margin-right:auto; margin-bottom:56px;">
+      <div class="section-label">The Engagement</div>
+      <h2 class="section-heading">From Diagnostic to Deployed<br>in Weeks, Not Months</h2>
+      <p class="section-subtitle" style="max-width:100%;">A structured engagement built to find the problem, deploy the solution, and prove the result. No ambiguity, no drift.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-number">1</div>
+        <h3>Diagnostic</h3>
+        <p>We map the current operation: call volume, response time, lead flow, conversion gaps. We find where the revenue leaks.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">2</div>
+        <h3>Architecture</h3>
+        <p>We design the infrastructure for your specific failure points. You see exactly what gets built, what it costs, and what to expect.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">3</div>
+        <h3>Deployment</h3>
+        <p>We build and deploy directly into the operation. Voice agents, automations, pipelines, dashboards, tested and live.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">4</div>
+        <h3>Optimization</h3>
+        <p>We monitor performance continuously. When something underperforms, we fix it. The work does not end at launch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="book">
+  <div class="container">
+    <div class="cta-box">
+      <div class="cta-context">A Direct Line to Tariq Khan &nbsp;&bull;&nbsp; Southeast Region</div>
+      <h2>One Conversation Is Enough<br>to Know If This Fits</h2>
+      <p>No slide deck, no pressure. Tariq will walk through how your operation runs today, where the gaps are, and what compliant AI infrastructure would look like deployed in your world. If it is not a fit, you will know that too.</p>
+      <a href="tel:+14049322311" class="btn-white">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Reach Tariq Directly
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2026 <a href="#">ViralityX</a> &nbsp;&bull;&nbsp; AI Solutions Architecture &amp; Deployment</p>
+    <p class="footer-note">This page is confidential and prepared for the private contacts of Tariq Khan, ViralityX Strategic Partner, Southeast Region. Not for public distribution.</p>
+  </div>
+</footer>
+
+
+<style>
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+<script>
+  document.querySelectorAll('.section-header, .problem-grid, .deploy-grid, .operator-grid, .process-grid, .cta-box, .partner-card, .moat-grid, .cred-grid').forEach(el => {
+    el.classList.add('fade-up');
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

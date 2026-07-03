@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Swiftiom Growth Funnel Audit | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a;--bg2:#0d0f12;
+    --text:#f4f1ea;--muted:#9b9488;
+    --gold:#e5c077;--gold-deep:#c08328;--gold-bright:#f2cb07;
+    --red:#e93d3d;
+    --card:#15120b;--line:#2a2418;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Roboto',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:48px;}
+  h1,h2,h3,.dm{font-family:'DM Sans',sans-serif;}
+  .eyebrow,.sec-h,.hlabel,.label{font-family:'Sora',sans-serif;}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:50px;border-bottom:1px solid var(--line);padding-bottom:22px;}
+  .topbar img{height:36px;width:auto;}
+  .topbar .by{font-family:'Sora',sans-serif;font-size:.66rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;text-align:right;line-height:1.6;}
+  .topbar .by b{color:var(--gold);font-weight:600;}
+  .biz-name{font-size:2.6rem;font-weight:700;color:#fff;line-height:1.08;letter-spacing:-.01em;}
+  .biz-desc{color:var(--muted);font-size:1.05rem;margin-top:14px;max-width:720px;}
+  .chip{display:inline-block;margin-top:20px;border:1px solid var(--gold);color:var(--gold);font-family:'Sora',sans-serif;font-size:.68rem;letter-spacing:.1em;padding:5px 12px;border-radius:999px;}
+  .chip.alt{border-color:var(--muted);color:var(--muted);margin-left:8px;}
+  .block{margin-top:64px;}
+  .sec-h{color:var(--gold);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:24px;font-weight:600;}
+  .sec-intro{color:var(--muted);font-size:.97rem;margin:-8px 0 26px;max-width:760px;}
+  .hero{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;}
+  .hcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px 22px;}
+  .hlabel{font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:500;}
+  .hnum{font-family:'DM Sans',sans-serif;font-size:3rem;font-weight:700;line-height:1;letter-spacing:-.02em;}
+  .hnum.red{color:var(--red);} .hnum.gold{color:var(--gold);}
+  .hsub{font-size:.74rem;color:var(--muted);margin-top:10px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:16px;}
+  .card.leak{border-left:4px solid var(--red);} .card.opp{border-left:4px solid var(--gold);}
+  .card h3{font-size:1.25rem;font-weight:600;color:#fff;margin-bottom:10px;}
+  .card p{color:var(--muted);font-size:.97rem;}
+  .metric{font-family:'DM Sans',sans-serif;font-weight:700;margin-top:16px;font-size:1.02rem;}
+  .metric.red{color:var(--red);} .metric.gold{color:var(--gold);}
+  .assume{font-size:.8rem;font-style:italic;color:var(--gold-deep);margin-top:6px;line-height:1.45;}
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .mcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;}
+  .mcard h4{font-family:'DM Sans',sans-serif;color:#fff;font-size:1rem;margin-bottom:10px;font-weight:600;}
+  .mcard p{color:var(--muted);font-size:.9rem;}
+  .mcard .stat{color:var(--gold);font-family:'DM Sans',sans-serif;font-weight:700;}
+  .wedge{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:14px;}
+  .wedge .wname{font-family:'DM Sans',sans-serif;color:#fff;font-size:1rem;font-weight:600;margin-bottom:8px;}
+  .wedge .wframe{color:var(--muted);font-size:.88rem;}
+  .wnet{font-family:'DM Sans',sans-serif;color:var(--gold);font-size:1.1rem;font-weight:700;text-align:right;}
+  .wnet small{display:block;font-family:'Sora',sans-serif;color:var(--muted);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-weight:500;}
+  .sumrow{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:.95rem;}
+  .sumrow span:first-child{color:var(--muted);}
+  .sumrow .v{font-family:'DM Sans',sans-serif;font-weight:700;}
+  .sumrow .red{color:var(--red);} .sumrow .gold{color:var(--gold);} .sumrow .white{color:#fff;}
+  .inaction{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:48px 32px;text-align:center;margin-top:24px;}
+  .inaction .lbl{font-family:'Sora',sans-serif;font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+  .inaction .big{font-family:'DM Sans',sans-serif;font-size:5rem;font-weight:700;color:var(--gold);line-height:1;margin:18px 0;letter-spacing:-.02em;}
+  .inaction .note{color:var(--muted);font-size:.95rem;}
+  .callout{background:linear-gradient(135deg,rgba(229,192,119,0.08),rgba(192,131,40,0.03));border:1px solid var(--gold-deep);border-radius:12px;padding:22px 24px;margin-top:24px;}
+  .callout p{color:var(--text);font-size:.95rem;}
+  .callout b{color:var(--gold);}
+  .footer{margin-top:64px;border-top:1px solid var(--line);padding-top:32px;}
+  .cred{color:var(--muted);font-size:.85rem;font-style:italic;max-width:720px;}
+  .cta{display:inline-block;margin-top:24px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#1a1304;font-family:'DM Sans',sans-serif;font-weight:700;text-decoration:none;padding:16px 28px;border-radius:8px;font-size:1rem;}
+  .ftiny{color:var(--muted);font-size:.7rem;font-family:'Sora',sans-serif;letter-spacing:.06em;margin-top:18px;line-height:1.7;}
+  .ftiny .g{color:var(--gold);}
+  @media (max-width:720px){
+    .wrap{padding:24px;}.topbar img{height:28px;}.biz-name{font-size:1.9rem;}
+    .hero{grid-template-columns:1fr;}.mgrid{grid-template-columns:1fr;}
+    .wedge{grid-template-columns:1fr;gap:14px;}.wnet{text-align:left;}
+    .inaction .big{font-size:3rem;}.hnum{font-size:2.4rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div style="font-family:'DM Sans',sans-serif;font-size:1.7rem;font-weight:700;color:#fff;letter-spacing:-.01em;">Swiftiom</div>
+    <div class="by">Growth Funnel Audit<br>Prepared by <b>ViralityX</b></div>
+  </div>
+
+  <!-- HEADER -->
+  <div>
+    <div class="biz-name">Swiftiom</div>
+    <div class="biz-desc">Logistics operating system and TMS for growing US trucking fleets. Dispatch, driver app, fleet ops, finance and payments, compliance and IFTA, document OCR, and an AI dispatch board, in one platform. Atlanta based. Self-serve trials for small fleets, sales-led for enterprise. This audit looks only at the growth funnel, not the product.</div>
+    <span class="chip">B2B SAAS / LOGISTICS TECH</span>
+    <span class="chip alt">CONFIDENCE: MODERATE, PENDING FUNNEL DATA</span>
+  </div>
+
+  <!-- READ FIRST -->
+  <div class="block">
+    <div class="callout">
+      <p><b>Read this first.</b> The single number this whole model hinges on is your monthly trial starts and sales inquiries, which is not public. Everything below is built on your published pricing and established SaaS conversion benchmarks at a conservative, clearly labeled volume assumption. The point is not the exact dollar figure. It is the shape of the leak and where it sits. On a call we swap our assumption for your real numbers and this becomes exact in ten minutes.</p>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hcard"><div class="hlabel">New MRR Left on the Table / Mo</div><div class="hnum red">~$5.8K</div><div class="hsub">New recurring revenue the funnel is not capturing, illustrative</div></div>
+    <div class="hcard"><div class="hlabel">Trial-to-Paid Lift Available</div><div class="hnum gold">8% &rarr; 18%</div><div class="hsub">Typical gap between an unmanaged and an activated free trial</div></div>
+    <div class="hcard"><div class="hlabel">12-Month ARR Opportunity</div><div class="hnum gold">~$69K</div><div class="hsub">Annualized new recurring revenue from closing the funnel gaps</div></div>
+  </div>
+
+  <!-- WHAT YOU HAVE ALREADY BUILT -->
+  <div class="block">
+    <div class="sec-h">What You Have Already Built</div>
+    <div class="sec-intro">Most audits open by telling a business what is broken. Yours starts by naming what is not, because it changes where the real problem is.</div>
+    <div class="mgrid">
+      <div class="mcard"><h4>A real product, not a landing page</h4><p>AI dispatch with HOS-aware matching, ELD sync, document OCR, a driver app, settlements and IFTA reporting. This is a full logistics OS at <span class="stat">v4.2.1</span>, not a thin wrapper. The product is not the bottleneck.</p></div>
+      <div class="mcard"><h4>Clean, self-serve pricing</h4><p><span class="stat">$45 and $40 per truck</span> per month, Stripe billing, a 15-day unrestricted trial, no contracts. Low friction to say yes. That is a strength, and it is exactly why the funnel around it matters so much.</p></div>
+      <div class="mcard"><h4>A dual motion already in place</h4><p>Small fleets self-serve through the trial. Custom and enterprise route to sales. You have the right structure. What is missing is the machinery that works each path automatically.</p></div>
+      <div class="mcard"><h4>Enterprise-grade positioning</h4><p>Amazon Freight, Samsara, Motive, DAT, and JB Hunt sit on your homepage as the world you plug into. You are asking fleets to switch systems. That is a high-consideration decision, and high-consideration decisions are won on speed and follow-up.</p></div>
+    </div>
+  </div>
+
+  <!-- THE GAP -->
+  <div class="block">
+    <div class="sec-h">Where The Gap Is</div>
+    <div class="card">
+      <p>You automated the fleet. The customer acquisition around it still looks manual. Every button on the site funnels a fleet operator into one of two places, a free trial or a Contact Sales form, and from the outside there is no sign of what happens in the minutes and days after. In SaaS, that gap between a signup and a human, and between a trial start and the first real use, is where most of the revenue quietly leaks. A TMS is a considered purchase made by busy dispatchers and owner-operators. If nobody reaches them fast, and nothing pulls a stalled trial back, the product never gets the chance to prove itself. The five items below are the specific points where that happens.</p>
+    </div>
+  </div>
+
+  <!-- MARKET CONTEXT -->
+  <div class="block">
+    <div class="sec-h">Market Context</div>
+    <div class="mgrid">
+      <div class="mcard"><h4>Speed decides who wins the switch</h4><p>Contact a lead within <span class="stat">5 minutes</span> and you are far more likely to convert than a competitor who takes an hour. In a crowded TMS market, the fleet is usually evaluating two or three systems at once. First real response tends to win the trial.</p></div>
+      <div class="mcard"><h4>Free trials live or die on activation</h4><p>Self-serve SaaS trials commonly convert in the <span class="stat">15 to 25%</span> range when the user actually reaches first value. Unactivated trials convert in the low single digits. For a complex product like a TMS, guided onboarding is the difference, not the free days.</p></div>
+      <div class="mcard"><h4>The market is switching in your favor</h4><p>Fleets are moving off spreadsheets and legacy TMS toward modern platforms. That tailwind means more trials and inquiries over time, which makes every point of funnel leakage more expensive, not less.</p></div>
+      <div class="mcard"><h4>Your ACV rewards fixing this once</h4><p>A 10-truck fleet is <span class="stat">~$4,800/yr</span>, a 25-truck fleet is <span class="stat">~$12,000/yr</span>, and both stick for years on a system of record. Recovering even a handful of trials and enterprise conversations a month compounds into serious ARR.</p></div>
+    </div>
+  </div>
+
+  <!-- BOTTLENECKS -->
+  <div class="block">
+    <div class="sec-h">Bottlenecks</div>
+    <div class="sec-intro">Illustrative model assumes roughly 75 self-serve trial starts and 15 sales-led inquiries per month. Your real numbers replace these on the call.</div>
+
+    <div class="card leak">
+      <h3>1. Speed-to-lead on Contact Sales and enterprise inquiries</h3>
+      <p>Your biggest deals, Custom and Enterprise, all arrive through a Contact Sales form. A multi-truck fleet filling that out is actively shopping systems and almost always talking to other vendors. There is no visible instant response, no automated qualification, no booked next step. If a human does not reach them inside minutes, the warmest moment is gone and a competitor gets the demo.</p>
+      <div class="metric red">ESTIMATED NEW MRR AT RISK: ~$1,400/mo</div>
+      <div class="assume">Assumption: ~15 sales-led inquiries/mo, ~3 to 4 lost to slow or no response, ~2 recoverable at an estimated ~$700/mo each. Modeled as new MRR not added per month. Estimate pending your real inquiry volume and current response time.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>2. Free trials that start and never activate</h3>
+      <p>The 15-day trial is your main growth engine, and it is self-serve. A TMS has real setup, adding trucks, syncing ELD, getting drivers onto the app, running a first dispatch. A user who signs up and does not reach that first real use almost never converts, and today nothing appears to guide them there or notice when they stall. Most of the trial revenue leaks here, silently, before anyone talks to them.</p>
+      <div class="metric red">ESTIMATED NEW MRR AT RISK: ~$2,100/mo</div>
+      <div class="assume">Assumption: ~75 trials/mo. Unmanaged conversion ~8% versus an achievable ~18% with activation support, a gap of ~7 to 8 customers/mo at an estimated ~$280/mo average. Benchmarks, not your figures, until validated.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>3. No qualification or routing between self-serve and sales</h3>
+      <p>A 40-truck operation may click Register and land in self-serve when it should be a sales-led enterprise deal. A single owner-operator may hit Contact Sales and consume rep time that will never pay back. Without inbound scoring by fleet size and role, both motions run at reduced conversion and your team spends time in the wrong places.</p>
+      <div class="metric red">ESTIMATED NEW MRR AT RISK: ~$800/mo</div>
+      <div class="assume">Assumption: mis-routing depresses conversion on both paths and wastes rep capacity. Modeled conservatively at ~$800/mo in delayed and lost new MRR.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>4. No reactivation on abandoned trials and demo no-shows</h3>
+      <p>People start the demo flow and drop off. Trials expire without a decision. Booked demos no-show. In trucking, that is not disinterest, it is a dispatcher who got slammed. Right now there is no automated win-back reaching those people across voice, text, and email to pull them back into the funnel. Every one of them was already interested enough to raise a hand once.</p>
+      <div class="metric red">ESTIMATED NEW MRR AT RISK: ~$850/mo</div>
+      <div class="assume">Assumption: ~3 recoverable per month across abandoned trials and no-shows at ~$280/mo average. Estimate pending your drop-off and no-show rates.</div>
+    </div>
+
+    <div class="card leak">
+      <h3>5. Thin proof and top-of-funnel</h3>
+      <p>About, Testimonials, News, and Blog read as placeholder or early. For a fleet being asked to move its system of record, social proof and content are not decoration, they are conversion. Weak proof lowers trial-to-paid and raises acquisition cost on every channel you run. This is the one gap that quietly taxes all four above.</p>
+      <div class="metric red">ESTIMATED NEW MRR AT RISK: ~$650/mo unrealized</div>
+      <div class="assume">Assumption: thin proof drags conversion across the funnel. Modeled as ~$650/mo of new MRR not captured, ramping as content and proof build.</div>
+    </div>
+  </div>
+
+  <!-- OPPORTUNITIES -->
+  <div class="block">
+    <div class="sec-h">Opportunities</div>
+
+    <div class="card opp">
+      <h3>AI speed-to-lead and a 24/7 voice qualifier on inbound</h3>
+      <p>Closes Bottleneck 1. Every Contact Sales and demo request gets an instant response, gets qualified on fleet size and role by an AI agent, and gets a booked call, day or night. Small fleets get routed straight into guided self-serve. The warmest moment never goes unanswered again.</p>
+      <div class="metric gold">ESTIMATED NEW MRR RECOVERY: ~$1,000/mo</div>
+      <div class="assume">Assumption: instant capture and routing recovers ~60% of the enterprise speed-to-lead leak.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Trial activation and onboarding engine</h3>
+      <p>Closes Bottleneck 2. Automated onboarding that drives every trial to first real value, add a truck, sync ELD, get a driver on the app, run a first dispatch, with milestone nudges and stall detection that flags a trial going cold so a human can step in before day 15. This is the single highest-impact build for a self-serve SaaS.</p>
+      <div class="metric gold">ESTIMATED NEW MRR RECOVERY: ~$1,400/mo</div>
+      <div class="assume">Assumption: activation support lifts trial-to-paid toward the ~18% benchmark, capturing ~60% of the activation leak.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Lead qualification and routing</h3>
+      <p>Closes Bottleneck 3. Inbound scored automatically by fleet size and role, then split cleanly into self-serve or sales-led. Reps only see deals worth a human, and enterprise fleets never get stuck in a self-serve flow that undersells them.</p>
+      <div class="metric gold">ESTIMATED NEW MRR RECOVERY: ~$500/mo</div>
+      <div class="assume">Assumption: correct routing recovers ~60% of the mis-routing leak and reclaims rep time.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Reactivation engine across voice, text, and email</h3>
+      <p>Closes Bottleneck 4. Automated win-back on abandoned trials, expired trials, and demo no-shows, reaching people where a single email fails. Persistent, personalized, and running without your team touching it.</p>
+      <div class="metric gold">ESTIMATED NEW MRR RECOVERY: ~$550/mo</div>
+      <div class="assume">Assumption: multi-channel reactivation recovers ~60% of the drop-off leak.</div>
+    </div>
+
+    <div class="card opp">
+      <h3>Growth content and social-proof engine</h3>
+      <p>Closes Bottleneck 5. Systematized testimonial and case-study capture from your active fleets, plus a content engine that fills the blog and proof pages that convert switchers. It compounds, and it lifts conversion on everything above it.</p>
+      <div class="metric gold">ESTIMATED NEW MRR RECOVERY: ~$450/mo</div>
+      <div class="assume">Assumption: stronger proof lifts conversion across channels, capturing ~60% of the proof leak as it ramps.</div>
+    </div>
+  </div>
+
+  <!-- BUILD STACK -->
+  <div class="block">
+    <div class="sec-h">Recommended Build Stack</div>
+    <div class="wedge"><div><div class="wname">Trial Activation &amp; Onboarding Engine</div><div class="wframe">Drives every trial to first real value with milestone nudges and stall detection. The highest-impact build for a self-serve TMS.</div></div><div class="wnet"><small>Primary Impact</small>Higher trial-to-paid</div></div>
+    <div class="wedge"><div><div class="wname">AI Speed-to-Lead + Voice Qualifier</div><div class="wframe">Instant response, AI qualification, and a booked call on every enterprise inquiry, 24/7.</div></div><div class="wnet"><small>Primary Impact</small>Win the switch</div></div>
+    <div class="wedge"><div><div class="wname">Lead Qualification &amp; Routing</div><div class="wframe">Scores inbound by fleet size and role, splits self-serve from sales-led automatically.</div></div><div class="wnet"><small>Primary Impact</small>Right deal, right path</div></div>
+    <div class="wedge"><div><div class="wname">Reactivation Engine</div><div class="wframe">Multi-channel win-back on abandoned trials, expired trials, and demo no-shows.</div></div><div class="wnet"><small>Primary Impact</small>Recover raised hands</div></div>
+    <div class="wedge"><div><div class="wname">Growth Content &amp; Social-Proof Engine</div><div class="wframe">Systematized testimonials, case studies, and content that convert switchers and lower CAC.</div></div><div class="wnet"><small>Primary Impact</small>Compounding conversion</div></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="block">
+    <div class="sec-h">Total Impact Summary</div>
+    <div class="sec-intro">Illustrative at the stated volume assumption. Real funnel data will move these up or down.</div>
+    <div class="sumrow"><span>New MRR at risk across all bottlenecks (per month)</span><span class="v red">~$5,800</span></div>
+    <div class="sumrow"><span>Estimated new MRR recovery if all opportunities closed (per month)</span><span class="v gold">~$3,900</span></div>
+    <div class="sumrow"><span>12-month ARR opportunity from that recovery</span><span class="v gold">~$47,000</span></div>
+    <div class="sumrow"><span>12-month new ARR the full funnel could be adding</span><span class="v gold">~$69,000</span></div>
+  </div>
+
+  <div class="block">
+    <div class="inaction">
+      <div class="lbl">The Real Point</div>
+      <div class="big">~$69K</div>
+      <div class="note">New ARR run-rate the funnel could be building over the next year, on a product that is already good enough to earn it. The product is not the constraint. The machinery around it is.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="cred">These figures are built from Swiftiom's published pricing, established SaaS free-trial and speed-to-lead benchmarks, and the visible funnel signals on swiftiom.com, at a conservative and clearly stated volume assumption. They are starting figures for an operator conversation, not a quote, and they become exact the moment we have your real trial and inquiry numbers.</div>
+    <a class="cta" href="tel:+14049322311">Book a working session with Tariq &rarr;</a>
+    <div class="ftiny">SOURCES: Lead Response Management / InsideSales (5-minute speed-to-lead effect) · industry SaaS free-trial conversion benchmarks (15 to 25% self-serve on activation) · swiftiom.com pricing and funnel signals<br><br><span class="g">ViralityX</span> // Growth + AI Systems Architecture · prepared for Swiftiom · Southeast Region, Tariq Khan</div>
+  </div>
+
+</div>
+</body>
+</html>
