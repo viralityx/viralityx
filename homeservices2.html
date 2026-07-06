@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>At Home Services — Discovery Call Gameplan (Internal) | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0c0c0c;--text:#e8e8e8;--muted:#888;--lime:#d4ff00;--red:#ff4d4d;--amber:#ffb84d;--card:#151515;--line:#262626;--blue:#7db8ff;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:48px;}
+  .topbar{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:var(--muted);margin-bottom:40px;}
+  .topbar b{color:var(--lime);font-weight:600;} .topbar .int{color:var(--amber);}
+  h1{font-family:'IBM Plex Mono',monospace;font-size:2.1rem;color:#fff;font-weight:600;line-height:1.1;}
+  .sub{color:var(--muted);margin-top:12px;font-size:1.02rem;}
+  .flag{background:#221a00;border:1px solid var(--amber);border-radius:10px;padding:14px 18px;margin-top:20px;font-size:.9rem;color:var(--amber);}
+  .flag b{color:#fff;}
+  .block{margin-top:52px;}
+  .sec-h{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;}
+  .brief{background:linear-gradient(180deg,#131500,#0c0c0c);border:1px solid var(--lime);border-radius:12px;padding:26px;}
+  .brief h3{color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.95rem;margin-bottom:12px;}
+  .brief p{font-size:.97rem;margin-bottom:10px;} .brief .hot{color:#fff;font-weight:600;} .brief .warn{color:var(--amber);}
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;}
+  .rcard h4{font-family:'IBM Plex Mono',monospace;font-size:1rem;margin-bottom:10px;}
+  .rcard.josh h4{color:var(--blue);} .rcard.danny h4{color:var(--lime);}
+  .rcard ul{margin-left:18px;color:var(--muted);font-size:.92rem;} .rcard li{margin-bottom:7px;}
+  .flow{border-left:2px solid var(--line);margin-left:8px;}
+  .step{position:relative;padding:0 0 22px 26px;}
+  .step::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--lime);}
+  .step .t{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--amber);letter-spacing:.06em;}
+  .step .n{color:#fff;font-weight:600;font-size:1.05rem;margin:3px 0;}
+  .step .d{color:var(--muted);font-size:.9rem;}
+  .step .who{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--blue);}
+  .qcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:14px;}
+  .qcard .cat{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.82rem;letter-spacing:.08em;margin-bottom:4px;}
+  .qcard .need{font-size:.78rem;font-style:italic;color:var(--amber);margin-bottom:14px;}
+  .qcard ul{margin-left:18px;} .qcard li{margin-bottom:10px;font-size:.97rem;color:var(--text);}
+  .qcard li .cue{display:block;font-size:.8rem;color:var(--muted);font-style:italic;margin-top:3px;}
+  .wand{background:#1a1400;border:1px solid var(--amber);border-radius:12px;padding:28px;}
+  .wand h3{color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:1rem;margin-bottom:14px;}
+  .wand .big{color:#fff;font-size:1.2rem;font-weight:600;line-height:1.5;margin-bottom:16px;}
+  .wand ul{margin-left:18px;color:var(--text);} .wand li{margin-bottom:10px;} .wand .tip{color:var(--muted);font-size:.88rem;font-style:italic;margin-top:14px;}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px;}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;}
+  td .trig{color:var(--amber);font-style:italic;} td .wedge{color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.85rem;}
+  .dos{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .docard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;}
+  .docard h4{font-family:'IBM Plex Mono',monospace;font-size:.85rem;letter-spacing:.08em;margin-bottom:12px;}
+  .docard.do h4{color:var(--lime);} .docard.dont h4{color:var(--red);}
+  .docard ul{margin-left:18px;color:var(--muted);font-size:.9rem;} .docard li{margin-bottom:8px;}
+  .close-script{background:var(--card);border-left:4px solid var(--lime);border-radius:10px;padding:22px;color:var(--text);font-size:.98rem;} .close-script em{color:var(--muted);}
+  @media(max-width:720px){.wrap{padding:24px;}h1{font-size:1.5rem;}.roles,.dos{grid-template-columns:1fr;}table{font-size:.82rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar"><b>VIRALITYX</b> // DISCOVERY CALL GAMEPLAN <span class="int">[INTERNAL — DANNY + JOSH ONLY]</span></div>
+
+  <h1>At Home Services (Nick)<br>Discovery Call Playbook</h1>
+  <div class="sub">Nick, Pella window &amp; door installer, Josh's 20-year friend, small-town Kentucky. This is a discovery call, not a sales call. Josh's relationship carries it. He talks 80, we talk 20.</div>
+
+  <div class="flag"><b>Note:</b> the site (athomeservices.pro) was down when we prepped, so the operational audit and his branded materials are pending. This gameplan is built from what we already know about Nick. Confirm his exact services and numbers live on the call.</div>
+
+  <!-- BRIEF -->
+  <div class="block">
+    <div class="sec-h">60-Second Pre-Call Brief</div>
+    <div class="brief">
+      <h3>Read this before you dial</h3>
+      <p><span class="hot">Who he is:</span> Nick runs At Home Services, a Pella window and door installer in a small, booming Kentucky town (new Ford plant, thousands of jobs moving in). He's a 20-year friend of Josh, an action-taker who gets analysis paralysis, and once he's sold, he's all in. He was the very first person to run our scan.</p>
+      <p><span class="hot">His one hangup:</span> the $3,500 upfront. He told Josh straight up he can't come off that cash while making payroll, even knowing it works. So do NOT lead with a setup fee. Lead with the outcome and a low-risk way in, same lean base plus performance structure we just used to close Rob.</p>
+      <p><span class="hot">The real prize (bigger than Nick):</span> Nick is a super-connector in a town Josh wants to own, and his wife just launched a community and business podcast. Land Nick, deliver a fast win, and he becomes a referral hub and the podcast becomes a lead channel into the whole town. This is Josh's hometown thesis. Nick is the doorway.</p>
+      <p><span class="warn">Don't over-sell or over-explain the tech.</span> He's a hands-on tradesman drowning in decisions. Make it simple, make it low-risk, give him one clear next step.</p>
+    </div>
+  </div>
+
+  <!-- ROLES -->
+  <div class="block">
+    <div class="sec-h">Who Runs What</div>
+    <div class="roles">
+      <div class="rcard josh">
+        <h4>JOSH — The Relationship (lead)</h4>
+        <ul>
+          <li>This is his 20-year friend and his hometown. Josh drives.</li>
+          <li>Frames the outcome: more jobs, less admin, more Friday nights with the wife.</li>
+          <li>Pushes him over the analysis-paralysis edge, gently.</li>
+          <li>Opens the connector and podcast conversation.</li>
+        </ul>
+      </div>
+      <div class="rcard danny">
+        <h4>DANNY — Operations &amp; Structure</h4>
+        <ul>
+          <li>Drives the how-jobs-come-in, quotes, reviews questions.</li>
+          <li>Structures the lean base plus performance deal that removes the money wall.</li>
+          <li>Flags build opportunities silently for the proposal.</li>
+          <li>Lands the magic wand, sets the next step.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOW -->
+  <div class="block">
+    <div class="sec-h">Call Flow (target 30-40 min)</div>
+    <div class="flow">
+      <div class="step"><div class="t">0-5 MIN</div><div class="n">Warm up (easy, it's family)</div><div class="d">Josh and Nick catch up. Then frame: "Not a sales pitch. We want to understand the business and find you more jobs with less headache." No pressure.</div><div class="who">JOSH</div></div>
+      <div class="step"><div class="t">5-12 MIN</div><div class="n">The business &amp; how jobs come in</div><div class="d">What he installs, how leads reach him, what happens to a call when he's up a ladder. Speed-to-lead and missed calls live here.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">12-20 MIN</div><div class="n">Quotes &amp; follow-up</div><div class="d">How he quotes windows and doors, how long it takes, and what happens to a quote that does not close right away. Big-ticket means long follow-up and financing.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">20-28 MIN</div><div class="n">His network &amp; the podcast</div><div class="d">His reputation in town, who he knows, and his wife's new podcast. This is where the referral and lead-channel prize opens up.</div><div class="who">JOSH</div></div>
+      <div class="step"><div class="t">28-34 MIN</div><div class="n">Time, money reality &amp; the magic wand</div><div class="d">What buries him, then gently surface his cash reality to tee up the lean deal, then the wand.</div><div class="who">DANNY</div></div>
+      <div class="step"><div class="t">34-40 MIN</div><div class="n">Next step</div><div class="d">"We'll put together a simple, low-risk way to start so you see jobs before you spend real money." Book the follow-up.</div><div class="who">BOTH</div></div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div class="block">
+    <div class="sec-h">Question Bank (open-ended, mapped to intel we need)</div>
+
+    <div class="qcard">
+      <div class="cat">1. STORY &amp; VISION</div>
+      <div class="need">We need: what he installs, where he wants the business, appetite to grow.</div>
+      <ul>
+        <li>"How'd you get At Home Services going, and what all do you handle, just windows and doors or more?"</li>
+        <li>"With the Ford plant and everybody moving in, what does that mean for your business?"<span class="cue">Huge tailwind. If he's hungry to capture the boom, lead with lead-gen.</span></li>
+        <li>"Where do you want this in a couple years? Bigger crew, steady, or just less stress?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">2. HOW JOBS COME IN — CORE</div>
+      <div class="need">We need: lead sources, volume, speed-to-lead, missed calls.</div>
+      <ul>
+        <li>"Where do most of your jobs come from right now, referrals, past customers, online?"</li>
+        <li>"When somebody calls while you're up on a job, what happens to that call?"<span class="cue">Missed-call leak. In home services the first responder usually wins. Text-back + speed-to-lead wedge.</span></li>
+        <li>"Roughly how many new inquiries a month, and how many turn into jobs?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">3. QUOTES &amp; FOLLOW-UP</div>
+      <div class="need">We need: the estimate process and what happens to quotes that don't close.</div>
+      <ul>
+        <li>"Walk me through how you quote a window or door job. How long from first call to a number in their hands?"</li>
+        <li>"When someone gets a quote and goes quiet, how do you follow up?"<span class="cue">Windows are big-ticket, long consideration. Follow-up sequence + financing reminders = closed jobs sitting on the table.</span></li>
+        <li>"Do you offer financing? Do people know about it?"</li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">4. REVIEWS &amp; REPUTATION</div>
+      <div class="need">We need: is his reputation being captured, how strong locally.</div>
+      <ul>
+        <li>"In a town like yours, your name is everything. Do you have any system for getting reviews after a job?"</li>
+        <li>"When people look you up, what do they find?"<span class="cue">Review engine wedge, plus feeds the connector play.</span></li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">5. HIS NETWORK &amp; THE PODCAST — THE PRIZE</div>
+      <div class="need">We need: how connected he is, and the podcast as a lead channel.</div>
+      <ul>
+        <li>"You know everybody in town. How much of your work is you just knowing the right people?"</li>
+        <li>"Tell me about the podcast your wife started. Who's listening?"<span class="cue">Community + local business owners. This is a referral and ad-read lead channel into the whole town.</span></li>
+        <li>"If we made you money and you were happy, are you the type who'd send other business owners our way?"<span class="cue">If yes, he's your affiliate hub. Set up the referral engine.</span></li>
+      </ul>
+    </div>
+
+    <div class="qcard">
+      <div class="cat">6. TIME, ADMIN &amp; THE MONEY REALITY</div>
+      <div class="need">We need: what buries him, and his cash reality (to tee up the lean deal).</div>
+      <ul>
+        <li>"What part of running the business eats your nights and weekends?"</li>
+        <li>"If the phone, the follow-ups, and the reviews just handled themselves, what would you do with that time?"</li>
+        <li>"Cash-flow wise, what does a comfortable way to start look like for you?"<span class="cue">Let him tell you the money wall. Then hand him the lean base + performance answer.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WAND -->
+  <div class="block">
+    <div class="sec-h">The Close — Magic Wand</div>
+    <div class="wand">
+      <h3>Save the most important question for last. Ask ONE. Then shut up.</h3>
+      <div class="big">"If you had a magic wand and could fix or automate one thing in the business tomorrow, what would it be?"</div>
+      <ul>
+        <li>"What's the one headache that, if it disappeared, would change your week?"</li>
+        <li>"Of everything we talked about, what do you need the most help with right now?"</li>
+      </ul>
+      <div class="tip">For Nick it's likely "more steady jobs without me doing the marketing" or "get the phone and paperwork off my plate." Whatever he says is the headline of the proposal. Write it word for word.</div>
+    </div>
+  </div>
+
+  <!-- LISTENING MAP -->
+  <div class="block">
+    <div class="sec-h">Listening Map — what he says → what we build</div>
+    <table>
+      <thead><tr><th>If he says</th><th>It signals</th><th>Proposal wedge</th></tr></thead>
+      <tbody>
+        <tr><td><span class="trig">"Calls go to voicemail when I'm on a job"</span></td><td>Missed-lead leak</td><td><span class="wedge">Speed-to-lead + missed-call text-back</span></td></tr>
+        <tr><td><span class="trig">"Quotes just go quiet on me"</span></td><td>Big-ticket jobs dying in follow-up</td><td><span class="wedge">Quote follow-up sequence + financing reminders</span></td></tr>
+        <tr><td><span class="trig">"I don't really ask for reviews"</span></td><td>Small-town reputation not captured</td><td><span class="wedge">Review engine (QR, in-person)</span></td></tr>
+        <tr><td><span class="trig">"I know everybody" / wife's podcast</span></td><td>Super-connector + lead channel</td><td><span class="wedge">Referral hub + podcast ad-read engine</span></td></tr>
+        <tr><td><span class="trig">"Paperwork eats my nights"</span></td><td>Admin buries the owner</td><td><span class="wedge">Automation + CRM, reclaim-his-time framing</span></td></tr>
+        <tr><td><span class="trig">"I can't come off $3,500 right now"</span></td><td>Cash-flow wall</td><td><span class="wedge">Lean base + performance deal (Rob model)</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DOS -->
+  <div class="block">
+    <div class="sec-h">On The Call</div>
+    <div class="dos">
+      <div class="docard do">
+        <h4>DO</h4>
+        <ul>
+          <li>Let Josh's relationship carry the warmth. It's a huge head start.</li>
+          <li>Lead with the outcome: more jobs, less admin, more time with his wife.</li>
+          <li>Remove the money wall early with the lean, low-risk structure.</li>
+          <li>Open the connector and podcast door, that's the real prize.</li>
+          <li>Give him one simple next step. He needs a nudge, not a menu.</li>
+        </ul>
+      </div>
+      <div class="docard dont">
+        <h4>DON'T</h4>
+        <ul>
+          <li>Lead with a $3,500 setup fee. He will freeze. That's his exact hangup.</li>
+          <li>Overwhelm him with tech or too many options (analysis paralysis).</li>
+          <li>Be salesy with a friend. Josh's trust is the asset, protect it.</li>
+          <li>Forget to ask about the podcast and his network. It's the whole play.</li>
+          <li>Promise a specific dollar number live. Gather, then model.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="block">
+    <div class="sec-h">Closing Script</div>
+    <div class="close-script">
+      "Nick, this is exactly what we needed. Here's what's next. We'll put together a simple, low-risk way to get started, built so you see more jobs coming in before you ever spend real money. No big upfront wall. <em>Let's get one more quick call on the calendar and walk you through it.</em>"
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

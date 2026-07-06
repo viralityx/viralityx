@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>At Home Services — Operational Audit | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --slate:#4a6d8a;--slate2:#58789f;--slate-deep:#38556f;--tint:#e8f0fa;
+    --cream:#faf9f5;--ink:#141413;--body:#3f4a54;--muted:#7a838b;
+    --bg:#ffffff;--line:#e6e3db;--leak:#c0453b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{color:var(--ink);letter-spacing:-.01em;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 0 64px;}
+  .pad{padding-left:54px;padding-right:54px;}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:24px 54px;border-bottom:1px solid var(--line);}
+  .topbar img{height:46px;width:auto;}
+  .topbar .by{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.7;font-weight:600;}
+  .topbar .by b{color:var(--slate);}
+  .hero{background:linear-gradient(135deg,var(--slate),var(--slate-deep));color:#fff;padding:40px 54px 44px;}
+  .hero .eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#c9d8e8;font-weight:700;}
+  .hero h1{color:#fff;font-size:2.15rem;font-weight:800;line-height:1.12;margin:12px 0;}
+  .hero p{color:#dde7f1;font-size:1.02rem;max-width:640px;}
+  .herostats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;}
+  .hs{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:18px;}
+  .hs .l{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#c9d8e8;margin-bottom:8px;font-weight:600;}
+  .hs .n{font-weight:800;font-size:1.9rem;color:#fff;line-height:1;}
+  .hs .s{font-size:.72rem;color:#c4d3e2;margin-top:8px;}
+  .section{margin-top:50px;}
+  .kicker{color:var(--slate);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:12px;}
+  h2{font-size:1.55rem;font-weight:800;margin-bottom:8px;}
+  .rule{height:3px;width:54px;background:var(--slate);border-radius:2px;margin:10px 0 22px;}
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .mcard{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:20px 22px;}
+  .mcard h4{font-size:.98rem;margin-bottom:8px;font-weight:700;}
+  .mcard p{font-size:.9rem;color:var(--body);}
+  .mcard .stat{color:var(--slate);font-weight:700;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:16px;}
+  .card.leak{border-left:5px solid var(--leak);}
+  .card.opp{border-left:5px solid var(--slate);}
+  .card h3{margin-bottom:8px;font-size:1.18rem;font-weight:700;}
+  .card p{color:var(--body);font-size:.96rem;}
+  .metric{font-weight:800;margin-top:14px;font-size:1rem;}
+  .metric.leak{color:var(--leak);} .metric.opp{color:var(--slate);}
+  .assume{font-size:.8rem;font-style:italic;color:var(--muted);margin-top:6px;line-height:1.45;}
+  .wedge{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:center;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:14px;}
+  .wedge .wname{color:var(--ink);font-size:1rem;font-weight:700;margin-bottom:6px;}
+  .wedge .wframe{color:var(--body);font-size:.88rem;}
+  .wnet{color:var(--slate);font-size:1rem;font-weight:700;text-align:right;}
+  .wnet small{display:block;color:var(--muted);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;font-weight:600;}
+  .sumrow{display:flex;justify-content:space-between;padding:14px 2px;border-bottom:1px solid var(--line);font-size:.95rem;font-weight:600;}
+  .sumrow span:first-child{color:var(--body);font-weight:400;}
+  .sumrow .leak{color:var(--leak);} .sumrow .opp{color:var(--slate);} .sumrow .ink{color:var(--ink);}
+  .inaction{background:linear-gradient(135deg,var(--slate),var(--slate-deep));border-radius:14px;padding:44px 32px;text-align:center;margin-top:24px;color:#fff;}
+  .inaction .lbl{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#c9d8e8;font-weight:600;}
+  .inaction .big{font-size:4.4rem;font-weight:800;color:#fff;line-height:1;margin:16px 0;letter-spacing:-.02em;}
+  .inaction .note{color:#dde7f1;font-size:.95rem;}
+  .footer{margin-top:56px;border-top:1px solid var(--line);padding-top:30px;}
+  .cred{color:var(--muted);font-size:.84rem;font-style:italic;max-width:700px;}
+  .cta{display:inline-block;margin-top:22px;background:var(--slate);color:#fff;font-weight:700;text-decoration:none;padding:15px 28px;border-radius:8px;}
+  .ftiny{color:var(--muted);font-size:.72rem;letter-spacing:.04em;margin-top:16px;line-height:1.7;}
+  .ftiny .g{color:var(--slate);font-weight:700;}
+  @media(max-width:720px){.pad,.hero,.topbar{padding-left:22px;padding-right:22px;}.hero h1{font-size:1.6rem;}.herostats,.mgrid{grid-template-columns:1fr;}.wedge{grid-template-columns:1fr;gap:12px;}.wnet{text-align:left;}.inaction .big{font-size:3rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <img src="https://athomeservices.pro/images/logo.png" alt="At Home Services">
+    <div class="by">Operational Audit<br>Prepared by <b>ViralityX</b></div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Prepared for At Home Services</div>
+    <h1>Great brand. Built at the perfect time. Missing the engine.</h1>
+    <p>You are a trusted Pella dealer in a county that is about to explode with new homes and new money. Your site looks the part. What is missing is the system that captures and converts the demand headed straight for you. Here is where, and what it is worth.</p>
+    <div class="herostats">
+      <div class="hs"><div class="l">Monthly Revenue Leak</div><div class="n">$12.5K</div><div class="s">Across 5 capture and convert gaps</div></div>
+      <div class="hs"><div class="l">Net Monthly Upside</div><div class="n">$7K</div><div class="s">Recovery once the gaps are closed</div></div>
+      <div class="hs"><div class="l">12-Month Cost of Inaction</div><div class="n">$150K</div><div class="s">Annualized at current state</div></div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <div class="section">
+      <div class="kicker">The context</div>
+      <div class="rule"></div>
+      <h2>The timing is the whole story</h2>
+      <div class="mgrid" style="margin-top:20px;">
+        <div class="mcard"><h4>A boom on your doorstep</h4><p>The BlueOval SK battery plant in Glendale is bringing <span class="stat">thousands of jobs</span> and a wave of new homes and remodels to Hardin County. Windows, doors, and paint demand is surging. Whoever captures the search and referral flow owns the next few years.</p></div>
+        <div class="mcard"><h4>Big-ticket means follow-up wins</h4><p>A window or door job is a considered, financed purchase. Most are won in the follow-up, not the first call. Without a nurture, quoted jobs quietly go cold.</p></div>
+        <div class="mcard"><h4>In home services, speed wins</h4><p>The first credible response usually books the job. When you are on a jobsite and a call or quote request comes in, minutes decide who gets the work.</p></div>
+        <div class="mcard"><h4>Your proof sells the job</h4><p>Homeowners choose by before-and-after photos and reviews. Right now your gallery reads "no images available" and your reviews are nowhere on the site.</p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Where it leaks</div>
+      <div class="rule"></div>
+      <h2>Five gaps between you and the boom</h2>
+
+      <div class="card leak">
+        <h3>1. Leads wait while you're on a jobsite</h3>
+        <p>Your only ways in are a call, a text, and a quote form. When you are up a ladder, that call goes unanswered and that form sits until you get to it. In home improvement, the homeowner is calling three companies, and the one who answers first usually wins the job.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $4,000</div>
+        <div class="assume">Assumption: roughly 2 quote requests per month lost to slow or missed response, at big-ticket window and door values where even one converted job is thousands. Estimate pending your actuals.</div>
+      </div>
+
+      <div class="card leak">
+        <h3>2. Quotes go cold with no follow-up</h3>
+        <p>A homeowner gets a window quote, then thinks about it for weeks, often around financing. With no automated follow-up reminding them of the value, the warranty, and the payment options, a real share of quoted jobs simply drift to whoever stayed in touch.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $3,000</div>
+        <div class="assume">Assumption: a portion of quoted-but-unclosed big-ticket jobs each month are recoverable with a structured follow-up and financing nurture. Estimate pending validation.</div>
+      </div>
+
+      <div class="card leak">
+        <h3>3. An empty gallery and invisible reviews</h3>
+        <p>Your "Recent Transformations" gallery says no images are available, on a business where before-and-after photos are the single biggest thing that sells the job. And 15 years of happy Hardin County customers are not showing up as reviews anywhere a prospect can see them.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $2,000</div>
+        <div class="assume">Assumption: visitors who reach the site convert at a lower rate without visible project photos and reviews, the two strongest trust signals in home improvement. Estimate pending validation.</div>
+      </div>
+
+      <div class="card leak">
+        <h3>4. You're not yet capturing the search demand</h3>
+        <p>When a new Hardin County homeowner searches "window replacement Elizabethtown" or "Pella dealer near me," that is a ready-to-buy customer. If you are not ranking and your Google presence is not dialed, that high-intent demand, the demand the plant is creating, goes to a competitor.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $2,500</div>
+        <div class="assume">Assumption: local search and Google presence are under-captured against rising Hardin County demand, sending high-intent traffic to competitors. Estimate pending validation.</div>
+      </div>
+
+      <div class="card leak">
+        <h3>5. Your network isn't a referral engine yet</h3>
+        <p>You are known and trusted locally, and there is a community podcast in the family. That is a referral machine waiting to be built. Right now referrals happen by luck, not by system, so the compounding is left on the table.</p>
+        <div class="metric leak">ESTIMATED MONTHLY LEAK: $1,000</div>
+        <div class="assume">Assumption: a structured referral and review flow plus a local content channel compounds new jobs over time that ad-hoc word of mouth does not capture. Estimate pending validation.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Where we recover it</div>
+      <div class="rule"></div>
+      <h2>The fixes, in order</h2>
+
+      <div class="card opp">
+        <h3>Speed-to-lead and missed-call text-back</h3>
+        <p>Closes Gap 1. Every call you miss on a jobsite gets an instant text back, and every quote request gets an immediate reply and a booked in-home appointment. You are the first company to respond, every time, without stopping work.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $2,400</div>
+        <div class="assume">Assumption: capturing the leads currently lost to slow response, at roughly 60% of the leak.</div>
+      </div>
+
+      <div class="card opp">
+        <h3>Quote follow-up and financing nurture</h3>
+        <p>Closes Gap 2. An automatic sequence keeps you in front of every quoted homeowner with the value, the warranty, and the financing options, until they book or say no.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $1,800</div>
+        <div class="assume">Assumption: recovers a share of quoted jobs that currently go cold, at roughly 60% of the leak.</div>
+      </div>
+
+      <div class="card opp">
+        <h3>Photo gallery and review engine</h3>
+        <p>Closes Gap 3. We build the before-and-after gallery from your projects and turn on automatic review requests after every job, then surface those reviews where buyers look. Your proof finally does its job.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $1,200</div>
+        <div class="assume">Assumption: visible photos and reviews lift the conversion of visitors you already get.</div>
+      </div>
+
+      <div class="card opp">
+        <h3>Local SEO and Google presence</h3>
+        <p>Closes Gap 4. We get you ranking for the searches that matter in Hardin County and dial in your Google Business Profile, so the demand the plant is creating finds you first.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $1,500</div>
+        <div class="assume">Assumption: captures a portion of the high-intent local search demand currently going elsewhere.</div>
+      </div>
+
+      <div class="card opp">
+        <h3>Referral and community lead engine</h3>
+        <p>Closes Gap 5. We turn your reputation and the podcast into a real channel: a referral system, review flow, and simple local content that keeps new jobs coming without you chasing them.</p>
+        <div class="metric opp">ESTIMATED MONTHLY RECOVERY: $600</div>
+        <div class="assume">Assumption: a structured referral and content flow compounds new jobs over time.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">What we'd build</div>
+      <div class="rule"></div>
+      <h2>Your job-capture stack</h2>
+      <div class="wedge"><div><div class="wname">Speed-to-Lead + Missed-Call Text-Back</div><div class="wframe">Instant response to every call and quote request, even from a jobsite.</div></div><div class="wnet"><small>Primary Impact</small>Book more jobs first</div></div>
+      <div class="wedge"><div><div class="wname">Quote Follow-Up + Financing Nurture</div><div class="wframe">Automatic follow-up that closes the big-ticket jobs sitting in limbo.</div></div><div class="wnet"><small>Primary Impact</small>Recover cold quotes</div></div>
+      <div class="wedge"><div><div class="wname">Photo Gallery + Review Engine</div><div class="wframe">Before-and-after proof and automatic reviews, surfaced where it counts.</div></div><div class="wnet"><small>Primary Impact</small>Trust that converts</div></div>
+      <div class="wedge"><div><div class="wname">Local SEO + Google Presence</div><div class="wframe">Rank for Hardin County searches and own your Google profile.</div></div><div class="wnet"><small>Primary Impact</small>Capture the boom</div></div>
+      <div class="wedge"><div><div class="wname">Referral &amp; Community Lead Engine</div><div class="wframe">Turn your reputation and the podcast into steady referrals.</div></div><div class="wnet"><small>Primary Impact</small>Compounding jobs</div></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">The numbers</div>
+      <div class="rule"></div>
+      <div class="sumrow"><span>Total monthly leak across all gaps</span><span class="leak">$12,500</span></div>
+      <div class="sumrow"><span>Annualized leak (x12)</span><span class="leak">$150,000</span></div>
+      <div class="sumrow"><span>Estimated monthly recovery if all gaps closed</span><span class="opp">$7,500</span></div>
+      <div class="sumrow"><span>Net monthly upside</span><span class="opp">~$7,000</span></div>
+      <div class="sumrow"><span>12-month cost of inaction</span><span class="leak">$150,000</span></div>
+    </div>
+
+    <div class="section">
+      <div class="inaction">
+        <div class="lbl">12-Month Cost of Inaction</div>
+        <div class="big">$150,000</div>
+        <div class="note">And the boom only happens once. The jobs you miss now go to whoever showed up first.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="cred">These estimates are based on typical home-services economics for a big-ticket window, door, and paint business, current Hardin County market conditions, and the visible operational signals on athomeservices.pro. They are starting figures for an operator conversation, not a quote, and are meant to be replaced by your real numbers.</div>
+      <a class="cta" href="https://athomeservices.pro/">Book a strategy call →</a>
+      <div class="ftiny"><span class="g">ViralityX</span> // Operational + AI Systems Architecture · prepared for At Home Services</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
