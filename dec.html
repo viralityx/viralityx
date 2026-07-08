@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diamond Edge Construction — Onboarding Session | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#003366;--navy2:#1f3a6b;--navy-soft:#ebf2fe;--gold:#d4af37;--gold-deep:#b8932e;--ink:#16202e;--body:#44505f;--muted:#6b7280;--bg:#fff;--soft:#f6f8fb;--line:#e4e8ef;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'Lato',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4,.mont{font-family:'Montserrat',sans-serif;color:var(--ink);}
+  .wrap{max-width:860px;margin:0 auto;padding:0 0 64px;}
+  .pad{padding-left:54px;padding-right:54px;}
+  .hero{background:linear-gradient(135deg,var(--navy),#06203f);color:#fff;padding:40px 54px 44px;}
+  .hero .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:34px;}
+  .hero .top img{height:44px;}
+  .hero .top .by{font-family:'Montserrat',sans-serif;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:#cdd8e8;text-align:right;line-height:1.7;}
+  .hero .by b{color:var(--gold);}
+  .hero .eyebrow{font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+  .hero h1{color:#fff;font-size:2.2rem;font-weight:800;line-height:1.12;margin:12px 0 12px;}
+  .hero p{color:#d4ddea;font-size:1.02rem;max-width:640px;}
+  .section{margin-top:44px;}
+  .kicker{font-family:'Montserrat',sans-serif;color:var(--gold-deep);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+  .rule{height:3px;width:54px;background:var(--gold);border-radius:2px;margin:8px 0 20px;}
+  h2{font-size:1.4rem;font-weight:700;margin-bottom:8px;}
+  /* agenda items */
+  .item{display:grid;grid-template-columns:48px 1fr;gap:16px;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin-bottom:12px;background:#fff;}
+  .item .n{width:40px;height:40px;border-radius:10px;background:var(--navy);color:var(--gold);font-family:'Montserrat',sans-serif;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+  .item h3{font-size:1.1rem;margin-bottom:5px;}
+  .item p{font-size:.94rem;color:var(--body);}
+  .item ul{margin:8px 0 0 18px;} .item li{font-size:.92rem;margin-bottom:5px;}
+  /* deal recap */
+  .recap{background:var(--navy-soft);border:1px solid #cfe0fb;border-radius:12px;padding:22px 24px;}
+  .recap .r{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid #d7e5fb;font-size:.95rem;}
+  .recap .r:last-child{border-bottom:none;}
+  .recap .r b{font-family:'Montserrat',sans-serif;color:var(--navy);}
+  /* priority phases */
+  .phase{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);}
+  .phase:last-child{border-bottom:none;}
+  .phase .d{width:22px;height:22px;border-radius:50%;background:var(--gold);color:#1a1304;font-family:'Montserrat',sans-serif;font-weight:800;font-size:.72rem;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+  .phase b{font-family:'Montserrat',sans-serif;color:var(--ink);}
+  .phase span{color:var(--body);font-size:.93rem;}
+  /* checklist */
+  .check{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .ck{display:flex;gap:10px;align-items:flex-start;background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:.9rem;}
+  .ck .box{flex:none;width:16px;height:16px;border:2px solid var(--gold-deep);border-radius:4px;margin-top:2px;}
+  .ck b{font-family:'Montserrat',sans-serif;color:var(--ink);display:block;font-size:.9rem;}
+  .badge-row{display:flex;align-items:center;gap:16px;background:linear-gradient(135deg,#fbf6e7,#eef4fb);border:1px solid #e8dcae;border-radius:12px;padding:16px 20px;margin-top:14px;}
+  .badge-row img{height:60px;border-radius:6px;}
+  .badge-row p{font-size:.9rem;color:var(--ink);} .badge-row b{color:var(--navy);}
+  .mile{background:var(--navy);color:#fff;border-radius:12px;padding:22px 26px;}
+  .mile h3{color:#fff;} .mile .m{display:flex;gap:14px;padding:9px 0;border-bottom:1px solid #14385e;font-size:.95rem;color:#d4ddea;}
+  .mile .m:last-child{border-bottom:none;} .mile .m b{color:var(--gold);font-family:'Montserrat',sans-serif;flex:none;width:90px;}
+  .foot{margin-top:40px;color:var(--muted);font-size:.78rem;text-align:center;border-top:1px solid var(--line);padding-top:26px;} .foot b{color:var(--navy);}
+  @media(max-width:720px){.pad,.hero{padding-left:22px;padding-right:22px;}.hero h1{font-size:1.6rem;}.check{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="top">
+      <img src="https://diamondedgebuilders.com/wp-content/uploads/2025/12/diamond-edge-builders-logo.webp" alt="Diamond Edge Construction">
+      <div class="by">Onboarding Session<br>with <b>ViralityX</b></div>
+    </div>
+    <div class="eyebrow">Kickoff · Prepared for Robert Jackson</div>
+    <h1>Welcome to the build.<br>Here's how we start.</h1>
+    <p>We're officially partners. Today we set the plan in motion: confirm what we agreed, line up what we need from you, and get your first quick win, the government pipeline, moving this week.</p>
+  </div>
+
+  <div class="pad">
+
+    <!-- AGENDA -->
+    <div class="section">
+      <div class="kicker">Today's agenda</div>
+      <div class="rule"></div>
+
+      <div class="item"><div class="n">1</div><div><h3>Welcome &amp; the partnership</h3><p>Quick reset on how we work: we're operators and partners, not a vendor. We win when you win, and everything we do is built around getting you more of the work you want.</p></div></div>
+      <div class="item"><div class="n">2</div><div><h3>What we agreed</h3><p>Confirm the deal so we're all crystal clear (recap below), then move.</p></div></div>
+      <div class="item"><div class="n">3</div><div><h3>How the build rolls out</h3><p>Phased, lean, and proof-first. We start with quick wins, then scale as the work generates revenue.</p></div></div>
+      <div class="item"><div class="n">4</div><div><h3>What we need from you</h3><p>The access and assets to get moving (checklist below). The faster we get these, the faster you see results.</p></div></div>
+      <div class="item"><div class="n">5</div><div><h3>Communication going forward</h3><p>How we stay in sync so nothing gets lost as we scale.</p></div></div>
+      <div class="item"><div class="n">6</div><div><h3>Next steps &amp; milestones</h3><p>What happens this week, in 30 days, and at the 90-day review.</p></div></div>
+    </div>
+
+    <!-- DEAL RECAP -->
+    <div class="section">
+      <div class="kicker">What we agreed</div>
+      <div class="rule"></div>
+      <div class="recap">
+        <div class="r"><span>Operating baseline</span><b>$500 / month</b></div>
+        <div class="r"><span>Upfront setup</span><b>Waived, we're absorbing the build</b></div>
+        <div class="r"><span>Performance</span><b>15% of gross profit on jobs we source</b></div>
+        <div class="r"><span>Your own referrals</span><b>100% yours, always</b></div>
+        <div class="r"><span>Review point</span><b>90 days, then we revisit the structure</b></div>
+      </div>
+    </div>
+
+    <!-- PRIORITY ORDER -->
+    <div class="section">
+      <div class="kicker">The build, in priority order</div>
+      <div class="rule"></div>
+      <div class="phase"><div class="d">1</div><div><b>Government contract sourcing (first quick win).</b> <span>We deploy the SAM.gov set-aside agent and start surfacing right-sized opportunities matched to your certifications, so your veteran-owned status finally works as a pipeline.</span></div></div>
+      <div class="phase"><div class="d">2</div><div><b>Lead capture &amp; follow-up.</b> <span>Connect your website and inquiries to a live pipeline with instant follow-up, wired into your tracking so nothing slips.</span></div></div>
+      <div class="phase"><div class="d">3</div><div><b>Presence &amp; reputation.</b> <span>Tighten the site, stand up your Google profile, and surface your reviews so Florida starts to know Diamond Edge.</span></div></div>
+      <div class="phase"><div class="d">4</div><div><b>Subcontractor intake.</b> <span>Turn your sub applications into a ready, organized bench.</span></div></div>
+      <div class="phase"><div class="d">5</div><div><b>Then: the lead engine &amp; sales buildout.</b> <span>As revenue returns, SEO and ads, then help building the sales team and project-coordinator role you want.</span></div></div>
+
+      <div class="badge-row">
+        <img src="https://diamondedgebuilders.com/wp-content/uploads/2026/06/VDisabled-Logo.jpg" alt="Service-Disabled Veteran Owned">
+        <p><b>Why government is first:</b> it's your highest-value, fastest win. You're already certified for a lane most competitors can't touch. We just make it a working pipeline.</p>
+      </div>
+    </div>
+
+    <!-- WHAT WE NEED -->
+    <div class="section">
+      <div class="kicker">What we need from you to start</div>
+      <div class="rule"></div>
+      <div class="check">
+        <div class="ck"><div class="box"></div><div><b>Website access</b>Admin login to diamondedgebuilders.com</div></div>
+        <div class="ck"><div class="box"></div><div><b>Google Business Profile</b>Access or an invite to manage it</div></div>
+        <div class="ck"><div class="box"></div><div><b>Contractor Foreman login</b>So we connect the pipeline cleanly</div></div>
+        <div class="ck"><div class="box"></div><div><b>Certification details + targets</b>NAICS codes, regions, and job sizes for government work</div></div>
+        <div class="ck"><div class="box"></div><div><b>Intro to Dana</b>Your government contract specialist, so we work in sync</div></div>
+        <div class="ck"><div class="box"></div><div><b>Past client list</b>So we can invite reviews</div></div>
+        <div class="ck"><div class="box"></div><div><b>Subcontractor / labor contacts</b>Your labor partner and current subs</div></div>
+        <div class="ck"><div class="box"></div><div><b>Brand assets + project photos</b>Logo, service list, job photos</div></div>
+        <div class="ck"><div class="box"></div><div><b>Payment on file</b>Card for the $500/mo so we start today</div></div>
+      </div>
+    </div>
+
+    <!-- CADENCE -->
+    <div class="section">
+      <div class="kicker">How we'll work together</div>
+      <div class="rule"></div>
+      <div class="item"><div class="n">✓</div><div><h3>A weekly check-in, plus a direct line</h3><p>A standing weekly call to review what's working and what's next, with reporting on KPIs. Between calls, you have us direct for anything urgent. Everything lives in one shared place so nothing gets lost as we scale.</p></div></div>
+    </div>
+
+    <!-- MILESTONES -->
+    <div class="section">
+      <div class="kicker">Next steps &amp; milestones</div>
+      <div class="rule"></div>
+      <div class="mile">
+        <h3 style="margin-bottom:12px;">The road ahead</h3>
+        <div class="m"><b>This week</b><span>Your first matched set-aside opportunities in your inbox by end of week. Lead capture connected, billing set, build underway.</span></div>
+        <div class="m"><b>30 days</b><span>Foundation complete: capture, follow-up, Google presence, reviews, and sub intake all running.</span></div>
+        <div class="m"><b>90 days</b><span>Review results together and convert to the long-term structure that fits where the business is by then.</span></div>
+      </div>
+    </div>
+
+    <div class="foot">
+      Prepared by <b>ViralityX</b> · Operational + AI Systems Architecture<br>
+      For Diamond Edge Construction · Robert Jackson
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
