@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>At Home Services — Close Call Gameplan (Internal) | ViralityX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0c0c0c;--text:#e8e8e8;--muted:#888;--lime:#d4ff00;--red:#ff4d4d;--amber:#ffb84d;--card:#151515;--line:#262626;--blue:#7db8ff;--green:#7ee787;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:48px;}
+  .topbar{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:var(--muted);margin-bottom:40px;}
+  .topbar b{color:var(--lime);font-weight:600;} .topbar .int{color:var(--amber);}
+  h1{font-family:'IBM Plex Mono',monospace;font-size:2rem;color:#fff;font-weight:600;line-height:1.1;}
+  .sub{color:var(--muted);margin-top:12px;font-size:1.02rem;}
+  .block{margin-top:50px;}
+  .sec-h{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;}
+  .brief{background:linear-gradient(180deg,#131500,#0c0c0c);border:1px solid var(--lime);border-radius:12px;padding:26px;}
+  .brief h3{color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.95rem;margin-bottom:12px;}
+  .brief p{font-size:.97rem;margin-bottom:10px;} .brief .hot{color:#fff;font-weight:600;} .brief .warn{color:var(--amber);}
+  .deal{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 22px;}
+  .deal .r{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.95rem;align-items:center;}
+  .deal .r:last-child{border-bottom:none;}
+  .deal .r b{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:1rem;}
+  .deal .r .earn{color:var(--green);}
+  .deal .r span.l{color:var(--text);} .deal .r span.d{display:block;color:var(--muted);font-size:.82rem;margin-top:2px;}
+  .fallback{background:#1a1400;border:1px solid var(--amber);border-radius:10px;padding:16px 20px;margin-top:14px;font-size:.93rem;color:var(--text);}
+  .fallback b{color:var(--amber);}
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;}
+  .rcard h4{font-family:'IBM Plex Mono',monospace;font-size:1rem;margin-bottom:10px;}
+  .rcard.josh h4{color:var(--blue);} .rcard.danny h4{color:var(--lime);}
+  .rcard ul{margin-left:18px;color:var(--muted);font-size:.92rem;} .rcard li{margin-bottom:7px;}
+  .flow{border-left:2px solid var(--line);margin-left:8px;}
+  .step{position:relative;padding:0 0 22px 26px;}
+  .step::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--lime);}
+  .step .t{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--amber);}
+  .step .n{color:#fff;font-weight:600;font-size:1.05rem;margin:3px 0;}
+  .step .d{color:var(--muted);font-size:.9rem;}
+  .step .say{display:block;color:var(--text);font-size:.9rem;font-style:italic;margin-top:6px;border-left:2px solid var(--lime);padding-left:10px;}
+  .obj{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px;}
+  .obj .q{color:var(--amber);font-style:italic;font-size:.95rem;margin-bottom:6px;}
+  .obj .a{color:var(--text);font-size:.95rem;}
+  .close-script{background:var(--card);border-left:4px solid var(--lime);border-radius:10px;padding:22px;color:var(--text);font-size:.98rem;} .close-script em{color:var(--muted);}
+  .lock{background:#0f1a0c;border:1px solid var(--green);border-radius:12px;padding:22px;}
+  .lock h3{color:var(--green);font-family:'IBM Plex Mono',monospace;font-size:.95rem;margin-bottom:12px;}
+  .lock ul{margin-left:18px;} .lock li{margin-bottom:9px;font-size:.96rem;}
+  .watch{background:#1a1400;border:1px solid var(--amber);border-radius:12px;padding:22px;}
+  .watch h3{color:var(--amber);font-family:'IBM Plex Mono',monospace;font-size:.95rem;margin-bottom:12px;}
+  .watch ul{margin-left:18px;} .watch li{margin-bottom:10px;font-size:.95rem;} .watch li b{color:var(--amber);}
+  @media(max-width:720px){.wrap{padding:24px;}h1{font-size:1.5rem;}.roles{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar"><b>VIRALITYX</b> // CLOSE CALL GAMEPLAN <span class="int">[INTERNAL — DANNY + JOSH ONLY]</span></div>
+
+  <h1>At Home Services (Nick)<br>Close Call Playbook</h1>
+  <div class="sub">Goal of this call: walk the proposal, drop the numbers, and close. Josh says he's a done deal. Don't overtalk it, don't overwhelm him. Make it feel small, safe, and obvious.</div>
+
+  <!-- BRIEF -->
+  <div class="block">
+    <div class="sec-h">60-Second Brief</div>
+    <div class="brief">
+      <h3>Read before you dial</h3>
+      <p><span class="hot">Where his head is:</span> he's a one-man show drowning in admin, honest about it, and a little under-confident ("I don't know that I actually belong where I'm at"). He wants this. His only real wall is the money.</p>
+      <p><span class="hot">The whole call hinges on one number.</span> He told Josh flat out: "$3,500, I just can't swing that." So the moment you show him $3,500 crossed out to $1,000, split in two, the objection is dead. Lead the money conversation with that, don't bury it.</p>
+      <p><span class="hot">His magic wand was crew, not marketing.</span> "It'll be finding the help, you can't finish the quotes without the help." Open by connecting the plan to THAT, or he won't feel heard.</p>
+      <p><span class="warn">Do not oversell.</span> He gets analysis paralysis. Fewer words, one clear next step, let Josh's 20 years of trust do the heavy lifting.</p>
+    </div>
+  </div>
+
+  <!-- NUMBERS -->
+  <div class="block">
+    <div class="sec-h">The Numbers (say them exactly like this)</div>
+    <div class="deal">
+      <div class="r"><span class="l">Getting it built<span class="d">Half to start, half when it's live</span></span><b>$3,500 → $1,000</b></div>
+      <div class="r"><span class="l">Running it monthly<span class="d">Everything, no other subscriptions</span></span><b>$500 / mo</b></div>
+      <div class="r"><span class="l">Only on jobs we source<span class="d">His Pella + referrals stay 100% his, forever</span></span><b>10%</b></div>
+      <div class="r"><span class="l">What HE earns<span class="d">Per closed referral he/the podcast sends us</span></span><b class="earn">$500 to him</b></div>
+      <div class="r"><span class="l">Review point<span class="d">Look at what it's producing, adjust together</span></span><b>90 days</b></div>
+    </div>
+    <div class="fallback"><b>Fallback if he still flinches:</b> waive the $1,000 entirely in exchange for a 12-month commitment. Don't lead with this. Only use it if he's genuinely stuck, and make it feel like you're going out on a limb for him (because you are).</div>
+  </div>
+
+  <!-- ROLES -->
+  <div class="block">
+    <div class="sec-h">Who Runs What</div>
+    <div class="roles">
+      <div class="rcard josh"><h4>JOSH — Trust &amp; the Push</h4><ul><li>Opens warm. 20-year friend, this is his relationship.</li><li>Reinforces "I wouldn't put you on this if it wasn't right."</li><li>Pushes him over the analysis-paralysis edge at the end.</li></ul></div>
+      <div class="rcard danny"><h4>DANNY — Plan &amp; Numbers</h4><ul><li>Walks the plan (short), then the numbers.</li><li>Kills the $3,500 wall on the spot.</li><li>Locks start date, payment, and access before hanging up.</li></ul></div>
+    </div>
+  </div>
+
+  <!-- FLOW -->
+  <div class="block">
+    <div class="sec-h">Call Flow (target 25-30 min, don't drag it)</div>
+    <div class="flow">
+      <div class="step"><div class="t">0-3 MIN</div><div class="n">Warm open</div><div class="d">Josh and Nick catch up. Then hand to Danny.</div><div class="who"></div></div>
+      <div class="step"><div class="t">3-8 MIN</div><div class="n">Mirror his own words back</div><div class="d">Show him you listened. Lead with the crew, that was his magic wand.</div><span class="say">"You told us the real ceiling isn't the quotes, it's finding good help. So that's the first thing in your plan, a hiring funnel that finds and filters crew for you. Then we catch the leads slipping off the ladder and follow up the quotes that go quiet."</span></div>
+      <div class="step"><div class="t">8-15 MIN</div><div class="n">Walk the plan, fast</div><div class="d">Screen-share the proposal. Five focuses, don't read them, hit the headline of each. Let him ask.</div></div>
+      <div class="step"><div class="t">15-20 MIN</div><div class="n">The money, lead with the wall coming down</div><div class="d">Do NOT build up to it. Open with the $3,500 → $1,000.</div><span class="say">"Josh told me the $3,500 was the thing you couldn't swing. So we cut it. It's $1,000, and you split it in half, $500 to start, $500 when it's live. Then $500 a month to run everything. That's it. We only take 10% on jobs we actually bring you, your Pella work and your referrals are yours forever. And when you send us somebody who signs, we pay YOU $500."</span></div>
+      <div class="step"><div class="t">20-25 MIN</div><div class="n">Shut up and let him react</div><div class="d">Silence. He'll either say yes or tell you exactly what's in the way. Josh closes the gap if he wobbles.</div></div>
+      <div class="step"><div class="t">25-30 MIN</div><div class="n">Lock it</div><div class="d">Start date, first payment, access. Don't leave it as homework.</div></div>
+    </div>
+  </div>
+
+  <!-- OBJECTIONS -->
+  <div class="block">
+    <div class="sec-h">Objections &amp; Answers</div>
+    <div class="obj"><div class="q">"I still don't know if I can swing it right now."</div><div class="a">"That's why it's split. $500 today, $500 when it's live. And the $500 a month is less than one job's worth of the work you're already losing to voicemail every week. If it doesn't pay for itself, we'll fix it or you tell me to stop."</div></div>
+    <div class="obj"><div class="q">"What if I can't handle the extra work / I don't have the crew?"</div><div class="a">"That's exactly why the hiring funnel is first. We're not going to flood you before you're ready. We build your bench first, then turn the leads up. You set the pace."</div></div>
+    <div class="obj"><div class="q">"I'm not really a tech guy."</div><div class="a">"Good. That's the point. You don't touch any of it. You install windows, and it's simple enough that Vanessa can run it in a few minutes if she ever needs to."</div></div>
+    <div class="obj"><div class="q">"Most of my jobs come from Pella anyway."</div><div class="a">"And they stay 100% yours. We never touch those. The 10% only applies to work we bring you that you wouldn't have had. This is about stopping what's leaking and adding on top."</div></div>
+    <div class="obj"><div class="q">"Let me think about it."</div><div class="a">Josh: "Brother, you've been thinking about it. What's the actual hang-up?" Then answer THAT. He's an action-taker with analysis paralysis, he needs a nudge, not more information.</div></div>
+  </div>
+
+  <!-- LOCK IT -->
+  <div class="block">
+    <div class="sec-h">Before You Hang Up</div>
+    <div class="lock">
+      <h3>Lock these three, live</h3>
+      <ul>
+        <li><b>Start date.</b> "We start Monday." Get it on the calendar.</li>
+        <li><b>The first $500.</b> Get the payment method set on the call. Don't let it become an invoice you chase.</li>
+        <li><b>Access.</b> Website, Google Business Profile, and his brother's contact (he built the site, we'll need him). Grab it live, not as homework, he'll forget for two days, he told us so himself.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WATCH-OUTS -->
+  <div class="block">
+    <div class="sec-h">Watch-Outs</div>
+    <div class="watch">
+      <h3>Handle with care</h3>
+      <ul>
+        <li><b>Don't flood him.</b> He's solo with unreliable crew. Leads before capacity hurts his brand and our reputation. Crew funnel first, then volume.</li>
+        <li><b>Don't mention the Ford plant.</b> He corrected us on that, it fizzled. Bringing it up says we weren't listening.</li>
+        <li><b>Don't pitch the podcast play hard yet.</b> Danny and Josh agreed: prove Nick's results first, then work the network. Mention the $500 referral as HIS win, then leave it.</li>
+        <li><b>He's under-confident about the money side.</b> Reassure, don't push. "You belong here, you've got a Pella contract most guys can't get."</li>
+        <li><b>Delivery has to be real.</b> He's Josh's 20-year friend and the doorway to a whole town. If we fumble Nick, we lose the town and Josh's credibility with it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="block">
+    <div class="sec-h">The Close</div>
+    <div class="close-script">
+      "Nick, here's what happens next. You send the first $500 and get us access today, and we start Monday. First thing we build is the hiring funnel so you can find real help, and we turn on the missed-call catcher so you stop losing jobs while you're on a ladder. <em>Ninety days from now we sit down and look at what it's actually producing, and we go from there. You good?"</em>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
