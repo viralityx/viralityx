@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViralityX — Referral Partner Welcome Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0c0c0c;--text:#e8e8e8;--muted:#8b8b8b;--lime:#d4ff00;--green:#7ee787;--red:#ff6b6b;--card:#151515;--line:#262626;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:840px;margin:0 auto;padding:0 0 64px;}
+  .pad{padding-left:52px;padding-right:52px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:24px 52px;border-bottom:1px solid var(--line);}
+  .logo{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.05rem;color:#fff;}
+  .logo b{background:var(--lime);color:#0c0c0c;padding:2px 7px;border-radius:4px;}
+  .topbar .t{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+  .hero{background:linear-gradient(180deg,#131500,#0c0c0c);padding:44px 52px 46px;border-bottom:1px solid var(--line);}
+  .hero .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);}
+  .hero h1{color:#fff;font-size:2.2rem;font-weight:700;line-height:1.15;margin:12px 0;}
+  .hero p{color:#c9c9c9;font-size:1.04rem;max-width:620px;}
+  .section{margin-top:46px;}
+  .kicker{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;}
+  h2{font-size:1.45rem;color:#fff;font-weight:700;margin-bottom:10px;}
+  h3{color:#fff;font-size:1.05rem;font-weight:600;}
+  p.lead{font-size:1.02rem;color:var(--text);}
+  .say{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:10px;padding:20px 24px;margin:14px 0;}
+  .say .l{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);margin-bottom:8px;}
+  .say p{color:#fff;font-size:1.05rem;font-style:italic;}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;}
+  .card.good{border-top:3px solid var(--green);} .card.bad{border-top:3px solid var(--red);}
+  .card h3{margin-bottom:10px;} .card.good h3{color:var(--green);} .card.bad h3{color:var(--red);}
+  .card ul{margin-left:18px;} .card li{margin-bottom:7px;font-size:.94rem;color:var(--text);}
+  .steps{counter-reset:s;}
+  .stp{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:10px;}
+  .stp .n{width:34px;height:34px;border-radius:50%;background:var(--lime);color:#0c0c0c;font-family:'IBM Plex Mono',monospace;font-weight:600;display:flex;align-items:center;justify-content:center;}
+  .stp h3{margin-bottom:3px;} .stp p{color:var(--muted);font-size:.93rem;}
+  .money{background:linear-gradient(135deg,#1a2b10,#0c0c0c);border:1px solid var(--green);border-radius:14px;padding:28px 30px;text-align:center;}
+  .money .big{font-family:'IBM Plex Mono',monospace;font-size:3rem;font-weight:600;color:var(--green);line-height:1;}
+  .money .l{color:#fff;font-size:1.05rem;margin-top:10px;} .money .s{color:var(--muted);font-size:.9rem;margin-top:8px;}
+  .track{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:10px;}
+  .track .q{color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;}
+  .track p{color:#fff;font-size:1rem;font-style:italic;}
+  .dont{background:#1a0d0d;border:1px solid var(--red);border-radius:12px;padding:24px;}
+  .dont h3{color:var(--red);font-family:'IBM Plex Mono',monospace;font-size:.95rem;margin-bottom:12px;}
+  .dont ul{margin-left:18px;} .dont li{margin-bottom:9px;font-size:.96rem;} .dont li b{color:#fff;}
+  .link{background:var(--card);border:1px dashed var(--lime);border-radius:10px;padding:20px 24px;text-align:center;}
+  .link .l{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+  .link .u{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:1.15rem;margin-top:8px;}
+  .foot{margin-top:44px;border-top:1px solid var(--line);padding-top:26px;color:var(--muted);font-size:.82rem;text-align:center;}
+  .foot b{color:var(--lime);}
+  @media(max-width:720px){.pad,.hero,.topbar{padding-left:22px;padding-right:22px;}.hero h1{font-size:1.6rem;}.two{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo"><b>VIRALITY</b>X</div>
+    <div class="t">Referral Partner Welcome Kit</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">You're in</div>
+    <h1>Welcome. Here's how to make money sending us people you like.</h1>
+    <p>This is everything you need in one page. What we do, who to send us, exactly what to say, and how you get paid. Read it once and you're ready.</p>
+  </div>
+
+  <div class="pad">
+
+    <div class="section">
+      <div class="kicker">Who we are</div>
+      <h2>The one sentence you can repeat</h2>
+      <div class="say">
+        <div class="l">Say it like this</div>
+        <p>"ViralityX sets up the systems that stop business owners from losing money, they catch the calls and leads you miss, follow up automatically, and take the admin off your plate so you make more and work less."</p>
+      </div>
+      <p class="lead">That's it. That's the whole pitch. You never have to explain the tech.</p>
+    </div>
+
+    <div class="section">
+      <div class="kicker">What we actually do</div>
+      <h2>In plain English</h2>
+      <div class="two">
+        <div class="card">
+          <h3>We fix what's leaking</h3>
+          <ul>
+            <li>Catch calls and leads they're missing</li>
+            <li>Follow up automatically so quotes don't go cold</li>
+            <li>Get them found on Google, collect reviews</li>
+            <li>Organize their leads and jobs in one place</li>
+            <li>Use AI to do the busywork they hate</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>What we're not</h3>
+          <ul>
+            <li>Not an ad agency spraying money at Facebook</li>
+            <li>Not a website shop that builds and disappears</li>
+            <li>Not a contract trap, we earn it monthly</li>
+            <li>We're operators. We build it and we run it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Who to send us</div>
+      <h2>This is the part that matters most</h2>
+      <div class="two">
+        <div class="card good">
+          <h3>Great referral</h3>
+          <ul>
+            <li>A business owner who's <b>busy and buried</b></li>
+            <li>Misses calls, forgets to follow up</li>
+            <li>Runs everything from their head or a notepad</li>
+            <li>Doing real revenue but disorganized</li>
+            <li>Trades, home services, contractors, medical, dental, restaurants, retail, realtors, salons, gyms</li>
+            <li>Anyone who says "I'm drowning" or "I don't have time"</li>
+          </ul>
+        </div>
+        <div class="card bad">
+          <h3>Not a fit</h3>
+          <ul>
+            <li>Brand new, no revenue yet</li>
+            <li>Hobby businesses / side projects</li>
+            <li>People hunting for something free</li>
+            <li>Someone who just wants a cheap website</li>
+            <li>Anyone you wouldn't personally vouch for</li>
+          </ul>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:16px;">Quality beats quantity every time. Five good intros are worth more than fifty names.</p>
+    </div>
+
+    <div class="section">
+      <div class="kicker">How it works</div>
+      <h2>Your job is one step. We do the rest.</h2>
+      <div class="steps">
+        <div class="stp"><div class="n">1</div><div><h3>You make the intro</h3><p>Send them your link, or just text us their name and number. That's your entire job.</p></div></div>
+        <div class="stp"><div class="n">2</div><div><h3>We reach out</h3><p>We contact them fast, have a real conversation, and figure out if we can actually help. No pressure, no hard sell. If it's not a fit, we tell them.</p></div></div>
+        <div class="stp"><div class="n">3</div><div><h3>We build them a plan</h3><p>If it makes sense, we map out exactly what we'd fix and what it's worth. Custom to them.</p></div></div>
+        <div class="stp"><div class="n">4</div><div><h3>You get paid</h3><p>They sign and pay, you get $500 within 15 days. However you want it: PayPal, Venmo, Zelle, check.</p></div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="money">
+        <div class="big">$500</div>
+        <div class="l">for every referral that signs</div>
+        <div class="s">Paid within 15 days of their first payment. Bigger projects can pay more, we'll tell you before it closes.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">What to say</div>
+      <h2>Steal these. They sound like a person, not an ad.</h2>
+      <div class="track"><div class="q">When they're complaining about being busy</div><p>"You know how you're always saying you miss calls when you're out on a job? I know a guy who fixes exactly that."</p></div>
+      <div class="track"><div class="q">The personal angle (strongest one)</div><p>"I'm using them for my business. They set up the systems so I stop losing work. Want me to introduce you?"</p></div>
+      <div class="track"><div class="q">The soft opener, no pressure</div><p>"They'll run a free scan on your business and show you where you're leaking money. No pitch, just a report. Want the link?"</p></div>
+      <div class="track"><div class="q">The lazy version that still works</div><p>"Text this guy, tell him I sent you." (then send us their name)</p></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">What NOT to say</div>
+      <div class="dont">
+        <h3>Four rules, and you're golden</h3>
+        <ul>
+          <li><b>Don't quote prices.</b> Every deal is different. If they ask what it costs, say "depends on what they find, that's what the call is for."</li>
+          <li><b>Don't promise results.</b> Never "they'll double your business." Just share your own experience.</li>
+          <li><b>Don't try to explain the tech.</b> You don't have to know how it works. That's our job.</li>
+          <li><b>Don't sell.</b> Seriously. You're making an introduction between two people you like. That's all.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Your link</div>
+      <div class="link">
+        <div class="l">This is yours. Every lead through it is tracked to you.</div>
+        <div class="u">virality-x.com/________</div>
+      </div>
+      <p class="lead" style="margin-top:14px;">Always use your link, or text us the intro directly. If there's no record, we can't pay you, and we want to pay you.</p>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Two quick housekeeping things</div>
+      <div class="two">
+        <div class="card">
+          <h3>We need a W-9</h3>
+          <p style="color:var(--muted);font-size:.94rem;">If you earn $600 or more in a year, the IRS requires us to report it. We'll send you a W-9, takes two minutes. Do it now so we're not chasing paper when you're getting paid.</p>
+        </div>
+        <div class="card">
+          <h3>If you have an audience, say you're a partner</h3>
+          <p style="color:var(--muted);font-size:.94rem;">Promoting us on a podcast, social, or a newsletter? You have to say you're a paid partner. It's the law, and honestly it builds trust. One sentence does it.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      Questions? Just text us. We'd rather answer a dumb question than lose a good referral.<br>
+      <b>ViralityX</b> · Operational + AI Systems Architecture
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
