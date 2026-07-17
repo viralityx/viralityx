@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViralityX — Podcast Partner Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0c0c0c;--text:#e8e8e8;--muted:#8b8b8b;--lime:#d4ff00;--green:#7ee787;--red:#ff6b6b;--amber:#ffb84d;--card:#151515;--line:#262626;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:840px;margin:0 auto;padding:0 0 64px;}
+  .pad{padding-left:52px;padding-right:52px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:24px 52px;border-bottom:1px solid var(--line);}
+  .logo{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:1.05rem;color:#fff;}
+  .logo b{background:var(--lime);color:#0c0c0c;padding:2px 7px;border-radius:4px;}
+  .topbar .t{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+  .hero{background:linear-gradient(180deg,#131500,#0c0c0c);padding:44px 52px 46px;border-bottom:1px solid var(--line);}
+  .hero .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);}
+  .hero h1{color:#fff;font-size:2.1rem;font-weight:700;line-height:1.15;margin:12px 0;}
+  .hero p{color:#c9c9c9;font-size:1.04rem;max-width:640px;}
+  .section{margin-top:46px;}
+  .kicker{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;}
+  h2{font-size:1.4rem;color:#fff;font-weight:700;margin-bottom:10px;}
+  h3{color:#fff;font-size:1.05rem;font-weight:600;}
+  p.lead{font-size:1.02rem;color:var(--text);}
+  .math{background:linear-gradient(135deg,#1a2b10,#0c0c0c);border:1px solid var(--green);border-radius:14px;padding:26px 30px;}
+  .math .row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #1e3315;font-size:1rem;}
+  .math .row:last-child{border-bottom:none;}
+  .math .row b{font-family:'IBM Plex Mono',monospace;color:var(--green);font-size:1.2rem;}
+  .must{background:#1a1400;border:2px solid var(--amber);border-radius:12px;padding:24px;}
+  .must .l{font-family:'IBM Plex Mono',monospace;color:var(--amber);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+  .must p.q{color:#fff;font-size:1.15rem;font-style:italic;line-height:1.5;}
+  .must .why{color:var(--muted);font-size:.9rem;margin-top:12px;}
+  .script{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:10px;padding:22px 24px;margin-bottom:14px;}
+  .script .tag{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .script .tag .n{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;}
+  .script .tag .len{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.68rem;}
+  .script p{color:#fff;font-size:1.02rem;font-style:italic;line-height:1.65;}
+  .script .note{color:var(--muted);font-size:.85rem;font-style:normal;margin-top:10px;}
+  .idea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin-bottom:10px;}
+  .idea h3{margin-bottom:5px;} .idea p{color:var(--muted);font-size:.93rem;}
+  .dont{background:#1a0d0d;border:1px solid var(--red);border-radius:12px;padding:24px;}
+  .dont h3{color:var(--red);font-family:'IBM Plex Mono',monospace;font-size:.95rem;margin-bottom:12px;}
+  .dont ul{margin-left:18px;} .dont li{margin-bottom:9px;font-size:.96rem;} .dont li b{color:#fff;}
+  .link{background:var(--card);border:1px dashed var(--lime);border-radius:10px;padding:20px 24px;text-align:center;}
+  .link .l{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+  .link .u{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:1.15rem;margin-top:8px;}
+  .foot{margin-top:44px;border-top:1px solid var(--line);padding-top:26px;color:var(--muted);font-size:.82rem;text-align:center;}
+  .foot b{color:var(--lime);}
+  @media(max-width:720px){.pad,.hero,.topbar{padding-left:22px;padding-right:22px;}.hero h1{font-size:1.6rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo"><b>VIRALITY</b>X</div>
+    <div class="t">Podcast Partner Kit</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">For the show</div>
+    <h1>Everything you need to talk about us on air, and get paid for it.</h1>
+    <p>Scripts you can actually read out loud without sounding like a commercial, the one line you legally have to say, and ideas for working it in naturally. Use what fits your voice. Ignore what doesn't.</p>
+  </div>
+
+  <div class="pad">
+
+    <div class="section">
+      <div class="kicker">Why this is worth your air time</div>
+      <h2>The math is simple</h2>
+      <div class="math">
+        <div class="row"><span>Every business owner who signs</span><b>$500</b></div>
+        <div class="row"><span>Ten of them</span><b>$5,000</b></div>
+        <div class="row"><span>Sweatshirts you had to sell</span><b>Zero</b></div>
+      </div>
+      <p class="lead" style="margin-top:16px;">Your audience is full of local business owners who are drowning. You don't need 100,000 downloads. You need a handful of people who trust you, and you already have that.</p>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Say this every time</div>
+      <div class="must">
+        <div class="l">Required disclosure, non-negotiable</div>
+        <p class="q">"Quick heads up, ViralityX is a partner of the show, so we do get paid if you end up working with them. We only put people on here we'd actually send our own friends to."</p>
+        <div class="why">The FTC requires you to disclose a paid relationship when you promote something to an audience. Say it once, near the top of the read, in your own words. It protects you, it protects us, and honestly it makes your audience trust you more, not less.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">The scripts</div>
+      <h2>Read these like you talk, not like an ad</h2>
+
+      <div class="script">
+        <div class="tag"><span class="n">Script 1 · The quick one</span><span class="len">~30 seconds</span></div>
+        <p>"Real quick, this episode's partnered with ViralityX, and yeah, we get paid if you work with them, so you know where I stand. Here's the deal: if you own a business and you're constantly missing calls, forgetting to follow up, drowning in the paperwork side of it, that's what they fix. They set up the systems so the leads stop slipping and the busywork handles itself. My husband's using them. They'll do a free scan of your business and just show you where you're losing money, no pitch. Link's in the show notes."</p>
+      </div>
+
+      <div class="script">
+        <div class="tag"><span class="n">Script 2 · The story one (strongest)</span><span class="len">~60 seconds</span></div>
+        <p>"So you all know Nick's been buried, right? Running the whole window business by himself, phone going off while he's up on a ladder, quotes sitting in his truck, emails he doesn't see for three days. And we got connected with these guys, ViralityX, and full transparency, they partner with the show and we get paid if you sign up. But I'm telling you about it because it's actually working for us.<br><br>What they do is take all that off your plate. The calls you miss get answered. The follow-ups happen without you remembering. Your leads all live in one place instead of your head. It's for anybody running a business who's stretched too thin, which around here is basically everybody.<br><br>They'll run a free scan and just show you what's leaking. That's it. If you want it, the link's in the show notes, and tell them we sent you."</p>
+        <div class="note">This one converts best because it's true and specific. Nick's story does the selling.</div>
+      </div>
+
+      <div class="script">
+        <div class="tag"><span class="n">Script 3 · The natural mention</span><span class="len">in conversation, no ad break</span></div>
+        <p>"...honestly that's the thing nobody tells you about running your own business, it's not the work, it's everything around the work. That's actually why we started working with ViralityX, they're a partner of ours so I'll say that up front, but they handle all the stuff Nick was drowning in. Anyway, if that's you, link's in the notes."</p>
+        <div class="note">Drop this in when a guest or caller talks about being overwhelmed. It lands harder than a scripted read.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Ideas to make it bigger</div>
+      <h2>If you want to get creative</h2>
+      <div class="idea"><h3>Bring a local owner on and run a live scan</h3><p>Have a guest, a shop owner, a contractor, whoever, and we run the free scan on their business live. You read the results on air. It's real content, it's useful, and every listener who owns a business will want theirs.</p></div>
+      <div class="idea"><h3>Do a "what's actually killing small businesses" episode</h3><p>Missed calls, no follow-up, no systems. Real talk about why good people with good businesses stay stuck. We'll give you the data. You keep the episode.</p></div>
+      <div class="idea"><h3>Follow Nick's story over time</h3><p>Check in every month or two on what changed for him. That's a built-in case study your audience is already invested in.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">When people DM you</div>
+      <h2>Don't answer, just route</h2>
+      <p class="lead">You're going to get questions. "What does it cost?" "Would it work for my business?" You don't have to know any of it.</p>
+      <div class="script" style="border-left-color:var(--green);">
+        <div class="tag"><span class="n" style="color:var(--green);">Copy-paste reply</span></div>
+        <p>"Honestly no idea what it'd cost for you, it depends on what they find. Best thing is the free scan, it just shows you where you're leaking. Here's the link: [your link] , tell them I sent you."</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Rules</div>
+      <div class="dont">
+        <h3>Four things to never do</h3>
+        <ul>
+          <li><b>Never quote a price.</b> Every business is different. "Depends what they find" is always the right answer.</li>
+          <li><b>Never promise results.</b> Don't say it'll double anybody's business. Share your experience, that's it.</li>
+          <li><b>Never skip the disclosure.</b> One sentence, every read. Non-negotiable.</li>
+          <li><b>Never send someone you wouldn't vouch for.</b> Your name is on this too.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Your link</div>
+      <div class="link">
+        <div class="l">Put this in the show notes on every episode you mention us</div>
+        <div class="u">virality-x.com/________</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      Need a custom read, a graphic, or want us to jump on an episode? Just text us.<br>
+      <b>ViralityX</b> · Operational + AI Systems Architecture
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
