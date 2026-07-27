@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NuLife — Buyer Journey Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7fbfc;--ink:#204360;--deep:#0f2137;--body:#3a5068;--muted:#7d93a8;--cyan:#00e6ff;--blue:#4884e5;--line:#dce6ee;--card:#fff;--soft-cyan:#e5f8fc;--warn:#e08a1e;--good:#1f9d76;--red:#d0453f;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'DM Sans',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 0 64px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 48px;border-bottom:1px solid var(--line);background:var(--card);}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand svg{width:24px;height:24px;}
+  .brand .n{font-weight:700;color:var(--ink);font-size:1rem;}
+  .topbar .by{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;}
+  .head{background:linear-gradient(160deg,#0f2137,#204360);color:#fff;padding:32px 48px 36px;}
+  .head .e{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);}
+  .head h1{font-size:1.8rem;font-weight:700;margin:9px 0 6px;letter-spacing:-.02em;}
+  .head p{color:#c6d8e8;font-size:.98rem;max-width:640px;}
+  .legend{display:flex;gap:20px;padding:16px 48px;flex-wrap:wrap;border-bottom:1px solid var(--line);background:var(--card);}
+  .legend div{display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--body);}
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .track{padding:30px 48px;}
+  .stage{position:relative;padding-left:38px;padding-bottom:26px;border-left:2px solid var(--line);}
+  .stage:last-child{border-left:2px solid transparent;padding-bottom:0;}
+  .stage::before{content:"";position:absolute;left:-9px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--blue);border:3px solid var(--bg);}
+  .stage.leak::before{background:var(--warn);}
+  .stage.ok::before{background:var(--good);}
+  .stage h3{color:var(--ink);font-size:1.05rem;font-weight:700;}
+  .stage .now{font-size:.93rem;color:var(--body);margin:3px 0 0;}
+  .stage .leakbox{margin-top:9px;background:#fdf6ec;border:1px solid #f4e2c4;border-radius:9px;padding:11px 15px;}
+  .stage .leakbox .l{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);margin-bottom:3px;}
+  .stage .leakbox p{font-size:.9rem;color:#7a5a24;}
+  .stage .fix{margin-top:8px;background:var(--soft-cyan);border:1px solid #bfeaf5;border-radius:9px;padding:11px 15px;}
+  .stage .fix .l{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:3px;}
+  .stage .fix p{font-size:.9rem;color:var(--ink);}
+  .stage .okbox{margin-top:8px;font-size:.9rem;color:var(--good);font-weight:500;}
+  .foot{margin-top:30px;padding:0 48px;color:var(--muted);font-size:.8rem;text-align:center;}
+  @media(max-width:720px){.topbar,.head,.legend,.track,.foot{padding-left:20px;padding-right:20px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#00e6ff" stroke-width="2"/><path d="M6 21h6l3-8 4 15 3-10 2 3h7" stroke="#00e6ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="n">NuLife Advanced Biogenics</span>
+    </div>
+    <div class="by">Buyer Journey Map<br>prepared by ViralityX</div>
+  </div>
+
+  <div class="head">
+    <div class="e">Where demand turns into dollars, or does not</div>
+    <h1>The path a buyer actually takes</h1>
+    <p>Following a cold research buyer from first click to repeat order. Green is working, amber is where revenue leaks today, blue is the system that closes it.</p>
+  </div>
+
+  <div class="legend">
+    <div><span class="dot" style="background:var(--good)"></span> Working</div>
+    <div><span class="dot" style="background:var(--warn)"></span> Leak point</div>
+    <div><span class="dot" style="background:var(--blue)"></span> System we build</div>
+  </div>
+
+  <div class="track">
+
+    <div class="stage leak">
+      <h3>1. Lands on the site</h3>
+      <p class="now">A cold buyer arrives from search, social, or a referral and the signup popup fires immediately, covering the hero and the value story.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>Instant popup interrupts before trust is built. A large share of cold visitors bounce straight back out.</p></div>
+      <div class="fix"><div class="l">System</div><p>Retime the capture to earn attention, so it appears after the visitor engages, not before they have read anything.</p></div>
+    </div>
+
+    <div class="stage ok">
+      <h3>2. Browses products and pricing</h3>
+      <p class="now">Catalog, prices, and COAs are all public. No login required. The quality story is strong and visible.</p>
+      <div class="okbox">Working. This is a real asset, not a problem.</div>
+    </div>
+
+    <div class="stage leak">
+      <h3>3. Signs up or adds to cart, then hesitates</h3>
+      <p class="now">Research buyers compare vendors, testing data, and reputation before spending. Many enter an email or start a cart and leave to shop around.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>No automated follow-up fires. The contact goes cold and comparison-shops a competitor who does follow up.</p></div>
+      <div class="fix"><div class="l">System</div><p>Speed-to-lead sequence within seconds, leading with COA and testing proof plus the membership offer, routed into a live pipeline.</p></div>
+    </div>
+
+    <div class="stage leak">
+      <h3>4. Has a question at the buying moment</h3>
+      <p class="now">Purity, storage, shipping, membership terms, research-use guidelines. There is no live way to ask, so the question goes unanswered.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>After-hours and pre-sale questions get no response. Silent bounce.</p></div>
+      <div class="fix"><div class="l">System</div><p>24/7 concierge that answers in compliant language and captures anyone not ready to buy.</p></div>
+    </div>
+
+    <div class="stage ok">
+      <h3>5. Buys and gets the order</h3>
+      <p class="now">Next-day US shipping, quality delivered. The transaction experience is solid.</p>
+      <div class="okbox">Working. Fulfillment is not the problem.</div>
+    </div>
+
+    <div class="stage leak">
+      <h3>6. Finishes the vial, could reorder</h3>
+      <p class="now">Peptide research is a reorder category. Members and one-time buyers naturally cycle back, or should.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>No lifecycle sequence to prompt the reorder, onboard members, or win back the lapsed. Recurring revenue sits uncollected.</p></div>
+      <div class="fix"><div class="l">System</div><p>Retention and reactivation engine that prompts reorders and revives quiet buyers automatically. No new ad spend.</p></div>
+    </div>
+
+    <div class="stage leak">
+      <h3>7. Would vouch, never asked</h3>
+      <p class="now">Happy customers exist. The category is won on reviews and third-party trust signals.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>Reviews are not being requested on purpose, so proof never compounds and lower-quality competitors can look more trusted.</p></div>
+      <div class="fix"><div class="l">System</div><p>Reputation engine that asks at the right moment and catches any unhappy signal privately first.</p></div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    Confirm the exact numbers behind each leak on the call. Amber points are hypotheses from a public review, sized precisely against NuLife's real traffic and list data together.
+  </div>
+</div>
+</body>
+</html>
