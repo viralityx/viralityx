@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stax — Discovery Call Gameplan (Internal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f4f6fb;--ink:#121212;--navy:#0f2350;--blue:#1b3a8b;--red:#c8102e;--yellow:#ffd200;--body:#3a4252;--muted:#8a93a6;--line:#e0e5ee;--card:#fff;--soft:#eef2fb;--good:#1f9d6b;--warn:#e08a1e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'Assistant',system-ui,sans-serif;line-height:1.58;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:840px;margin:0 auto;padding:0 0 70px;}
+  .pad{padding:0 50px;}
+  .flag{background:#2a0a0e;color:#ffb3bd;font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:9px;font-weight:600;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 50px;border-bottom:1px solid var(--line);background:var(--card);}
+  .logo{display:flex;flex-direction:column;line-height:.9;}
+  .logo .s{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:1.5rem;color:var(--red);}
+  .logo .s span{color:var(--blue);}
+  .logo .sub{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.56rem;letter-spacing:.32em;color:var(--blue);}
+  .topbar .by{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right;}
+  .head{background:linear-gradient(140deg,#0f2350,#1b3a8b);color:#fff;padding:32px 50px 36px;position:relative;}
+  .head::before{content:"";position:absolute;left:0;top:0;height:5px;width:100%;background:var(--red);}
+  .head .e{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);font-weight:700;}
+  .head h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:2rem;margin:8px 0 6px;line-height:1.03;}
+  .head p{color:#cdd8f0;font-size:1rem;max-width:640px;}
+  .facts{display:flex;flex-wrap:wrap;gap:22px;margin-top:18px;}
+  .facts div{font-size:.78rem;color:#9fb0d8;}
+  .facts b{display:block;color:#fff;font-size:.88rem;margin-top:2px;}
+  .section{margin-top:38px;}
+  .kicker{font-family:'Barlow Condensed',sans-serif;color:var(--red);font-size:.92rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;margin-bottom:7px;}
+  h2{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;color:var(--navy);font-weight:800;text-transform:uppercase;line-height:1.05;margin-bottom:6px;}
+  .rule{height:3px;width:48px;background:var(--red);border-radius:2px;margin:8px 0 16px;}
+  .alert{background:#fdeaed;border:1px solid #f3c6cd;border-left:4px solid var(--red);border-radius:10px;padding:18px 22px;}
+  .alert .l{font-family:'Barlow Condensed',sans-serif;color:var(--red);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+  .alert p{font-size:.95rem;color:#7a2e2b;} .alert b{color:#5c1f1c;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 20px;margin-bottom:11px;}
+  .card h3{color:var(--navy);font-size:1rem;margin-bottom:3px;font-weight:700;}
+  .card p{font-size:.94rem;}
+  .flow{counter-reset:step;}
+  .flow .s{position:relative;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:15px 20px 15px 58px;margin-bottom:10px;}
+  .flow .s::before{counter-increment:step;content:counter(step);position:absolute;left:15px;top:15px;width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+  .flow .s h3{color:var(--navy);font-size:1rem;margin-bottom:3px;font-weight:700;}
+  .flow .s p{font-size:.92rem;}
+  .flow .s .say{margin-top:8px;background:var(--soft);border-left:3px solid var(--red);border-radius:6px;padding:9px 13px;font-size:.91rem;color:var(--navy);font-style:italic;}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px 18px;margin-bottom:8px;}
+  .q b{color:var(--navy);}
+  .q .why{color:var(--muted);font-size:.83rem;margin-top:3px;}
+  .obj{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin-bottom:10px;}
+  .obj .t{color:var(--red);font-weight:700;font-size:.95rem;margin-bottom:4px;}
+  .obj .t::before{content:"“";} .obj .t::after{content:"”";}
+  .obj p{font-size:.93rem;} .obj p b{color:var(--navy);}
+  .price{background:var(--navy);border-radius:12px;padding:20px 24px;color:#fff;}
+  .price .l{font-family:'Barlow Condensed',sans-serif;color:var(--yellow);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+  .price table{width:100%;border-collapse:collapse;font-size:.93rem;}
+  .price td{padding:6px 0;border-bottom:1px solid #2f4886;color:#e6ecfa;}
+  .price td:last-child{text-align:right;font-family:'Barlow Condensed',sans-serif;color:#fff;font-weight:700;}
+  .price tr:last-child td{border-bottom:none;}
+  .foot{margin-top:42px;border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:.8rem;text-align:center;}
+  @media(max-width:720px){.pad,.head,.topbar{padding-left:20px;padding-right:20px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="flag">Internal · ViralityX only · Do not send to client</div>
+  <div class="topbar">
+    <div class="logo"><div class="s">STA<span>X</span></div><div class="sub">Nutrition Center</div></div>
+    <div class="by">Discovery Gameplan<br>Josh Eck</div>
+  </div>
+
+  <div class="head">
+    <div class="e">Call prep · Josh lead</div>
+    <h1>Stax discovery, sell the machine</h1>
+    <p>Real brand, loyal base, roughly a million a year, run by a hands-on founder who knows his products cold. This is a "you built it, now let us scale it" call. Respect what he has, then show him the money he is walking past.</p>
+    <div class="facts">
+      <div>Contact<b>Josh Eck · Founder/CEO</b></div>
+      <div>Email<b>orderstax@gmail.com</b></div>
+      <div>Based<b>Elizabethtown, KY</b></div>
+      <div>Source<b>Josh (partner) · scan lead</b></div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <div class="section">
+      <div class="kicker">Read this first</div>
+      <div class="alert">
+        <div class="l">Do not claim he has nothing</div>
+        <p>Stax already runs subscriptions, a reviews app, an ambassador program, and live chat. If you walk in saying "you have no reviews" or "you need subscriptions," he will know you did not look and you lose him. <b>The real gap is sharper and more credible:</b> he is missing the two biggest DTC channels entirely, a real email and SMS lifecycle engine and phone-number capture, and his consumable reorder is left to memory. Lead with that. It is true, it is specific, and it is worth real money.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Who you are talking to</div>
+      <h2>The operator, in one breath</h2>
+      <div class="rule"></div>
+      <div class="card"><h3>Founder who is the expert</h3><p>Josh built a shop people trust because he knows exactly what to recommend. His staff reputation is the moat. Sell him systems that clone that expertise online and scale his time, not replace his voice.</p></div>
+      <div class="card"><h3>Omnichannel, not pure ecom</h3><p>Physical store plus Shopify. The in-store experience is strong, the online experience is behind it. The wedge: your best salesperson is not online, and your online proof lags your real reputation. Both fixable.</p></div>
+      <div class="card"><h3>Consumable, reorder-driven line</h3><p>Protein, creatine, pre-workout, greens. People run out on a schedule. That means recurring revenue is right there if the reorder gets driven instead of hoped for. This is your strongest money angle.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">The reframe</div>
+      <h2>Your one-line thesis</h2>
+      <div class="rule"></div>
+      <div class="card" style="border-left:4px solid var(--red);">
+        <p style="font-size:1.02rem;color:var(--navy);"><b>"You have built the brand and the loyalty in-store. Online you have the pieces but not the machine, and you are leaving the two channels that drive most DTC revenue, email and SMS, completely on the table. Let us turn a product people run out of every month into recurring revenue that runs itself."</b></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Run of show</div>
+      <h2>Call flow, roughly 30 minutes</h2>
+      <div class="rule"></div>
+      <div class="flow">
+        <div class="s"><h3>Open with real credit</h3><p>Name specifics so he knows you looked. The reputation, the subscriptions, the ambassador program.</p><div class="say">Went through your store properly before today. The reputation you have built is genuinely rare, so I want to be clear, this is not about fixing your brand or your products.</div></div>
+        <div class="s"><h3>Set the frame</h3><p>The gap is downstream of traffic he already has. No new ad spend needed.</p><div class="say">Everything I flagged sits after the visit, on customers you already earned. That is usually where the fastest money is hiding.</div></div>
+        <div class="s"><h3>Lead with the SMS and lifecycle gap</h3><p>Share the audit. Open on Leak 01 and Leak 02, the missing channels and the un-driven reorder. Let him react.</p></div>
+        <div class="s"><h3>Ask, then size</h3><p>Move into discovery questions. You cannot size the opportunity without his list size and revenue split. Sizing together is the close.</p></div>
+        <div class="s"><h3>Name the first move</h3><p>Stand up email and SMS, capture phone numbers, turn on welcome, cart recovery, and replenishment first.</p></div>
+        <div class="s"><h3>Transition to scope and next step</h3><p>Once he agrees on the priority, move to what it takes to build. Hold hard pricing until sized. Book the build call or send the proposal same week.</p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Discovery, get these numbers</div>
+      <h2>Questions that unlock the sizing</h2>
+      <div class="rule"></div>
+      <div class="q"><b>Roughly how does revenue split between the store and online?</b><div class="why">Tells you how much of the machine is greenfield and where the upside sits.</div></div>
+      <div class="q"><b>How big is your email list, and are you texting customers at all today?</b><div class="why">Confirms the SMS gap and sizes the list you can activate immediately.</div></div>
+      <div class="q"><b>When someone signs up on the popup or leaves a full cart, what reaches them right now?</b><div class="why">Almost certainly just Shopify defaults. Confirms the lifecycle gap.</div></div>
+      <div class="q"><b>What share of orders are on subscription, and how do you remind people to reorder?</b><div class="why">Sizes the replenishment and subscription upside, your biggest angle.</div></div>
+      <div class="q"><b>How are you collecting reviews after a purchase, and why two review apps?</b><div class="why">Do not assume. Ask. Opens the reputation and cleanup work.</div></div>
+      <div class="q"><b>Who runs your marketing, and how much of it is you personally?</b><div class="why">Founder-run marketing is the buying signal. He wants his time back.</div></div>
+      <div class="q"><b>How is the ambassador program going, and who manages it?</b><div class="why">Manual, most likely. Opens the activation-automation piece.</div></div>
+      <div class="q"><b>Are you running ads, and where does that traffic land?</b><div class="why">If he is buying traffic with no lifecycle behind it, the leak is even bigger.</div></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">If he pushes</div>
+      <h2>Objection handling</h2>
+      <div class="rule"></div>
+      <div class="obj"><div class="t">I already have subscriptions and reviews.</div><p>You do, and that is exactly why this works. <b>The pieces are there but not wired together, and you are missing SMS entirely.</b> We connect what you have and add the channel that drives the most revenue. You are closer than most, not further.</p></div>
+      <div class="obj"><div class="t">My staff already knows the products better than any bot.</div><p>A hundred percent, and we are not replacing them. <b>We are cloning that expertise for the customer shopping online at 10pm when the store is closed.</b> Same recommendations, your voice, available 24/7.</p></div>
+      <div class="obj"><div class="t">What does it cost?</div><p><b>Depends on what we build, and I would be guessing until we size what you are leaking.</b> Let us put your list size and revenue to it, then I will show you exactly where the money is and what the investment looks like against it.</p></div>
+      <div class="obj"><div class="t">I can have someone on my team set up Klaviyo.</div><p>Some of it, sure. <b>The question is whether it gets built right, stays compliant, and actually gets finished and maintained.</b> This is all we do, and we own the outcome, not just the install.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Pricing, internal only</div>
+      <div class="price">
+        <div class="l">Hold on the call, anchor to recoverable revenue first</div>
+        <table>
+          <tr><td>Likely tier (multi-system Shopify build)</td><td>Growth to Scale</td></tr>
+          <tr><td>Growth floor</td><td>$7,500 + $1,500/mo</td></tr>
+          <tr><td>Scale floor</td><td>$15,000 + $3,000/mo</td></tr>
+          <tr><td>Setup margin</td><td>clear 50% min, target 60%</td></tr>
+          <tr><td>Move on the call</td><td>size first, then price</td></tr>
+        </table>
+        <p style="font-size:.88rem;color:#cdd8f0;margin-top:12px;">A million-dollar brand with no SMS and no lifecycle engine has real, sizable upside. Do not throw a number out cold. Size email plus SMS against his list and revenue, land on a recoverable range, then position the investment as a fraction of it. Live relationship close, so hold hard numbers until the value is on the table. Do not anchor low off the top of your head.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Close</div>
+      <h2>The ask</h2>
+      <div class="rule"></div>
+      <div class="card"><p>Get a clear yes on the priority (email and SMS first, driving the reorder), then lock the next step, either a short build-scoping call or a same-week proposal. Do not leave without a date on the calendar. Momentum is the goal.</p></div>
+    </div>
+
+    <div class="foot">ViralityX · internal call prep · grounded in a live review of staxnutrition.net and public founder and company data on the day of writing.</div>
+  </div>
+</div>
+</body>
+</html>

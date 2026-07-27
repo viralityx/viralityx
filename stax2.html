@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stax — Buyer Journey Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f4f6fb;--ink:#121212;--navy:#0f2350;--blue:#1b3a8b;--red:#c8102e;--yellow:#ffd200;--body:#3a4252;--muted:#8a93a6;--line:#e0e5ee;--card:#fff;--soft:#eef2fb;--good:#1f9d6b;--warn:#e08a1e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'Assistant',system-ui,sans-serif;line-height:1.52;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 0 64px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:18px 48px;border-bottom:1px solid var(--line);background:var(--card);}
+  .logo{display:flex;flex-direction:column;line-height:.9;}
+  .logo .s{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:1.5rem;color:var(--red);}
+  .logo .s span{color:var(--blue);}
+  .logo .sub{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.56rem;letter-spacing:.32em;color:var(--blue);}
+  .topbar .by{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right;}
+  .head{background:linear-gradient(140deg,#0f2350,#1b3a8b);color:#fff;padding:30px 48px 34px;position:relative;}
+  .head::before{content:"";position:absolute;left:0;top:0;height:5px;width:100%;background:var(--red);}
+  .head .e{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);font-weight:700;}
+  .head h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.9rem;margin:8px 0 6px;}
+  .head p{color:#cdd8f0;font-size:.97rem;max-width:640px;}
+  .legend{display:flex;gap:20px;padding:15px 48px;flex-wrap:wrap;border-bottom:1px solid var(--line);background:var(--card);}
+  .legend div{display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--body);}
+  .dot{width:11px;height:11px;border-radius:50%;}
+  .track{padding:28px 48px;}
+  .stage{position:relative;padding-left:38px;padding-bottom:24px;border-left:2px solid var(--line);}
+  .stage:last-child{border-left:2px solid transparent;padding-bottom:0;}
+  .stage::before{content:"";position:absolute;left:-9px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--blue);border:3px solid var(--bg);}
+  .stage.leak::before{background:var(--warn);}
+  .stage.ok::before{background:var(--good);}
+  .stage h3{color:var(--navy);font-size:1.05rem;font-weight:700;}
+  .stage .now{font-size:.92rem;color:var(--body);margin-top:2px;}
+  .stage .leakbox{margin-top:9px;background:#fdf6ec;border:1px solid #f4e2c4;border-radius:9px;padding:10px 15px;}
+  .stage .leakbox .l{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);margin-bottom:2px;font-weight:700;}
+  .stage .leakbox p{font-size:.89rem;color:#7a5a24;}
+  .stage .fix{margin-top:8px;background:var(--soft);border:1px solid #d6e0f5;border-radius:9px;padding:10px 15px;}
+  .stage .fix .l{font-family:'Barlow Condensed',sans-serif;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:2px;font-weight:700;}
+  .stage .fix p{font-size:.89rem;color:var(--navy);}
+  .stage .okbox{margin-top:8px;font-size:.89rem;color:var(--good);font-weight:600;}
+  .foot{margin-top:28px;padding:0 48px;color:var(--muted);font-size:.8rem;text-align:center;}
+  @media(max-width:720px){.topbar,.head,.legend,.track,.foot{padding-left:20px;padding-right:20px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="logo"><div class="s">STA<span>X</span></div><div class="sub">Nutrition Center</div></div>
+    <div class="by">Buyer Journey Map<br>prepared by ViralityX</div>
+  </div>
+
+  <div class="head">
+    <div class="e">Where demand turns into repeat orders, or does not</div>
+    <h1>The path a buyer actually takes</h1>
+    <p>Following a customer from first click to the reorder that should follow. Green is working, amber is where revenue leaks today, blue is the system that closes it.</p>
+  </div>
+
+  <div class="legend">
+    <div><span class="dot" style="background:var(--good)"></span> Working</div>
+    <div><span class="dot" style="background:var(--warn)"></span> Leak point</div>
+    <div><span class="dot" style="background:var(--blue)"></span> System we build</div>
+  </div>
+
+  <div class="track">
+
+    <div class="stage leak">
+      <h3>1. Lands on the site</h3>
+      <p class="now">A cookie banner and the VIP popup fire at once on load, before the visitor has seen the brand or a product.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>Friction stacks up before value, and the popup captures an email but no phone number.</p></div>
+      <div class="fix"><div class="l">System</div><p>Sequence the capture to earn attention first, and add phone capture so SMS becomes possible.</p></div>
+    </div>
+
+    <div class="stage ok">
+      <h3>2. Browses products</h3>
+      <p class="now">Clean Shopify store, clear catalog, subscribe-and-save available, real brand identity.</p>
+      <div class="okbox">Working. The storefront itself is a solid asset.</div>
+    </div>
+
+    <div class="stage leak">
+      <h3>3. Unsure which product fits their goal</h3>
+      <p class="now">A shopper choosing between a dozen products gets no guidance online, unlike in the store.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>No guided product finder or advisor, so undecided buyers stall or bounce.</p></div>
+      <div class="fix"><div class="l">System</div><p>24/7 goal-based advisor that recommends the right stack and captures the contact.</p></div>
+    </div>
+
+    <div class="stage leak">
+      <h3>4. Adds to cart, then leaves</h3>
+      <p class="now">The most common path in DTC. The window to win them back is measured in hours.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>No dedicated lifecycle platform, so recovery is limited to platform defaults, and no SMS at all.</p></div>
+      <div class="fix"><div class="l">System</div><p>Email and SMS cart and checkout recovery that fires fast across both channels.</p></div>
+    </div>
+
+    <div class="stage ok">
+      <h3>5. Buys and gets the order</h3>
+      <p class="now">Checkout and fulfillment work. The transaction is solid.</p>
+      <div class="okbox">Working. Fulfillment is not the problem.</div>
+    </div>
+
+    <div class="stage leak">
+      <h3>6. Runs out, could reorder</h3>
+      <p class="now">Consumable supplements empty on a schedule. The reorder is the whole business.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>No replenishment reminder and a soft subscription push, so the reorder depends on memory.</p></div>
+      <div class="fix"><div class="l">System</div><p>Replenishment engine that reminds before empty with a one-tap path to reorder or subscribe.</p></div>
+    </div>
+
+    <div class="stage leak">
+      <h3>7. Would vouch, barely asked</h3>
+      <p class="now">Strong local reputation, but only a handful of online reviews and two review apps installed at once.</p>
+      <div class="leakbox"><div class="l">Leak</div><p>Reviews are not requested systematically after purchase, so online proof lags the real reputation.</p></div>
+      <div class="fix"><div class="l">System</div><p>Reputation engine that asks at the right moment, and a cleaned-up review setup.</p></div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    Confirm the numbers behind each leak on the call. Amber points are hypotheses from a public review, sized precisely against Stax's real list, revenue split, and subscription data together.
+  </div>
+</div>
+</body>
+</html>
