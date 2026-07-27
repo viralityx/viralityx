@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NuLife — Discovery Call Gameplan (Internal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7fbfc;--ink:#204360;--deep:#0f2137;--body:#3a5068;--muted:#7d93a8;--cyan:#00e6ff;--blue:#4884e5;--line:#dce6ee;--card:#fff;--soft:#eef6fa;--soft-cyan:#e5f8fc;--warn:#e08a1e;--red:#d0453f;--good:#1f9d76;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:840px;margin:0 auto;padding:0 0 70px;}
+  .pad{padding:0 50px;}
+  .flag{background:#2a1608;color:#ffcf9e;font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:9px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 50px;border-bottom:1px solid var(--line);background:var(--card);}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand svg{width:24px;height:24px;}
+  .brand .n{font-weight:700;color:var(--ink);font-size:1rem;}
+  .topbar .by{font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;}
+  .head{background:linear-gradient(160deg,#0f2137,#204360);color:#fff;padding:34px 50px 38px;}
+  .head .e{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);}
+  .head h1{font-size:1.85rem;font-weight:700;margin:10px 0 6px;letter-spacing:-.02em;}
+  .head p{color:#c6d8e8;font-size:1rem;max-width:640px;}
+  .facts{display:flex;flex-wrap:wrap;gap:22px;margin-top:20px;}
+  .facts div{font-size:.8rem;color:#9db6cc;}
+  .facts b{display:block;color:#fff;font-size:.9rem;margin-top:2px;}
+  .section{margin-top:40px;}
+  .kicker{font-family:'DM Mono',monospace;color:var(--blue);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:9px;}
+  h2{font-size:1.35rem;color:var(--ink);font-weight:700;letter-spacing:-.01em;margin-bottom:8px;}
+  .rule{height:1px;background:var(--line);margin:12px 0 18px;}
+  .alert{background:#fdeceb;border:1px solid #f3c6c3;border-left:4px solid var(--red);border-radius:10px;padding:18px 22px;}
+  .alert .l{font-family:'DM Mono',monospace;color:var(--red);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;}
+  .alert p{font-size:.95rem;color:#7a2e2b;}
+  .alert b{color:#5c1f1c;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:18px 22px;margin-bottom:12px;}
+  .card h3{color:var(--ink);font-size:1.02rem;margin-bottom:4px;}
+  .card p{font-size:.94rem;}
+  .flow{counter-reset:step;}
+  .flow .s{position:relative;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px 20px 16px 60px;margin-bottom:11px;}
+  .flow .s::before{counter-increment:step;content:counter(step);position:absolute;left:16px;top:16px;width:30px;height:30px;border-radius:8px;background:var(--soft-cyan);border:1px solid #bfeaf5;color:var(--ink);font-family:'DM Mono',monospace;font-weight:500;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+  .flow .s h3{color:var(--ink);font-size:1rem;margin-bottom:3px;}
+  .flow .s p{font-size:.93rem;}
+  .flow .s .say{margin-top:8px;background:var(--soft);border-left:3px solid var(--cyan);border-radius:6px;padding:9px 13px;font-size:.92rem;color:var(--ink);font-style:italic;}
+  ul{margin:6px 0 4px 20px;} li{font-size:.94rem;margin-bottom:6px;}
+  li b{color:var(--ink);}
+  .q{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 18px;margin-bottom:8px;}
+  .q .why{color:var(--muted);font-size:.83rem;margin-top:3px;}
+  .obj{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 20px;margin-bottom:10px;}
+  .obj .t{color:var(--red);font-weight:600;font-size:.95rem;margin-bottom:4px;}
+  .obj .t::before{content:"“";} .obj .t::after{content:"”";}
+  .obj p{font-size:.93rem;} .obj p b{color:var(--ink);}
+  .price{background:var(--soft-cyan);border:1px solid #bfeaf5;border-radius:12px;padding:20px 24px;}
+  .price .l{font-family:'DM Mono',monospace;color:var(--blue);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
+  .price table{width:100%;border-collapse:collapse;font-size:.93rem;}
+  .price td{padding:6px 0;border-bottom:1px solid #cfeaf3;}
+  .price td:last-child{text-align:right;font-family:'DM Mono',monospace;color:var(--ink);font-weight:500;}
+  .price tr:last-child td{border-bottom:none;}
+  .foot{margin-top:44px;border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:.8rem;text-align:center;}
+  @media(max-width:720px){.pad,.head,.topbar{padding-left:20px;padding-right:20px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="flag">Internal · ViralityX only · Do not send to client</div>
+  <div class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="#00e6ff" stroke-width="2"/><path d="M6 21h6l3-8 4 15 3-10 2 3h7" stroke="#00e6ff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="n">NuLife Advanced Biogenics</span>
+    </div>
+    <div class="by">Discovery Gameplan<br>Monday call</div>
+  </div>
+
+  <div class="head">
+    <div class="e">Call prep · Josh lead</div>
+    <h1>NuLife discovery, run it clean</h1>
+    <p>Sophisticated e-commerce operator, strong product, mature stack already live. This is not a rescue. It is a "you built the store, now let us build the machine that works it" conversation. Sell up, not down.</p>
+    <div class="facts">
+      <div>Contact<b>John Barnes</b></div>
+      <div>Email<b>info@nulifeadvancedbiogenics.com</b></div>
+      <div>Phone<b>(386) 320-8612</b></div>
+      <div>Source<b>Josh · scan completed</b></div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <div class="section">
+      <div class="kicker">Read this first</div>
+      <div class="alert">
+        <div class="l">Do not parrot the auto-scan</div>
+        <p>The 34/100 scan email is a <b>template auto-score</b>, and its headline is wrong. It claims a "hard registration wall" and "mandatory account creation before site entry kills 60-80% of cold traffic." <b>That is false.</b> I walked the live site: products, prices, and checkout are all public, no login required to browse or buy. If you lead with "your registration wall is killing you," John will know instantly you did not actually look, and you lose the room. <b>Lead with the real gap instead:</b> an aggressive instant popup that captures contacts and then drops them, and zero automated follow-up on the demand he is already paying for.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Who you are talking to</div>
+      <h2>The operator, in one breath</h2>
+      <div class="rule"></div>
+      <div class="card"><h3>Real business, real standards</h3><p>Research-use-only peptides. 99% purity, third-party batch testing, COA per lot, next-day US shipping. Monetization via a 20% recurring membership, plus wholesale and an affiliate program already live. He is proud of the quality story and he should be. Open by respecting it.</p></div>
+      <div class="card"><h3>The compliance nerve</h3><p>Everything is framed "for laboratory and research use only, not for human consumption." That is deliberate and it is his risk lever. Show early that you build inside that lane and never write anything implying human use. This de-risks you in his eyes faster than any feature.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">The reframe</div>
+      <h2>Your one-line thesis</h2>
+      <div class="rule"></div>
+      <div class="card" style="border-left:4px solid var(--cyan);">
+        <p style="font-size:1.02rem;color:var(--ink);"><b>"You nailed the product and the store. Where you are bleeding is the layer around it, catching the buyers you already pay to bring in, following up before they comparison-shop a competitor, and getting them to reorder without you chasing. That is systems work, and it is all we do."</b></p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Run of show</div>
+      <h2>Call flow, roughly 30 minutes</h2>
+      <div class="rule"></div>
+      <div class="flow">
+        <div class="s"><h3>Open and give real credit</h3><p>Name specifics from the site so he knows you looked. Purity, COAs, the membership model.</p><div class="say">Went through your storefront properly before today. The testing and COA story is genuinely one of the strongest I have seen in this space, so I want to be clear, this is not about fixing your product or your site.</div></div>
+        <div class="s"><h3>Set the frame</h3><p>Position the gap as downstream of traffic he already has. No new ad spend needed.</p><div class="say">Everything I flagged sits after the click, on traffic you already paid for. That is usually where the fastest money is.</div></div>
+        <div class="s"><h3>Walk two or three leaks live</h3><p>Share the audit. Lead with the popup and the missing follow-up. Do not read all six, let him react and follow his energy.</p></div>
+        <div class="s"><h3>Ask, then size</h3><p>Move into discovery questions below. You cannot put a dollar figure on it until you have his real numbers. Sizing together is the close.</p></div>
+        <div class="s"><h3>Name the first move</h3><p>Capture-to-follow-up loop first. Retime the popup, wire speed-to-lead on signups and abandoned carts, route everything into a real pipeline.</p></div>
+        <div class="s"><h3>Transition to scope and next step</h3><p>Once he agrees on the priority, move to what it takes to build it. Hold hard pricing until you have sized the opportunity (see pricing note). Book the build call or send the proposal.</p></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Discovery, get these numbers</div>
+      <h2>Questions that unlock the sizing</h2>
+      <div class="rule"></div>
+      <div class="q"><b>How much traffic is the site doing a month, roughly?</b><div class="why">Sizes every leak. Even a rough range works.</div></div>
+      <div class="q"><b>Of the people who hit that signup popup, what share actually sign up, and what happens to them after?</b><div class="why">Confirms the capture-then-drop gap and quantifies it.</div></div>
+      <div class="q"><b>When someone signs up or leaves a full cart and does not buy, does anything reach out to them automatically right now?</b><div class="why">This is the biggest recoverable pool. Almost certainly a no.</div></div>
+      <div class="q"><b>On the membership, what does churn look like, and how often does a typical customer reorder?</b><div class="why">Sizes the retention and reactivation engine.</div></div>
+      <div class="q"><b>How are you collecting reviews today, if at all?</b><div class="why">Do not assume a deficit. Ask. Reputation is the category battleground.</div></div>
+      <div class="q"><b>Who handles wholesale applications and affiliate signups, and how fast do they get a response?</b><div class="why">Speed-to-lead on partners. Often manual and slow.</div></div>
+      <div class="q"><b>Who is answering customer questions right now, and what hours?</b><div class="why">Sizes the 24/7 concierge value and after-hours loss.</div></div>
+      <div class="q"><b>What are your hard lines on messaging language for compliance?</b><div class="why">Shows respect for his risk and scopes the copy guardrails.</div></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">If he pushes</div>
+      <h2>Objection handling</h2>
+      <div class="rule"></div>
+      <div class="obj"><div class="t">We already have an affiliate program.</div><p>Perfect. <b>Then you already believe in the model.</b> Right now it runs on manual effort. We automate the onboarding and follow-up so it actually scales instead of eating your time. Same for wholesale.</p></div>
+      <div class="obj"><div class="t">I am careful about compliance, I cannot have anything sketchy.</div><p><b>That is exactly why this works.</b> Every message is built in your research-use language. We never imply human use. You approve the guardrails up front and nothing goes out that you have not signed off on.</p></div>
+      <div class="obj"><div class="t">What does it cost?</div><p><b>Depends on what we build, and I would be guessing until we size what you are actually leaking.</b> Let us put your numbers to it first, then I will show you exactly where the money is and what the investment looks like against it.</p></div>
+      <div class="obj"><div class="t">I can probably have my guy set some of this up.</div><p>Maybe some of it. <b>The question is whether it gets built right, stays compliant, and actually gets finished.</b> This is all we do, every day, and we own the outcome, not just the setup.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Pricing, internal only</div>
+      <div class="price">
+        <div class="l">Hold on the call, anchor to recoverable revenue first</div>
+        <table>
+          <tr><td>Likely tier (multi-system ecom build)</td><td>Growth to Scale</td></tr>
+          <tr><td>Growth floor</td><td>$7,500 + $1,500/mo</td></tr>
+          <tr><td>Scale floor</td><td>$15,000 + $3,000/mo</td></tr>
+          <tr><td>Setup margin</td><td>clear 50% min, target 60%</td></tr>
+          <tr><td>Move on the call</td><td>size first, then price</td></tr>
+        </table>
+        <p style="font-size:.88rem;color:var(--body);margin-top:12px;">He is an operator who thinks in numbers, so do not throw a figure out cold. Size the leak against his real traffic, land on a recoverable-revenue range, then position the investment as a fraction of it. This is a live relationship close, so hold hard numbers until the value is on the table. Do not repeat the couple-deal mistake of anchoring low off the top of your head.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Close</div>
+      <h2>The ask</h2>
+      <div class="rule"></div>
+      <div class="card"><p>Get agreement on the priority (capture-to-follow-up first), then lock the next step: either a short build-scoping call or a same-week proposal. Do not leave without a date. This lead already went quiet once after the scan, so the goal Monday is momentum, a clear yes on direction and a calendar commitment.</p></div>
+    </div>
+
+    <div class="foot">
+      ViralityX · internal call prep · grounded in a live review of nulifeadvancedbiogenics.com on the day of writing.
+    </div>
+  </div>
+</div>
+</body>
+</html>

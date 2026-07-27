@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stax Nutrition Center — Growth Systems Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f6fb;--ink:#121212;--navy:#0f2350;--blue:#1b3a8b;--royal:#1d4ed8;--red:#c8102e;
+    --yellow:#ffd200;--body:#3a4252;--muted:#8a93a6;--line:#e0e5ee;--card:#ffffff;--soft:#eef2fb;
+    --good:#1f9d6b;--warn:#e08a1e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--body);font-family:'Assistant',system-ui,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  .cond{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.01em;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 0 72px;}
+  .pad{padding:0 54px;}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 54px;border-bottom:1px solid var(--line);background:var(--card);}
+  .logo{display:flex;flex-direction:column;line-height:.9;}
+  .logo .s{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:1.7rem;color:var(--red);letter-spacing:.02em;}
+  .logo .s span{color:var(--blue);}
+  .logo .sub{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.34em;color:var(--blue);margin-top:1px;}
+  .topbar .by{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:right;}
+  .topbar .by b{color:var(--red);}
+  .hero{background:linear-gradient(140deg,#0f2350 0%,#1b3a8b 62%,#1d4ed8 100%);padding:52px 54px 56px;color:#fff;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;left:0;top:0;height:6px;width:100%;background:var(--red);}
+  .hero::after{content:"";position:absolute;right:-70px;bottom:-70px;width:300px;height:300px;background:radial-gradient(circle,rgba(255,210,0,.16),transparent 70%);}
+  .hero .eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);position:relative;font-weight:700;}
+  .hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.7rem;line-height:1.02;margin:12px 0 14px;text-transform:uppercase;position:relative;}
+  .hero h1 em{color:var(--yellow);font-style:normal;}
+  .hero p{color:#cdd8f0;font-size:1.06rem;max-width:660px;position:relative;}
+  .hero .meta{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap;position:relative;}
+  .hero .meta div{font-size:.8rem;color:#9fb0d8;}
+  .hero .meta b{display:block;color:#fff;font-size:.94rem;margin-top:2px;}
+  .section{margin-top:48px;}
+  .kicker{font-family:'Barlow Condensed',sans-serif;color:var(--red);font-size:.92rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:8px;}
+  h2{font-family:'Barlow Condensed',sans-serif;font-size:1.9rem;color:var(--navy);font-weight:800;text-transform:uppercase;line-height:1.05;margin-bottom:8px;}
+  h3{color:var(--navy);font-size:1.08rem;font-weight:700;}
+  p.lead{font-size:1.06rem;color:var(--body);}
+  .rule{height:3px;width:54px;background:var(--red);margin:10px 0 22px;border-radius:2px;}
+  .win{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--good);border-radius:10px;padding:16px 20px;margin-bottom:12px;}
+  .win h3{font-size:1rem;margin-bottom:3px;}
+  .win p{font-size:.94rem;}
+  .leak{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:14px;box-shadow:0 1px 3px rgba(15,35,80,.05);}
+  .leak .tag{display:flex;align-items:center;gap:11px;margin-bottom:8px;}
+  .leak .num{font-family:'Barlow Condensed',sans-serif;font-weight:700;background:#fdeaed;color:var(--red);border:1px solid #f4c6cd;font-size:.82rem;letter-spacing:.06em;padding:2px 11px;border-radius:20px;text-transform:uppercase;}
+  .leak h3{font-size:1.13rem;}
+  .leak p{font-size:.97rem;margin-top:2px;}
+  .leak .impact{margin-top:12px;font-family:'Barlow Condensed',sans-serif;letter-spacing:.03em;text-transform:uppercase;font-size:.86rem;color:#8a5a10;background:#fdf6ec;border:1px solid #f4e2c4;border-radius:7px;padding:8px 13px;display:inline-block;font-weight:600;}
+  .callout{background:var(--red);border-radius:16px;padding:34px 34px;color:#fff;text-align:center;position:relative;overflow:hidden;}
+  .callout::after{content:"";position:absolute;left:-40px;top:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);}
+  .callout .l{font-family:'Barlow Condensed',sans-serif;font-size:.86rem;letter-spacing:.18em;text-transform:uppercase;color:#ffd9de;position:relative;font-weight:700;}
+  .callout .big{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.1rem;text-transform:uppercase;margin:8px 0 12px;line-height:1.04;position:relative;}
+  .callout p{color:#ffe1e5;font-size:.96rem;max-width:600px;margin:0 auto;position:relative;}
+  .focus{background:var(--navy);border-radius:14px;padding:28px 30px;color:#fff;}
+  .focus .l{font-family:'Barlow Condensed',sans-serif;color:var(--yellow);font-size:.86rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+  .focus h3{font-family:'Barlow Condensed',sans-serif;color:#fff;font-size:1.5rem;text-transform:uppercase;margin-bottom:8px;}
+  .focus p{font-size:1rem;color:#cdd8f0;}
+  .focus .step{margin-top:14px;padding-top:14px;border-top:1px dashed #2f4886;font-size:.96rem;color:#e6ecfa;}
+  .focus .step b{color:var(--yellow);}
+  .stack .row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .stack .row:last-child{border-bottom:none;}
+  .stack .ic{flex:0 0 42px;height:42px;border-radius:10px;background:var(--soft);display:flex;align-items:center;justify-content:center;}
+  .stack .ic svg{width:21px;height:21px;stroke:var(--blue);fill:none;stroke-width:2;}
+  .stack .tx h3{font-size:1.02rem;margin-bottom:2px;}
+  .stack .tx p{font-size:.93rem;}
+  .note{background:#fdf6ec;border:1px solid #f4e2c4;border-radius:10px;padding:16px 20px;font-size:.93rem;color:#7a5a24;}
+  .note b{color:#5f4415;}
+  .foot{margin-top:52px;border-top:1px solid var(--line);padding-top:24px;color:var(--muted);font-size:.82rem;text-align:center;}
+  .foot b{color:var(--red);}
+  @media(max-width:720px){.pad,.hero,.topbar{padding-left:22px;padding-right:22px;}.hero h1{font-size:2rem;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="logo">
+      <div class="s">STA<span>X</span></div>
+      <div class="sub">Nutrition Center</div>
+    </div>
+    <div class="by">Growth Systems Audit<br>prepared by <b>ViralityX</b></div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Confidential · Operations Review</div>
+    <h1>The store already wins.<br>Now build the <em>machine</em> behind it.</h1>
+    <p>Stax has what most supplement brands never earn: a loyal following and a reputation for knowing your product better than anyone. Online, the pieces are in place but not wired together, and the two biggest growth channels in all of e-commerce are sitting untouched. This is the map to fixing that.</p>
+    <div class="meta">
+      <div>Prepared for<b>Josh Eck · Stax Nutrition Center</b></div>
+      <div>Focus<b>Lifecycle · SMS · Reorder</b></div>
+      <div>Reviewed<b>Live storefront + product pages</b></div>
+    </div>
+  </div>
+
+  <div class="pad">
+
+    <div class="section">
+      <div class="kicker">Straight talk first</div>
+      <h2>What this is, and what it is not</h2>
+      <div class="rule"></div>
+      <p class="lead">We went through your live store the way a customer would. You are not starting from zero. You already run subscriptions, a reviews app, an ambassador program, and live chat. So this is not a "you are doing it wrong" pitch. It is a map of where the online store leaves money on the table, and the specific systems that turn a one-time buyer into a repeat customer on autopilot. The headline: you are missing the two channels that drive the majority of revenue for supplement brands your size.</p>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Credit where it is due</div>
+      <h2>What Stax already does right</h2>
+      <div class="rule"></div>
+      <div class="win"><h3>A real reputation and a loyal base</h3><p>Known as one of the best nutrition shops around, with reviews that praise the knowledge and the care. That trust is the hardest thing to build and you already have it. Most of this audit is about extending it online.</p></div>
+      <div class="win"><h3>Subscriptions are already live</h3><p>Subscribe-and-save exists on your products. For a consumable line, that is the right engine. It is just not being pushed or protected the way it should be.</p></div>
+      <div class="win"><h3>Ambassadors and reviews are running</h3><p>An ambassador program and a reviews app are both in place. The rails for social proof and word of mouth exist. They are running mostly on manual effort right now.</p></div>
+      <div class="win"><h3>Clear brand and goal-based thinking</h3><p>Strong identity, a "Shop By Goal" mindset, and real content. You already think like the expert your customers come to you for. That is exactly what we clone online.</p></div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Where the revenue leaks</div>
+      <h2>Six gaps between traffic and repeat orders</h2>
+      <div class="rule"></div>
+
+      <div class="leak">
+        <div class="tag"><span class="num">Leak 01</span><h3>The two biggest DTC levers are missing entirely</h3></div>
+        <p>There is no dedicated email and SMS lifecycle platform on the store, and your VIP popup captures an email but not a phone number. For supplement brands, email and SMS together routinely drive 20 to 30 percent of total revenue. Right now you are collecting emails into what is almost certainly a thin default setup, with no real welcome series, no browse or cart recovery beyond the platform basics, no post-purchase, and no winback. This is the single largest gap and the fastest money.</p>
+        <div class="impact">This one fix builds the entire revenue machine everything else feeds</div>
+      </div>
+
+      <div class="leak">
+        <div class="tag"><span class="num">Leak 02</span><h3>The reorder is being left to memory</h3></div>
+        <p>Supplements run out on a schedule. That reorder should be prompted the week before a customer hits empty, with a one-tap path back to subscribe-and-save. Subscriptions exist on your site but they are not being pushed hard at the right moments, and there is no replenishment reminder driving the cycle. In a consumable category, the reorder is the whole business, and right now it depends on the customer remembering.</p>
+        <div class="impact">Automated replenishment turns one-time buyers into recurring revenue</div>
+      </div>
+
+      <div class="leak">
+        <div class="tag"><span class="num">Leak 03</span><h3>Your best salesperson is not online</h3></div>
+        <p>What wins in the shop is a person who knows exactly which product fits your goal. Online, a customer picking between a dozen products gets no guidance, so they stall or bounce. A guided product finder and a 24/7 advisor that asks the goal, recommends the right stack, and captures the contact recreates your in-store superpower on every visit, at 2am, without adding staff.</p>
+        <div class="impact">Recreate the knowledgeable-staff experience that already sells for you</div>
+      </div>
+
+      <div class="leak">
+        <div class="tag"><span class="num">Leak 04</span><h3>Your online proof lags your real reputation</h3></div>
+        <p>Your in-store and local reputation is excellent, but your product pages carry only a handful of reviews, and there appear to be two review apps installed at once. Happy customers are not being asked at the right moment, so the proof never builds and shoppers comparing you to a competitor see fewer reviews than your reputation deserves. Cleaning up the stack and automating review requests fixes this fast.</p>
+        <div class="impact">Make your online proof match the reputation you have already earned</div>
+      </div>
+
+      <div class="leak">
+        <div class="tag"><span class="num">Leak 05</span><h3>The ambassador program runs on manual effort</h3></div>
+        <p>The program exists, which means you already believe in it. But onboarding new ambassadors, collecting their content, and keeping them active is hands-on work. Automating the activation and follow-up turns a scattered roster into a steady stream of content and referrals without eating your time.</p>
+        <div class="impact">Turn a manual roster into an automated referral engine</div>
+      </div>
+
+      <div class="leak">
+        <div class="tag"><span class="num">Leak 06</span><h3>The store greets visitors with friction</h3></div>
+        <p>On load, a cookie banner and the VIP popup stack up before a visitor has seen a thing. Capture is good, but timing and sequencing matter. Earning attention first, then asking for the email and the phone number, lifts both signup rate and the quality of the list you build.</p>
+        <div class="impact">Same capture, less bounce, and a phone number worth having</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="callout">
+        <div class="l">The pattern</div>
+        <div class="big">You are renting attention you are not keeping.</div>
+        <p>Every leak sits downstream of traffic and customers you already have. Fixing them takes no new ad spend and no new products. It takes the systems that catch the buyer, drive the reorder, and bring people back. We size the specific dollar impact together on the call, against your real numbers.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">Where to start</div>
+      <div class="focus">
+        <div class="l">Recommended first move</div>
+        <h3>Stand up the email and SMS engine, and start capturing phone numbers.</h3>
+        <p>Replenishment, reviews, and the advisor all get more powerful once you have a real lifecycle platform and a way to reach customers by text. That is the missing money machine, and it is the fastest to show a return.</p>
+        <div class="step"><b>First step:</b> launch a proper email and SMS platform, add phone capture to your popup, and turn on the core flows first, welcome, cart and checkout recovery, and a replenishment reminder tied to how long each product lasts. That alone starts recovering revenue within weeks.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">What we would build</div>
+      <h2>The system, in plain terms</h2>
+      <div class="rule"></div>
+      <div class="stack">
+        <div class="row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H5.2L4 17.2V4z"/><path d="M8 9h8M8 12h5"/></svg></div>
+          <div class="tx"><h3>Email and SMS lifecycle engine</h3><p>Welcome, cart and checkout recovery, browse abandonment, post-purchase, and winback, running automatically across both channels.</p></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg></div>
+          <div class="tx"><h3>Replenishment and subscription driver</h3><p>Reminds each customer before they run out, with a one-tap path to reorder or subscribe. The reorder stops depending on memory.</p></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <div class="tx"><h3>24/7 goal-based product advisor</h3><p>Asks the customer's goal, recommends the right stack the way your staff would, answers questions, and captures anyone not ready to buy.</p></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+          <div class="tx"><h3>Reputation engine</h3><p>Requests a review at the right moment after purchase, catches unhappy signals privately first, and cleans up the double review setup.</p></div>
+        </div>
+        <div class="row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="tx"><h3>Ambassador activation</h3><p>Automated onboarding, content prompts, and follow-up so the program produces a steady stream of referrals and posts.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="note"><b>One thing we take seriously:</b> supplement messaging has rules. Everything we write stays in compliant structure and function language with no disease claims, so your marketing scales without inviting risk. We confirm your guardrails up front.</div>
+    </div>
+
+    <div class="section">
+      <div class="kicker">The call</div>
+      <h2>What we cover together</h2>
+      <div class="rule"></div>
+      <p class="lead">We walk these gaps, plug in your real numbers on list size, online versus in-store revenue, subscription take rate, and current follow-up, and size the actual dollar opportunity. Then we map the exact first build and what it takes to launch. No pressure, no jargon. If it is a fit, you will see precisely where the money is and how fast we can go get it.</p>
+    </div>
+
+    <div class="foot">
+      Prepared by <b>ViralityX</b> · Operational and AI Systems Architecture<br>
+      Based on a review of your public storefront and product pages. Revenue figures are illustrative ranges, sized precisely against your real numbers on the call.
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
